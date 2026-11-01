@@ -18,3 +18,4 @@ export interface CommandResult {
   reason?: string;
   commandId: string;
 }
+

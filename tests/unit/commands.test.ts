@@ -300,3 +300,4 @@ describe('Command Dispatcher & Rollback Engine', () => {
     randomSpy.mockRestore();
   });
 });
+
