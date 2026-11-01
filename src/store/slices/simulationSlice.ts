@@ -33,3 +33,4 @@ export const createSimulationSlice: StateCreator<
   setFailNextCommand: (failNextCommand) => set({ failNextCommand }),
   setFailureProbability: (failureProbability) => set({ failureProbability }),
 });
+

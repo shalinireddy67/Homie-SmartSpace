@@ -134,3 +134,4 @@ export function setupPersistenceListeners(): () => void {
     window.removeEventListener('pagehide', handlePageHide);
   };
 }
+

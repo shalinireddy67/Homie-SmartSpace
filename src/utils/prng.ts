@@ -70,3 +70,4 @@ export function createMulberry32(seed: number): () => number {
   const prng = new PRNG(seed);
   return () => prng.next();
 }
+

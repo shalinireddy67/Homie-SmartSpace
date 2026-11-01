@@ -15,3 +15,4 @@ export const createUISlice: StateCreator<UISlice, [], [], UISlice> = (set) => ({
   setTheme: (theme) => set({ theme }),
   setActiveModal: (activeModal) => set({ activeModal }),
 });
+

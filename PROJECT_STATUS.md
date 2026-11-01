@@ -1,47 +1,52 @@
 # Project Status: NESTORA
 
 **Last Updated:** November 1, 2026  
-**Current Phase:** Phase 2 — Store & Data Architecture Complete  
-**Active Branch:** `feat/store` (Local branch, unpushed as per instructions)  
+**Current Phase:** Phase 2B — Command Dispatcher & Central Simulation Engine Complete  
+**Active Branch:** `feat/engine` (Local branch, unpushed as per instructions)  
 **Target Delivery:** 1-Month Frontend Cohort Evaluation (GitHub Repository + Loom/MP4 Walkthrough)
 
 ---
 
 ## 1. Environment & Workspace Health
 - **Repository:** `boiled-egg` (`https://github.com/shalinireddy67/boiled-egg`)
-- **Active Branch:** `feat/store`
+- **Active Branch:** `feat/engine`
 - **Node.js Version:** `v20.18.0`
 - **npm Version:** `10.8.2`
-- **State Architecture:** Zustand 5.0.1 with 8 modular slices + schema-versioned LocalStorage persistence
-- **PRNG Utility:** 32-bit Mulberry32 seeded generator for deterministic simulation
-- **Testing:** Vitest 2.1.4, jsdom, React Testing Library (48 unit tests passing)
+- **Core Engine Architecture:** Pure TypeScript (`src/engine/`), zero React imports, full dependency injection (`Clock`, `Scheduler`, `PRNG`, `StoreAccessor`)
+- **Thermostat Standards:** Celsius defaults across seed and domain models (min 16°C, max 30°C, target 22°C)
+- **Testing:** Vitest 2.1.4, jsdom, React Testing Library (**68 unit tests passing across 10 test suites**)
 - **Linting & Strictness:** ESLint 8.57.1 (0 warnings), TypeScript strict mode (`noUncheckedIndexedAccess: true`, 0 `any` types)
 
 ---
 
 ## 2. Standing Architecture & Amendments Implemented
-1. **Per-Field Rollback Fencing:** `deviceSlice` maintains a dedicated per-device per-field sequence map `{ [deviceId]: { [field]: sequence } }`. `canRollback(deviceId, field, sequence)` returns `true` if and only if that specific field has not been superseded by a newer sequence. Modifications to an unrelated field (e.g. `color`) do not invalidate an in-flight rollback for another field (e.g. `brightness`).
-2. **Dynamic 10,000+ Event Generation:** The 10,000 historical events are deterministically synthesized on-the-fly from the PRNG seed (`seedData.ts`) and kept strictly in memory. They are **never written to LocalStorage**. Only user configuration, device states, rules, schedules, simulation settings, and theme are persisted.
-3. **Automation Trigger Isolation:** Rules evaluate purely based on sensor/device thresholds and schedules. Automation execution events do not trigger cascading rule evaluations (3-hop cap maintained as backup safety).
-4. **Ring Buffer Telemetry Boundaries:**
-   - `liveTelemetry`: Capped at **300 points** (FIFO ring buffer; equivalent to 5 minutes at 1-second resolution).
-   - `executionHistory`: Capped at **100 records**.
-   - `anomalies`: Capped at **100 records**.
-   - `events`: In-memory buffer capped at **15,000 records** (10,000 seeded + 5,000 runtime buffer).
-   - `notifications`: Capped at **200 records**.
-   - `toasts`: Capped at **5 concurrent items**.
+1. **Thermostat Default Unit to Celsius:** All thermostat models, rooms, rules, schedules, and test assertions standardized on Celsius with range [16°C, 30°C] and default target 22°C.
+2. **Zero Storage of Telemetry & 10,000 Events:** Fully verified by automated unit tests that `localStorage.getItem('NESTORA_V1_STATE')` contains zero occurrences of `"events"`, `"liveTelemetry"`, or `"initialTelemetry"`. Only user configuration and state are persisted.
+3. **Command Dispatcher (`src/engine/commands.ts`):**
+   - Injected side-effects (`Clock`, `Scheduler`, `StoreAccessor`, `PRNG`). Zero direct `Date.now()` or `setTimeout()`.
+   - Comprehensive validation: rejects unknown devices; rejects offline devices with descriptive status reason; rejects invalid brightness; rejects out-of-range thermostat targets without clamping.
+   - Domain logic coupling: brightness 0 switches light `on: false`; turning light on at brightness 0 sets `brightness: 100`.
+   - Per-field sequence versioning with rollback fencing: older failed commands never overwrite newer successful state on the same field; unrelated fields still roll back safely.
+   - Deterministic failure debugging: consumes `simulationSlice.failNextCommand` flag once, or applies seeded PRNG with `failureProbability`. Never `Math.random()`.
+   - Failure side-effects: pushes danger toast, notification to hub, and audit event.
+4. **Simulation Engine (`src/engine/simulation.ts`):**
+   - Idempotent lifecycle: `start()` called multiple times maintains exactly 1 timer; `stop()` clears timer; fully resilient to React Strict Mode double-mounting.
+   - Virtual time scaling: `setSpeed(1 | 2 | 5 | 10)` modulates virtual time delta without changing real hardware tick rate.
+   - Deterministic `step(virtualDtMs)`: gradual temperature drift toward online thermostat targets, bounded humidity (20%–80%), power recalculation where total watts equals sum of online devices and offline devices draw 0 W.
+   - Seeded reproducible anomalies and network ping dropouts.
+   - Clean listener subscription with guaranteed unsubscription removal.
 
 ---
 
-## 3. Measured Metrics (Task 2)
+## 3. Measured Metrics (Task 2B)
 - **TypeScript Typecheck:** 0 errors (`tsc --noEmit`)
 - **ESLint Validation:** 0 errors, 0 warnings (`--max-warnings 0`)
-- **Unit Test Suite:** 48 tests passed across 8 test suites (`prng`, `seedData`, `store`, `persistence`, `theme`, `modal`, `navigation`, `responsive`) in 10.76s
-- **Seed Generation Benchmark:** Synthesizes 10,000 unique, chronologically sorted events with structured details in **32.05 ms**
-- **Production Build:** 15.21s compilation time
+- **Unit Test Suite:** 68 tests passed across 10 test suites (`commands`, `simulation`, `prng`, `seedData`, `store`, `persistence`, `theme`, `modal`, `navigation`, `responsive`) in 12.27s
+- **Seed Generation Benchmark:** Synthesizes 10,000 unique events with structured payloads and sorted timestamps in **30.25 ms**
+- **Production Build:** 9.51s compilation time
   - HTML: `dist/index.html` (1.16 kB)
   - CSS: `dist/assets/index-D30aBzfO.css` (21.81 kB, gzip: 4.76 kB)
-  - JavaScript: `dist/assets/index-CILV9gFj.js` (209.25 kB, gzip: 65.90 kB)
+  - JavaScript: `dist/assets/index-BYoIxcMR.js` (209.26 kB, gzip: 65.90 kB)
 
 ---
 
@@ -50,14 +55,15 @@
 |---|---|---|---|
 | **Task 1** | Scaffold, Design System & Shell | ✅ Completed | Vite + TS strict + Tailwind 3.4 + Theme tokens + AppShell + 7 routes + UI primitives |
 | **Task 2** | Store & Data Architecture | ✅ Completed | Zustand slices, Mulberry32 PRNG, 10,000 event generator, safe LocalStorage persistence & migration |
-| **Task 3** | Rooms & Devices Page | ⏳ Up Next | Room filtering, device grid, thermostat dial, dimmer, color picker, locks, camera controls |
-| **Task 4** | Simulation Engine & Overview | ⏹️ Pending | Decoupled tick loop, PRNG, clock injection, optimistic updates with rollback, Overview page |
-| **Task 5** | Energy Analytics | ⏹️ Pending | Live power (W), historical energy (kWh), rolling baseline anomaly detection, theme charts |
-| **Task 6** | Automations & Dry-Run Simulator | ⏹️ Pending | IF/THEN builder, edge trigger logic, loop prevention, schedule editor, isolated dry-run view |
-| **Task 7** | Notifications & Event History | ⏹️ Pending | Persistent notification center, unread counters, toasts, virtualized 10k log with search/filter |
-| **Task 8** | Polish, Accessibility, Testing & Docs | ⏹️ Pending | Vitest unit tests, a11y & responsive audits (375/768/1440px), README.md, DEMO.md |
+| **Task 2B** | Core Engine & Command Dispatcher | ✅ Completed | Pure TypeScript command pipeline with rollback fencing, SimulationEngine with speed & StrictMode safety |
+| **Task 3** | Automation Engine & Rules Logic | ⏳ Up Next | Edge-triggered rule evaluator, cooldown tracker, 3-hop depth cap, isolated dry-run simulator |
+| **Task 4** | Energy Analytics Engine | ⏹️ Pending | Rolling-baseline computation, statistical anomaly markers, aggregation buckets |
+| **Task 5** | Rooms & Devices Page | ⏹️ Pending | Tactile device cards, radial dial with keyboard support, light dimmer & color picker, lock modals |
+| **Task 6** | Overview & Energy Pages | ⏹️ Pending | Live telemetry cards, status summaries, theme-aware Recharts visualization |
+| **Task 7** | Automations & Dry-Run UI | ⏹️ Pending | IF/THEN builder, schedule editor, dry-run modal inspector |
+| **Task 8** | Notifications, Event History & Polish | ⏹️ Pending | TanStack Virtual 10k event log, persistent notification center, DEMO.md script |
 
 ---
 
 ## 5. Immediate Next Step
-Awaiting user review and approval to proceed with **Task 3: Rooms & Devices Page**.
+Awaiting user review and approval to proceed with the next logic milestone (**Automation Engine & Rules Logic** or UI as directed).

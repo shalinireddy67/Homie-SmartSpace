@@ -29,3 +29,4 @@ export interface Toast {
   severity: NotificationSeverity;
   durationMs?: number;
 }
+

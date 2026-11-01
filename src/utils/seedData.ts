@@ -33,8 +33,8 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       name: 'Living Room',
       description: 'Main ground-floor living area with entertainment center.',
       floor: 1,
-      targetTemp: 72,
-      ambientTemp: 71.5,
+      targetTemp: 22,
+      ambientTemp: 21.5,
       ambientHumidity: 45,
     },
     {
@@ -42,8 +42,8 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       name: 'Primary Bedroom',
       description: 'Second-floor primary suite.',
       floor: 2,
-      targetTemp: 68,
-      ambientTemp: 68.2,
+      targetTemp: 20,
+      ambientTemp: 20.2,
       ambientHumidity: 48,
     },
     {
@@ -51,8 +51,8 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       name: 'Kitchen',
       description: 'Open-concept culinary space with smart appliances.',
       floor: 1,
-      targetTemp: 70,
-      ambientTemp: 72.1,
+      targetTemp: 21,
+      ambientTemp: 21.8,
       ambientHumidity: 52,
     },
     {
@@ -60,8 +60,8 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       name: 'Ensuite Bathroom',
       description: 'Upper-level bath with radiant underfloor heating.',
       floor: 2,
-      targetTemp: 71,
-      ambientTemp: 73.0,
+      targetTemp: 23,
+      ambientTemp: 22.8,
       ambientHumidity: 65,
     },
     {
@@ -69,8 +69,8 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       name: 'Outdoor Patio',
       description: 'Exterior perimeter, front porch, and backyard deck.',
       floor: 0,
-      targetTemp: 65,
-      ambientTemp: 62.4,
+      targetTemp: 18,
+      ambientTemp: 17.5,
       ambientHumidity: 60,
     },
   ];
@@ -88,7 +88,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       brightness: 80,
       color: '#ffedd5',
       updatedAt: anchorTime - 3600000,
-      powerWatts: 45,
+      powerWatts: 49,
     } as LightDevice,
     {
       id: 'dev-light-kitchen',
@@ -100,7 +100,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       brightness: 100,
       color: '#ffffff',
       updatedAt: anchorTime - 1800000,
-      powerWatts: 35,
+      powerWatts: 60,
     } as LightDevice,
     {
       id: 'dev-light-bed',
@@ -134,11 +134,11 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       roomId: 'room-living',
       type: 'thermostat',
       online: true,
-      current: 71.5,
-      target: 72,
-      min: 60,
-      max: 85,
-      unit: 'F',
+      current: 21.5,
+      target: 22,
+      min: 16,
+      max: 30,
+      unit: 'C',
       updatedAt: anchorTime - 900000,
       powerWatts: 380, // Actively heating/cooling
     } as ThermostatDevice,
@@ -148,11 +148,11 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       roomId: 'room-bedroom',
       type: 'thermostat',
       online: true,
-      current: 68.2,
-      target: 68,
-      min: 60,
-      max: 85,
-      unit: 'F',
+      current: 20.2,
+      target: 20,
+      min: 16,
+      max: 30,
+      unit: 'C',
       updatedAt: anchorTime - 1200000,
       powerWatts: 18, // Idle maintenance
     } as ThermostatDevice,
@@ -162,11 +162,11 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       roomId: 'room-bathroom',
       type: 'thermostat',
       online: true,
-      current: 73.0,
-      target: 72,
-      min: 60,
-      max: 85,
-      unit: 'F',
+      current: 22.8,
+      target: 22,
+      min: 16,
+      max: 30,
+      unit: 'C',
       updatedAt: anchorTime - 5400000,
       powerWatts: 0, // In standby/holding temp
     } as ThermostatDevice,
@@ -303,7 +303,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
     {
       id: 'rule-climate-eco',
       name: 'Living Room Cooling Override',
-      description: 'Triggers cooling setpoint when ambient room temperature exceeds 75°F.',
+      description: 'Triggers cooling setpoint when ambient room temperature exceeds 24°C.',
       enabled: true,
       conditionGroup: {
         logic: 'AND',
@@ -313,7 +313,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
             deviceId: 'dev-therm-living',
             field: 'current',
             operator: '>',
-            value: 75,
+            value: 24,
           },
         ],
       },
@@ -322,7 +322,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
           id: 'a-4',
           deviceId: 'dev-therm-living',
           field: 'target',
-          value: 71,
+          value: 21,
         },
       ],
       cooldownMinutes: 15,
@@ -341,7 +341,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
         id: 'sa-1',
         deviceId: 'dev-therm-bed',
         field: 'target',
-        value: 70,
+        value: 21,
       },
       time: '06:30',
       weekdays: [1, 2, 3, 4, 5],
@@ -460,7 +460,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
     if (tmpl.detailKey === 'brightness') {
       details['brightness'] = prng.int(10, 100);
     } else if (tmpl.detailKey === 'temp') {
-      details['temperature'] = prng.int(68, 76);
+      details['temperature'] = prng.int(18, 25);
     } else if (tmpl.detailKey === 'latencyMs') {
       details['latencyMs'] = prng.int(120, 650);
     } else if (tmpl.detailKey === 'watts') {

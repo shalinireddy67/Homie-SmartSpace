@@ -47,7 +47,7 @@ export const OverviewPage: React.FC = () => {
           </div>
           <div>
             <p className="text-xs text-text-muted uppercase tracking-wider font-medium">Avg Temperature</p>
-            <p className="text-xl font-bold text-text mt-0.5">71.4 °F</p>
+            <p className="text-xl font-bold text-text mt-0.5">21.8 °C</p>
           </div>
         </Card>
 

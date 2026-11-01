@@ -12,3 +12,4 @@ export interface SimulationState {
   failNextCommand: boolean;
   failureProbability: number;
 }
+

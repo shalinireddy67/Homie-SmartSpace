@@ -60,3 +60,4 @@ export interface Room {
  * { [deviceId]: { [field]: sequenceNumber } }
  */
 export type FieldSequenceMap = Record<string, Record<string, number>>;
+

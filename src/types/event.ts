@@ -34,3 +34,4 @@ export interface EventFilter {
   endDate?: number;
   sortOrder?: 'asc' | 'desc';
 }
+

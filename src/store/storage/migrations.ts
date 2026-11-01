@@ -84,3 +84,4 @@ export function migrateState(
   state['version'] = CURRENT_SCHEMA_VERSION;
   return state;
 }
+

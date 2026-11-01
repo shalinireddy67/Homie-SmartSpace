@@ -58,3 +58,4 @@ export const createEnergySlice: StateCreator<
 
   setSelectedTimeRange: (selectedTimeRange) => set({ selectedTimeRange }),
 });
+

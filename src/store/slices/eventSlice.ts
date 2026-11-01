@@ -53,3 +53,4 @@ export const createEventSlice: StateCreator<
 
   selectEvent: (selectedEventId) => set({ selectedEventId }),
 });
+

@@ -147,7 +147,7 @@ describe('Storage & Persistence Layer', () => {
     expect(loaded?.rules?.length).toBe(0); // Corrupt rule filtered out
   });
 
-  it('never persists 10,000 events or liveTelemetry to storage', () => {
+  it('confirms persisted state contains no events and no telemetry', () => {
     savePersistedState(validSampleState);
 
     const rawStored = localStorage.getItem(STORAGE_KEY);
@@ -158,6 +158,13 @@ describe('Storage & Persistence Layer', () => {
     expect(parsed.events).toBeUndefined();
     expect(parsed.liveTelemetry).toBeUndefined();
     expect(parsed.initialTelemetry).toBeUndefined();
+    expect(parsed.telemetry).toBeUndefined();
+
+    // Raw JSON string confirmation
+    expect(rawStored).not.toContain('"events"');
+    expect(rawStored).not.toContain('"liveTelemetry"');
+    expect(rawStored).not.toContain('"initialTelemetry"');
+    expect(rawStored).not.toContain('"telemetry"');
   });
 
   it('debounces rapid writes and executes only once (fake timers)', () => {
@@ -193,3 +200,4 @@ describe('Storage & Persistence Layer', () => {
     expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
   });
 });
+

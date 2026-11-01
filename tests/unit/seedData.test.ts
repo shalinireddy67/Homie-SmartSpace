@@ -92,3 +92,4 @@ describe('Seed Data Generator', () => {
     expect(durationMs).toBeGreaterThan(0);
   });
 });
+

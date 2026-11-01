@@ -26,3 +26,4 @@ export interface PersistedStateV1 {
   simulation: PersistedSimulationConfig;
   theme: 'light' | 'dark';
 }
+

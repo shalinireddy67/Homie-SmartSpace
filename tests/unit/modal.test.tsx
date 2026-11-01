@@ -51,14 +51,14 @@ describe('Modal component', () => {
         title="Living Room Thermostat"
         description="Set temperature setpoint"
       >
-        <p>Current setting: 72°F</p>
+        <p>Current setting: 22°C</p>
       </Modal>
     );
 
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Living Room Thermostat')).toBeInTheDocument();
     expect(screen.getByText('Set temperature setpoint')).toBeInTheDocument();
-    expect(screen.getByText('Current setting: 72°F')).toBeInTheDocument();
+    expect(screen.getByText('Current setting: 22°C')).toBeInTheDocument();
   });
 
   it('closes on Escape key and triggers onClose', async () => {

@@ -182,3 +182,4 @@ export const selectToasts = (state: RootStore) => state.toasts;
 
 export const selectTheme = (state: RootStore) => state.theme;
 export const selectActiveModal = (state: RootStore) => state.activeModal;
+

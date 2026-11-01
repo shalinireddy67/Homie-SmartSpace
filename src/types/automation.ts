@@ -68,3 +68,4 @@ export interface AutomationExecution {
   reason?: string;
   actionsExecuted: Action[];
 }
+
