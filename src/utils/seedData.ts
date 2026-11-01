@@ -149,7 +149,7 @@ export function generateSeedData(seed: number, anchorTime: number): SeedDataResu
       type: 'thermostat',
       online: true,
       current: 20.2,
-      target: 20,
+      target: 22,
       min: 16,
       max: 30,
       unit: 'C',

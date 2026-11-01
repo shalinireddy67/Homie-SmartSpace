@@ -11,6 +11,7 @@ export interface NotificationSlice {
   notifications: Notification[];
   toasts: Toast[];
   lastNotifiedTimestamps: Record<string, number>;
+  activeConditions: Record<string, boolean>;
 
   setNotifications: (notifications: Notification[]) => void;
   addNotification: (notification: Notification) => void;
@@ -21,6 +22,8 @@ export interface NotificationSlice {
   addToast: (toast: Toast) => void;
   removeToast: (id: string) => void;
   recordNotificationTimestamp: (key: string, timestamp: number) => void;
+  setActiveCondition: (key: string, active: boolean) => void;
+  clearActiveCondition: (key: string) => void;
 }
 
 export const createNotificationSlice: StateCreator<
@@ -32,6 +35,7 @@ export const createNotificationSlice: StateCreator<
   notifications: [],
   toasts: [],
   lastNotifiedTimestamps: {},
+  activeConditions: {},
 
   setNotifications: (notifications) =>
     set({
@@ -80,5 +84,20 @@ export const createNotificationSlice: StateCreator<
         [key]: timestamp,
       },
     })),
+
+  setActiveCondition: (key, active) =>
+    set((state) => ({
+      activeConditions: {
+        ...state.activeConditions,
+        [key]: active,
+      },
+    })),
+
+  clearActiveCondition: (key) =>
+    set((state) => {
+      const next = { ...state.activeConditions };
+      delete next[key];
+      return { activeConditions: next };
+    }),
 });
 

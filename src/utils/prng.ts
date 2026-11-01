@@ -64,6 +64,11 @@ export class PRNG {
 }
 
 /**
+ * Alias for Mulberry32 PRNG class.
+ */
+export const Mulberry32 = PRNG;
+
+/**
  * Functional factory producing a simple generator function.
  */
 export function createMulberry32(seed: number): () => number {

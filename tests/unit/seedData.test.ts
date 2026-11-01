@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { generateSeedData } from '@/utils/seedData';
-import type { LightDevice } from '@/types';
+import type { LightDevice, ThermostatDevice } from '@/types';
 
 describe('Seed Data Generator', () => {
   const anchorTime = 1730476800000;
@@ -67,6 +67,18 @@ describe('Seed Data Generator', () => {
     expect(offlineDevs.length).toBeGreaterThanOrEqual(1);
     expect(offlineDevs[0]?.offlineReason).toBeDefined();
     expect(offlineDevs[0]?.offlineReason?.length).toBeGreaterThan(0);
+  });
+
+  it('defaults thermostats to Celsius with range 16 to 30 and target 22', () => {
+    const result = generateSeedData(1234, anchorTime);
+    const thermostats = result.devices.filter((d): d is ThermostatDevice => d.type === 'thermostat');
+    expect(thermostats.length).toBeGreaterThanOrEqual(2);
+    for (const therm of thermostats) {
+      expect(therm.unit).toBe('C');
+      expect(therm.min).toBe(16);
+      expect(therm.max).toBe(30);
+      expect(therm.target).toBe(22);
+    }
   });
 
   it('ensures off devices draw approximately 0 W power', () => {
