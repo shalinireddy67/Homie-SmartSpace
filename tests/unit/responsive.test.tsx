@@ -50,3 +50,4 @@ describe('Responsive AppShell & Layout', () => {
     expect(main).toHaveClass('max-w-7xl');
   });
 });
+
