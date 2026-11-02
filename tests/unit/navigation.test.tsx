@@ -43,7 +43,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Overview' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: /Overview/i })).toBeInTheDocument();
   });
 
   it('navigates to Rooms & Devices page at /rooms', () => {

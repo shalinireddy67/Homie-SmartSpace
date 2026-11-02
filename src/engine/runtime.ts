@@ -65,21 +65,55 @@ export function createRuntime(deps: RuntimeDeps): Runtime {
   }
 
   /**
-   * Seeds demo energy history at boot into the store if empty.
+   * Seeds demo energy history covering up to 30 days into the store if empty.
    */
   function initDemoEnergy(): void {
     const state = store.getState();
     if (!state.demoHistory || state.demoHistory.length === 0) {
       const now = clock.now();
-      const history = generateDemoEnergyHistory(
-        state.seed ?? 4242,
+      const seed = state.seed ?? 4242;
+
+      // 1. Prior 29 days at 15-minute resolution
+      const olderHistory = generateDemoEnergyHistory(
+        seed,
+        now - 30 * 24 * 3600 * 1000,
         now - 24 * 3600 * 1000,
+        15 * 60 * 1000,
+        state.devices,
+        state.rooms
+      );
+
+      // 2. Recent 24 hours at 1-minute resolution (contains known evaluation anomalies)
+      const recentHistory = generateDemoEnergyHistory(
+        seed + 77,
+        now - 24 * 3600 * 1000 + 60 * 1000,
         now,
         60 * 1000,
         state.devices,
         state.rooms
       );
-      state.setDemoHistory?.(history);
+
+      const combinedHistory = [...olderHistory, ...recentHistory];
+      state.setDemoHistory?.(combinedHistory);
+
+      // Seed initial detected anomalies into state.anomalies
+      if (state.anomalies.length === 0) {
+        const detected = detectAnomalies(
+          recentHistory.map((p) => ({ timestamp: p.timestamp, value: p.totalWatts })),
+          { metric: 'watts', stdFloor: 10.0 }
+        );
+
+        for (const anom of detected) {
+          state.addAnomaly?.({
+            id: `anom-${anom.timestamp}`,
+            timestamp: anom.timestamp,
+            actualWatts: anom.value,
+            baselineWatts: anom.baseline,
+            severity: anom.value > 1500 ? 'critical' : 'high',
+            description: `Power spike detected: ${anom.value}W (Baseline: ${anom.baseline}W, Threshold: ${anom.threshold}W)`,
+          });
+        }
+      }
     }
   }
 
