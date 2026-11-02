@@ -30,3 +30,8 @@ export interface Toast {
   durationMs?: number;
 }
 
+export interface NotificationSettings {
+  cooldownMinutes: number;
+  toastCategories: NotificationCategory[];
+}
+

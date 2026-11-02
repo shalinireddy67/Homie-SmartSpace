@@ -68,8 +68,20 @@ describe('useTheme hook', () => {
     });
 
     expect(result.current.theme).toBe('dark');
+    expect(result.current.themeMode).toBe('dark');
     expect(document.documentElement.classList.contains('dark')).toBe(true);
     expect(localStorage.getItem('nestora_theme')).toBe('dark');
+  });
+
+  it('supports system mode and reflects system preference', () => {
+    const { result } = renderHook(() => useTheme());
+
+    act(() => {
+      result.current.setTheme('system');
+    });
+
+    expect(result.current.themeMode).toBe('system');
+    expect(localStorage.getItem('nestora_theme')).toBe('system');
   });
 });
 

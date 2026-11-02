@@ -18,7 +18,12 @@ export interface NotificationStoreAccessor {
     notifications: Notification[];
     lastNotifiedTimestamps: Record<string, number>;
     activeConditions: Record<string, boolean>;
+    notificationSettings?: {
+      cooldownMinutes: number;
+      toastCategories: NotificationCategory[];
+    };
     addNotification: (notification: Notification) => void;
+    addToast?: (toast: { id: string; title: string; message?: string; severity: NotificationSeverity }) => void;
     recordNotificationTimestamp: (key: string, timestamp: number) => void;
     setActiveCondition: (key: string, active: boolean) => void;
     clearActiveCondition: (key: string) => void;
@@ -94,7 +99,8 @@ export function publishNotification(
   }
 
   // 2. Cooldown check: suppress identical notifications within cooldown interval
-  const cooldownMs = options.cooldownMs ?? 300000;
+  const defaultCooldownMs = (state.notificationSettings?.cooldownMinutes ?? 5) * 60 * 1000;
+  const cooldownMs = options.cooldownMs ?? defaultCooldownMs;
   const lastTime = state.lastNotifiedTimestamps[dedupeKey];
   if (lastTime !== undefined && now - lastTime < cooldownMs) {
     return {
@@ -125,6 +131,25 @@ export function publishNotification(
   };
 
   state.addNotification(notification);
+
+  // 6. Conditionally raise live toast according to user category preferences
+  if (state.addToast) {
+    const toastCats = state.notificationSettings?.toastCategories ?? [
+      'device',
+      'security',
+      'energy',
+      'system',
+      'automation',
+    ];
+    if (toastCats.includes(input.category)) {
+      state.addToast({
+        id: `toast-${id}`,
+        title: input.title,
+        message: input.message,
+        severity: input.severity,
+      });
+    }
+  }
 
   return {
     published: true,

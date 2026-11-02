@@ -14,6 +14,7 @@ import { createEventSlice, type EventSlice } from './slices/eventSlice';
 import {
   createNotificationSlice,
   type NotificationSlice,
+  defaultNotificationSettings,
 } from './slices/notificationSlice';
 import { createUISlice, type UISlice } from './slices/uiSlice';
 import { generateSeedData } from '@/utils/seedData';
@@ -63,6 +64,7 @@ export const useStore = create<RootStore>()((...a) => ({
       isDemoHistory: false,
       notifications: [],
       toasts: [],
+      notificationSettings: defaultNotificationSettings,
       fieldSequences: {},
       globalSequence: 0,
       seed,
@@ -70,6 +72,7 @@ export const useStore = create<RootStore>()((...a) => ({
       running: false,
       failNextCommand: false,
       failureProbability: 0.05,
+      acceleratedDemo: false,
       virtualTime: anchorTime,
     });
   },
@@ -108,12 +111,15 @@ export function initializeStore(initialAnchorTime = Date.now()): void {
 
     // Notifications: restore persisted notifications if available
     notifications: persisted?.notifications ?? [],
+    notificationSettings:
+      persisted?.notificationSettings ?? defaultNotificationSettings,
 
     // Simulation settings
     seed,
     speed: persisted?.simulation?.speed ?? 1,
     failNextCommand: persisted?.simulation?.failNextCommand ?? false,
     failureProbability: persisted?.simulation?.failureProbability ?? 0.05,
+    acceleratedDemo: persisted?.simulation?.acceleratedDemo ?? false,
     virtualTime: initialAnchorTime,
     running: false,
 
@@ -129,11 +135,13 @@ export function initializeStore(initialAnchorTime = Date.now()): void {
       rules: state.rules,
       schedules: state.schedules,
       notifications: state.notifications,
+      notificationSettings: state.notificationSettings,
       simulation: {
         speed: state.speed,
         seed: state.seed,
         failNextCommand: state.failNextCommand,
         failureProbability: state.failureProbability,
+        acceleratedDemo: state.acceleratedDemo,
       },
       theme: state.theme,
     };

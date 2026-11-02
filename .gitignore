@@ -19,6 +19,7 @@ dist-ssr/
 
 # Testing coverage
 coverage/
+verification-report.json
 
 # Editor directories and files
 .vscode/*

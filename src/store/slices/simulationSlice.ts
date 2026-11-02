@@ -9,6 +9,7 @@ export interface SimulationSlice extends SimulationState {
   advanceVirtualTime: (deltaMs: number) => void;
   setFailNextCommand: (failNextCommand: boolean) => void;
   setFailureProbability: (failureProbability: number) => void;
+  setAcceleratedDemo: (acceleratedDemo: boolean) => void;
 }
 
 export const createSimulationSlice: StateCreator<
@@ -23,6 +24,7 @@ export const createSimulationSlice: StateCreator<
   virtualTime: 1730476800000, // Fixed baseline virtual time
   failNextCommand: false,
   failureProbability: 0.05,
+  acceleratedDemo: false,
 
   setRunning: (running) => set({ running }),
   setSpeed: (speed) => set({ speed }),
@@ -32,5 +34,6 @@ export const createSimulationSlice: StateCreator<
     set((state) => ({ virtualTime: state.virtualTime + deltaMs })),
   setFailNextCommand: (failNextCommand) => set({ failNextCommand }),
   setFailureProbability: (failureProbability) => set({ failureProbability }),
+  setAcceleratedDemo: (acceleratedDemo) => set({ acceleratedDemo }),
 });
 

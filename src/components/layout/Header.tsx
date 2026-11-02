@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTheme } from '@/hooks/useTheme';
+import { useStore } from '@/store';
 import { Button } from '@/components/common/Button';
-import { Moon, Sun, Shield } from 'lucide-react';
+import { Moon, Sun, Shield, Bell } from 'lucide-react';
 import { APP_NAME } from '@/constants/branding';
 import { SimulationControls } from './SimulationControls';
 
@@ -11,6 +13,8 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
   const { theme, toggleTheme } = useTheme();
+  const notifications = useStore((s) => s.notifications);
+  const unreadCount = notifications.filter((n) => !n.read).length;
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
@@ -38,7 +42,23 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
         </div>
 
         {/* Right Header Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            to="/notifications"
+            aria-label={`Notifications, ${unreadCount} unread`}
+            className="relative rounded-lg p-2 text-text-muted hover:text-text hover:bg-surface-subtle transition-colors focus-ring inline-flex items-center justify-center"
+          >
+            <Bell className="h-4 w-4" aria-hidden="true" />
+            {unreadCount > 0 && (
+              <span
+                aria-live="polite"
+                className="absolute top-1 right-1 flex h-4 min-w-[16px] px-1 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white shadow-sm"
+              >
+                {unreadCount > 99 ? '99+' : unreadCount}
+              </span>
+            )}
+          </Link>
+
           <Button
             variant="ghost"
             size="sm"

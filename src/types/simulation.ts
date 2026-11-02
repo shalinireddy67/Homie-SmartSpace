@@ -11,5 +11,6 @@ export interface SimulationState {
   virtualTime: number;
   failNextCommand: boolean;
   failureProbability: number;
+  acceleratedDemo: boolean;
 }
 

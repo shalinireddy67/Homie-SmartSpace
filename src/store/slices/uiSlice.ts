@@ -1,10 +1,10 @@
 import { StateCreator } from 'zustand';
 
 export interface UISlice {
-  theme: 'light' | 'dark';
+  theme: 'light' | 'dark' | 'system';
   activeModal: string | null;
 
-  setTheme: (theme: 'light' | 'dark') => void;
+  setTheme: (theme: 'light' | 'dark' | 'system') => void;
   setActiveModal: (modal: string | null) => void;
 }
 

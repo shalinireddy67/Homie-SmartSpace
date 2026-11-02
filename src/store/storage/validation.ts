@@ -7,9 +7,14 @@ import type {
   Rule,
   Schedule,
   Notification,
+  NotificationCategory,
+  NotificationSettings,
   SimulationSpeed,
 } from '@/types';
-import type { PersistedStateV1, PersistedSimulationConfig } from './types';
+import type {
+  PersistedStateV1,
+  PersistedSimulationConfig,
+} from './types';
 
 function isRecord(val: unknown): val is Record<string, unknown> {
   return typeof val === 'object' && val !== null && !Array.isArray(val);
@@ -132,6 +137,7 @@ export function sanitizeSimulationConfig(
       seed: 4242,
       failNextCommand: false,
       failureProbability: 0.05,
+      acceleratedDemo: false,
     };
   }
 
@@ -148,6 +154,48 @@ export function sanitizeSimulationConfig(
       val['failureProbability'] <= 1
         ? val['failureProbability']
         : 0.05,
+    acceleratedDemo:
+      typeof val['acceleratedDemo'] === 'boolean'
+        ? val['acceleratedDemo']
+        : false,
+  };
+}
+
+export function sanitizeNotificationSettings(
+  val: unknown
+): NotificationSettings {
+  const defaultSettings: NotificationSettings = {
+    cooldownMinutes: 5,
+    toastCategories: ['device', 'security', 'energy', 'system', 'automation'],
+  };
+
+  if (!isRecord(val)) {
+    return defaultSettings;
+  }
+
+  const validCategories: NotificationCategory[] = [
+    'device',
+    'security',
+    'energy',
+    'system',
+    'automation',
+  ];
+
+  const cooldownMinutes =
+    typeof val['cooldownMinutes'] === 'number' && val['cooldownMinutes'] > 0
+      ? val['cooldownMinutes']
+      : 5;
+
+  let toastCategories = defaultSettings.toastCategories;
+  if (Array.isArray(val['toastCategories'])) {
+    toastCategories = val['toastCategories'].filter((cat): cat is NotificationCategory =>
+      validCategories.includes(cat as NotificationCategory)
+    );
+  }
+
+  return {
+    cooldownMinutes,
+    toastCategories,
   };
 }
 
@@ -180,11 +228,19 @@ export function validateAndSanitizeState(
     result.notifications = raw['notifications'].filter(isValidNotification);
   }
 
+  if (raw['notificationSettings'] !== undefined) {
+    result.notificationSettings = sanitizeNotificationSettings(raw['notificationSettings']);
+  }
+
   if (raw['simulation'] !== undefined) {
     result.simulation = sanitizeSimulationConfig(raw['simulation']);
   }
 
-  if (raw['theme'] === 'light' || raw['theme'] === 'dark') {
+  if (
+    raw['theme'] === 'light' ||
+    raw['theme'] === 'dark' ||
+    raw['theme'] === 'system'
+  ) {
     result.theme = raw['theme'];
   }
 

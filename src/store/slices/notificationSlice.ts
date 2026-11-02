@@ -1,5 +1,5 @@
 import { StateCreator } from 'zustand';
-import type { Notification, Toast } from '@/types';
+import type { Notification, Toast, NotificationSettings } from '@/types';
 
 /** Maximum notifications retained in persistent hub */
 export const MAX_NOTIFICATIONS = 200;
@@ -7,17 +7,24 @@ export const MAX_NOTIFICATIONS = 200;
 /** Maximum concurrent active ephemeral toasts */
 export const MAX_TOASTS = 5;
 
+export const defaultNotificationSettings: NotificationSettings = {
+  cooldownMinutes: 5,
+  toastCategories: ['device', 'security', 'energy', 'system', 'automation'],
+};
+
 export interface NotificationSlice {
   notifications: Notification[];
   toasts: Toast[];
   lastNotifiedTimestamps: Record<string, number>;
   activeConditions: Record<string, boolean>;
+  notificationSettings: NotificationSettings;
 
   setNotifications: (notifications: Notification[]) => void;
   addNotification: (notification: Notification) => void;
   markAsRead: (id: string) => void;
   markAllAsRead: () => void;
   clearNotification: (id: string) => void;
+  setNotificationSettings: (settings: Partial<NotificationSettings>) => void;
 
   addToast: (toast: Toast) => void;
   removeToast: (id: string) => void;
@@ -36,6 +43,7 @@ export const createNotificationSlice: StateCreator<
   toasts: [],
   lastNotifiedTimestamps: {},
   activeConditions: {},
+  notificationSettings: defaultNotificationSettings,
 
   setNotifications: (notifications) =>
     set({
@@ -65,6 +73,14 @@ export const createNotificationSlice: StateCreator<
   clearNotification: (id) =>
     set((state) => ({
       notifications: state.notifications.filter((n) => n.id !== id),
+    })),
+
+  setNotificationSettings: (newSettings) =>
+    set((state) => ({
+      notificationSettings: {
+        ...state.notificationSettings,
+        ...newSettings,
+      },
     })),
 
   addToast: (toast) =>

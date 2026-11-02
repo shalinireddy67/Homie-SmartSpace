@@ -3,6 +3,7 @@ import type {
   Rule,
   Schedule,
   Notification,
+  NotificationSettings,
   SimulationSpeed,
 } from '@/types';
 
@@ -15,6 +16,7 @@ export interface PersistedSimulationConfig {
   seed: number;
   failNextCommand: boolean;
   failureProbability: number;
+  acceleratedDemo?: boolean;
 }
 
 export interface PersistedStateV1 {
@@ -23,7 +25,8 @@ export interface PersistedStateV1 {
   rules: Rule[];
   schedules: Schedule[];
   notifications: Notification[];
+  notificationSettings?: NotificationSettings;
   simulation: PersistedSimulationConfig;
-  theme: 'light' | 'dark';
+  theme: 'light' | 'dark' | 'system';
 }
 
