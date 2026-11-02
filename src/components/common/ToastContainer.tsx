@@ -22,17 +22,17 @@ const ToastItem: React.FC<{ toast: Toast; onDismiss: (id: string) => void }> = (
   };
 
   const borders: Record<NotificationSeverity, string> = {
-    info: 'border-accent/30 bg-surface',
-    success: 'border-success/30 bg-surface',
-    warning: 'border-warning/30 bg-surface',
-    danger: 'border-danger/30 bg-surface',
+    info: 'border-accent/30 bg-surface shadow-soft',
+    success: 'border-success/30 bg-surface shadow-soft',
+    warning: 'border-warning/30 bg-surface shadow-soft',
+    danger: 'border-danger/30 bg-surface shadow-soft',
   };
 
   return (
     <div
       role="alert"
       aria-live="assertive"
-      className={`flex items-start gap-3 p-4 rounded-xl border shadow-lg backdrop-blur max-w-sm w-full transition-all duration-300 animate-in fade-in slide-in-from-top-2 ${borders[toast.severity]}`}
+      className={`flex items-start gap-3 p-4 rounded-2xl border max-w-sm w-full transition-all duration-200 ${borders[toast.severity]}`}
     >
       <div className="shrink-0 mt-0.5">{icons[toast.severity]}</div>
       <div className="flex-1 min-w-0">
@@ -47,7 +47,7 @@ const ToastItem: React.FC<{ toast: Toast; onDismiss: (id: string) => void }> = (
         type="button"
         onClick={() => onDismiss(toast.id)}
         aria-label="Dismiss notification"
-        className="shrink-0 text-text-muted hover:text-text p-1 rounded-lg hover:bg-surface-subtle transition-colors"
+        className="shrink-0 text-text-muted hover:text-text p-1 rounded-lg hover:bg-surface-elevated transition-colors"
       >
         <X className="h-4 w-4" />
       </button>

@@ -25,6 +25,20 @@ const config: Config = {
           hover: 'rgb(var(--color-accent-hover) / <alpha-value>)',
           subtle: 'rgb(var(--color-accent-subtle) / <alpha-value>)',
         },
+        pastel: {
+          blue: {
+            bg: 'rgb(var(--color-pastel-blue-bg) / <alpha-value>)',
+            text: 'rgb(var(--color-pastel-blue-text) / <alpha-value>)',
+          },
+          yellow: {
+            bg: 'rgb(var(--color-pastel-yellow-bg) / <alpha-value>)',
+            text: 'rgb(var(--color-pastel-yellow-text) / <alpha-value>)',
+          },
+          green: {
+            bg: 'rgb(var(--color-pastel-green-bg) / <alpha-value>)',
+            text: 'rgb(var(--color-pastel-green-text) / <alpha-value>)',
+          },
+        },
         success: {
           DEFAULT: 'rgb(var(--color-success) / <alpha-value>)',
           subtle: 'rgb(var(--color-success-subtle) / <alpha-value>)',
@@ -38,6 +52,10 @@ const config: Config = {
           subtle: 'rgb(var(--color-danger-subtle) / <alpha-value>)',
         },
       },
+      borderRadius: {
+        '2xl': '1rem', // 16px
+        '3xl': '1.5rem', // 24px
+      },
       fontFamily: {
         sans: [
           'Inter',
@@ -49,10 +67,13 @@ const config: Config = {
           'sans-serif',
         ],
       },
+      boxShadow: {
+        xs: '0 1px 2px 0 rgba(0, 0, 0, 0.03)',
+        soft: '0 2px 8px -2px rgba(0, 0, 0, 0.04), 0 1px 4px -1px rgba(0, 0, 0, 0.02)',
+      },
     },
   },
   plugins: [],
 };
 
 export default config;
-

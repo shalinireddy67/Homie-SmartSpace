@@ -21,16 +21,16 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     const paddingStyles = {
       none: '',
       sm: 'p-3',
-      md: 'p-5',
-      lg: 'p-6',
+      md: 'p-5 sm:p-6',
+      lg: 'p-6 sm:p-7',
     };
 
     return (
       <div
         ref={ref}
-        className={`bg-surface-card text-text rounded-xl shadow-sm transition-all duration-200 ${
-          bordered ? 'border border-border' : ''
-        } ${hoverable ? 'hover:shadow-md hover:border-border/80' : ''} ${
+        className={`bg-surface-card text-text rounded-2xl sm:rounded-3xl shadow-xs transition-all duration-200 ${
+          bordered ? 'border border-border/80' : ''
+        } ${hoverable ? 'hover:shadow-soft hover:border-border' : ''} ${
           paddingStyles[padding]
         } ${className}`}
         {...props}
@@ -42,4 +42,3 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
 );
 
 Card.displayName = 'Card';
-

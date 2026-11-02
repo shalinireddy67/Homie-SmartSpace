@@ -61,20 +61,44 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
     }
   };
 
-  const getDeviceIcon = () => {
+  const getDeviceIconTile = () => {
     switch (device.type) {
       case 'light':
-        return <Lightbulb className={`h-5 w-5 ${device.on ? 'text-amber-500 fill-amber-500/20' : 'text-text-muted'}`} />;
+        return (
+          <div
+            className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs transition-colors ${
+              device.on
+                ? 'bg-pastel-yellow-bg text-pastel-yellow-text'
+                : 'bg-surface-elevated text-text-muted'
+            }`}
+          >
+            <Lightbulb className="h-5 w-5" />
+          </div>
+        );
       case 'thermostat':
-        return <Thermometer className="h-5 w-5 text-accent" />;
+        return (
+          <div className="h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-pastel-blue-bg text-pastel-blue-text">
+            <Thermometer className="h-5 w-5" />
+          </div>
+        );
       case 'lock':
-        return device.locked ? (
-          <Lock className="h-5 w-5 text-success" />
-        ) : (
-          <Unlock className="h-5 w-5 text-warning" />
+        return (
+          <div
+            className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs transition-colors ${
+              device.locked
+                ? 'bg-pastel-green-bg text-pastel-green-text'
+                : 'bg-pastel-yellow-bg text-pastel-yellow-text'
+            }`}
+          >
+            {device.locked ? <Lock className="h-5 w-5" /> : <Unlock className="h-5 w-5" />}
+          </div>
         );
       case 'camera':
-        return <Camera className="h-5 w-5 text-accent" />;
+        return (
+          <div className="h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-surface-elevated text-accent">
+            <Camera className="h-5 w-5" />
+          </div>
+        );
     }
   };
 
@@ -126,10 +150,8 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
       {/* Top Header */}
       <div>
         <div className="flex items-start justify-between gap-2">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg bg-surface-subtle border border-border/50">
-              {getDeviceIcon()}
-            </div>
+          <div className="flex items-center gap-3">
+            {getDeviceIconTile()}
             <div>
               <h3 className="font-semibold text-text text-sm sm:text-base leading-tight">
                 {device.name}

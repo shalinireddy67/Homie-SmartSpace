@@ -25,20 +25,19 @@ export function useChartTheme(): ChartThemeColors {
   return useMemo(() => {
     return {
       isDark,
-      text: isDark ? '#f8fafc' : '#0f172a',
-      textMuted: isDark ? '#94a3b8' : '#64748b',
-      border: isDark ? '#334155' : '#e2e8f0',
-      accent: isDark ? '#6366f1' : '#4f46e5',
-      accentSubtle: isDark ? 'rgba(99, 102, 241, 0.2)' : 'rgba(79, 70, 229, 0.12)',
-      success: isDark ? '#34d399' : '#10b981',
-      warning: isDark ? '#fbbf24' : '#d97706',
-      danger: isDark ? '#fb7185' : '#e11d48',
-      surface: isDark ? '#0f172a' : '#ffffff',
-      surfaceCard: isDark ? '#1e293b' : '#ffffff',
-      tooltipBg: isDark ? '#1e293b' : '#ffffff',
-      tooltipBorder: isDark ? '#334155' : '#cbd5e1',
-      gridColor: isDark ? '#1e293b' : '#f1f5f9',
+      text: isDark ? '#F0F3F1' : '#202522',
+      textMuted: isDark ? '#A2A9A4' : '#686F6A',
+      border: isDark ? '#353C37' : '#E4E7E4',
+      accent: isDark ? '#52B788' : '#2D6A4F',
+      accentSubtle: isDark ? 'rgba(82, 183, 136, 0.2)' : 'rgba(45, 106, 79, 0.15)',
+      success: isDark ? '#34D399' : '#167949',
+      warning: isDark ? '#FBBF24' : '#B45309',
+      danger: isDark ? '#F87171' : '#DC2626',
+      surface: isDark ? '#222623' : '#FFFFFF',
+      surfaceCard: isDark ? '#222623' : '#FFFFFF',
+      tooltipBg: isDark ? '#222623' : '#FFFFFF',
+      tooltipBorder: isDark ? '#353C37' : '#E4E7E4',
+      gridColor: isDark ? '#2B312D' : '#ECEFEC',
     };
   }, [isDark]);
 }
-

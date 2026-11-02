@@ -113,7 +113,7 @@ export const Modal: React.FC<ModalProps> = ({
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -126,10 +126,10 @@ export const Modal: React.FC<ModalProps> = ({
         aria-labelledby={titleId}
         aria-describedby={descId}
         tabIndex={-1}
-        className={`relative w-full ${sizeClasses[size]} bg-surface text-text rounded-2xl border border-border shadow-2xl z-10 overflow-hidden transform transition-all my-8 outline-none`}
+        className={`relative w-full ${sizeClasses[size]} bg-surface text-text rounded-3xl border border-border/80 shadow-2xl z-10 overflow-hidden transform transition-all my-8 outline-none`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-border/80">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-border/70">
           <div>
             <h2 id={titleId} className="text-lg font-semibold text-text">
               {title}
@@ -145,7 +145,7 @@ export const Modal: React.FC<ModalProps> = ({
             size="sm"
             onClick={onClose}
             aria-label="Close dialog"
-            className="p-1.5 rounded-lg text-text-muted hover:text-text"
+            className="p-1.5 rounded-xl text-text-muted hover:text-text min-h-[36px]"
           >
             <X className="w-5 h-5" aria-hidden="true" />
           </Button>
@@ -156,7 +156,7 @@ export const Modal: React.FC<ModalProps> = ({
 
         {/* Footer */}
         {footer && (
-          <div className="flex items-center justify-end gap-3 px-6 py-3.5 bg-surface-subtle/50 border-t border-border/80">
+          <div className="flex items-center justify-end gap-3 px-6 py-4 bg-surface-elevated/40 border-t border-border/70">
             {footer}
           </div>
         )}
@@ -164,4 +164,3 @@ export const Modal: React.FC<ModalProps> = ({
     </div>
   );
 };
-

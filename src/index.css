@@ -1,57 +1,87 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --color-surface: 255 255 255;
-    --color-surface-subtle: 248 250 252;
-    --color-surface-card: 255 255 255;
-    --color-surface-elevated: 255 255 255;
+    /* Canvas & Surfaces - Light Default */
+    --color-surface-subtle: 246 247 245; /* #F6F7F5 warm canvas */
+    --color-surface: 255 255 255;        /* #FFFFFF */
+    --color-surface-card: 255 255 255;   /* #FFFFFF */
+    --color-surface-elevated: 240 242 240; /* #F0F2F0 */
 
-    --color-text: 15 23 42;
-    --color-text-muted: 100 116 139;
+    /* Typography */
+    --color-text: 32 37 34;              /* #202522 (15.5:1 on white) */
+    --color-text-muted: 104 111 106;     /* #686F6A (darkened from #858C87 for 4.78:1 on canvas, 5.14:1 on white) */
 
-    --color-border: 226 232 240;
-    --color-border-subtle: 241 245 249;
+    /* Structure & Borders */
+    --color-border: 228 231 228;         /* #E4E7E4 */
+    --color-border-subtle: 236 239 236;  /* #ECEFEC */
 
-    --color-accent: 79 70 229;
-    --color-accent-hover: 67 56 202;
-    --color-accent-subtle: 238 242 255;
+    /* Brand Accent */
+    --color-accent: 45 106 79;           /* #2D6A4F forest deep */
+    --color-accent-hover: 27 67 50;      /* #1B4332 */
+    --color-accent-subtle: 225 238 228;  /* #E1EEE4 */
 
-    --color-success: 16 185 129;
-    --color-success-subtle: 236 253 245;
+    /* Functional Pastel Accents */
+    --color-pastel-blue-bg: 220 235 244; /* #DCEBF4 (temperature) */
+    --color-pastel-blue-text: 19 78 111; /* #134E6F (6.8:1 contrast) */
+    --color-pastel-yellow-bg: 245 237 207; /* #F5EDCF (humidity) */
+    --color-pastel-yellow-text: 107 81 8;  /* #6B5108 (6.1:1 contrast) */
+    --color-pastel-green-bg: 225 238 228;  /* #E1EEE4 (power/energy) */
+    --color-pastel-green-text: 28 77 43;   /* #1C4D2B (6.9:1 contrast) */
 
-    --color-warning: 217 119 6;
-    --color-warning-subtle: 254 243 199;
-
-    --color-danger: 225 29 72;
-    --color-danger-subtle: 255 228 230;
+    /* Status Accents */
+    --color-success: 22 121 73;          /* #167949 */
+    --color-success-subtle: 225 238 228;
+    --color-warning: 180 83 9;           /* #B45309 */
+    --color-warning-subtle: 245 237 207;
+    --color-danger: 220 38 38;           /* #DC2626 */
+    --color-danger-subtle: 254 226 226;
   }
 
   .dark {
-    --color-surface: 15 23 42;
-    --color-surface-subtle: 2 6 23;
-    --color-surface-card: 30 41 59;
-    --color-surface-elevated: 51 65 85;
+    /* Warm Dark Canvas & Surfaces */
+    --color-surface-subtle: 24 27 25;    /* #181B19 warm dark canvas */
+    --color-surface: 34 38 35;           /* #222623 */
+    --color-surface-card: 34 38 35;      /* #222623 */
+    --color-surface-elevated: 42 47 44;   /* #2A2F2C */
 
-    --color-text: 248 250 252;
-    --color-text-muted: 148 163 184;
+    /* Typography */
+    --color-text: 240 243 241;           /* #F0F3F1 (13.2:1 contrast) */
+    --color-text-muted: 162 169 164;     /* #A2A9A4 (5.3:1 contrast on card) */
 
-    --color-border: 51 65 85;
-    --color-border-subtle: 30 41 59;
+    /* Structure & Borders */
+    --color-border: 53 60 55;            /* #353C37 */
+    --color-border-subtle: 43 49 45;     /* #2B312D */
 
-    --color-accent: 99 102 241;
-    --color-accent-hover: 129 140 248;
-    --color-accent-subtle: 30 27 75;
+    /* Brand Accent */
+    --color-accent: 82 183 136;          /* #52B788 */
+    --color-accent-hover: 116 198 157;   /* #74C69D */
+    --color-accent-subtle: 26 51 35;     /* #1A3323 */
 
-    --color-success: 52 211 153;
+    /* Functional Pastel Accents */
+    --color-pastel-blue-bg: 26 47 61;    /* #1A2F3D */
+    --color-pastel-blue-text: 144 199 235; /* #90C7EB (6.2:1 contrast) */
+    --color-pastel-yellow-bg: 56 49 22;  /* #383116 */
+    --color-pastel-yellow-text: 235 214 133; /* #EBD685 (6.4:1 contrast) */
+    --color-pastel-green-bg: 26 51 35;   /* #1A3323 */
+    --color-pastel-green-text: 156 215 173; /* #9CD7AD (6.5:1 contrast) */
+
+    /* Status Accents */
+    --color-success: 52 211 153;         /* #34D399 */
     --color-success-subtle: 6 78 59;
-
-    --color-warning: 251 191 36;
+    --color-warning: 251 191 36;         /* #FBBF24 */
     --color-warning-subtle: 120 53 15;
-
-    --color-danger: 251 113 133;
+    --color-danger: 248 113 113;         /* #F87171 */
     --color-danger-subtle: 136 19 55;
   }
 
@@ -63,13 +93,14 @@
   body {
     background-color: rgb(var(--color-surface-subtle));
     color: rgb(var(--color-text));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Reduced motion preference */
+/* Reduced motion preference override */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -96,7 +127,7 @@
   background-color: rgb(var(--color-accent));
   color: #ffffff;
   font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   text-decoration: none;
 }
@@ -105,4 +136,3 @@
   top: 1rem;
   outline: 2px solid #ffffff;
 }
-

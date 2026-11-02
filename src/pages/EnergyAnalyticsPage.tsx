@@ -260,7 +260,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       <div
         role="note"
         aria-label="Simulation dataset disclaimer"
-        className="flex items-center justify-between p-3 rounded-xl bg-surface-subtle border border-border text-xs text-text-muted"
+        className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-elevated/70 border border-border/80 text-xs text-text-muted"
       >
         <div className="flex items-center gap-2">
           <HelpCircle className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
@@ -268,7 +268,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
             <strong>Demo history, generated from seed.</strong> Live readings are simulated.
           </span>
         </div>
-        <Badge variant="outline" className="font-mono text-[10px]">
+        <Badge variant="outline" className="font-mono text-[10px] tabular-nums">
           Deterministic Seed {seed}
         </Badge>
       </div>
@@ -276,7 +276,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       {/* Header and Accessible Range Selector */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-text">Energy Analytics</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">Energy Analytics</h1>
           <p className="text-sm text-text-muted mt-1">
             Historical consumption, power curves, peak demands, and statistical anomaly detection.
           </p>
@@ -286,7 +286,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         <div
           role="radiogroup"
           aria-label="Select energy analytics timeframe"
-          className="flex items-center rounded-xl border border-border p-1 bg-surface shadow-xs"
+          className="flex items-center rounded-2xl border border-border/80 p-1 bg-surface-elevated shadow-xs"
         >
           {RANGES.map((r) => {
             const isSelected = selectedRange === r;
@@ -299,10 +299,11 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                 tabIndex={isSelected ? 0 : -1}
                 onClick={() => setSelectedRange(r)}
                 onKeyDown={(e) => handleRangeKeyDown(e, r)}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-lg uppercase transition-colors ${isSelected
+                className={`px-3 py-1.5 text-xs font-semibold rounded-xl uppercase transition-all duration-200 focus-ring ${
+                  isSelected
                     ? 'bg-accent text-white shadow-xs'
-                    : 'text-text-muted hover:text-text hover:bg-surface-subtle'
-                  }`}
+                    : 'text-text-muted hover:text-text hover:bg-surface'
+                }`}
               >
                 {r}
               </button>
@@ -357,12 +358,14 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       {/* 4 Summary Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Total kWh */}
-        <Card className="p-4 bg-surface border border-border">
+        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Total Consumption</span>
-            <Gauge className="h-4 w-4 text-accent" aria-hidden="true" />
+            <div className="h-8 w-8 rounded-xl bg-pastel-green-bg text-pastel-green-text flex items-center justify-center">
+              <Gauge className="h-4 w-4" aria-hidden="true" />
+            </div>
           </div>
-          <div className="mt-2 text-2xl font-bold font-mono text-text tabular-nums">
+          <div className="mt-3 text-2xl font-bold font-mono text-text tabular-nums">
             {aggregated.summary.totalKWh.toFixed(2)}{' '}
             <span className="text-xs font-normal text-text-muted">kWh</span>
           </div>
@@ -370,12 +373,14 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Card>
 
         {/* Peak Power */}
-        <Card className="p-4 bg-surface border border-border">
+        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Peak Demand</span>
-            <Flame className="h-4 w-4 text-warning" aria-hidden="true" />
+            <div className="h-8 w-8 rounded-xl bg-pastel-yellow-bg text-pastel-yellow-text flex items-center justify-center">
+              <Flame className="h-4 w-4" aria-hidden="true" />
+            </div>
           </div>
-          <div className="mt-2 text-2xl font-bold font-mono text-text tabular-nums">
+          <div className="mt-3 text-2xl font-bold font-mono text-text tabular-nums">
             {aggregated.summary.peakWatts}{' '}
             <span className="text-xs font-normal text-text-muted">W</span>
           </div>
@@ -383,12 +388,14 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Card>
 
         {/* Average Power */}
-        <Card className="p-4 bg-surface border border-border">
+        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Average Power</span>
-            <Activity className="h-4 w-4 text-accent" aria-hidden="true" />
+            <div className="h-8 w-8 rounded-xl bg-pastel-blue-bg text-pastel-blue-text flex items-center justify-center">
+              <Activity className="h-4 w-4" aria-hidden="true" />
+            </div>
           </div>
-          <div className="mt-2 text-2xl font-bold font-mono text-text tabular-nums">
+          <div className="mt-3 text-2xl font-bold font-mono text-text tabular-nums">
             {aggregated.summary.averageWatts.toFixed(0)}{' '}
             <span className="text-xs font-normal text-text-muted">W</span>
           </div>
@@ -396,17 +403,19 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Card>
 
         {/* Anomalies Detected */}
-        <Card className="p-4 bg-surface border border-border">
+        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Anomalies Detected</span>
-            <AlertTriangle
-              className={`h-4 w-4 ${detectedAnomalies.length > 0 ? 'text-danger' : 'text-success'}`}
-              aria-hidden="true"
-            />
+            <div className={`h-8 w-8 rounded-xl flex items-center justify-center ${
+              detectedAnomalies.length > 0 ? 'bg-danger/15 text-danger' : 'bg-success/15 text-success'
+            }`}>
+              <AlertTriangle className="h-4 w-4" aria-hidden="true" />
+            </div>
           </div>
           <div
-            className={`mt-2 text-2xl font-bold font-mono tabular-nums ${detectedAnomalies.length > 0 ? 'text-danger' : 'text-success'
-              }`}
+            className={`mt-3 text-2xl font-bold font-mono tabular-nums ${
+              detectedAnomalies.length > 0 ? 'text-danger' : 'text-success'
+            }`}
           >
             {detectedAnomalies.length}
           </div>
@@ -415,7 +424,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       </div>
 
       {/* Chart 1: Power Curve (W) with Baseline and Anomaly Markers */}
-      <Card className="p-5 bg-surface border border-border">
+      <Card className="p-6 bg-surface border border-border/80 rounded-3xl">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
           <div>
             <h2 className="text-base font-semibold text-text">Power Profile & Statistical Anomalies</h2>
@@ -594,7 +603,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       </Card>
 
       {/* Chart 2: Energy Consumption (kWh Bar Chart) */}
-      <Card className="p-5 bg-surface border border-border">
+      <Card className="p-6 bg-surface border border-border/80 rounded-3xl">
         <div className="flex items-center justify-between mb-2">
           <div>
             <h2 className="text-base font-semibold text-text">Energy Consumption (kWh)</h2>
@@ -682,7 +691,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       {/* Breakdowns: Per-Device & Per-Room (Mathematical Guarantee: Sum equals Total) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Per-Device Breakdown */}
-        <Card className="p-5 bg-surface border border-border">
+        <Card className="p-6 bg-surface border border-border/80 rounded-3xl shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Laptop className="h-4 w-4 text-accent" aria-hidden="true" />
@@ -706,7 +715,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                     <span className="text-text-muted text-[11px]">({dev.pct.toFixed(1)}%)</span>
                   </div>
                 </div>
-                <div className="h-1.5 w-full bg-surface-subtle rounded-full overflow-hidden">
+                <div className="h-1.5 w-full bg-surface-elevated rounded-full overflow-hidden">
                   <div
                     className="h-full bg-accent rounded-full"
                     style={{ width: `${Math.min(100, Math.max(0, dev.pct))}%` }}
@@ -718,7 +727,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Card>
 
         {/* Per-Room Breakdown */}
-        <Card className="p-5 bg-surface border border-border">
+        <Card className="p-6 bg-surface border border-border/80 rounded-3xl shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Home className="h-4 w-4 text-accent" aria-hidden="true" />
@@ -742,7 +751,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                     <span className="text-text-muted text-[11px]">({room.pct.toFixed(1)}%)</span>
                   </div>
                 </div>
-                <div className="h-1.5 w-full bg-surface-subtle rounded-full overflow-hidden">
+                <div className="h-1.5 w-full bg-surface-elevated rounded-full overflow-hidden">
                   <div
                     className="h-full bg-success rounded-full"
                     style={{ width: `${Math.min(100, Math.max(0, room.pct))}%` }}
@@ -755,7 +764,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       </div>
 
       {/* Anomalies List Below Chart */}
-      <Card className="p-5 bg-surface border border-border">
+      <Card className="p-6 bg-surface border border-border/80 rounded-3xl shadow-xs">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <AlertTriangle className="h-4 w-4 text-danger" aria-hidden="true" />

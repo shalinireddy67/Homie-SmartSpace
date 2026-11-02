@@ -186,7 +186,7 @@ export const AutomationsPage: React.FC = () => {
       <div
         role="tablist"
         aria-label="Automations sections"
-        className="flex items-center gap-2 border-b border-border pb-px overflow-x-auto scrollbar-none"
+        className="flex items-center gap-2 border-b border-border/80 pb-px overflow-x-auto scrollbar-none"
       >
         <button
           role="tab"
@@ -194,7 +194,7 @@ export const AutomationsPage: React.FC = () => {
           aria-selected={activeTab === 'rules'}
           aria-controls="panel-rules"
           onClick={() => setActiveTab('rules')}
-          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-all duration-150 ${
+          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-all duration-200 focus-ring rounded-t-xl ${
             activeTab === 'rules'
               ? 'border-accent text-accent'
               : 'border-transparent text-text-muted hover:text-text hover:border-border'
@@ -213,7 +213,7 @@ export const AutomationsPage: React.FC = () => {
           aria-selected={activeTab === 'schedules'}
           aria-controls="panel-schedules"
           onClick={() => setActiveTab('schedules')}
-          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-all duration-150 ${
+          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-all duration-200 focus-ring rounded-t-xl ${
             activeTab === 'schedules'
               ? 'border-accent text-accent'
               : 'border-transparent text-text-muted hover:text-text hover:border-border'
@@ -229,7 +229,7 @@ export const AutomationsPage: React.FC = () => {
           aria-selected={activeTab === 'history'}
           aria-controls="panel-history"
           onClick={() => setActiveTab('history')}
-          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-all duration-150 ${
+          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-all duration-200 focus-ring rounded-t-xl ${
             activeTab === 'history'
               ? 'border-accent text-accent'
               : 'border-transparent text-text-muted hover:text-text hover:border-border'
@@ -249,7 +249,7 @@ export const AutomationsPage: React.FC = () => {
           className="space-y-4"
         >
           {rules.length === 0 ? (
-            <Card className="p-10 text-center bg-surface border border-border">
+            <Card className="p-10 text-center bg-surface border border-border/80 rounded-3xl">
               <Zap className="h-10 w-10 text-accent mx-auto mb-3 opacity-60" />
               <h3 className="text-base font-bold text-text">No Automation Rules Configured</h3>
               <p className="text-xs text-text-muted mt-1 max-w-md mx-auto">
@@ -282,9 +282,9 @@ export const AutomationsPage: React.FC = () => {
                 return (
                   <Card
                     key={rule.id}
-                    className="p-5 bg-surface border border-border shadow-xs flex flex-col xl:flex-row xl:items-center justify-between gap-4"
+                    className="p-5 sm:p-6 bg-surface border border-border/80 rounded-2xl shadow-xs hover:shadow-soft flex flex-col xl:flex-row xl:items-center justify-between gap-4 transition-all duration-200"
                   >
-                    <div className="space-y-2 flex-1 min-w-0">
+                    <div className="space-y-2.5 flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2.5">
                         <h3 className="text-base font-bold text-text truncate max-w-sm">
                           {rule.name}
@@ -310,20 +310,20 @@ export const AutomationsPage: React.FC = () => {
                       )}
 
                       {/* One-line IF ... THEN ... Summary */}
-                      <p className="text-xs font-mono font-medium text-text bg-surface-subtle p-2.5 rounded-lg border border-border/70 break-words">
+                      <p className="text-xs font-mono font-medium text-text bg-surface-elevated p-3 rounded-xl border border-border/70 break-words">
                         {summary}
                       </p>
 
                       <div className="flex flex-wrap items-center gap-4 text-[11px] text-text-muted">
                         <span>
-                          Last Executed: <strong className="text-text font-mono">{lastExecStr}</strong>
+                          Last Executed: <strong className="text-text font-mono tabular-nums">{lastExecStr}</strong>
                         </span>
                         <span>
-                          Cooldown: <strong className="text-text font-mono">{rule.cooldownMinutes}m</strong>
+                          Cooldown: <strong className="text-text font-mono tabular-nums">{rule.cooldownMinutes}m</strong>
                         </span>
                         {rule.timeWindow && (
                           <span>
-                            Window: <strong className="text-text font-mono">{rule.timeWindow.start} - {rule.timeWindow.end}</strong>
+                            Window: <strong className="text-text font-mono tabular-nums">{rule.timeWindow.start} - {rule.timeWindow.end}</strong>
                           </span>
                         )}
                       </div>

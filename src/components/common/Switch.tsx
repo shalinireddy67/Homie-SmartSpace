@@ -58,13 +58,13 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         >
           <span
             aria-hidden="true"
-            className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${
+            className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-xs ring-0 transition duration-200 ease-in-out ${
               checked ? 'translate-x-5' : 'translate-x-0'
             }`}
           />
         </button>
         {(label || description) && (
-          <div className="flex flex-col">
+          <div className="flex flex-col select-none">
             {label && (
               <span
                 id={id ? `${id}-label` : undefined}
@@ -86,4 +86,3 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
 );
 
 Switch.displayName = 'Switch';
-

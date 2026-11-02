@@ -128,7 +128,7 @@ export const ExecutionHistoryTab: React.FC = () => {
       </div>
 
       {/* Filter Toolbar */}
-      <div className="p-3.5 rounded-xl bg-surface border border-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 shadow-xs">
+      <div className="p-4 rounded-2xl bg-surface border border-border/80 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 shadow-xs">
         {/* Search */}
         <div className="relative flex-1 max-w-sm">
           <Search className="h-4 w-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -137,7 +137,7 @@ export const ExecutionHistoryTab: React.FC = () => {
             placeholder="Search by name, reason, device..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 text-xs bg-surface-subtle border border-border rounded-lg text-text focus-ring"
+            className="w-full pl-9 pr-3 py-2 text-xs bg-surface-elevated border border-border/80 rounded-xl text-text focus-ring"
           />
         </div>
 
@@ -150,7 +150,7 @@ export const ExecutionHistoryTab: React.FC = () => {
               aria-label="Filter execution history by status"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value as typeof statusFilter)}
-              className="px-2 py-1.5 bg-surface-subtle border border-border rounded-lg text-xs text-text focus-ring"
+              className="px-2.5 py-2 bg-surface-elevated border border-border/80 rounded-xl text-xs text-text focus-ring font-medium"
             >
               <option value="all">All Statuses</option>
               <option value="success">Executed (Success)</option>
@@ -167,7 +167,7 @@ export const ExecutionHistoryTab: React.FC = () => {
               aria-label="Filter execution history by source"
               value={sourceFilter}
               onChange={(e) => setSourceFilter(e.target.value)}
-              className="px-2 py-1.5 bg-surface-subtle border border-border rounded-lg text-xs text-text focus-ring max-w-[160px] truncate"
+              className="px-2.5 py-2 bg-surface-elevated border border-border/80 rounded-xl text-xs text-text focus-ring max-w-[160px] truncate font-medium"
             >
               <option value="all">All Sources</option>
               {uniqueSources.map((name) => (

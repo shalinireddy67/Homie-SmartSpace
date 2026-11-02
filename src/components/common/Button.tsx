@@ -21,25 +21,25 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium transition-colors focus-ring rounded-lg select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
+      'inline-flex items-center justify-center font-medium transition-colors focus-ring rounded-xl select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
 
     const sizeStyles = {
-      sm: 'px-3 py-1.5 text-xs gap-1.5',
-      md: 'px-4 py-2 text-sm gap-2',
-      lg: 'px-5 py-2.5 text-base gap-2.5',
+      sm: 'px-3 py-1.5 text-xs gap-1.5 min-h-[36px]',
+      md: 'px-4 py-2.5 text-sm gap-2 min-h-[44px]',
+      lg: 'px-5 py-3 text-base gap-2.5 min-h-[48px]',
     };
 
     const variantStyles = {
       primary:
-        'bg-accent text-white hover:bg-accent-hover shadow-sm active:translate-y-px',
+        'bg-accent text-white hover:bg-accent-hover shadow-xs active:translate-y-px',
       secondary:
-        'bg-surface-elevated text-text hover:bg-surface-elevated/80 border border-border shadow-sm',
+        'bg-surface-elevated text-text hover:bg-surface-elevated/80 border border-border shadow-xs',
       outline:
         'bg-transparent text-text border border-border hover:bg-surface-subtle hover:border-border',
       ghost:
         'bg-transparent text-text-muted hover:text-text hover:bg-surface-subtle',
       danger:
-        'bg-danger text-white hover:bg-danger/90 shadow-sm active:translate-y-px',
+        'bg-danger text-white hover:bg-danger/90 shadow-xs active:translate-y-px',
     };
 
     return (
@@ -79,4 +79,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
-
