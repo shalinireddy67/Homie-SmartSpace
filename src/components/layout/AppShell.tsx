@@ -2,12 +2,16 @@ import React from 'react';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 import { BottomNav } from './BottomNav';
+import { useRuntime } from '@/hooks/useRuntime';
 
 export interface AppShellProps {
   children: React.ReactNode;
 }
 
 export const AppShell: React.FC<AppShellProps> = ({ children }) => {
+  // Mount runtime orchestration
+  useRuntime();
+
   return (
     <div className="min-h-screen bg-surface-subtle text-text flex flex-col md:flex-row antialiased selection:bg-accent/20">
       {/* Skip to Content Link for Accessibility */}

@@ -123,3 +123,4 @@ export function sortEvents(
     return order === 'asc' ? a.timestamp - b.timestamp : b.timestamp - a.timestamp;
   });
 }
+

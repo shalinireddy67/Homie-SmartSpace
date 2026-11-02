@@ -1,13 +1,15 @@
 import { StateCreator } from 'zustand';
-import type { Rule, Schedule, AutomationExecution } from '@/types';
+import type { Rule, Schedule, AutomationExecution, ScheduleExecution } from '@/types';
 
 /** Maximum bounded execution history items to prevent memory bloat */
 export const MAX_AUTOMATION_EXECUTIONS = 100;
+export const MAX_SCHEDULE_EXECUTIONS = 100;
 
 export interface AutomationSlice {
   rules: Rule[];
   schedules: Schedule[];
   executionHistory: AutomationExecution[];
+  scheduleExecutions: ScheduleExecution[];
 
   setRules: (rules: Rule[]) => void;
   addRule: (rule: Rule) => void;
@@ -21,6 +23,7 @@ export interface AutomationSlice {
   deleteSchedule: (scheduleId: string) => void;
 
   addExecution: (execution: AutomationExecution) => void;
+  addScheduleExecution: (execution: ScheduleExecution) => void;
 }
 
 export const createAutomationSlice: StateCreator<
@@ -32,6 +35,7 @@ export const createAutomationSlice: StateCreator<
   rules: [],
   schedules: [],
   executionHistory: [],
+  scheduleExecutions: [],
 
   setRules: (rules) => set({ rules }),
 
@@ -85,6 +89,14 @@ export const createAutomationSlice: StateCreator<
       executionHistory: [execution, ...state.executionHistory].slice(
         0,
         MAX_AUTOMATION_EXECUTIONS
+      ),
+    })),
+
+  addScheduleExecution: (execution) =>
+    set((state) => ({
+      scheduleExecutions: [execution, ...state.scheduleExecutions].slice(
+        0,
+        MAX_SCHEDULE_EXECUTIONS
       ),
     })),
 });

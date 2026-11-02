@@ -185,3 +185,4 @@ describe('Event Filter & Sorting Engine', () => {
     expect(sortResult.length).toBe(10000);
   });
 });
+

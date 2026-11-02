@@ -27,6 +27,7 @@ export interface CommandDispatchOptions {
   executor?: CommandExecutor;
   prng?: PRNG;
   latencyMs?: number;
+  causedByAutomation?: boolean;
 }
 
 /**
@@ -79,6 +80,10 @@ export async function dispatchCommand(
   options: CommandDispatchOptions
 ): Promise<CommandResult> {
   const { store, clock, scheduler, executor, latencyMs = 200 } = options;
+  const activeScheduler: Scheduler = scheduler ?? {
+    delay: () => Promise.resolve(),
+    scheduleRepeating: () => () => {},
+  };
   const now = clock.now();
   commandCounter++;
   const commandId = `cmd-${now}-${commandCounter}`;
@@ -194,7 +199,7 @@ export async function dispatchCommand(
     if (executor) {
       await executor(deviceId, normalizedPatch).catch(() => {});
     } else {
-      await scheduler.delay(latencyMs);
+      await activeScheduler.delay(latencyMs);
     }
   } else if (executor) {
     try {
@@ -214,7 +219,7 @@ export async function dispatchCommand(
       shouldFail = true;
       failureReason = 'Simulated wireless mesh packet drop';
     }
-    await scheduler.delay(latencyMs);
+    await activeScheduler.delay(latencyMs);
   }
 
   // 7. Success branch

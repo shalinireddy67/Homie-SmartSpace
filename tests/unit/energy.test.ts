@@ -87,6 +87,38 @@ describe('Energy Analytics Engine', () => {
       const earlySpike = anomalies.find((a) => a.timestamp === baseTime + 2 * 60000);
       expect(earlySpike).toBeUndefined();
     });
+
+    it('applies per-metric stdFloor defaults for watts, temperature, and humidity', () => {
+      // 1. Temperature: flat 21.0°C series, spike to 23.0°C (> 21.0 + 3 * 0.5 = 22.5)
+      const tempSeries = Array.from({ length: 20 }, (_, i) => ({
+        timestamp: baseTime + i * 60000,
+        value: i === 15 ? 23.0 : 21.0,
+      }));
+      const tempAnomalies = detectAnomalies(tempSeries, { metric: 'temperature', k: 3 });
+      expect(tempAnomalies.length).toBe(1);
+      expect(tempAnomalies[0]?.value).toBe(23.0);
+      expect(tempAnomalies[0]?.threshold).toBe(22.5);
+
+      // 2. Humidity: flat 45% series, 47% is below threshold (45 + 3 * 1.0 = 48), 50% is above
+      const humSeries = Array.from({ length: 20 }, (_, i) => ({
+        timestamp: baseTime + i * 60000,
+        value: i === 15 ? 50.0 : 45.0,
+      }));
+      const humAnomalies = detectAnomalies(humSeries, { metric: 'humidity', k: 3 });
+      expect(humAnomalies.length).toBe(1);
+      expect(humAnomalies[0]?.value).toBe(50.0);
+      expect(humAnomalies[0]?.threshold).toBe(48.0);
+
+      // 3. Watts: flat 100W series, 115W is below threshold (100 + 3 * 10 = 130), 150W is above
+      const wattSeries = Array.from({ length: 20 }, (_, i) => ({
+        timestamp: baseTime + i * 60000,
+        value: i === 15 ? 150.0 : 100.0,
+      }));
+      const wattAnomalies = detectAnomalies(wattSeries, { metric: 'watts', k: 3 });
+      expect(wattAnomalies.length).toBe(1);
+      expect(wattAnomalies[0]?.value).toBe(150.0);
+      expect(wattAnomalies[0]?.threshold).toBe(130.0);
+    });
   });
 
   describe('Energy Aggregation (aggregateEnergy)', () => {
@@ -233,3 +265,4 @@ describe('Energy Analytics Engine', () => {
     });
   });
 });
+

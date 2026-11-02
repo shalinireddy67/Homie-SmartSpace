@@ -406,7 +406,7 @@ export interface RunAutomationsDeps {
   clock: Clock;
   scheduler: Scheduler;
   executor?: CommandExecutor;
-  ruleStates: Map<string, RuleExecutionState>;
+  ruleStates?: Map<string, RuleExecutionState>;
   context?: ExecutionContext;
 }
 
@@ -421,7 +421,7 @@ export interface AutomationRunResult {
 export async function runAutomations(
   deps: RunAutomationsDeps
 ): Promise<AutomationRunResult> {
-  const { store, clock, scheduler, executor, ruleStates, context = {} } = deps;
+  const { store, clock, scheduler, executor, ruleStates = new Map(), context = {} } = deps;
   const state = store.getState();
   const snapshot: StateSnapshot = {
     devices: state.devices,

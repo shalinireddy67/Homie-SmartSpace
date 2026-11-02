@@ -16,6 +16,22 @@ import { Mulberry32 } from '@/utils/prng';
 // 1. STATISTICAL ANOMALY DETECTION
 // ============================================================================
 
+export type AnomalyMetric = 'watts' | 'temperature' | 'humidity' | 'custom';
+
+/**
+ * Standard deviation floors per metric to avoid false positives on low-noise signals.
+ * - watts: 10.0 W (ignores minor micro-watt fluctuations)
+ * - temperature: 0.5 °C (ignores 0.1°C sensor jitter)
+ * - humidity: 1.0 % (ignores minor ambient humidity drift)
+ * - custom: 1.0
+ */
+export const DEFAULT_STD_FLOORS: Record<AnomalyMetric, number> = {
+  watts: 10.0,
+  temperature: 0.5,
+  humidity: 1.0,
+  custom: 1.0,
+};
+
 export interface AnomalyDetectionOptions {
   /** Rolling window size in historical points (default: 24) */
   window?: number;
@@ -23,7 +39,9 @@ export interface AnomalyDetectionOptions {
   minSamples?: number;
   /** Standard deviation multiplier threshold (default: 3) */
   k?: number;
-  /** Minimum floor for standard deviation to prevent division-by-zero or hypersensitivity (default: 1.0) */
+  /** Metric type to apply appropriate default standard deviation floor (default: 'watts') */
+  metric?: AnomalyMetric;
+  /** Explicit standard deviation floor (overrides per-metric default if specified) */
   stdFloor?: number;
 }
 
@@ -52,7 +70,8 @@ export function detectAnomalies(
   const window = options.window ?? 24;
   const minSamples = options.minSamples ?? 8;
   const k = options.k ?? 3;
-  const stdFloor = options.stdFloor ?? 1.0;
+  const metric = options.metric ?? 'watts';
+  const stdFloor = options.stdFloor ?? (DEFAULT_STD_FLOORS[metric] ?? 1.0);
 
   const anomalies: DetectedAnomaly[] = [];
 
@@ -513,3 +532,4 @@ export function generateDemoEnergyHistory(
 
   return readings;
 }
+

@@ -167,3 +167,4 @@ export function markAllRead(store: NotificationStoreAccessor): void {
 export function unreadCount(notifications: readonly Notification[]): number {
   return notifications.filter((n) => !n.read).length;
 }
+

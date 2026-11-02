@@ -55,8 +55,20 @@ export interface Schedule {
   time: string; // HH:mm format, 24-hour
   weekdays: number[]; // 0 = Sunday, ..., 6 = Saturday
   nextRunTime: number;
+  lastFiredFor?: number; // timestamp of the scheduled slot already executed
   createdAt: number;
   modifiedAt: number;
+}
+
+export interface ScheduleExecution {
+  id: string;
+  scheduleId: string;
+  scheduleName: string;
+  firedAt: number;
+  dueTime: number;
+  status: 'success' | 'failure' | 'skipped';
+  result?: string;
+  action: Action;
 }
 
 export interface AutomationExecution {

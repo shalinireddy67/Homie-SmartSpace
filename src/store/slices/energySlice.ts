@@ -16,11 +16,14 @@ export const MAX_ANOMALIES = 100;
 
 export interface EnergySlice {
   liveTelemetry: LivePowerReading[];
+  demoHistory: LivePowerReading[];
+  isDemoHistory: boolean;
   anomalies: EnergyAnomaly[];
   selectedTimeRange: EnergyTimeRange;
 
   setLiveTelemetry: (readings: LivePowerReading[]) => void;
   appendLiveTelemetry: (reading: LivePowerReading) => void;
+  setDemoHistory: (readings: LivePowerReading[]) => void;
   addAnomaly: (anomaly: EnergyAnomaly) => void;
   setSelectedTimeRange: (range: EnergyTimeRange) => void;
 }
@@ -32,6 +35,8 @@ export const createEnergySlice: StateCreator<
   EnergySlice
 > = (set) => ({
   liveTelemetry: [],
+  demoHistory: [],
+  isDemoHistory: false,
   anomalies: [],
   selectedTimeRange: '24h',
 
@@ -49,6 +54,12 @@ export const createEnergySlice: StateCreator<
             ? next.slice(next.length - MAX_LIVE_TELEMETRY_POINTS)
             : next,
       };
+    }),
+
+  setDemoHistory: (readings) =>
+    set({
+      demoHistory: readings,
+      isDemoHistory: true,
     }),
 
   addAnomaly: (anomaly) =>
