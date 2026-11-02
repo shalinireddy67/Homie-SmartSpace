@@ -77,12 +77,15 @@
 - **Benchmarks (Measured Real Times):**
   - Synthesize 10,000 seeded events: **30.77 ms**
   - Precompute composite search index on 10,000 events: **30.74 ms**
-  - Multi-field filter over 10,000 events down to 455 items: **7.68 ms**
-  - Sort 10,000 events: **4.24 ms**
-- **Production Build:** Built in 6.31s
+  - Multi-field filter over 10,000 events down to 455 items: **30.93 ms**
+  - Sort 10,000 events: **7.39 ms**
+- **Task 5 Test Metrics:**
+  - 19 test files, 175 tests passing (100% pass rate)
+  - Unit & Integration suites covering controls (`DimmerSlider`, `ColorPicker`, `RadialDial`), device cards, confirm modals, offline handling, optimistic rollback, filter combinations, and memoization render counts
+- **Production Build:** Built in 10.26s
   - `dist/index.html`: 1.16 kB (gzip: 0.62 kB)
-  - `dist/assets/index-D-0L6SDU.css`: 21.87 kB (gzip: 4.78 kB)
-  - `dist/assets/index-CdobgpX7.js`: 209.46 kB (gzip: 65.94 kB)
+  - `dist/assets/index-D_PuCJfT.css`: 29.52 kB (gzip: 5.75 kB)
+  - `dist/assets/index-DMXvuG91.js`: 264.10 kB (gzip: 81.06 kB)
 
 ---
 
@@ -94,12 +97,12 @@
 | **Task 2B** | Command Dispatcher & Simulation | ✅ Completed | Injected dispatcher with rollback fencing, SimulationEngine with speed & StrictMode safety |
 | **Task 3** | Automation Engine & Dry-Run | ✅ Completed | Edge-triggered evaluator, cooldown tracker, 3-hop depth cap, isolated dry-run simulator |
 | **Task 4** | Energy, Notifications & Event Filters | ✅ Completed | Rolling baseline anomaly detector, multi-range aggregator, dedupe notifications, fast 10k event filters |
-| **Task 5** | Rooms & Devices Page | ⏳ Up Next | Tactile device cards, radial dial with keyboard support, light dimmer & color picker, lock modals |
-| **Task 6** | Overview & Energy Analytics UI | ⏹️ Pending | Live telemetry cards, status summaries, theme-aware Recharts power visualizations |
+| **Task 5** | Rooms & Devices Page | ✅ Completed | Interactive device cards, dimmer slider, color picker, accessible radial dial, lock confirm modals, AND filters, memoization |
+| **Task 6** | Overview & Energy Analytics UI | ⏳ Up Next | Live telemetry cards, status summaries, theme-aware Recharts power visualizations |
 | **Task 7** | Automations & Dry-Run UI | ⏹️ Pending | IF/THEN builder, schedule editor, dry-run modal inspector |
 | **Task 8** | Event History, Notifications & Polish | ⏹️ Pending | TanStack Virtual 10k event log, persistent notification center, DEMO.md script |
 
 ---
 
 ## 5. Immediate Next Step
-Awaiting user review and approval to proceed with **Task 5: Rooms & Devices Page** on a new UI branch.
+Awaiting user review and approval to proceed with **Task 6: Overview & Energy Analytics UI** on a new feature branch.

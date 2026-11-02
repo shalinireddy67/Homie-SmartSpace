@@ -3,6 +3,7 @@ import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 import { BottomNav } from './BottomNav';
 import { useRuntime } from '@/hooks/useRuntime';
+import { ToastContainer } from '@/components/common/ToastContainer';
 
 export interface AppShellProps {
   children: React.ReactNode;
@@ -14,6 +15,9 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-surface-subtle text-text flex flex-col md:flex-row antialiased selection:bg-accent/20">
+      {/* Toast Notification Layer */}
+      <ToastContainer />
+
       {/* Skip to Content Link for Accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to main content

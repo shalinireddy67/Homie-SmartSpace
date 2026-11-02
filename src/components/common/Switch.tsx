@@ -4,6 +4,7 @@ export interface SwitchProps {
   checked: boolean;
   onChange: (checked: boolean) => void;
   disabled?: boolean;
+  'aria-disabled'?: boolean | 'true' | 'false';
   id?: string;
   label?: string;
   description?: string;
@@ -17,6 +18,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
       checked,
       onChange,
       disabled = false,
+      'aria-disabled': ariaDisabledProp,
       id,
       label,
       description,
@@ -25,8 +27,11 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
     },
     ref
   ) => {
+    const isAriaDisabled = ariaDisabledProp === true || ariaDisabledProp === 'true';
+    const isInactive = disabled || isAriaDisabled;
+
     const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-      if (disabled) return;
+      if (isInactive) return;
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         onChange(!checked);
@@ -42,12 +47,14 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
           id={id}
           aria-checked={checked}
           aria-label={ariaLabel || label}
-          disabled={disabled}
-          onClick={() => !disabled && onChange(!checked)}
+          aria-disabled={isInactive ? true : undefined}
+          disabled={disabled && !isAriaDisabled}
+          tabIndex={isAriaDisabled ? 0 : undefined}
+          onClick={() => !isInactive && onChange(!checked)}
           onKeyDown={handleKeyDown}
           className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus-ring ${
             checked ? 'bg-accent' : 'bg-surface-elevated border-border'
-          } ${disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+          } ${isInactive ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           <span
             aria-hidden="true"

@@ -7,6 +7,7 @@ import type { Device, LightDevice, ThermostatDevice } from '@/types';
 import type { RootStore } from '@/store';
 import { PRNG } from '@/utils/prng';
 import type { Clock, Scheduler, CommandResult } from './interfaces';
+export type { CommandResult };
 
 export interface StoreAccessor {
   getState: () => RootStore;

@@ -3,6 +3,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { Button } from '@/components/common/Button';
 import { Moon, Sun, Shield } from 'lucide-react';
 import { APP_NAME } from '@/constants/branding';
+import { SimulationControls } from './SimulationControls';
 
 export interface HeaderProps {
   bannerSlot?: React.ReactNode;
@@ -13,8 +14,10 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
-      {/* Simulation Banner Placeholder Slot */}
-      {bannerSlot && <div id="simulation-banner-slot">{bannerSlot}</div>}
+      {/* Simulation Controls Slot */}
+      <div id="simulation-banner-slot">
+        {bannerSlot !== undefined ? bannerSlot : <SimulationControls />}
+      </div>
 
       <div className="flex h-16 items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-3">
