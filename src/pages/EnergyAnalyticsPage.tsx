@@ -299,11 +299,10 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                 tabIndex={isSelected ? 0 : -1}
                 onClick={() => setSelectedRange(r)}
                 onKeyDown={(e) => handleRangeKeyDown(e, r)}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-lg uppercase transition-colors ${
-                  isSelected
+                className={`px-3 py-1.5 text-xs font-semibold rounded-lg uppercase transition-colors ${isSelected
                     ? 'bg-accent text-white shadow-xs'
                     : 'text-text-muted hover:text-text hover:bg-surface-subtle'
-                }`}
+                  }`}
               >
                 {r}
               </button>
@@ -406,9 +405,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
             />
           </div>
           <div
-            className={`mt-2 text-2xl font-bold font-mono tabular-nums ${
-              detectedAnomalies.length > 0 ? 'text-danger' : 'text-success'
-            }`}
+            className={`mt-2 text-2xl font-bold font-mono tabular-nums ${detectedAnomalies.length > 0 ? 'text-danger' : 'text-success'
+              }`}
           >
             {detectedAnomalies.length}
           </div>

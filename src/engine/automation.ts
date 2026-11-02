@@ -544,3 +544,189 @@ export async function runAutomations(
   };
 }
 
+export interface RuleValidationError {
+  field: string;
+  message: string;
+}
+
+export interface RuleValidationResult {
+  valid: boolean;
+  errors: RuleValidationError[];
+  summary: string[];
+}
+
+/**
+ * Pure rule validation function.
+ * Validates rule parameters against available device capabilities and schemas.
+ */
+export function validateRule(
+  rule: Partial<Rule>,
+  devices: Device[]
+): RuleValidationResult {
+  const errors: RuleValidationError[] = [];
+
+  // 1. Rule Name
+  if (!rule.name || rule.name.trim() === '') {
+    errors.push({ field: 'name', message: 'Rule name is required.' });
+  }
+
+  // 2. Conditions
+  const conditions = rule.conditionGroup?.conditions ?? [];
+  if (conditions.length === 0) {
+    errors.push({ field: 'conditions', message: 'At least one condition is required.' });
+  } else {
+    conditions.forEach((cond, idx) => {
+      const condKey = cond.id || String(idx);
+      if (['on', 'brightness', 'color', 'current', 'target', 'locked', 'active', 'online'].includes(cond.field)) {
+        if (!cond.deviceId) {
+          errors.push({
+            field: `condition_${condKey}_device`,
+            message: 'Condition requires a target device.',
+          });
+        } else {
+          const dev = devices.find((d) => d.id === cond.deviceId);
+          if (!dev) {
+            errors.push({
+              field: `condition_${condKey}_device`,
+              message: `Selected device "${cond.deviceId}" was not found.`,
+            });
+          }
+        }
+      }
+
+      if (
+        cond.value === undefined ||
+        cond.value === null ||
+        cond.value === '' ||
+        (typeof cond.value === 'number' && isNaN(cond.value))
+      ) {
+        errors.push({
+          field: `condition_${condKey}_value`,
+          message: 'Condition comparison value cannot be empty.',
+        });
+      }
+    });
+  }
+
+  // 3. Actions
+  const actions = rule.actions ?? [];
+  if (actions.length === 0) {
+    errors.push({ field: 'actions', message: 'At least one action is required.' });
+  } else {
+    actions.forEach((act, idx) => {
+      const actKey = act.id || String(idx);
+      if (!act.deviceId) {
+        errors.push({
+          field: `action_${actKey}_device`,
+          message: 'Action target device is required.',
+        });
+        return;
+      }
+
+      const dev = devices.find((d) => d.id === act.deviceId);
+      if (!dev) {
+        errors.push({
+          field: `action_${actKey}_device`,
+          message: `Target device "${act.deviceId}" does not exist.`,
+        });
+        return;
+      }
+
+      // Incompatible device and action checks
+      if (dev.type === 'light') {
+        if (!['on', 'brightness', 'color'].includes(act.field)) {
+          errors.push({
+            field: `action_${actKey}_field`,
+            message: `Field "${act.field}" is incompatible with light device "${dev.name}".`,
+          });
+        }
+        if (act.field === 'brightness') {
+          const b = Number(act.value);
+          if (isNaN(b) || b < 0 || b > 100) {
+            errors.push({
+              field: `action_${actKey}_value`,
+              message: 'Light brightness must be a number between 0 and 100.',
+            });
+          }
+        }
+      } else if (dev.type === 'thermostat') {
+        if (act.field !== 'target') {
+          errors.push({
+            field: `action_${actKey}_field`,
+            message: `Field "${act.field}" is incompatible with thermostat device "${dev.name}".`,
+          });
+        } else {
+          const t = Number(act.value);
+          if (isNaN(t) || t < dev.min || t > dev.max) {
+            errors.push({
+              field: `action_${actKey}_value`,
+              message: `Thermostat target must be between ${dev.min}°C and ${dev.max}°C (received ${act.value}).`,
+            });
+          }
+        }
+      } else if (dev.type === 'lock') {
+        if (act.field !== 'locked') {
+          errors.push({
+            field: `action_${actKey}_field`,
+            message: `Field "${act.field}" is incompatible with smart lock "${dev.name}".`,
+          });
+        }
+      } else if (dev.type === 'camera') {
+        if (!['active', 'privacyMode', 'motionDetection'].includes(act.field)) {
+          errors.push({
+            field: `action_${actKey}_field`,
+            message: `Field "${act.field}" is incompatible with camera "${dev.name}".`,
+          });
+        }
+      }
+
+      // Missing action value
+      if (act.value === undefined || act.value === null || act.value === '') {
+        errors.push({
+          field: `action_${actKey}_value`,
+          message: 'Action value cannot be empty.',
+        });
+      }
+    });
+  }
+
+  // 4. Time Window
+  if (rule.timeWindow) {
+    const { start, end } = rule.timeWindow;
+    const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
+    if (!timeRegex.test(start)) {
+      errors.push({
+        field: 'timeWindow_start',
+        message: 'Time window start must be in HH:mm 24-hour format.',
+      });
+    }
+    if (!timeRegex.test(end)) {
+      errors.push({
+        field: 'timeWindow_end',
+        message: 'Time window end must be in HH:mm 24-hour format.',
+      });
+    }
+    if (timeRegex.test(start) && timeRegex.test(end) && start === end) {
+      errors.push({
+        field: 'timeWindow_end',
+        message: 'Time window start cannot equal end time.',
+      });
+    }
+  }
+
+  // 5. Cooldown
+  if (rule.cooldownMinutes !== undefined && rule.cooldownMinutes < 0) {
+    errors.push({
+      field: 'cooldownMinutes',
+      message: 'Cooldown minutes cannot be negative.',
+    });
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+    summary: errors.map((e) => e.message),
+  };
+}
+
+

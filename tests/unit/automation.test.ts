@@ -4,6 +4,7 @@ import {
   decideExecution,
   runAutomations,
   isTimeInWindow,
+  validateRule,
   type StateSnapshot,
   type RuleExecutionState,
 } from '@/engine/automation';
@@ -424,6 +425,188 @@ describe('Automation Engine (Rule Evaluator & Runner)', () => {
       expect(result.executionsCreated.length).toBe(1);
       expect(result.executionsCreated[0]?.status).toBe('skipped');
       expect(result.executionsCreated[0]?.reason).toContain('offline');
+    });
+  });
+
+  describe('validateRule (pure rule validation)', () => {
+    it('rejects missing or empty rule name', () => {
+      const devices = useStore.getState().devices;
+      const res = validateRule({ name: '' }, devices);
+      expect(res.valid).toBe(false);
+      expect(res.errors.some((e) => e.field === 'name')).toBe(true);
+    });
+
+    it('rejects zero conditions and zero actions', () => {
+      const devices = useStore.getState().devices;
+      const res = validateRule(
+        {
+          name: 'Test Rule',
+          conditionGroup: { logic: 'AND', conditions: [] },
+          actions: [],
+        },
+        devices
+      );
+      expect(res.valid).toBe(false);
+      expect(res.errors.some((e) => e.field === 'conditions')).toBe(true);
+      expect(res.errors.some((e) => e.field === 'actions')).toBe(true);
+    });
+
+    it('rejects missing condition comparison value', () => {
+      const devices = useStore.getState().devices;
+      const light = devices.find((d) => d.type === 'light')!;
+      const res = validateRule(
+        {
+          name: 'Test Rule',
+          conditionGroup: {
+            logic: 'AND',
+            conditions: [
+              { id: 'c1', deviceId: light.id, field: 'on', operator: '==', value: '' },
+            ],
+          },
+          actions: [{ id: 'a1', deviceId: light.id, field: 'on', value: false }],
+        },
+        devices
+      );
+      expect(res.valid).toBe(false);
+      expect(res.errors.some((e) => e.field === 'condition_c1_value')).toBe(true);
+    });
+
+    it('rejects missing target device or incompatible device and action', () => {
+      const devices = useStore.getState().devices;
+      const light = devices.find((d) => d.type === 'light')!;
+      const lock = devices.find((d) => d.type === 'lock')!;
+
+      // Light with incompatible field 'locked'
+      const res = validateRule(
+        {
+          name: 'Test Rule',
+          conditionGroup: {
+            logic: 'AND',
+            conditions: [{ id: 'c1', field: 'ambientTemp', operator: '>', value: 24 }],
+          },
+          actions: [{ id: 'a1', deviceId: light.id, field: 'locked', value: true }],
+        },
+        devices
+      );
+      expect(res.valid).toBe(false);
+      expect(res.errors.some((e) => e.field === 'action_a1_field')).toBe(true);
+
+      // Lock with brightness
+      const res2 = validateRule(
+        {
+          name: 'Test Rule',
+          conditionGroup: {
+            logic: 'AND',
+            conditions: [{ id: 'c1', field: 'ambientTemp', operator: '>', value: 24 }],
+          },
+          actions: [{ id: 'a2', deviceId: lock.id, field: 'brightness', value: 50 }],
+        },
+        devices
+      );
+      expect(res2.valid).toBe(false);
+      expect(res2.errors.some((e) => e.field === 'action_a2_field')).toBe(true);
+    });
+
+    it('rejects thermostat target out of range (device min and max)', () => {
+      const devices = useStore.getState().devices;
+      const therm = devices.find((d) => d.type === 'thermostat') as ThermostatDevice;
+      expect(therm).toBeDefined();
+
+      // Below min (e.g. 10°C when min is 16)
+      const res = validateRule(
+        {
+          name: 'Thermostat Rule',
+          conditionGroup: {
+            logic: 'AND',
+            conditions: [{ id: 'c1', field: 'ambientTemp', operator: '>', value: 24 }],
+          },
+          actions: [{ id: 'a1', deviceId: therm.id, field: 'target', value: therm.min - 5 }],
+        },
+        devices
+      );
+      expect(res.valid).toBe(false);
+      expect(res.errors.some((e) => e.field === 'action_a1_value')).toBe(true);
+
+      // Above max (e.g. 35°C when max is 30)
+      const res2 = validateRule(
+        {
+          name: 'Thermostat Rule',
+          conditionGroup: {
+            logic: 'AND',
+            conditions: [{ id: 'c1', field: 'ambientTemp', operator: '>', value: 24 }],
+          },
+          actions: [{ id: 'a2', deviceId: therm.id, field: 'target', value: therm.max + 5 }],
+        },
+        devices
+      );
+      expect(res2.valid).toBe(false);
+      expect(res2.errors.some((e) => e.field === 'action_a2_value')).toBe(true);
+    });
+
+    it('rejects time window start equals end', () => {
+      const devices = useStore.getState().devices;
+      const light = devices.find((d) => d.type === 'light')!;
+      const res = validateRule(
+        {
+          name: 'Time Window Rule',
+          conditionGroup: {
+            logic: 'AND',
+            conditions: [{ id: 'c1', field: 'ambientTemp', operator: '>', value: 24 }],
+          },
+          actions: [{ id: 'a1', deviceId: light.id, field: 'on', value: false }],
+          timeWindow: { start: '14:00', end: '14:00' },
+        },
+        devices
+      );
+      expect(res.valid).toBe(false);
+      expect(res.errors.some((e) => e.field === 'timeWindow_end')).toBe(true);
+    });
+
+    it('rejects negative cooldownMinutes', () => {
+      const devices = useStore.getState().devices;
+      const light = devices.find((d) => d.type === 'light')!;
+      const res = validateRule(
+        {
+          name: 'Cooldown Rule',
+          conditionGroup: {
+            logic: 'AND',
+            conditions: [{ id: 'c1', field: 'ambientTemp', operator: '>', value: 24 }],
+          },
+          actions: [{ id: 'a1', deviceId: light.id, field: 'on', value: false }],
+          cooldownMinutes: -5,
+        },
+        devices
+      );
+      expect(res.valid).toBe(false);
+      expect(res.errors.some((e) => e.field === 'cooldownMinutes')).toBe(true);
+    });
+
+    it('accepts a fully valid rule with valid: true and empty errors', () => {
+      const devices = useStore.getState().devices;
+      const therm = devices.find((d) => d.type === 'thermostat') as ThermostatDevice;
+      const light = devices.find((d) => d.type === 'light')!;
+
+      const validRule: Partial<Rule> = {
+        name: 'Valid Night Climate',
+        conditionGroup: {
+          logic: 'AND',
+          conditions: [
+            { id: 'c1', field: 'ambientTemp', operator: '>', value: 24 },
+            { id: 'c2', deviceId: light.id, field: 'on', operator: '==', value: true },
+          ],
+        },
+        actions: [
+          { id: 'a1', deviceId: therm.id, field: 'target', value: 21 },
+          { id: 'a2', deviceId: light.id, field: 'brightness', value: 30 },
+        ],
+        timeWindow: { start: '22:00', end: '06:00' }, // Crossing midnight is valid
+        cooldownMinutes: 15,
+      };
+
+      const res = validateRule(validRule, devices);
+      expect(res.valid).toBe(true);
+      expect(res.errors).toHaveLength(0);
+      expect(res.summary).toHaveLength(0);
     });
   });
 });

@@ -21,6 +21,7 @@ export interface AutomationSlice {
   addSchedule: (schedule: Schedule) => void;
   updateSchedule: (scheduleId: string, updates: Partial<Schedule>) => void;
   deleteSchedule: (scheduleId: string) => void;
+  toggleSchedule: (scheduleId: string) => void;
 
   addExecution: (execution: AutomationExecution) => void;
   addScheduleExecution: (execution: ScheduleExecution) => void;
@@ -82,6 +83,15 @@ export const createAutomationSlice: StateCreator<
   deleteSchedule: (scheduleId) =>
     set((state) => ({
       schedules: state.schedules.filter((s) => s.id !== scheduleId),
+    })),
+
+  toggleSchedule: (scheduleId) =>
+    set((state) => ({
+      schedules: state.schedules.map((s) =>
+        s.id === scheduleId
+          ? { ...s, enabled: !s.enabled, modifiedAt: Date.now() }
+          : s
+      ),
     })),
 
   addExecution: (execution) =>

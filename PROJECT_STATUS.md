@@ -79,17 +79,19 @@
   - Precompute composite search index on 10,000 events: **30.74 ms**
   - Multi-field filter over 10,000 events down to 455 items: **30.93 ms**
   - Sort 10,000 events: **7.39 ms**
-- **Task 6 Overview & Energy Analytics Metrics:**
-  - 21 test files, 196 tests passing (100% pass rate)
-  - 8 typed metric selectors with strict tests
-  - Overview live telemetry chart, status donut/breakdown, recent events/anomalies/automations
-  - Energy Analytics 5-range radiogroup, custom range validation, energy bar chart, power area chart with baseline and anomaly diamonds, per-device and per-room breakdowns strictly summing to total
-  - Throttled live telemetry ensuring render stability under simulation ticks
-  - Full headless Chrome browser verification with zero console errors and zero horizontal scroll
+- **Task 7 Automations & Dry-Run Metrics:**
+  - 22 test files, 215 tests passing (100% pass rate)
+  - Pure `validateRule` with comprehensive checks (missing fields, incompatible types, thermostat limits, time window equality, negative cooldowns)
+  - Full-featured Rule Builder modal with accessible keyboard navigation, focus trap, inline errors, and integrated dry run
+  - Isolated Dry-Run Simulator panel with live state prefill, editable parameters, and zero store mutation
+  - Schedules tab separating configured schedules from executed history, with local next-run time computation
+  - Execution history tab merging rule triggers and schedule runs, complete with status filtering and deep links
+  - Simulation tools panel in Settings with manual temperature/humidity overrides and device connectivity toggles
+  - Automated Chrome CDP browser verification with zero console errors and zero horizontal scroll
 - **Production Build:**
   - `dist/index.html`: 1.16 kB (gzip: 0.62 kB)
-  - `dist/assets/index-xyWGUmS0.css`: 31.85 kB (gzip: 6.14 kB)
-  - `dist/assets/index-JtodiYhW.js`: 730.67 kB (gzip: 203.85 kB)
+  - `dist/assets/index-CbTa3tQz.css`: 34.09 kB (gzip: 6.45 kB)
+  - `dist/assets/index-BKtTWq2u.js`: 805.02 kB (gzip: 219.09 kB)
 
 ---
 
@@ -103,10 +105,10 @@
 | **Task 4** | Energy, Notifications & Event Filters | ✅ Completed | Rolling baseline anomaly detector, multi-range aggregator, dedupe notifications, fast 10k event filters |
 | **Task 5** | Rooms & Devices Page | ✅ Completed | Interactive device cards, dimmer slider, color picker, accessible radial dial, lock confirm modals, AND filters, memoization |
 | **Task 6** | Overview & Energy Analytics UI | ✅ Completed | Live telemetry cards, status summaries, theme-aware Recharts power visualizations |
-| **Task 7** | Automations & Dry-Run UI | ⏳ In Progress | IF/THEN builder, schedule editor, dry-run modal inspector |
-| **Task 8** | Event History, Notifications & Polish | ⏹️ Pending | TanStack Virtual 10k event log, persistent notification center, DEMO.md script |
+| **Task 7** | Automations & Dry-Run UI | ✅ Completed | 3-tab Automations page, IF/THEN builder, schedule editor, dry-run modal inspector, simulation tools |
+| **Task 8** | Event History, Notifications & Polish | ⏳ Up Next | TanStack Virtual 10k event log, persistent notification center, DEMO.md script |
 
 ---
 
 ## 5. Immediate Next Step
-Starting **Task 7: Automations & Dry-Run UI** (`feat/automations-ui`). Building the 3-tab Automations page (`Rules`, `Schedules`, `Execution history`), pure rule validation, Rule Builder modal with full keyboard accessibility, Dry-Run simulator panel, Schedules management, and Simulation tools panel in Settings.
+Awaiting user review and approval to proceed with **Task 8: Event History, Notifications & Polish** on a new feature branch (`feat/history-notifications`).
