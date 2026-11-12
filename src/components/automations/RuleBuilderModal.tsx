@@ -320,12 +320,16 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
             </div>
           </div>
 
-          {/* Section 2: Conditions */}
+          {/* Section 2: When (Conditions) */}
           <div className="space-y-3 pt-2 border-t border-border">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-semibold text-text">Conditions (IF)</h3>
-                <p className="text-[11px] text-text-muted">
+                <h3 className="text-sm font-bold text-text flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded-full bg-accent-subtle text-accent text-xs font-mono font-semibold">1</span>
+                  <span>When</span>
+                  <span className="text-xs font-normal text-text-muted">(Conditions)</span>
+                </h3>
+                <p className="text-[11px] text-text-muted mt-0.5">
                   Telemetry checks or device state prerequisites required for execution.
                 </p>
               </div>
@@ -335,7 +339,7 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
                 <div
                   role="radiogroup"
                   aria-label="Condition evaluation logic"
-                  className="inline-flex rounded-lg border border-border p-0.5 bg-surface-subtle"
+                  className="inline-flex rounded-full border border-border-subtle p-0.5 bg-surface-card shadow-xs"
                 >
                   {(['AND', 'OR'] as LogicalOperator[]).map((op) => {
                     const isSelected = logic === op;
@@ -346,10 +350,10 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
                         role="radio"
                         aria-checked={isSelected}
                         onClick={() => setLogic(op)}
-                        className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
+                        className={`px-3 py-1 text-xs font-semibold rounded-full transition-all duration-200 focus-ring ${
                           isSelected
                             ? 'bg-accent text-white shadow-xs'
-                            : 'text-text-muted hover:text-text'
+                            : 'text-text-muted hover:text-text hover:bg-surface'
                         }`}
                       >
                         {op}
@@ -516,11 +520,15 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
             </div>
           </div>
 
-          {/* Section 3: Actions */}
+          {/* Section 3: Then (Actions) */}
           <div className="space-y-3 pt-2 border-t border-border">
             <div>
-              <h3 className="text-sm font-semibold text-text">Actions (THEN)</h3>
-              <p className="text-[11px] text-text-muted">
+              <h3 className="text-sm font-bold text-text flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded-full bg-accent-subtle text-accent text-xs font-mono font-semibold">2</span>
+                <span>Then</span>
+                <span className="text-xs font-normal text-text-muted">(Actions)</span>
+              </h3>
+              <p className="text-[11px] text-text-muted mt-0.5">
                 Commands dispatched when the rule transitions to eligible.
               </p>
             </div>
@@ -713,12 +721,21 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
             </div>
           </div>
 
-          {/* Section 4: Time Window, Weekdays & Cooldown */}
+          {/* Section 4: Time (Time Window, Weekdays & Cooldown) */}
           <div className="space-y-4 pt-2 border-t border-border">
-            <h3 className="text-sm font-semibold text-text">Timing & Cooldown Constraints</h3>
+            <div>
+              <h3 className="text-sm font-bold text-text flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded-full bg-accent-subtle text-accent text-xs font-mono font-semibold">3</span>
+                <span>Time</span>
+                <span className="text-xs font-normal text-text-muted">(Window & Cooldown)</span>
+              </h3>
+              <p className="text-[11px] text-text-muted mt-0.5">
+                Timing, active weekday boundaries, and execution cooldown constraints.
+              </p>
+            </div>
 
             {/* Time Window Switch & Inputs */}
-            <div className="p-3.5 rounded-xl bg-surface-subtle border border-border space-y-3">
+            <div className="p-3.5 rounded-2xl bg-surface-subtle border border-border space-y-3">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs font-semibold text-text">Time Window Filter</span>
@@ -745,7 +762,7 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
                       type="time"
                       value={startTime}
                       onChange={(e) => setStartTime(e.target.value)}
-                      className="w-full px-2 py-1.5 bg-surface border border-border rounded text-text font-mono focus-ring"
+                      className="w-full px-2 py-1.5 bg-surface border border-border rounded-xl text-text font-mono focus-ring"
                     />
                     {getFieldError('timeWindow_start') && (
                       <p className="text-[11px] text-danger mt-0.5">{getFieldError('timeWindow_start')}</p>
@@ -762,7 +779,7 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
                       type="time"
                       value={endTime}
                       onChange={(e) => setEndTime(e.target.value)}
-                      className="w-full px-2 py-1.5 bg-surface border border-border rounded text-text font-mono focus-ring"
+                      className="w-full px-2 py-1.5 bg-surface border border-border rounded-xl text-text font-mono focus-ring"
                     />
                     {getFieldError('timeWindow_end') && (
                       <p className="text-[11px] text-danger mt-0.5">{getFieldError('timeWindow_end')}</p>
@@ -786,10 +803,10 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
                       type="button"
                       aria-pressed={isSelected}
                       onClick={() => handleToggleWeekday(idx)}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors focus-ring ${
+                      className={`px-3 py-1.5 min-h-[44px] sm:min-h-[34px] text-xs font-medium rounded-full border transition-all duration-200 focus-ring ${
                         isSelected
-                          ? 'bg-accent text-white border-accent shadow-xs'
-                          : 'bg-surface text-text-muted hover:text-text border-border'
+                          ? 'bg-accent-subtle text-text border-accent font-semibold shadow-xs'
+                          : 'bg-surface border-border-subtle text-text-muted hover:text-text hover:bg-surface-elevated'
                       }`}
                     >
                       {label}
