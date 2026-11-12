@@ -73,7 +73,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
               <span
                 id={id ? `${id}-label` : undefined}
                 className={`text-sm font-medium ${
-                  disabled ? 'text-text-muted/60' : 'text-text'
+                  disabled ? 'text-text-muted' : 'text-text'
                 }`}
               >
                 {label}

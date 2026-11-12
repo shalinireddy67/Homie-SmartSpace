@@ -293,13 +293,15 @@ export const EventHistoryPage: React.FC = () => {
               size="sm"
               className="w-full justify-between text-xs rounded-xl"
               onClick={() => setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')}
-              aria-label={`Sort order: currently ${sortOrder === 'desc' ? 'newest first' : 'oldest first'}`}
             >
+              <span className="sr-only">
+                Sort order: currently {sortOrder === 'desc' ? 'newest first' : 'oldest first'}
+              </span>
               <span className="flex items-center gap-1.5">
                 {sortOrder === 'desc' ? (
-                  <ArrowDown className="h-3.5 w-3.5 text-accent" />
+                  <ArrowDown className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
                 ) : (
-                  <ArrowUp className="h-3.5 w-3.5 text-accent" />
+                  <ArrowUp className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
                 )}
                 <span className="font-semibold">{sortOrder === 'desc' ? 'Newest' : 'Oldest'}</span>
               </span>
@@ -317,7 +319,7 @@ export const EventHistoryPage: React.FC = () => {
               Showing <strong className="text-text font-bold">{filteredEvents.length.toLocaleString()}</strong> of{' '}
               {events.length.toLocaleString()} events
             </span>
-            <span className="font-mono text-[11px] px-2 py-0.5 rounded-full bg-accent-subtle text-accent font-semibold tabular-nums border border-accent/20">
+            <span className="font-mono text-[11px] px-2 py-0.5 rounded-full bg-accent-subtle text-[#145246] dark:text-accent font-semibold tabular-nums border border-accent/20">
               {queryDurationMs} ms
             </span>
           </div>
@@ -336,9 +338,14 @@ export const EventHistoryPage: React.FC = () => {
       </div>
 
       {/* Virtualized Event Table */}
-      <Card className="bg-surface border border-border-subtle rounded-3xl shadow-soft overflow-hidden">
+      <Card
+        aria-label="Audit event history"
+        className="bg-surface border border-border-subtle rounded-3xl shadow-soft overflow-hidden"
+      >
         {/* Table Header (Desktop) */}
-        <div className="hidden sm:grid sm:grid-cols-12 gap-3 px-4 py-3 bg-surface-card border-b border-border-subtle text-xs font-semibold text-text-muted select-none uppercase tracking-wider">
+        <div
+          className="hidden sm:grid sm:grid-cols-12 gap-3 px-4 py-3 bg-surface-card border-b border-border-subtle text-xs font-semibold text-text-muted select-none uppercase tracking-wider"
+        >
           <div className="col-span-2">Timestamp</div>
           <div className="col-span-2">Severity & Type</div>
           <div className="col-span-3">Entity / Room</div>
@@ -395,7 +402,6 @@ export const EventHistoryPage: React.FC = () => {
                 return (
                   <div
                     key={event.id}
-                    role="row"
                     tabIndex={0}
                     onClick={() => setInspectEvent(event)}
                     onKeyDown={(e) => {
@@ -413,7 +419,7 @@ export const EventHistoryPage: React.FC = () => {
                       transform: `translateY(${virtualRow.start}px)`,
                     }}
                     className="border-b border-border-subtle hover:bg-surface-elevated/70 cursor-pointer transition-colors text-xs text-text focus:outline-none focus:bg-surface-elevated focus:ring-1 focus:ring-accent"
-                    aria-label={`Event: ${event.description}, Severity: ${event.severity}`}
+                    aria-label={`Event: ${event.description}`}
                   >
                     {/* Desktop layout: Dense readable 12-col grid */}
                     <div className="hidden sm:grid sm:grid-cols-12 gap-3 px-4 py-2.5 items-center h-full">

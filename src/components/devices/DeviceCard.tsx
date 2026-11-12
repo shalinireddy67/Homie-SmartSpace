@@ -187,7 +187,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
           : isPending
           ? 'border-accent ring-2 ring-accent/25 bg-surface-card shadow-soft'
           : !device.online
-          ? 'opacity-75 bg-surface-elevated/60 border-border-subtle'
+          ? 'bg-surface-elevated/60 border-border-subtle'
           : 'bg-surface-card border-border-subtle hover:border-border shadow-xs hover:shadow-soft'
       }`}
     >
@@ -259,6 +259,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
             <span className="font-semibold text-text">{getCurrentReading()}</span>
             {device.type === 'light' && (
               <span
+                role="img"
                 className="inline-block h-3.5 w-3.5 rounded-full border border-border shadow-xs ml-0.5"
                 style={{ backgroundColor: (device as LightDevice).color }}
                 title={`Current color: ${(device as LightDevice).color}`}
@@ -286,7 +287,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
               <p className="font-semibold leading-tight">
                 {device.offlineReason || 'Device offline'}
               </p>
-              <p className="text-[11px] text-danger/80 mt-0.5">
+              <p className="text-[11px] text-red-700 dark:text-red-300 mt-0.5">
                 Controls are disabled because hardware is unreachable.
               </p>
             </div>
@@ -374,7 +375,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
                       target: Math.max((device as ThermostatDevice).min, (device as ThermostatDevice).target - 0.5),
                     })
                   }
-                  aria-label={`Decrease target for ${device.name}`}
+                  aria-label={`Decrease target for ${device.name} by 0.5°`}
                 >
                   <Minus className="h-3.5 w-3.5" />
                   <span>0.5°</span>
@@ -392,7 +393,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
                       target: Math.min((device as ThermostatDevice).max, (device as ThermostatDevice).target + 0.5),
                     })
                   }
-                  aria-label={`Increase target for ${device.name}`}
+                  aria-label={`Increase target for ${device.name} by 0.5°`}
                 >
                   <Plus className="h-3.5 w-3.5" />
                   <span>0.5°</span>
@@ -437,8 +438,8 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
                 className="w-full"
                 aria-label={
                   (device as LockDevice).locked
-                    ? `Unlock ${device.name}`
-                    : `Lock ${device.name}`
+                    ? `Unlock Door - Unlock ${device.name}`
+                    : `Lock Door - Lock ${device.name}`
                 }
               >
                 {(device as LockDevice).locked ? 'Unlock Door' : 'Lock Door'}

@@ -344,7 +344,7 @@ export const OverviewPage: React.FC = () => {
                 className={`p-5 rounded-3xl flex flex-col justify-between transition-all duration-200 ${
                   device.online
                     ? 'bg-surface border-border-subtle hover:shadow-md'
-                    : 'bg-surface-card/70 border-border-subtle opacity-80'
+                    : 'bg-surface-card border-border-subtle'
                 }`}
               >
                 <div>
@@ -572,7 +572,12 @@ export const OverviewPage: React.FC = () => {
                     isAnimationActive={false}
                   >
                     {pieData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={entry.color}
+                        name={entry.name}
+                        aria-label={`${entry.name}: ${entry.value}`}
+                      />
                     ))}
                   </Pie>
                   <Tooltip

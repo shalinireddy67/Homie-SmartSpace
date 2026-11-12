@@ -782,7 +782,12 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
             Component distribution strictly summing to 100% of measured power.
           </p>
 
-          <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label="Per-device energy breakdown list"
+            className="space-y-3 max-h-72 overflow-y-auto pr-1 focus-ring rounded-xl"
+          >
             {deviceBreakdown.map((dev) => (
               <div key={dev.id} className="text-xs flex flex-col gap-1">
                 <div className="flex items-center justify-between gap-2">
@@ -818,7 +823,12 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
             Zonal usage distribution across interior and exterior spaces.
           </p>
 
-          <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label="Per-room energy breakdown list"
+            className="space-y-3 max-h-72 overflow-y-auto pr-1 focus-ring rounded-xl"
+          >
             {roomBreakdown.map((room) => (
               <div key={room.id} className="text-xs flex flex-col gap-1">
                 <div className="flex items-center justify-between gap-2">

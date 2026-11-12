@@ -30,10 +30,10 @@ export const Badge: React.FC<BadgeProps> = ({
 
   const variantStyles = {
     default: 'bg-surface-elevated text-text-muted border border-border-subtle',
-    success: 'bg-success/15 text-success border border-success/35 font-medium',
-    warning: 'bg-warning/15 text-warning border border-warning/35 font-medium',
-    danger: 'bg-danger/15 text-danger border border-danger/35 font-medium',
-    accent: 'bg-accent-subtle/70 text-accent border border-accent/30 font-medium',
+    success: 'bg-emerald-50 text-emerald-900 border-emerald-200 dark:bg-emerald-950/70 dark:text-emerald-200 dark:border-emerald-800/50 font-medium',
+    warning: 'bg-amber-50 text-amber-950 border-amber-200 dark:bg-amber-950/70 dark:text-amber-200 dark:border-amber-800/50 font-medium',
+    danger: 'bg-red-50 text-red-800 border-red-200 dark:bg-red-950/70 dark:text-red-200 dark:border-red-800/50 font-medium',
+    accent: 'bg-accent-subtle/70 text-[#145246] dark:text-[#A7F3D0] border border-accent/30 font-medium',
     outline: 'bg-transparent text-text border border-border font-medium',
     blue: 'bg-pastel-blue-bg text-pastel-blue-text border border-pastel-blue-text/20 font-medium',
     yellow: 'bg-pastel-yellow-bg text-pastel-yellow-text border border-pastel-yellow-text/20 font-medium',

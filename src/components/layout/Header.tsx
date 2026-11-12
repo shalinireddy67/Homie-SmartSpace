@@ -69,8 +69,8 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
         <div className="flex items-center gap-3 shrink-0">
           <Link
             to="/"
-            className="flex items-center gap-2.5 rounded-full focus-ring pr-1"
-            aria-label={`${APP_NAME} Overview`}
+            className="flex items-center gap-2 rounded-full focus-ring"
+            aria-label={APP_NAME}
           >
             <div
               className="flex h-9 w-9 items-center justify-center rounded-2xl bg-text text-surface shadow-xs shrink-0"
@@ -87,20 +87,19 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
                 <circle cx="17.5" cy="16.5" r="1.75" fill="currentColor" />
               </svg>
             </div>
-            <div className="flex flex-col leading-none">
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold tracking-tight text-text text-sm sm:text-base">
-                  {APP_NAME}
-                </span>
-                <span className="hidden xl:inline text-xs text-text-muted font-medium">
-                  • {getGreeting(currentTime)}
-                </span>
-              </div>
-              <span className="text-[10px] text-text-muted font-medium tabular-nums mt-0.5">
-                <span className="hidden sm:inline">{dateStr} • </span>{timeStr}
-              </span>
-            </div>
+            <span className="font-bold tracking-tight text-text text-sm sm:text-base">
+              {APP_NAME}
+            </span>
           </Link>
+
+          <div className="flex flex-col leading-none">
+            <span className="hidden xl:inline text-xs text-text-muted font-medium">
+              {getGreeting(currentTime)}
+            </span>
+            <span className="text-[10px] text-text-muted font-medium tabular-nums mt-0.5">
+              <span className="hidden sm:inline">{dateStr} • </span>{timeStr}
+            </span>
+          </div>
 
           <div className="hidden 2xl:flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-elevated text-xs font-medium text-text border border-border-subtle select-none">
             <Home className="h-3.5 w-3.5 text-accent" aria-hidden="true" />

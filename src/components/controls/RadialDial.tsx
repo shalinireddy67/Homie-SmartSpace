@@ -158,9 +158,9 @@ export const RadialDial: React.FC<RadialDialProps> = ({
   const isCooling = localTarget < current - 0.2;
   const modeLabel = isHeating ? 'Heating' : isCooling ? 'Cooling' : 'Idle';
   const modeColor = isHeating
-    ? 'text-warning bg-warning-subtle border-warning/30'
+    ? 'text-[#873800] dark:text-warning bg-warning-subtle border-warning/30'
     : isCooling
-    ? 'text-accent bg-accent-subtle border-border-subtle'
+    ? 'text-[#145246] dark:text-[#A7F3D0] bg-accent-subtle border-border-subtle'
     : 'text-text-muted bg-surface-elevated border-border-subtle';
 
   return (
