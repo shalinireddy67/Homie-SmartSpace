@@ -9,6 +9,7 @@ import { EventHistoryPage } from '@/pages/EventHistoryPage';
 import { NotificationsPage } from '@/pages/NotificationsPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -28,9 +29,11 @@ export const AppRoutes: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <AppShell>
-        <AppRoutes />
-      </AppShell>
+      <ErrorBoundary>
+        <AppShell>
+          <AppRoutes />
+        </AppShell>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 };

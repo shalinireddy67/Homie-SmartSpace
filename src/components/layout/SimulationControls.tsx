@@ -32,8 +32,8 @@ export const SimulationControls: React.FC<{ compact?: boolean }> = ({ compact = 
           }`}
           aria-hidden="true"
         />
-        <span className="hidden xl:inline font-medium text-text-muted text-[11px]">
-          Simulated
+        <span className="hidden xl:inline font-semibold text-text-muted text-[11px]">
+          Simulated data
         </span>
       </div>
 

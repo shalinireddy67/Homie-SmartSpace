@@ -38,9 +38,22 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
     return () => clearInterval(timer);
   }, []);
 
+  const getGreeting = (date: Date) => {
+    const hour = date.getHours();
+    if (hour < 12) return 'Good morning';
+    if (hour < 17) return 'Good afternoon';
+    return 'Good evening';
+  };
+
   const timeStr = currentTime.toLocaleTimeString(undefined, {
     hour: 'numeric',
     minute: '2-digit',
+  });
+
+  const dateStr = currentTime.toLocaleDateString(undefined, {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
   });
 
   return (
@@ -75,11 +88,16 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
               </svg>
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-bold tracking-tight text-text text-sm sm:text-base">
-                {APP_NAME}
-              </span>
-              <span className="text-[10px] text-text-muted font-medium tabular-nums">
-                {timeStr}
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold tracking-tight text-text text-sm sm:text-base">
+                  {APP_NAME}
+                </span>
+                <span className="hidden xl:inline text-xs text-text-muted font-medium">
+                  • {getGreeting(currentTime)}
+                </span>
+              </div>
+              <span className="text-[10px] text-text-muted font-medium tabular-nums mt-0.5">
+                <span className="hidden sm:inline">{dateStr} • </span>{timeStr}
               </span>
             </div>
           </Link>
