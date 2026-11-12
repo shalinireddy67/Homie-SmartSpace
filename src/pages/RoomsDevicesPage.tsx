@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useStore } from '@/store';
 import { DeviceCard } from '@/components/devices/DeviceCard';
+import { DeviceDetailModal } from '@/components/devices/DeviceDetailModal';
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import type { DeviceType } from '@/types';
@@ -14,6 +15,8 @@ import {
   Lock,
   Camera,
   Grid,
+  Wifi,
+  WifiOff,
 } from 'lucide-react';
 
 export const RoomsDevicesPage: React.FC = () => {
@@ -23,6 +26,7 @@ export const RoomsDevicesPage: React.FC = () => {
   const [selectedRoom, setSelectedRoom] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [inspectedDeviceId, setInspectedDeviceId] = useState<string | null>(null);
 
   // Stable lookup map for room names
   const roomMap = useMemo(() => {
@@ -66,11 +70,30 @@ export const RoomsDevicesPage: React.FC = () => {
     });
   }, [devices, selectedRoom, selectedType, searchQuery, roomMap]);
 
+  const handleInspectDevice = useCallback((id: string) => {
+    setInspectedDeviceId(id);
+  }, []);
+
+  const handleCloseDetail = useCallback(() => {
+    setInspectedDeviceId(null);
+  }, []);
+
   const handleClearFilters = useCallback(() => {
     setSelectedRoom('all');
     setSelectedType('all');
     setSearchQuery('');
   }, []);
+
+  const filteredOnline = useMemo(
+    () => filteredDevices.filter((d) => d.online).length,
+    [filteredDevices]
+  );
+  const filteredOffline = filteredDevices.length - filteredOnline;
+
+  const inspectedDevice = useMemo(
+    () => devices.find((d) => d.id === inspectedDeviceId) ?? null,
+    [devices, inspectedDeviceId]
+  );
 
   const hasActiveFilters =
     selectedRoom !== 'all' || selectedType !== 'all' || searchQuery.trim() !== '';
@@ -228,6 +251,29 @@ export const RoomsDevicesPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Count Summary Strip */}
+      <div
+        className="flex flex-wrap items-center justify-between gap-2 px-1"
+        aria-live="polite"
+        data-testid="devices-count-summary"
+      >
+        <p className="text-xs text-text-muted">
+          Showing <strong className="font-semibold text-text tabular-nums">{filteredDevices.length}</strong> of{' '}
+          <strong className="font-semibold text-text tabular-nums">{devices.length}</strong> devices
+          {selectedRoom !== 'all' && ` in ${roomMap.get(selectedRoom) || 'selected room'}`}
+        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="success" size="sm">
+            <Wifi className="h-3 w-3" aria-hidden="true" />
+            <span className="tabular-nums">{filteredOnline} online</span>
+          </Badge>
+          <Badge variant={filteredOffline > 0 ? 'danger' : 'default'} size="sm">
+            <WifiOff className="h-3 w-3" aria-hidden="true" />
+            <span className="tabular-nums">{filteredOffline} offline</span>
+          </Badge>
+        </div>
+      </div>
+
       {/* Grid of Device Cards or Empty State */}
       <section id="devices-grid" aria-label="Device list" className="w-full">
         {filteredDevices.length === 0 ? (
@@ -258,11 +304,21 @@ export const RoomsDevicesPage: React.FC = () => {
                 key={device.id}
                 device={device}
                 roomName={roomMap.get(device.roomId) || 'Unknown Room'}
+                onInspect={handleInspectDevice}
               />
             ))}
           </div>
         )}
       </section>
+
+      {inspectedDevice && (
+        <DeviceDetailModal
+          device={inspectedDevice}
+          roomName={roomMap.get(inspectedDevice.roomId) || 'Unknown Room'}
+          isOpen={Boolean(inspectedDevice)}
+          onClose={handleCloseDetail}
+        />
+      )}
     </div>
   );
 };
