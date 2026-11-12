@@ -7,6 +7,7 @@ import { Moon, Sun, Bell, Home } from 'lucide-react';
 import { APP_NAME } from '@/constants/branding';
 import { NAV_ITEMS } from '@/constants/navigation';
 import { SimulationControls } from './SimulationControls';
+import { NotificationDrawer } from '@/components/notifications/NotificationDrawer';
 
 export interface HeaderProps {
   bannerSlot?: React.ReactNode;
@@ -28,6 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   const [currentTime, setCurrentTime] = useState(() => new Date());
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -119,9 +121,12 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
           <SimulationControls />
 
           {/* Notification Bell Circle Button */}
-          <Link
-            to="/notifications"
+          <button
+            type="button"
+            onClick={() => setIsDrawerOpen(true)}
             aria-label={`Notifications, ${unreadCount} unread`}
+            aria-haspopup="dialog"
+            aria-expanded={isDrawerOpen}
             className="relative rounded-full p-2 text-text-muted hover:text-text bg-surface-elevated/80 hover:bg-surface-elevated border border-border-subtle transition-colors focus-ring inline-flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-[38px] sm:min-h-[38px]"
           >
             <Bell className="h-4 w-4" aria-hidden="true" />
@@ -133,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
                 {unreadCount > 99 ? '99+' : unreadCount}
               </span>
             )}
-          </Link>
+          </button>
 
           {/* Theme Toggle */}
           <Button
@@ -166,6 +171,12 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
           </div>
         </div>
       </div>
+
+      {/* Slide-out Notification Center Drawer */}
+      <NotificationDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      />
     </header>
   );
 };
