@@ -68,7 +68,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
           <div
             className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs transition-colors ${
               device.on
-                ? 'bg-pastel-yellow-bg text-pastel-yellow-text'
+                ? 'bg-pastel-peach-bg text-pastel-peach-text'
                 : 'bg-surface-elevated text-text-muted'
             }`}
           >
@@ -87,7 +87,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
             className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs transition-colors ${
               device.locked
                 ? 'bg-pastel-green-bg text-pastel-green-text'
-                : 'bg-pastel-yellow-bg text-pastel-yellow-text'
+                : 'bg-pastel-peach-bg text-pastel-peach-text'
             }`}
           >
             {device.locked ? <Lock className="h-5 w-5" /> : <Unlock className="h-5 w-5" />}
@@ -95,7 +95,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
         );
       case 'camera':
         return (
-          <div className="h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-surface-elevated text-accent">
+          <div className="h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-pastel-lavender-bg text-pastel-lavender-text">
             <Camera className="h-5 w-5" />
           </div>
         );
@@ -141,10 +141,10 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
   return (
     <Card
       data-testid={`device-card-${device.id}`}
-      className={`relative flex flex-col justify-between transition-all duration-200 border ${
+      className={`relative flex flex-col justify-between transition-all duration-200 rounded-3xl border ${
         !device.online
-          ? 'opacity-70 bg-surface-subtle/50 border-border/60'
-          : 'bg-surface hover:border-border/80 shadow-xs'
+          ? 'opacity-75 bg-surface-elevated/60 border-border-subtle'
+          : 'bg-surface-card border-border-subtle hover:border-border shadow-xs hover:shadow-soft'
       }`}
     >
       {/* Top Header */}

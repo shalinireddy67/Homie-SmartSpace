@@ -88,7 +88,7 @@ export const RoomsDevicesPage: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-text">Rooms & Devices</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">Rooms & Devices</h1>
           <p className="text-sm text-text-muted mt-1">
             Real-time status and interactive controls for {devices.length} simulated home devices.
           </p>
@@ -100,11 +100,11 @@ export const RoomsDevicesPage: React.FC = () => {
       </div>
 
       {/* Room Navigation Tabs */}
-      <div className="overflow-x-auto pb-1 max-w-full">
+      <div className="overflow-x-auto sm:overflow-visible pb-1 max-w-full">
         <div
           role="tablist"
           aria-label="Filter devices by room"
-          className="flex items-center gap-2 border-b border-border/80 min-w-max pb-2.5"
+          className="flex items-center sm:flex-wrap gap-2 border-b border-border-subtle min-w-max sm:min-w-0 pb-3"
         >
           <button
             type="button"
@@ -112,16 +112,18 @@ export const RoomsDevicesPage: React.FC = () => {
             aria-selected={selectedRoom === 'all'}
             aria-controls="devices-grid"
             onClick={() => setSelectedRoom('all')}
-            className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 focus-ring ${
+            className={`px-4 py-2 min-h-[44px] sm:min-h-[38px] rounded-full text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 border focus-ring whitespace-nowrap ${
               selectedRoom === 'all'
-                ? 'bg-accent text-white shadow-xs font-semibold'
-                : 'text-text-muted hover:text-text hover:bg-surface-elevated'
+                ? 'bg-accent-subtle text-text border-border shadow-xs font-semibold'
+                : 'bg-surface text-text-muted border-border-subtle hover:text-text hover:bg-surface-card'
             }`}
           >
             <span>All Rooms</span>
             <span
               className={`text-[11px] px-2 py-0.5 rounded-full font-mono tabular-nums ${
-                selectedRoom === 'all' ? 'bg-white/20 text-white' : 'bg-surface-elevated text-text-muted'
+                selectedRoom === 'all'
+                  ? 'bg-surface text-text border border-border-subtle'
+                  : 'bg-surface-elevated text-text-muted'
               }`}
             >
               {devices.length}
@@ -139,16 +141,18 @@ export const RoomsDevicesPage: React.FC = () => {
                 aria-selected={isSelected}
                 aria-controls="devices-grid"
                 onClick={() => setSelectedRoom(room.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 focus-ring ${
+                className={`px-4 py-2 min-h-[44px] sm:min-h-[38px] rounded-full text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 border focus-ring whitespace-nowrap ${
                   isSelected
-                    ? 'bg-accent text-white shadow-xs font-semibold'
-                    : 'text-text-muted hover:text-text hover:bg-surface-elevated'
+                    ? 'bg-accent-subtle text-text border-border shadow-xs font-semibold'
+                    : 'bg-surface text-text-muted border-border-subtle hover:text-text hover:bg-surface-card'
                 }`}
               >
                 <span>{room.name}</span>
                 <span
                   className={`text-[11px] px-2 py-0.5 rounded-full font-mono tabular-nums ${
-                    isSelected ? 'bg-white/20 text-white' : 'bg-surface-elevated text-text-muted'
+                    isSelected
+                      ? 'bg-surface text-text border border-border-subtle'
+                      : 'bg-surface-elevated text-text-muted'
                   }`}
                 >
                   {count}
@@ -160,10 +164,10 @@ export const RoomsDevicesPage: React.FC = () => {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 p-4 bg-surface rounded-2xl border border-border/80 shadow-xs">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 p-4 bg-surface-card rounded-2xl border border-border-subtle shadow-xs">
         {/* Device Type Filter Pills */}
         <div
-          className="flex flex-wrap items-center gap-1.5"
+          className="flex flex-wrap items-center gap-2"
           role="group"
           aria-label="Filter by device type"
         >
@@ -173,10 +177,10 @@ export const RoomsDevicesPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedType(opt.id as DeviceType | 'all')}
               aria-pressed={selectedType === opt.id}
-              className={`px-3 py-1.5 text-xs font-medium rounded-xl border transition-all duration-200 flex items-center gap-1.5 focus-ring ${
+              className={`px-3.5 py-2 min-h-[44px] sm:min-h-[34px] sm:py-1.5 text-xs rounded-full border transition-all duration-200 flex items-center gap-1.5 focus-ring ${
                 selectedType === opt.id
-                  ? 'bg-accent/15 border-accent text-accent font-semibold shadow-xs'
-                  : 'bg-surface border-border/80 text-text-muted hover:text-text hover:border-border'
+                  ? 'bg-accent-subtle border-accent text-text font-semibold shadow-xs'
+                  : 'bg-surface border-border text-text-muted hover:text-text hover:bg-surface-elevated'
               }`}
             >
               {opt.icon}
@@ -188,21 +192,21 @@ export const RoomsDevicesPage: React.FC = () => {
         {/* Search Field & Clear */}
         <div className="flex items-center gap-2">
           <div className="relative flex-1 md:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by name or room..."
               aria-label="Search devices or rooms"
-              className="w-full pl-9 pr-8 py-2 text-xs bg-surface-elevated border border-border/80 rounded-xl text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full pl-10 pr-9 py-2 min-h-[44px] sm:min-h-[38px] text-xs bg-surface border border-border rounded-xl text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search text"
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-text-muted hover:text-text p-1"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-text-muted hover:text-text p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg focus-ring"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -214,7 +218,7 @@ export const RoomsDevicesPage: React.FC = () => {
               variant="ghost"
               size="sm"
               onClick={handleClearFilters}
-              className="text-xs text-text-muted hover:text-danger h-9 gap-1 px-2.5 shrink-0 rounded-xl"
+              className="text-xs text-text-muted hover:text-danger gap-1 px-3 shrink-0 rounded-xl"
               aria-label="Clear all active filters"
             >
               <SlidersHorizontal className="h-3.5 w-3.5" />
@@ -229,7 +233,7 @@ export const RoomsDevicesPage: React.FC = () => {
         {filteredDevices.length === 0 ? (
           <div
             data-testid="empty-devices-state"
-            className="flex flex-col items-center justify-center p-12 text-center bg-surface border border-dashed border-border/80 rounded-3xl"
+            className="flex flex-col items-center justify-center p-12 text-center bg-surface-card border border-dashed border-border rounded-3xl"
           >
             <div className="p-4 rounded-2xl bg-surface-elevated mb-3 text-text-muted">
               <SearchX className="h-8 w-8" />
