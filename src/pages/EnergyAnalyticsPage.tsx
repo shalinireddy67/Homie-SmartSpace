@@ -260,7 +260,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       <div
         role="note"
         aria-label="Simulation dataset disclaimer"
-        className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-elevated/70 border border-border/80 text-xs text-text-muted"
+        className="flex flex-wrap items-center justify-between gap-2 p-3.5 rounded-2xl bg-surface-card border border-border-subtle text-xs text-text-muted"
       >
         <div className="flex items-center gap-2">
           <HelpCircle className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
@@ -286,7 +286,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         <div
           role="radiogroup"
           aria-label="Select energy analytics timeframe"
-          className="flex items-center rounded-2xl border border-border/80 p-1 bg-surface-elevated shadow-xs"
+          className="inline-flex flex-wrap items-center gap-1 rounded-full border border-border-subtle p-1 bg-surface-card shadow-xs self-start sm:self-auto"
         >
           {RANGES.map((r) => {
             const isSelected = selectedRange === r;
@@ -299,10 +299,10 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                 tabIndex={isSelected ? 0 : -1}
                 onClick={() => setSelectedRange(r)}
                 onKeyDown={(e) => handleRangeKeyDown(e, r)}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-xl uppercase transition-all duration-200 focus-ring ${
+                className={`px-3.5 py-1.5 min-h-[44px] sm:min-h-[34px] text-xs font-semibold rounded-full uppercase transition-all duration-200 focus-ring ${
                   isSelected
-                    ? 'bg-accent text-white shadow-xs'
-                    : 'text-text-muted hover:text-text hover:bg-surface'
+                    ? 'bg-accent-subtle text-text border border-border shadow-xs'
+                    : 'text-text-muted hover:text-text hover:bg-surface border border-transparent'
                 }`}
               >
                 {r}
@@ -314,10 +314,10 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
 
       {/* Custom Date Inputs when range === 'custom' */}
       {selectedRange === 'custom' && (
-        <Card className="p-4 bg-surface border border-border">
+        <Card className="p-4 sm:p-5 bg-surface-card border border-border-subtle rounded-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-text-muted" aria-hidden="true" />
+              <Calendar className="h-4 w-4 text-accent" aria-hidden="true" />
               <span className="text-xs font-semibold text-text">Custom Time Range:</span>
             </div>
             <div className="flex flex-wrap items-center gap-3">
@@ -327,7 +327,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   type="datetime-local"
                   value={customStartStr}
                   onChange={(e) => handleCustomChange(e.target.value, customEndStr)}
-                  className="px-2.5 py-1 text-xs bg-surface-subtle border border-border rounded-lg text-text focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="px-2.5 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus:outline-none focus:ring-2 focus:ring-accent"
                 />
               </label>
 
@@ -337,7 +337,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   type="datetime-local"
                   value={customEndStr}
                   onChange={(e) => handleCustomChange(customStartStr, e.target.value)}
-                  className="px-2.5 py-1 text-xs bg-surface-subtle border border-border rounded-lg text-text focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="px-2.5 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus:outline-none focus:ring-2 focus:ring-accent"
                 />
               </label>
             </div>
@@ -345,7 +345,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
 
           {customError && (
             <div
-              className="mt-3 p-2.5 rounded-lg bg-danger/10 border border-danger/30 text-xs text-danger flex items-center gap-2"
+              className="mt-3 p-2.5 rounded-xl bg-danger-subtle border border-danger/30 text-xs text-danger flex items-center gap-2"
               role="alert"
             >
               <AlertCircle className="h-4 w-4 shrink-0" />
@@ -358,10 +358,10 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       {/* 4 Summary Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Total kWh */}
-        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
+        <Card className="p-5 bg-surface-card border border-border-subtle rounded-3xl flex flex-col justify-between shadow-xs">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Total Consumption</span>
-            <div className="h-8 w-8 rounded-xl bg-pastel-green-bg text-pastel-green-text flex items-center justify-center">
+            <div className="h-9 w-9 rounded-2xl bg-pastel-lavender-bg text-pastel-lavender-text flex items-center justify-center shrink-0">
               <Gauge className="h-4 w-4" aria-hidden="true" />
             </div>
           </div>
@@ -373,10 +373,10 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Card>
 
         {/* Peak Power */}
-        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
+        <Card className="p-5 bg-surface-card border border-border-subtle rounded-3xl flex flex-col justify-between shadow-xs">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Peak Demand</span>
-            <div className="h-8 w-8 rounded-xl bg-pastel-yellow-bg text-pastel-yellow-text flex items-center justify-center">
+            <div className="h-9 w-9 rounded-2xl bg-pastel-peach-bg text-pastel-peach-text flex items-center justify-center shrink-0">
               <Flame className="h-4 w-4" aria-hidden="true" />
             </div>
           </div>
@@ -384,14 +384,14 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
             {aggregated.summary.peakWatts}{' '}
             <span className="text-xs font-normal text-text-muted">W</span>
           </div>
-          <p className="text-[11px] text-text-muted mt-0.5">Highest point at {peakTimeStr}</p>
+          <p className="text-[11px] text-text-muted mt-0.5 tabular-nums">Highest point at {peakTimeStr}</p>
         </Card>
 
         {/* Average Power */}
-        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
+        <Card className="p-5 bg-surface-card border border-border-subtle rounded-3xl flex flex-col justify-between shadow-xs">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Average Power</span>
-            <div className="h-8 w-8 rounded-xl bg-pastel-blue-bg text-pastel-blue-text flex items-center justify-center">
+            <div className="h-9 w-9 rounded-2xl bg-pastel-blue-bg text-pastel-blue-text flex items-center justify-center shrink-0">
               <Activity className="h-4 w-4" aria-hidden="true" />
             </div>
           </div>
@@ -403,11 +403,11 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Card>
 
         {/* Anomalies Detected */}
-        <Card className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between">
+        <Card className="p-5 bg-surface-card border border-border-subtle rounded-3xl flex flex-col justify-between shadow-xs">
           <div className="flex items-center justify-between text-xs text-text-muted font-medium">
             <span>Anomalies Detected</span>
-            <div className={`h-8 w-8 rounded-xl flex items-center justify-center ${
-              detectedAnomalies.length > 0 ? 'bg-danger/15 text-danger' : 'bg-success/15 text-success'
+            <div className={`h-9 w-9 rounded-2xl flex items-center justify-center shrink-0 ${
+              detectedAnomalies.length > 0 ? 'bg-danger-subtle text-danger' : 'bg-pastel-green-bg text-pastel-green-text'
             }`}>
               <AlertTriangle className="h-4 w-4" aria-hidden="true" />
             </div>
@@ -424,7 +424,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       </div>
 
       {/* Chart 1: Power Curve (W) with Baseline and Anomaly Markers */}
-      <Card className="p-6 bg-surface border border-border/80 rounded-3xl">
+      <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-soft">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
           <div>
             <h2 className="text-base font-semibold text-text">Power Profile & Statistical Anomalies</h2>
@@ -603,7 +603,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       </Card>
 
       {/* Chart 2: Energy Consumption (kWh Bar Chart) */}
-      <Card className="p-6 bg-surface border border-border/80 rounded-3xl">
+      <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-soft">
         <div className="flex items-center justify-between mb-2">
           <div>
             <h2 className="text-base font-semibold text-text">Energy Consumption (kWh)</h2>
@@ -611,7 +611,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
               Accumulated kilowatt-hours per bucket. Total: {aggregated.summary.totalKWh.toFixed(2)} kWh.
             </p>
           </div>
-          <Badge variant="outline" className="text-xs">
+          <Badge variant="outline" className="text-xs tabular-nums">
             {aggregated.buckets.length} Buckets
           </Badge>
         </div>
@@ -643,7 +643,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   contentStyle={{
                     backgroundColor: colors.tooltipBg,
                     borderColor: colors.tooltipBorder,
-                    borderRadius: '0.5rem',
+                    borderRadius: '1rem',
                     color: colors.text,
                     fontSize: '12px',
                   }}
@@ -652,8 +652,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                 />
                 <Bar
                   dataKey="kWh"
-                  fill={colors.accent}
-                  radius={[4, 4, 0, 0]}
+                  fill={colors.arcFill}
+                  radius={[6, 6, 0, 0]}
                   isAnimationActive={false}
                 />
               </BarChart>
@@ -691,13 +691,13 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       {/* Breakdowns: Per-Device & Per-Room (Mathematical Guarantee: Sum equals Total) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Per-Device Breakdown */}
-        <Card className="p-6 bg-surface border border-border/80 rounded-3xl shadow-xs">
+        <Card className="p-6 bg-surface-card border border-border-subtle rounded-3xl shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Laptop className="h-4 w-4 text-accent" aria-hidden="true" />
               <h2 className="text-base font-semibold text-text">Consumption by Device</h2>
             </div>
-            <span className="text-xs font-mono font-semibold text-text">
+            <span className="text-xs font-mono font-semibold text-text tabular-nums">
               Total: {aggregated.summary.totalKWh.toFixed(2)} kWh
             </span>
           </div>
@@ -708,16 +708,16 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
           <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
             {deviceBreakdown.map((dev) => (
               <div key={dev.id} className="text-xs flex flex-col gap-1">
-                <div className="flex items-center justify-between">
-                  <span className="font-medium text-text truncate max-w-[220px]">{dev.name}</span>
-                  <div className="flex items-center gap-2 font-mono">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-medium text-text truncate">{dev.name}</span>
+                  <div className="flex items-center gap-2 font-mono tabular-nums shrink-0">
                     <span className="text-text font-semibold">{dev.kWh.toFixed(2)} kWh</span>
                     <span className="text-text-muted text-[11px]">({dev.pct.toFixed(1)}%)</span>
                   </div>
                 </div>
-                <div className="h-1.5 w-full bg-surface-elevated rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-arc-track rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-accent rounded-full"
+                    className="h-full bg-arc-fill rounded-full"
                     style={{ width: `${Math.min(100, Math.max(0, dev.pct))}%` }}
                   />
                 </div>
@@ -727,13 +727,13 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Card>
 
         {/* Per-Room Breakdown */}
-        <Card className="p-6 bg-surface border border-border/80 rounded-3xl shadow-xs">
+        <Card className="p-6 bg-surface-card border border-border-subtle rounded-3xl shadow-xs">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Home className="h-4 w-4 text-accent" aria-hidden="true" />
               <h2 className="text-base font-semibold text-text">Consumption by Room</h2>
             </div>
-            <span className="text-xs font-mono font-semibold text-text">
+            <span className="text-xs font-mono font-semibold text-text tabular-nums">
               Total: {aggregated.summary.totalKWh.toFixed(2)} kWh
             </span>
           </div>
@@ -744,14 +744,14 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
           <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
             {roomBreakdown.map((room) => (
               <div key={room.id} className="text-xs flex flex-col gap-1">
-                <div className="flex items-center justify-between">
-                  <span className="font-medium text-text truncate max-w-[220px]">{room.name}</span>
-                  <div className="flex items-center gap-2 font-mono">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-medium text-text truncate">{room.name}</span>
+                  <div className="flex items-center gap-2 font-mono tabular-nums shrink-0">
                     <span className="text-text font-semibold">{room.kWh.toFixed(2)} kWh</span>
                     <span className="text-text-muted text-[11px]">({room.pct.toFixed(1)}%)</span>
                   </div>
                 </div>
-                <div className="h-1.5 w-full bg-surface-elevated rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-arc-track rounded-full overflow-hidden">
                   <div
                     className="h-full bg-success rounded-full"
                     style={{ width: `${Math.min(100, Math.max(0, room.pct))}%` }}
@@ -764,7 +764,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       </div>
 
       {/* Anomalies List Below Chart */}
-      <Card className="p-6 bg-surface border border-border/80 rounded-3xl shadow-xs">
+      <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-xs">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <AlertTriangle className="h-4 w-4 text-danger" aria-hidden="true" />
