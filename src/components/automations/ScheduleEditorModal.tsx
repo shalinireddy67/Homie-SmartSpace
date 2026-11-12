@@ -173,7 +173,7 @@ export const ScheduleEditorModal: React.FC<ScheduleEditorModalProps> = ({
             placeholder="e.g. Morning Porch Lights Off"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-surface-elevated border border-border rounded-lg text-text focus-ring"
+            className="w-full px-3.5 py-2 min-h-[44px] sm:min-h-[38px] text-sm bg-surface border border-border rounded-2xl text-text focus-ring"
           />
         </div>
 
@@ -187,11 +187,11 @@ export const ScheduleEditorModal: React.FC<ScheduleEditorModalProps> = ({
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              className="w-full px-3 py-2 text-sm bg-surface-elevated border border-border rounded-lg text-text font-mono focus-ring"
+              className="w-full px-3.5 py-2 min-h-[44px] sm:min-h-[38px] text-sm bg-surface border border-border rounded-2xl text-text font-mono tabular-nums focus-ring"
             />
           </div>
 
-          <div className="flex items-center justify-between p-3 rounded-xl bg-surface-subtle border border-border">
+          <div className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-card border border-border-subtle">
             <div>
               <span className="text-xs font-semibold text-text">Enabled State</span>
               <p className="text-[11px] text-text-muted">Will fire at scheduled slot.</p>
@@ -205,7 +205,7 @@ export const ScheduleEditorModal: React.FC<ScheduleEditorModalProps> = ({
 
         {/* Weekdays */}
         <div>
-          <label className="block text-xs font-semibold text-text mb-1">
+          <label className="block text-xs font-semibold text-text mb-1.5">
             Repeat On Weekdays (Empty = Every Day)
           </label>
           <div className="flex flex-wrap gap-1.5" role="group" aria-label="Schedule weekday selection">
@@ -217,9 +217,9 @@ export const ScheduleEditorModal: React.FC<ScheduleEditorModalProps> = ({
                   type="button"
                   aria-pressed={isSelected}
                   onClick={() => handleToggleWeekday(idx)}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors focus-ring ${
+                  className={`px-3.5 py-2 min-h-[44px] sm:min-h-[34px] sm:py-1.5 text-xs font-medium rounded-full border transition-colors focus-ring ${
                     isSelected
-                      ? 'bg-accent text-white border-accent shadow-xs'
+                      ? 'bg-accent-subtle text-text border-accent font-semibold shadow-xs'
                       : 'bg-surface text-text-muted hover:text-text border-border'
                   }`}
                 >
@@ -231,19 +231,19 @@ export const ScheduleEditorModal: React.FC<ScheduleEditorModalProps> = ({
         </div>
 
         {/* Device & Action */}
-        <div className="p-3.5 rounded-xl bg-surface-subtle border border-border space-y-3">
+        <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-3">
           <h4 className="text-xs font-semibold text-text uppercase tracking-wider">Scheduled Command</h4>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div>
-              <label htmlFor="sched-device" className="block text-[11px] font-medium text-text-muted mb-0.5">
+              <label htmlFor="sched-device" className="block text-[11px] font-medium text-text-muted mb-1">
                 Target Device
               </label>
               <select
                 id="sched-device"
                 value={deviceId}
                 onChange={(e) => handleDeviceChange(e.target.value)}
-                className="w-full px-2 py-1.5 bg-surface border border-border rounded text-text focus-ring"
+                className="w-full px-3 py-2 min-h-[44px] sm:min-h-[36px] bg-surface border border-border rounded-xl text-text focus-ring"
               >
                 {devices.map((d) => (
                   <option key={d.id} value={d.id}>

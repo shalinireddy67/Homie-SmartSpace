@@ -46,8 +46,8 @@ export const RadialDial: React.FC<RadialDialProps> = ({
   );
 
   // Geometry calculations
-  const size = 180;
-  const strokeWidth = 10;
+  const size = 192;
+  const strokeWidth = 11;
   const radius = (size - strokeWidth * 2) / 2;
   const center = size / 2;
   const startAngle = -135; // degrees from top
@@ -182,7 +182,7 @@ export const RadialDial: React.FC<RadialDialProps> = ({
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
-        className="relative touch-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-full p-1"
+        className="relative touch-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-full p-1"
       >
         <svg
           width={size}
@@ -233,14 +233,22 @@ export const RadialDial: React.FC<RadialDialProps> = ({
 
         {/* Center Readouts */}
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-1">
-          <span className="text-xs text-text-muted font-medium">Target</span>
-          <span className="text-3xl font-bold tracking-tight text-text tabular-nums">
-            {localTarget.toFixed(1)}°
+          <span className="text-[11px] uppercase tracking-wider text-text-muted font-semibold">
+            Target
           </span>
-          <span className="text-[11px] text-text-muted mt-0.5 tabular-nums">
-            Current: {current.toFixed(1)}°{unit}
+          <span className="text-3xl font-bold tracking-tight text-text tabular-nums">
+            {localTarget.toFixed(1)}°{unit}
+          </span>
+          <span className="text-xs font-medium text-text-muted mt-0.5 tabular-nums">
+            {`Current: ${current.toFixed(1)}°${unit}`}
           </span>
         </div>
+      </div>
+
+      {/* Visible Min / Max Scale + Mode Status */}
+      <div className="w-full max-w-[192px] flex items-center justify-between text-[11px] font-mono tabular-nums text-text-muted -mt-2 px-1">
+        <span>Min {min}°{unit}</span>
+        <span>Max {max}°{unit}</span>
       </div>
 
       {/* Mode Status Badge */}
