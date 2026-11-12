@@ -46,8 +46,8 @@ export const RadialDial: React.FC<RadialDialProps> = ({
   );
 
   // Geometry calculations
-  const size = 180;
-  const strokeWidth = 10;
+  const size = 192;
+  const strokeWidth = 11;
   const radius = (size - strokeWidth * 2) / 2;
   const center = size / 2;
   const startAngle = -135; // degrees from top
@@ -158,10 +158,10 @@ export const RadialDial: React.FC<RadialDialProps> = ({
   const isCooling = localTarget < current - 0.2;
   const modeLabel = isHeating ? 'Heating' : isCooling ? 'Cooling' : 'Idle';
   const modeColor = isHeating
-    ? 'text-warning bg-warning/10 border-warning/30'
+    ? 'text-[#873800] dark:text-warning bg-warning-subtle border-warning/30'
     : isCooling
-    ? 'text-accent bg-accent/10 border-accent/30'
-    : 'text-text-muted bg-surface-subtle border-border';
+    ? 'text-[#145246] dark:text-[#A7F3D0] bg-accent-subtle border-border-subtle'
+    : 'text-text-muted bg-surface-elevated border-border-subtle';
 
   return (
     <div
@@ -182,7 +182,7 @@ export const RadialDial: React.FC<RadialDialProps> = ({
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
-        className="relative touch-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-full p-1"
+        className="relative touch-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-full p-1"
       >
         <svg
           width={size}
@@ -197,7 +197,7 @@ export const RadialDial: React.FC<RadialDialProps> = ({
             stroke="currentColor"
             strokeWidth={strokeWidth}
             strokeLinecap="round"
-            className="text-surface-subtle"
+            className="text-arc-track"
           />
 
           {/* Active Target Arc */}
@@ -207,7 +207,7 @@ export const RadialDial: React.FC<RadialDialProps> = ({
             stroke="currentColor"
             strokeWidth={strokeWidth}
             strokeLinecap="round"
-            className={isHeating ? 'text-warning' : isCooling ? 'text-accent' : 'text-success'}
+            className={isHeating ? 'text-warning' : 'text-arc-fill'}
           />
 
           {/* Current Ambient Temperature Dot Indicator */}
@@ -224,8 +224,8 @@ export const RadialDial: React.FC<RadialDialProps> = ({
             cx={targetPos.x}
             cy={targetPos.y}
             r={strokeWidth / 1.1}
-            className={`fill-white stroke-2 shadow-md transition-transform ${
-              isHeating ? 'stroke-warning' : isCooling ? 'stroke-accent' : 'stroke-success'
+            className={`fill-surface stroke-2 shadow-md transition-transform ${
+              isHeating ? 'stroke-warning' : 'stroke-accent'
             }`}
             aria-hidden="true"
           />
@@ -233,18 +233,26 @@ export const RadialDial: React.FC<RadialDialProps> = ({
 
         {/* Center Readouts */}
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-1">
-          <span className="text-xs text-text-muted font-medium">Target</span>
-          <span className="text-3xl font-bold tracking-tight text-text">
-            {localTarget.toFixed(1)}°
+          <span className="text-[11px] uppercase tracking-wider text-text-muted font-semibold">
+            Target
           </span>
-          <span className="text-[11px] text-text-muted mt-0.5">
-            Current: {current.toFixed(1)}°{unit}
+          <span className="text-3xl font-bold tracking-tight text-text tabular-nums">
+            {localTarget.toFixed(1)}°{unit}
+          </span>
+          <span className="text-xs font-medium text-text-muted mt-0.5 tabular-nums">
+            {`Current: ${current.toFixed(1)}°${unit}`}
           </span>
         </div>
       </div>
 
+      {/* Visible Min / Max Scale + Mode Status */}
+      <div className="w-full max-w-[192px] flex items-center justify-between text-[11px] font-mono tabular-nums text-text-muted -mt-2 px-1">
+        <span>Min {min}°{unit}</span>
+        <span>Max {max}°{unit}</span>
+      </div>
+
       {/* Mode Status Badge */}
-      <div className={`mt-2 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${modeColor}`}>
+      <div className={`mt-2 px-3 py-0.5 rounded-full text-[11px] font-semibold border whitespace-nowrap ${modeColor}`}>
         {modeLabel}
       </div>
 

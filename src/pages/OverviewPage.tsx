@@ -21,6 +21,8 @@ import { Card } from '@/components/common/Card';
 import { Badge } from '@/components/common/Badge';
 import { Button } from '@/components/common/Button';
 import { Switch } from '@/components/common/Switch';
+import { RoomStageHero } from '@/components/overview/RoomStageHero';
+import { ControlArcPanel } from '@/components/overview/ControlArcPanel';
 import { formatRelativeTime } from '@/utils/formatters';
 import type { LightDevice, ThermostatDevice } from '@/types';
 import {
@@ -39,10 +41,6 @@ import {
   Cpu,
   Wifi,
   WifiOff,
-  Zap,
-  Gauge,
-  Thermometer,
-  Droplets,
   AlertTriangle,
   Play,
   Clock,
@@ -51,6 +49,7 @@ import {
   CheckCircle2,
   XCircle,
   Lightbulb,
+  Thermometer,
   Lock,
   Unlock,
   Camera,
@@ -58,19 +57,22 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-
 export const OverviewPage: React.FC = () => {
   const store = useStore();
   const colors = useChartTheme();
 
   const [isLoading] = useState(false);
   const [hydrationError] = useState<string | null>(null);
+  const [selectedRoomId, setSelectedRoomId] = useState<string>('room-living');
+  const [controlTab, setControlTab] = useState<'thermostat' | 'light' | 'cameras'>('light');
 
   const running = store.running;
   const virtualTime = store.virtualTime ?? Date.now();
   const setRunning = store.setRunning;
   const devices = store.devices;
   const rooms = store.rooms;
+  const schedules = store.schedules;
+  const toggleSchedule = store.toggleSchedule;
 
   // Derive metrics via typed memoized selectors
   const totalDevices = selectTotalDevices(store);
@@ -85,6 +87,11 @@ export const OverviewPage: React.FC = () => {
   const recentEvents = selectRecentEvents(store, 8);
   const activeAnomalies = selectRecentAnomalies(store, 5);
   const recentAutomations = selectRecentAutomations(store, 5);
+
+  const selectedRoom = useMemo(
+    () => rooms.find((r) => r.id === selectedRoomId) || null,
+    [rooms, selectedRoomId]
+  );
 
   // Stable lookup map for room names
   const roomMap = useMemo(() => {
@@ -139,23 +146,22 @@ export const OverviewPage: React.FC = () => {
     return (
       <div className="space-y-6 animate-pulse" aria-label="Loading dashboard">
         <div className="h-8 w-48 bg-surface-elevated rounded-xl" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-36 bg-surface rounded-3xl border border-border" />
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-8 h-96 bg-surface rounded-3xl border border-border-subtle" />
+          <div className="lg:col-span-4 h-96 bg-surface-elevated rounded-3xl border border-border-subtle" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-7">
       {/* Simulation Paused Warning Banner */}
       {!running && (
         <div
           role="region"
           aria-label="Simulation status warning"
-          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-3xl border border-warning/40 bg-warning/10 text-warning shadow-xs"
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-3xl border border-warning/40 bg-warning/10 text-warning shadow-xs"
         >
           <div className="flex items-center gap-3.5">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-warning/20 text-warning">
@@ -172,7 +178,7 @@ export const OverviewPage: React.FC = () => {
             variant="primary"
             size="sm"
             onClick={() => setRunning(true)}
-            className="shrink-0 gap-2 text-xs bg-warning hover:bg-warning/90 text-white border-none min-h-[40px] px-4"
+            className="shrink-0 gap-2 text-xs bg-warning hover:bg-warning/90 text-white dark:text-[#0B1012] border-none rounded-full px-4"
           >
             <Play className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Resume Simulation</span>
@@ -180,17 +186,17 @@ export const OverviewPage: React.FC = () => {
         </div>
       )}
 
-      {/* Top Section: Overview Title & Status Badges */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      {/* Top Section: Overview Title & Engine Status Pills */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">Overview</h1>
-          <p className="text-sm text-text-muted mt-1">
-            Real-time status, live power telemetry, and environmental climate across all configured rooms.
+          <p className="text-xs sm:text-sm text-text-muted mt-1">
+            Interactive room environment stage, live device telemetry, and automated home health.
           </p>
         </div>
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
           <Badge variant="green" size="md">
-            ● Live Monitoring
+            Live Monitoring
           </Badge>
           <Badge variant={running ? 'success' : 'warning'} size="md">
             {running ? 'Engine Active' : 'Engine Paused'}
@@ -198,147 +204,103 @@ export const OverviewPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Environment Cards Row (Blue: Temp, Yellow: Humidity, Green: Power) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Card 1: Indoor Temperature (Blue Pastel Tile) */}
-        <Card className="p-6 bg-pastel-blue-bg/30 border border-pastel-blue-text/20 rounded-3xl flex flex-col justify-between transition-all duration-200 hover:shadow-soft">
-          <div className="flex items-start justify-between">
-            <span className="text-xs font-semibold text-pastel-blue-text uppercase tracking-wider">
-              Indoor Temp
-            </span>
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pastel-blue-bg text-pastel-blue-text shadow-xs">
-              <Thermometer className="h-6 w-6" aria-hidden="true" />
+      {/* Reference-2 Hero Asymmetric 2-Column Stage (8-col Left Stage + 4-col Right Control Panel) */}
+      <section aria-label="Home environment stage and primary controls">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <div className="lg:col-span-8 min-w-0">
+            <RoomStageHero
+              rooms={rooms}
+              selectedRoomId={selectedRoomId}
+              onSelectRoom={setSelectedRoomId}
+              devices={devices}
+              schedules={schedules}
+              onToggleSchedule={toggleSchedule}
+              todayEnergyKWh={todayEnergyKWh}
+              indoorTemp={indoorTemp}
+              indoorHumidity={indoorHumidity}
+              onFocusControlTab={setControlTab}
+            />
+          </div>
+
+          <div className="lg:col-span-4 min-w-0">
+            <ControlArcPanel
+              selectedRoom={selectedRoom}
+              devices={devices}
+              activeTab={controlTab}
+              onTabChange={setControlTab}
+              currentPowerWatts={currentPowerWatts}
+              todayEnergyKWh={todayEnergyKWh}
+              indoorTemp={indoorTemp}
+              indoorHumidity={indoorHumidity}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Fleet Health Summary Bar (Completes all 8 typed selector KPIs) */}
+      <section aria-label="System fleet metrics">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-medium text-text-muted">Total Devices</span>
+              <Cpu className="h-4 w-4 text-accent" aria-hidden="true" />
             </div>
-          </div>
-          <div className="mt-4">
-            <div className="text-3xl sm:text-4xl font-bold text-text font-mono tabular-nums tracking-tight">
-              {indoorTemp.toFixed(1)}{' '}
-              <span className="text-xl font-normal text-text-muted">°C</span>
+            <div className="mt-2">
+              <div className="text-2xl font-bold text-text tabular-nums">{totalDevices}</div>
+              <p className="text-[11px] text-text-muted mt-0.5">Configured endpoints</p>
             </div>
-            <p className="text-xs text-text-muted mt-1.5 font-medium">Average living zones</p>
-          </div>
-        </Card>
+          </Card>
 
-        {/* Card 2: Indoor Humidity (Yellow Pastel Tile) */}
-        <Card className="p-6 bg-pastel-yellow-bg/30 border border-pastel-yellow-text/20 rounded-3xl flex flex-col justify-between transition-all duration-200 hover:shadow-soft">
-          <div className="flex items-start justify-between">
-            <span className="text-xs font-semibold text-pastel-yellow-text uppercase tracking-wider">
-              Humidity
-            </span>
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pastel-yellow-bg text-pastel-yellow-text shadow-xs">
-              <Droplets className="h-6 w-6" aria-hidden="true" />
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-medium text-text-muted">Online</span>
+              <Wifi className="h-4 w-4 text-success" aria-hidden="true" />
             </div>
-          </div>
-          <div className="mt-4">
-            <div className="text-3xl sm:text-4xl font-bold text-text font-mono tabular-nums tracking-tight">
-              {indoorHumidity.toFixed(0)}{' '}
-              <span className="text-xl font-normal text-text-muted">%</span>
+            <div className="mt-2">
+              <div className="text-2xl font-bold text-success tabular-nums">{onlineDevices}</div>
+              <p className="text-[11px] text-text-muted mt-0.5">Connected &amp; active</p>
             </div>
-            <p className="text-xs text-text-muted mt-1.5 font-medium">Ambient indoor air</p>
-          </div>
-        </Card>
+          </Card>
 
-        {/* Card 3: Current Power (Green Pastel Tile) */}
-        <Card className="p-6 bg-pastel-green-bg/30 border border-pastel-green-text/20 rounded-3xl flex flex-col justify-between transition-all duration-200 hover:shadow-soft">
-          <div className="flex items-start justify-between">
-            <span className="text-xs font-semibold text-pastel-green-text uppercase tracking-wider">
-              Current Power
-            </span>
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pastel-green-bg text-pastel-green-text shadow-xs">
-              <Zap className="h-6 w-6" aria-hidden="true" />
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-medium text-text-muted">Offline</span>
+              <WifiOff className="h-4 w-4 text-danger" aria-hidden="true" />
             </div>
-          </div>
-          <div className="mt-4">
-            <div className="text-3xl sm:text-4xl font-bold text-text font-mono tabular-nums tracking-tight">
-              {currentPowerWatts}{' '}
-              <span className="text-xl font-normal text-text-muted">W</span>
+            <div className="mt-2">
+              <div className="text-2xl font-bold text-danger tabular-nums">{offlineDevices}</div>
+              <p className="text-[11px] text-text-muted mt-0.5">Unreachable hardware</p>
             </div>
-            <p className="text-xs text-text-muted mt-1.5 font-medium">Instantaneous draw</p>
-          </div>
-        </Card>
-      </div>
+          </Card>
 
-      {/* Secondary Metrics Bar (Ensures all 8 typed metrics exist & passes existing tests) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        {/* Total Devices */}
-        <Card className="flex flex-col justify-between p-4 bg-surface-card border border-border/80 rounded-2xl">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-text-muted">Total Devices</span>
-            <Cpu className="h-4 w-4 text-accent" aria-hidden="true" />
-          </div>
-          <div className="mt-2">
-            <div className="text-2xl font-bold text-text tabular-nums">{totalDevices}</div>
-            <p className="text-[11px] text-text-muted mt-0.5">Configured endpoints</p>
-          </div>
-        </Card>
-
-        {/* Online Devices */}
-        <Card className="flex flex-col justify-between p-4 bg-surface-card border border-border/80 rounded-2xl">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-text-muted">Online</span>
-            <Wifi className="h-4 w-4 text-success" aria-hidden="true" />
-          </div>
-          <div className="mt-2">
-            <div className="text-2xl font-bold text-success tabular-nums">{onlineDevices}</div>
-            <p className="text-[11px] text-text-muted mt-0.5">Connected & active</p>
-          </div>
-        </Card>
-
-        {/* Offline Devices */}
-        <Card className="flex flex-col justify-between p-4 bg-surface-card border border-border/80 rounded-2xl">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-text-muted">Offline</span>
-            <WifiOff className="h-4 w-4 text-danger" aria-hidden="true" />
-          </div>
-          <div className="mt-2">
-            <div className="text-2xl font-bold text-danger tabular-nums">{offlineDevices}</div>
-            <p className="text-[11px] text-text-muted mt-0.5">Unreachable hardware</p>
-          </div>
-        </Card>
-
-        {/* Active Automations */}
-        <Card className="flex flex-col justify-between p-4 bg-surface-card border border-border/80 rounded-2xl">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-text-muted">Active Automations</span>
-            <Sliders className="h-4 w-4 text-warning" aria-hidden="true" />
-          </div>
-          <div className="mt-2">
-            <div className="text-2xl font-bold text-text tabular-nums">{activeAutomations}</div>
-            <p className="text-[11px] text-text-muted mt-0.5">Enabled rule guards</p>
-          </div>
-        </Card>
-
-        {/* Today's Energy */}
-        <Card className="flex flex-col justify-between p-4 bg-surface-card border border-border/80 rounded-2xl col-span-2 sm:col-span-1">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-text-muted">Today's Energy</span>
-            <Gauge className="h-4 w-4 text-success" aria-hidden="true" />
-          </div>
-          <div className="mt-2">
-            <div className="text-2xl font-bold text-text font-mono tabular-nums">
-              {todayEnergyKWh.toFixed(2)}{' '}
-              <span className="text-xs font-normal text-text-muted">kWh</span>
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-medium text-text-muted">Active Automations</span>
+              <Sliders className="h-4 w-4 text-warning" aria-hidden="true" />
             </div>
-            <p className="text-[11px] text-text-muted mt-0.5">Since local midnight</p>
-          </div>
-        </Card>
-      </div>
+            <div className="mt-2">
+              <div className="text-2xl font-bold text-text tabular-nums">{activeAutomations}</div>
+              <p className="text-[11px] text-text-muted mt-0.5">Enabled rule guards</p>
+            </div>
+          </Card>
+        </div>
+      </section>
 
-      {/* Middle Row: Device Overview Grid (Icon on pastel tile, name, room, status pill, state, quick control) */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
+      {/* Connected Device Quick Grid */}
+      <section aria-label="All connected devices" className="space-y-4">
+        <div className="flex items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-semibold text-text">Device Overview</h2>
             <p className="text-xs text-text-muted mt-0.5">
-              Quick access controls for connected smart devices across all zones.
+              Direct command controls routed through the simulation dispatcher across all rooms.
             </p>
           </div>
           <a
             href="/rooms"
-            className="text-xs font-semibold text-accent hover:underline flex items-center gap-1"
+            className="text-xs font-semibold text-accent hover:underline flex items-center gap-1 rounded-lg px-2 py-1 focus-ring min-h-[44px] sm:min-h-[32px]"
           >
             <span>View All Devices</span>
-            <ArrowRight className="h-3.5 w-3.5" />
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
         </div>
 
@@ -346,7 +308,6 @@ export const OverviewPage: React.FC = () => {
           {devices.map((device) => {
             const roomName = roomMap.get(device.roomId) || 'Unassigned';
 
-            // Tile styling & icon per device type
             let iconTileClass = 'bg-surface-elevated text-text';
             let DeviceIcon = Lightbulb;
             let currentStateText = '';
@@ -354,22 +315,22 @@ export const OverviewPage: React.FC = () => {
             if (device.type === 'light') {
               DeviceIcon = Lightbulb;
               iconTileClass = device.on
-                ? 'bg-pastel-yellow-bg text-pastel-yellow-text'
+                ? 'bg-pastel-peach-bg text-pastel-peach-text'
                 : 'bg-surface-elevated text-text-muted';
               currentStateText = device.on ? `${device.brightness}% brightness` : 'Off';
             } else if (device.type === 'thermostat') {
               DeviceIcon = Thermometer;
               iconTileClass = 'bg-pastel-blue-bg text-pastel-blue-text';
-              currentStateText = `${device.target.toFixed(1)}°${device.unit} target (${device.current.toFixed(1)}°${device.unit} current)`;
+              currentStateText = `${device.target.toFixed(1)}°${device.unit} target (${device.current.toFixed(1)}°${device.unit})`;
             } else if (device.type === 'lock') {
               DeviceIcon = device.locked ? Lock : Unlock;
               iconTileClass = device.locked
                 ? 'bg-pastel-green-bg text-pastel-green-text'
-                : 'bg-pastel-yellow-bg text-pastel-yellow-text';
+                : 'bg-pastel-peach-bg text-pastel-peach-text';
               currentStateText = device.locked ? 'Locked' : 'Unlocked';
             } else if (device.type === 'camera') {
               DeviceIcon = Camera;
-              iconTileClass = 'bg-surface-elevated text-accent';
+              iconTileClass = 'bg-pastel-lavender-bg text-pastel-lavender-text';
               currentStateText = device.privacyMode
                 ? 'Privacy Mode'
                 : device.active
@@ -380,34 +341,31 @@ export const OverviewPage: React.FC = () => {
             return (
               <Card
                 key={device.id}
-                className={`p-5 rounded-2xl border flex flex-col justify-between transition-all duration-200 ${
+                className={`p-5 rounded-3xl flex flex-col justify-between transition-all duration-200 ${
                   device.online
-                    ? 'bg-surface border-border/80 hover:shadow-soft'
-                    : 'bg-surface-subtle/60 border-border/60 opacity-75'
+                    ? 'bg-surface border-border-subtle hover:shadow-md'
+                    : 'bg-surface-card border-border-subtle'
                 }`}
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
-                    {/* Pastel Icon Tile (44px) */}
                     <div
-                      className={`h-11 w-11 shrink-0 rounded-2xl flex items-center justify-center shadow-xs transition-colors ${iconTileClass}`}
+                      className={`h-11 w-11 shrink-0 rounded-2xl flex items-center justify-center shadow-xs ${iconTileClass}`}
                       aria-hidden="true"
                     >
                       <DeviceIcon className="h-5 w-5" />
                     </div>
 
-                    {/* Status Pill */}
                     <Badge
                       variant={device.online ? 'success' : 'danger'}
                       size="sm"
                       className="flex items-center gap-1 font-medium"
                     >
-                      <span
-                        className={`h-1.5 w-1.5 rounded-full ${
-                          device.online ? 'bg-success' : 'bg-danger'
-                        }`}
-                        aria-hidden="true"
-                      />
+                      {device.online ? (
+                        <Wifi className="h-3 w-3" aria-hidden="true" />
+                      ) : (
+                        <WifiOff className="h-3 w-3" aria-hidden="true" />
+                      )}
                       <span>{device.online ? 'Online' : 'Offline'}</span>
                     </Badge>
                   </div>
@@ -418,12 +376,11 @@ export const OverviewPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-border/70 flex items-center justify-between gap-2">
+                <div className="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between gap-2">
                   <span className="text-xs font-medium text-text-muted truncate">
                     {currentStateText}
                   </span>
 
-                  {/* Quick Controls */}
                   <div className="shrink-0 flex items-center">
                     {device.type === 'light' && (
                       <Switch
@@ -446,7 +403,11 @@ export const OverviewPage: React.FC = () => {
                     )}
 
                     {device.type === 'thermostat' && (
-                      <div className="flex items-center gap-1" role="group" aria-label={`Temperature control for ${device.name}`}>
+                      <div
+                        className="flex items-center gap-1"
+                        role="group"
+                        aria-label={`Temperature control for ${device.name}`}
+                      >
                         <button
                           type="button"
                           disabled={!device.online || device.target <= device.min}
@@ -455,7 +416,7 @@ export const OverviewPage: React.FC = () => {
                               target: Math.max(device.min, device.target - 0.5),
                             })
                           }
-                          className="h-7 w-7 rounded-lg bg-surface-elevated text-text hover:bg-surface-elevated/80 flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
+                          className="h-10 w-10 sm:h-7 sm:w-7 rounded-full bg-surface-elevated border border-border-subtle text-text hover:bg-accent-subtle flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
                           aria-label={`Decrease target temperature for ${device.name}`}
                         >
                           -
@@ -471,7 +432,7 @@ export const OverviewPage: React.FC = () => {
                               target: Math.min(device.max, device.target + 0.5),
                             })
                           }
-                          className="h-7 w-7 rounded-lg bg-surface-elevated text-text hover:bg-surface-elevated/80 flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
+                          className="h-10 w-10 sm:h-7 sm:w-7 rounded-full bg-surface-elevated border border-border-subtle text-text hover:bg-accent-subtle flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
                           aria-label={`Increase target temperature for ${device.name}`}
                         >
                           +
@@ -490,19 +451,18 @@ export const OverviewPage: React.FC = () => {
             );
           })}
         </div>
-      </div>
+      </section>
 
       {/* Energy & Status Breakdown Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Minimal Weekly Energy Chart (2 cols) */}
-        <Card className="lg:col-span-2 p-6 bg-surface border border-border/80 rounded-3xl flex flex-col justify-between">
+        <Card className="lg:col-span-2 p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-2">
               <div>
                 <h2 className="text-base font-semibold text-text">Weekly Energy Consumption</h2>
                 <p className="text-xs text-text-muted mt-0.5">
-                  Today: <span className="font-semibold text-text">{todayEnergyKWh.toFixed(2)} kWh</span> • Current draw:{' '}
-                  <span className="font-semibold text-text">{currentPowerWatts} W</span>
+                  Today: <span className="font-semibold text-text tabular-nums">{todayEnergyKWh.toFixed(2)} kWh</span> • Current draw:{' '}
+                  <span className="font-semibold text-text tabular-nums">{currentPowerWatts} W</span>
                 </p>
               </div>
               <Badge variant="green" className="text-xs">
@@ -535,15 +495,17 @@ export const OverviewPage: React.FC = () => {
                       borderRadius: '1rem',
                       color: colors.text,
                       fontSize: '12px',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+                      boxShadow: '0 6px 20px rgba(14, 24, 28, 0.12)',
                     }}
+                    itemStyle={{ color: colors.text }}
+                    labelStyle={{ color: colors.textMuted, fontWeight: 600 }}
                     formatter={(value: number) => [`${value} kWh`, 'Energy']}
                     labelFormatter={(label) => `Day: ${label}`}
                   />
                   <Bar
                     dataKey="kWh"
-                    fill={colors.accent}
-                    radius={[6, 6, 0, 0]}
+                    fill={colors.arcFill}
+                    radius={[8, 8, 0, 0]}
                     maxBarSize={44}
                     isAnimationActive={false}
                   />
@@ -552,22 +514,21 @@ export const OverviewPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Accessible Table Collapsible */}
           <details className="mt-3 text-xs text-text-muted">
-            <summary className="cursor-pointer font-medium hover:text-text select-none">
+            <summary className="cursor-pointer font-medium hover:text-text select-none focus-ring rounded inline-block">
               View energy data as table
             </summary>
-            <div className="max-h-40 overflow-y-auto mt-2 border border-border/80 rounded-xl">
+            <div className="max-h-40 overflow-y-auto mt-2 border border-border-subtle rounded-xl">
               <table className="w-full text-left border-collapse">
                 <caption className="sr-only">Weekly Energy Breakdown</caption>
-                <thead className="bg-surface-elevated border-b border-border text-[11px] font-semibold text-text">
+                <thead className="bg-surface-elevated border-b border-border-subtle text-[11px] font-semibold text-text">
                   <tr>
                     <th scope="col" className="p-2">Day</th>
                     <th scope="col" className="p-2">Energy (kWh)</th>
                     <th scope="col" className="p-2">Peak Draw (Watts)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border/60 font-mono text-[11px]">
+                <tbody className="divide-y divide-border-subtle font-mono text-[11px]">
                   {weeklyChartData.map((row) => (
                     <tr key={row.day} className="hover:bg-surface-elevated/40">
                       <td className="p-2">{row.day}</td>
@@ -581,8 +542,7 @@ export const OverviewPage: React.FC = () => {
           </details>
         </Card>
 
-        {/* Device Distribution Donut & Stats (1 col) */}
-        <Card className="p-6 bg-surface border border-border/80 rounded-3xl flex flex-col justify-between">
+        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-base font-semibold text-text">Device Distribution</h2>
@@ -591,8 +551,11 @@ export const OverviewPage: React.FC = () => {
               </Badge>
             </div>
             <p className="text-xs text-text-muted">
-              {distribution.online} online ({distribution.total > 0 ? Math.round((distribution.online / distribution.total) * 100) : 0}%),{' '}
-              {distribution.offline} offline.
+              {distribution.online} online (
+              {distribution.total > 0
+                ? Math.round((distribution.online / distribution.total) * 100)
+                : 0}
+              %), {distribution.offline} offline.
             </p>
 
             <div className="h-44 w-full mt-2 flex items-center justify-center">
@@ -609,7 +572,12 @@ export const OverviewPage: React.FC = () => {
                     isAnimationActive={false}
                   >
                     {pieData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={entry.color}
+                        name={entry.name}
+                        aria-label={`${entry.name}: ${entry.value}`}
+                      />
                     ))}
                   </Pie>
                   <Tooltip
@@ -620,13 +588,13 @@ export const OverviewPage: React.FC = () => {
                       color: colors.text,
                       fontSize: '12px',
                     }}
+                    itemStyle={{ color: colors.text }}
                   />
                 </PieChart>
               </ResponsiveContainer>
             </div>
 
-            {/* Breakdown List */}
-            <div className="space-y-2 mt-2 pt-2 border-t border-border/60">
+            <div className="space-y-2 mt-2 pt-2 border-t border-border-subtle">
               {[
                 { name: 'Lights', count: distribution.byType.light },
                 { name: 'Thermostats', count: distribution.byType.thermostat },
@@ -642,7 +610,7 @@ export const OverviewPage: React.FC = () => {
                     </div>
                     <div className="h-1.5 w-full bg-surface-elevated rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-accent rounded-full transition-all duration-300"
+                        className="h-full bg-arc-fill rounded-full transition-all duration-300"
                         style={{ width: `${pct}%` }}
                       />
                     </div>
@@ -665,7 +633,7 @@ export const OverviewPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {rooms.map((room) => {
             const roomDevices = devices.filter((d) => d.roomId === room.id);
             const onLightsCount = roomDevices.filter(
@@ -677,7 +645,9 @@ export const OverviewPage: React.FC = () => {
 
             const summaryParts: string[] = [];
             if (thermo) {
-              summaryParts.push(`${thermo.current.toFixed(1)}°${thermo.unit} avg`);
+              summaryParts.push(`${thermo.current.toFixed(1)}°${thermo.unit}`);
+            } else if (room.ambientTemp !== undefined) {
+              summaryParts.push(`${room.ambientTemp.toFixed(1)}°C`);
             }
             if (onLightsCount > 0) {
               summaryParts.push(`${onLightsCount} light${onLightsCount > 1 ? 's' : ''} on`);
@@ -688,7 +658,7 @@ export const OverviewPage: React.FC = () => {
             return (
               <Card
                 key={room.id}
-                className="p-5 rounded-2xl bg-surface border border-border/80 flex flex-col justify-between hover:shadow-soft transition-all duration-200"
+                className="p-5 rounded-3xl bg-surface border border-border-subtle flex flex-col justify-between hover:shadow-md transition-all duration-200"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-surface-elevated text-accent">
@@ -713,8 +683,7 @@ export const OverviewPage: React.FC = () => {
 
       {/* Bottom 3 Panels: Recent Events, Active Anomalies, Recent Automations */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Panel 1: Recent Events (Last 8) */}
-        <Card className="p-6 bg-surface border border-border/80 rounded-3xl flex flex-col justify-between">
+        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -735,7 +704,7 @@ export const OverviewPage: React.FC = () => {
                 {recentEvents.map((evt) => (
                   <div
                     key={evt.id}
-                    className="flex items-start justify-between gap-2 p-2.5 rounded-xl bg-surface-elevated/50 text-xs border border-border/50"
+                    className="flex items-start justify-between gap-2 p-2.5 rounded-2xl bg-surface-elevated/70 text-xs border border-border-subtle"
                   >
                     <div className="min-w-0">
                       <p className="font-medium text-text truncate">{evt.description}</p>
@@ -754,13 +723,12 @@ export const OverviewPage: React.FC = () => {
           </div>
         </Card>
 
-        {/* Panel 2: Active Anomalies & Alerts (Last 5) */}
-        <Card className="p-6 bg-surface border border-border/80 rounded-3xl flex flex-col justify-between">
+        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <ShieldAlert className="h-4 w-4 text-danger" aria-hidden="true" />
-                <h2 className="text-base font-semibold text-text">Anomalies & Alerts</h2>
+                <h2 className="text-base font-semibold text-text">Anomalies &amp; Alerts</h2>
               </div>
               <Badge
                 variant={activeAnomalies.length > 0 ? 'danger' : 'outline'}
@@ -772,7 +740,7 @@ export const OverviewPage: React.FC = () => {
 
             {activeAnomalies.length === 0 ? (
               <div className="py-8 text-center text-xs text-text-muted flex flex-col items-center">
-                <CheckCircle2 className="h-8 w-8 text-success/70 mb-2" />
+                <CheckCircle2 className="h-8 w-8 text-success/70 mb-2" aria-hidden="true" />
                 <span>All telemetry operating within normal statistical baselines.</span>
               </div>
             ) : (
@@ -802,8 +770,7 @@ export const OverviewPage: React.FC = () => {
           </div>
         </Card>
 
-        {/* Panel 3: Recent Automation Executions (Last 5) */}
-        <Card className="p-6 bg-surface border border-border/80 rounded-3xl flex flex-col justify-between">
+        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -826,7 +793,7 @@ export const OverviewPage: React.FC = () => {
                   return (
                     <div
                       key={exec.id}
-                      className="p-3 rounded-2xl border border-border/60 bg-surface-elevated/50 text-xs flex flex-col gap-1"
+                      className="p-3 rounded-2xl border border-border-subtle bg-surface-elevated/70 text-xs flex flex-col gap-1"
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-semibold text-text truncate max-w-[170px]">
@@ -839,12 +806,12 @@ export const OverviewPage: React.FC = () => {
                         >
                           {isSuccess ? (
                             <>
-                              <CheckCircle2 className="h-3 w-3" />
+                              <CheckCircle2 className="h-3 w-3" aria-hidden="true" />
                               <span>Executed</span>
                             </>
                           ) : (
                             <>
-                              <XCircle className="h-3 w-3" />
+                              <XCircle className="h-3 w-3" aria-hidden="true" />
                               <span>Skipped</span>
                             </>
                           )}

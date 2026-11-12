@@ -106,7 +106,7 @@ export const SchedulesTab: React.FC = () => {
 
       {/* Configured Schedules List */}
       {schedules.length === 0 ? (
-        <Card className="p-8 text-center bg-surface border border-border">
+        <Card className="p-8 text-center bg-surface-card border border-dashed border-border rounded-3xl">
           <Clock className="h-8 w-8 text-text-muted mx-auto mb-2 opacity-50" />
           <p className="text-sm font-semibold text-text">No Schedules Configured</p>
           <p className="text-xs text-text-muted mt-1 max-w-sm mx-auto">
@@ -131,7 +131,7 @@ export const SchedulesTab: React.FC = () => {
             return (
               <Card
                 key={sched.id}
-                className="p-5 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between gap-3 shadow-xs hover:shadow-soft transition-all duration-200"
+                className="p-5 bg-surface-card border border-border-subtle rounded-3xl flex flex-col justify-between gap-3 shadow-xs hover:shadow-soft transition-all duration-200"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
@@ -153,20 +153,20 @@ export const SchedulesTab: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="mt-3 p-3 rounded-xl bg-surface-elevated border border-border/70 space-y-1.5 text-xs">
+                  <div className="mt-3 p-3.5 rounded-2xl bg-surface border border-border-subtle space-y-1.5 text-xs">
                     <div className="flex items-center gap-2 text-text">
                       <Clock className="h-3.5 w-3.5 text-accent shrink-0" />
-                      <span className="font-mono font-medium">{sched.time}</span>
+                      <span className="font-mono font-medium tabular-nums">{sched.time}</span>
                       <span className="text-text-muted">({daysLabel})</span>
                     </div>
                     <div className="flex items-center gap-2 text-text-muted">
                       <Calendar className="h-3.5 w-3.5 text-accent shrink-0" />
-                      <span>Next Run: <strong className="text-text">{nextRunText}</strong></span>
+                      <span>Next Run: <strong className="text-text tabular-nums">{nextRunText}</strong></span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-end gap-2 pt-2 border-t border-border/60">
+                <div className="flex items-center justify-end gap-2 pt-2 border-t border-border-subtle">
                   <Button
                     type="button"
                     variant="ghost"
@@ -193,7 +193,7 @@ export const SchedulesTab: React.FC = () => {
       )}
 
       {/* Clearly Separated Executed Schedule Runs */}
-      <div className="pt-6 border-t border-border space-y-4">
+      <div className="pt-6 border-t border-border-subtle space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-bold text-text">Executed Schedule Runs</h2>
@@ -201,17 +201,17 @@ export const SchedulesTab: React.FC = () => {
               Historical log of timed schedule executions and skip events.
             </p>
           </div>
-          <Badge variant="outline" className="text-xs">
+          <Badge variant="outline" className="text-xs tabular-nums">
             {scheduleExecutions.length} Recorded
           </Badge>
         </div>
 
         {scheduleExecutions.length === 0 ? (
-          <div className="p-6 rounded-xl border border-border bg-surface-subtle text-center text-xs text-text-muted italic">
+          <div className="p-6 rounded-2xl border border-border-subtle bg-surface-card text-center text-xs text-text-muted italic">
             Zero schedule executions recorded yet. Scheduled events will log here when fired.
           </div>
         ) : (
-          <div className="divide-y divide-border border border-border rounded-xl bg-surface overflow-hidden">
+          <div className="divide-y divide-border-subtle border border-border-subtle rounded-3xl bg-surface overflow-hidden shadow-xs">
             {scheduleExecutions.map((exec) => {
               const d = new Date(exec.firedAt);
               return (

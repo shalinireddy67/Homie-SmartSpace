@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { Device, LightDevice, ThermostatDevice, LockDevice, CameraDevice } from '@/types';
 import { Card } from '@/components/common/Card';
 import { Badge } from '@/components/common/Badge';
@@ -22,12 +22,17 @@ import {
   AlertTriangle,
   Loader2,
   Zap,
+  RotateCcw,
+  Maximize2,
+  Minus,
+  Plus,
 } from 'lucide-react';
 
 export interface DeviceCardProps {
   device: Device;
   roomName: string;
   onCommand?: (deviceId: string, patch: Record<string, unknown>) => Promise<unknown>;
+  onInspect?: (deviceId: string) => void;
   renderSpy?: (deviceId: string) => void;
 }
 
@@ -36,26 +41,49 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
   device,
   roomName,
   onCommand,
+  onInspect,
   renderSpy,
 }) => {
   const [isPending, setIsPending] = useState(false);
+  const [isRollingBack, setIsRollingBack] = useState(false);
   const [isLockModalOpen, setIsLockModalOpen] = useState(false);
+  const rollbackTimerRef = useRef<number | null>(null);
   const virtualTime = useStore((s) => s.virtualTime);
+
+  useEffect(() => {
+    return () => {
+      if (rollbackTimerRef.current) {
+        window.clearTimeout(rollbackTimerRef.current);
+      }
+    };
+  }, []);
 
   if (!device) return null;
 
   // Call render spy for memo verification tests
   renderSpy?.(device.id);
 
+  const triggerRollbackHighlight = () => {
+    setIsRollingBack(true);
+    if (rollbackTimerRef.current) window.clearTimeout(rollbackTimerRef.current);
+    rollbackTimerRef.current = window.setTimeout(() => {
+      setIsRollingBack(false);
+    }, 1600);
+  };
+
   const handleCommand = async (patch: Record<string, unknown>) => {
     if (!device.online) return;
     setIsPending(true);
     try {
-      if (onCommand) {
-        await onCommand(device.id, patch);
-      } else {
-        await dispatchDeviceCommand(device.id, patch);
+      const res = onCommand
+        ? await onCommand(device.id, patch)
+        : await dispatchDeviceCommand(device.id, patch);
+
+      if (res && typeof res === 'object' && 'ok' in res && (res as { ok?: boolean }).ok === false) {
+        triggerRollbackHighlight();
       }
+    } catch {
+      triggerRollbackHighlight();
     } finally {
       setIsPending(false);
     }
@@ -63,18 +91,29 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
 
   const getDeviceIconTile = () => {
     switch (device.type) {
-      case 'light':
+      case 'light': {
+        const light = device as LightDevice;
+        const isLit = light.on && light.online;
         return (
           <div
-            className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs transition-colors ${
-              device.on
-                ? 'bg-pastel-yellow-bg text-pastel-yellow-text'
-                : 'bg-surface-elevated text-text-muted'
+            className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 ${
+              isLit
+                ? 'bg-pastel-peach-bg text-pastel-peach-text border-border-subtle'
+                : 'bg-surface-elevated text-text-muted border-transparent'
             }`}
+            style={
+              isLit
+                ? {
+                    boxShadow: `0 0 18px 2px ${light.color}66`,
+                    borderColor: light.color,
+                  }
+                : undefined
+            }
           >
             <Lightbulb className="h-5 w-5" />
           </div>
         );
+      }
       case 'thermostat':
         return (
           <div className="h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-pastel-blue-bg text-pastel-blue-text">
@@ -87,7 +126,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
             className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs transition-colors ${
               device.locked
                 ? 'bg-pastel-green-bg text-pastel-green-text'
-                : 'bg-pastel-yellow-bg text-pastel-yellow-text'
+                : 'bg-pastel-peach-bg text-pastel-peach-text'
             }`}
           >
             {device.locked ? <Lock className="h-5 w-5" /> : <Unlock className="h-5 w-5" />}
@@ -95,7 +134,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
         );
       case 'camera':
         return (
-          <div className="h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-surface-elevated text-accent">
+          <div className="h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-pastel-lavender-bg text-pastel-lavender-text">
             <Camera className="h-5 w-5" />
           </div>
         );
@@ -141,10 +180,15 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
   return (
     <Card
       data-testid={`device-card-${device.id}`}
-      className={`relative flex flex-col justify-between transition-all duration-200 border ${
-        !device.online
-          ? 'opacity-70 bg-surface-subtle/50 border-border/60'
-          : 'bg-surface hover:border-border/80 shadow-xs'
+      data-rolling-back={isRollingBack ? 'true' : undefined}
+      className={`relative flex flex-col justify-between transition-all duration-200 rounded-3xl border ${
+        isRollingBack
+          ? 'ring-2 ring-danger ring-offset-2 ring-offset-surface border-danger bg-danger-subtle/30 shadow-soft'
+          : isPending
+          ? 'border-accent ring-2 ring-accent/25 bg-surface-card shadow-soft'
+          : !device.online
+          ? 'bg-surface-elevated/60 border-border-subtle'
+          : 'bg-surface-card border-border-subtle hover:border-border shadow-xs hover:shadow-soft'
       }`}
     >
       {/* Top Header */}
@@ -193,6 +237,18 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
                 <span>Updating...</span>
               </span>
             )}
+
+            {/* Rollback highlight indicator */}
+            {isRollingBack && (
+              <span
+                className="flex items-center gap-1 text-[11px] font-semibold text-danger animate-pulse"
+                role="status"
+                aria-live="assertive"
+              >
+                <RotateCcw className="h-3 w-3" />
+                <span>Rolled back</span>
+              </span>
+            )}
           </div>
         </div>
 
@@ -203,6 +259,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
             <span className="font-semibold text-text">{getCurrentReading()}</span>
             {device.type === 'light' && (
               <span
+                role="img"
                 className="inline-block h-3.5 w-3.5 rounded-full border border-border shadow-xs ml-0.5"
                 style={{ backgroundColor: (device as LightDevice).color }}
                 title={`Current color: ${(device as LightDevice).color}`}
@@ -230,7 +287,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
               <p className="font-semibold leading-tight">
                 {device.offlineReason || 'Device offline'}
               </p>
-              <p className="text-[11px] text-danger/80 mt-0.5">
+              <p className="text-[11px] text-red-700 dark:text-red-300 mt-0.5">
                 Controls are disabled because hardware is unreachable.
               </p>
             </div>
@@ -238,98 +295,151 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
         )}
 
         {/* Main Control Interface per Device Type */}
-        <div className="mt-4 pt-3 border-t border-border/60">
+        <div className="mt-4 pt-3 border-t border-border-subtle">
           {/* Light Controls */}
           {device.type === 'light' && (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-text-muted">Power</span>
-                <Switch
-                  id={`switch-${device.id}`}
-                  checked={(device as LightDevice).on}
+            <div className="space-y-3">
+              {/* Primary Controls: Power + Dimmer */}
+              <div
+                className="p-3.5 rounded-2xl bg-surface border border-border-subtle space-y-3 transition-shadow"
+                style={
+                  (device as LightDevice).on && device.online
+                    ? { boxShadow: `inset 0 0 24px -12px ${(device as LightDevice).color}` }
+                    : undefined
+                }
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-text">Primary Power & Dimmer</span>
+                  <Switch
+                    id={`switch-${device.id}`}
+                    checked={(device as LightDevice).on}
+                    disabled={!device.online}
+                    aria-disabled={!device.online}
+                    label={(device as LightDevice).on ? 'On' : 'Off'}
+                    aria-label={`Toggle power for ${device.name}`}
+                    onChange={(checked) => handleCommand({ on: checked })}
+                  />
+                </div>
+
+                <DimmerSlider
+                  value={(device as LightDevice).on ? (device as LightDevice).brightness : 0}
                   disabled={!device.online}
-                  aria-disabled={!device.online}
-                  label={(device as LightDevice).on ? 'On' : 'Off'}
-                  aria-label={`Toggle power for ${device.name}`}
-                  onChange={(checked) => handleCommand({ on: checked })}
+                  disabledReason={device.offlineReason}
+                  ariaLabel={`Brightness dimmer for ${device.name}`}
+                  onCommit={(brightness) =>
+                    handleCommand({
+                      brightness,
+                      on: brightness > 0,
+                    })
+                  }
                 />
               </div>
 
-              <DimmerSlider
-                value={(device as LightDevice).on ? (device as LightDevice).brightness : 0}
-                disabled={!device.online}
-                disabledReason={device.offlineReason}
-                ariaLabel={`Brightness dimmer for ${device.name}`}
-                onCommit={(brightness) =>
-                  handleCommand({
-                    brightness,
-                    on: brightness > 0,
-                  })
-                }
-              />
-
-              <ColorPicker
-                value={(device as LightDevice).color}
-                disabled={!device.online}
-                disabledReason={device.offlineReason}
-                onCommit={(color) => handleCommand({ color })}
-              />
+              {/* Secondary Controls: Color Group */}
+              <div className="p-3 rounded-2xl bg-surface/70 border border-border-subtle">
+                <ColorPicker
+                  value={(device as LightDevice).color}
+                  disabled={!device.online}
+                  disabledReason={device.offlineReason}
+                  onCommit={(color) => handleCommand({ color })}
+                />
+              </div>
             </div>
           )}
 
           {/* Thermostat Controls */}
           {device.type === 'thermostat' && (
-            <div className="flex justify-center py-1">
-              <RadialDial
-                current={(device as ThermostatDevice).current}
-                target={(device as ThermostatDevice).target}
-                min={(device as ThermostatDevice).min}
-                max={(device as ThermostatDevice).max}
-                unit={(device as ThermostatDevice).unit}
-                disabled={!device.online}
-                disabledReason={device.offlineReason}
-                onCommit={(target) => handleCommand({ target })}
-              />
+            <div className="space-y-3 py-1">
+              <div className="flex justify-center">
+                <RadialDial
+                  current={(device as ThermostatDevice).current}
+                  target={(device as ThermostatDevice).target}
+                  min={(device as ThermostatDevice).min}
+                  max={(device as ThermostatDevice).max}
+                  unit={(device as ThermostatDevice).unit}
+                  disabled={!device.online}
+                  disabledReason={device.offlineReason}
+                  onCommit={(target) => handleCommand({ target })}
+                />
+              </div>
+
+              {/* Grouped Quick Step Controls */}
+              <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-surface border border-border-subtle">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  disabled={!device.online || (device as ThermostatDevice).target <= (device as ThermostatDevice).min}
+                  onClick={() =>
+                    handleCommand({
+                      target: Math.max((device as ThermostatDevice).min, (device as ThermostatDevice).target - 0.5),
+                    })
+                  }
+                  aria-label={`Decrease target for ${device.name} by 0.5°`}
+                >
+                  <Minus className="h-3.5 w-3.5" />
+                  <span>0.5°</span>
+                </Button>
+                <span className="text-[11px] font-medium text-text-muted tabular-nums">
+                  Range {(device as ThermostatDevice).min}°–{(device as ThermostatDevice).max}°{(device as ThermostatDevice).unit}
+                </span>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  disabled={!device.online || (device as ThermostatDevice).target >= (device as ThermostatDevice).max}
+                  onClick={() =>
+                    handleCommand({
+                      target: Math.min((device as ThermostatDevice).max, (device as ThermostatDevice).target + 0.5),
+                    })
+                  }
+                  aria-label={`Increase target for ${device.name} by 0.5°`}
+                >
+                  <Plus className="h-3.5 w-3.5" />
+                  <span>0.5°</span>
+                </Button>
+              </div>
             </div>
           )}
 
           {/* Lock Controls */}
           {device.type === 'lock' && (
-            <div className="flex flex-col items-center justify-center py-3 space-y-3">
+            <div className="flex flex-col items-center justify-center py-2 space-y-3">
               <div
-                className={`p-4 rounded-full border ${
+                className={`w-full p-4 rounded-2xl border flex items-center gap-3.5 transition-colors ${
                   (device as LockDevice).locked
-                    ? 'bg-success/10 border-success/30 text-success'
-                    : 'bg-warning/10 border-warning/30 text-warning'
+                    ? 'bg-pastel-green-bg/70 border-success/35 text-pastel-green-text'
+                    : 'bg-pastel-peach-bg/80 border-warning/40 text-pastel-peach-text'
                 }`}
               >
-                {(device as LockDevice).locked ? (
-                  <Lock className="h-8 w-8" />
-                ) : (
-                  <Unlock className="h-8 w-8" />
-                )}
-              </div>
-
-              <div className="text-center">
-                <span className="text-sm font-semibold text-text block">
-                  {(device as LockDevice).locked ? 'Door Locked' : 'Door Unlocked'}
-                </span>
-                <span className="text-xs text-text-muted">
-                  {(device as LockDevice).locked ? 'Deadbolt engaged' : 'Deadbolt disengaged'}
-                </span>
+                <div className="h-11 w-11 rounded-2xl bg-surface/90 border border-border-subtle flex items-center justify-center shrink-0">
+                  {(device as LockDevice).locked ? (
+                    <Lock className="h-5 w-5" />
+                  ) : (
+                    <Unlock className="h-5 w-5" />
+                  )}
+                </div>
+                <div className="text-left">
+                  <span className="text-sm font-bold text-text block">
+                    {(device as LockDevice).locked ? 'Door Locked' : 'Door Unlocked'}
+                  </span>
+                  <span className="text-xs text-text-muted">
+                    {(device as LockDevice).locked ? 'Deadbolt engaged • Secured' : 'Deadbolt disengaged • Unsecured'}
+                  </span>
+                </div>
               </div>
 
               <Button
-                variant={(device as LockDevice).locked ? 'secondary' : 'primary'}
+                variant={(device as LockDevice).locked ? 'outline' : 'primary'}
                 size="sm"
                 disabled={!device.online}
                 aria-disabled={!device.online}
                 onClick={() => setIsLockModalOpen(true)}
-                className="w-full mt-2"
+                className="w-full"
                 aria-label={
                   (device as LockDevice).locked
-                    ? `Unlock ${device.name}`
-                    : `Lock ${device.name}`
+                    ? `Unlock Door - Unlock ${device.name}`
+                    : `Lock Door - Lock ${device.name}`
                 }
               >
                 {(device as LockDevice).locked ? 'Unlock Door' : 'Lock Door'}
@@ -380,11 +490,12 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
           {/* Camera Controls */}
           {device.type === 'camera' && (
             <div className="space-y-3.5">
-              <div className="p-2.5 rounded-lg bg-surface-subtle border border-border/80 text-center">
+              <div className="p-3.5 rounded-2xl bg-surface border border-border-subtle flex flex-col items-center justify-center text-center gap-1.5 min-h-[92px]">
+                <Camera className="h-5 w-5 text-text-muted" aria-hidden="true" />
                 <span className="text-xs font-semibold text-text block">
                   Simulated camera. No video.
                 </span>
-                <span className="text-[11px] text-text-muted mt-0.5 block">
+                <span className="text-[11px] text-text-muted block">
                   {(device as CameraDevice).privacyMode
                     ? 'Sensor privacy shutter closed'
                     : (device as CameraDevice).active
@@ -393,7 +504,8 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
                 </span>
               </div>
 
-              <div className="space-y-2.5 pt-1">
+              {/* Grouped Secondary Camera Controls */}
+              <div className="p-3 rounded-2xl bg-surface-card border border-border-subtle space-y-2.5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-text-muted">Power</span>
                   <Switch
@@ -438,10 +550,22 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
         </div>
       </div>
 
-      {/* Card Footer: Relative Timestamp */}
-      <div className="mt-4 pt-2.5 border-t border-border/40 flex items-center justify-between text-[11px] text-text-muted">
-        <span>Updated {lastUpdatedText}</span>
-        <span className="font-mono text-[10px] text-text-muted/70">{device.id}</span>
+      {/* Card Footer: Relative Timestamp & Inspect */}
+      <div className="mt-4 pt-2.5 border-t border-border-subtle flex items-center justify-between gap-2 text-[11px] text-text-muted">
+        <span className="tabular-nums">Updated {lastUpdatedText}</span>
+        {onInspect ? (
+          <button
+            type="button"
+            onClick={() => onInspect(device.id)}
+            aria-label={`Open details for ${device.name}`}
+            className="inline-flex items-center gap-1 px-2.5 py-1 min-h-[36px] sm:min-h-[28px] rounded-xl text-[11px] font-medium text-accent hover:bg-accent-subtle/60 transition-colors focus-ring"
+          >
+            <Maximize2 className="h-3 w-3" />
+            <span>Details</span>
+          </button>
+        ) : (
+          <span className="font-mono text-[10px] text-text-muted/70">{device.id}</span>
+        )}
       </div>
     </Card>
   );

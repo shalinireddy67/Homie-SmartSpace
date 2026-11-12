@@ -11,7 +11,7 @@ export const NotFoundPage: React.FC = () => {
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center p-4">
-      <Card className="max-w-md w-full p-8 text-center space-y-6 border border-border bg-surface shadow-xl">
+      <Card className="max-w-md w-full p-8 text-center space-y-6 border border-border-subtle rounded-3xl bg-surface shadow-soft">
         <div className="flex justify-center">
           <div className="w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
             <Compass className="w-8 h-8 animate-pulse" />

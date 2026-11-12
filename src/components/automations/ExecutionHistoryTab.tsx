@@ -128,16 +128,16 @@ export const ExecutionHistoryTab: React.FC = () => {
       </div>
 
       {/* Filter Toolbar */}
-      <div className="p-4 rounded-2xl bg-surface border border-border/80 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 shadow-xs">
+      <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 shadow-xs">
         {/* Search */}
         <div className="relative flex-1 max-w-sm">
-          <Search className="h-4 w-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search className="h-4 w-4 text-text-muted absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
             placeholder="Search by name, reason, device..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 text-xs bg-surface-elevated border border-border/80 rounded-xl text-text focus-ring"
+            className="w-full pl-10 pr-3 py-2 min-h-[44px] sm:min-h-[38px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
           />
         </div>
 
@@ -150,7 +150,7 @@ export const ExecutionHistoryTab: React.FC = () => {
               aria-label="Filter execution history by status"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value as typeof statusFilter)}
-              className="px-2.5 py-2 bg-surface-elevated border border-border/80 rounded-xl text-xs text-text focus-ring font-medium"
+              className="px-3 py-2 min-h-[44px] sm:min-h-[38px] bg-surface border border-border rounded-xl text-xs text-text focus-ring font-medium"
             >
               <option value="all">All Statuses</option>
               <option value="success">Executed (Success)</option>
@@ -167,7 +167,7 @@ export const ExecutionHistoryTab: React.FC = () => {
               aria-label="Filter execution history by source"
               value={sourceFilter}
               onChange={(e) => setSourceFilter(e.target.value)}
-              className="px-2.5 py-2 bg-surface-elevated border border-border/80 rounded-xl text-xs text-text focus-ring max-w-[160px] truncate font-medium"
+              className="px-3 py-2 min-h-[44px] sm:min-h-[38px] bg-surface border border-border rounded-xl text-xs text-text focus-ring max-w-[180px] truncate font-medium"
             >
               <option value="all">All Sources</option>
               {uniqueSources.map((name) => (
@@ -182,7 +182,7 @@ export const ExecutionHistoryTab: React.FC = () => {
 
       {/* Execution List */}
       {filteredItems.length === 0 ? (
-        <Card className="p-8 text-center bg-surface border border-border">
+        <Card className="p-8 text-center bg-surface-card border border-dashed border-border rounded-3xl">
           <History className="h-8 w-8 text-text-muted mx-auto mb-2 opacity-50" />
           <p className="text-sm font-semibold text-text">No Execution Records Found</p>
           <p className="text-xs text-text-muted mt-1 max-w-sm mx-auto">
@@ -192,7 +192,7 @@ export const ExecutionHistoryTab: React.FC = () => {
           </p>
         </Card>
       ) : (
-        <div className="divide-y divide-border border border-border rounded-xl bg-surface shadow-xs overflow-hidden">
+        <div className="divide-y divide-border-subtle border border-border-subtle rounded-3xl bg-surface shadow-xs overflow-hidden">
           {filteredItems.map((item) => {
             const d = new Date(item.timestamp);
             const devName = item.targetDeviceId ? deviceMap.get(item.targetDeviceId) || item.targetDeviceId : undefined;

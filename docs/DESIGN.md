@@ -1,154 +1,93 @@
-# NESTORA Design System Specifications
+# Nestora Smart Home Design System (v2)
 
-## 1. Reference Status & Source
-- **Design Reference Image & Brief:** `docs/design/reference.png` and `docs/design/BRIEF.md` were not present in the workspace upon project initialization. As instructed, design tokens and layout specifications are derived directly from the explicit architectural brief provided in the prompt.
-- **Goal:** Clean, calm, modern smart-home dashboard inspired by high-end ambient IoT control interfaces (warm organic neutrals, soft pastel functional tiles, refined card radii, high contrast WCAG AA compliant typography, and quiet control surfaces).
-- **Offline Fonts:** Zero CDN dependencies. Variable font `Inter` (`inter-variable.woff2`) is bundled locally in `public/fonts/` with system font stack fallbacks.
+Design specification derived from the Dribbble reference (`docs/design/reference-2.png` / `https://dribbble.com/shots/26727815-Smart-Home-Dashboard`).
 
 ---
 
-## 2. Token Architecture & Theme Values
+## 1. Reference Analysis
 
-### 2.1 Light Theme Tokens (Default)
-| Token | Variable | Hex / Value | Description |
-|---|---|---|---|
-| Background | `--color-surface-subtle` | `#F6F7F5` | Calming organic warm off-white canvas |
-| Surface | `--color-surface` | `#FFFFFF` | Primary content surfaces |
-| Card Surface | `--color-surface-card` | `#FFFFFF` | High-contrast card backgrounds |
-| Secondary Surface | `--color-surface-elevated` | `#F0F2F0` | Subtle container background, secondary tiles |
-| Border | `--color-border` | `#E4E7E4` | Thin, soft structure separator |
-| Border Subtle | `--color-border-subtle` | `#ECEFEC` | Hairline partition lines |
-| Primary Text | `--color-text` | `#202522` | Deep charcoal sage with 15.5:1 contrast on white |
-| Secondary Text | `--color-text-muted` | `#686F6A` | Adjusted from `#858C87` to guarantee $\ge 4.5:1$ WCAG AA |
-| Primary Accent | `--color-accent` | `#2D6A4F` | Deep forest accent for focus rings & interactive controls |
-| Accent Hover | `--color-accent-hover` | `#1B4332` | Darker hover state for primary controls |
-| Accent Blue Pastel | `--color-pastel-blue-bg` | `#DCEBF4` | Soft pastel background for Temperature |
-| Accent Blue Text | `--color-pastel-blue-text` | `#134E6F` | High-contrast deep slate blue icon & label (6.8:1) |
-| Accent Yellow Pastel | `--color-pastel-yellow-bg` | `#F5EDCF` | Soft pastel background for Humidity |
-| Accent Yellow Text | `--color-pastel-yellow-text` | `#6B5108` | High-contrast rich amber icon & label (6.1:1) |
-| Accent Green Pastel | `--color-pastel-green-bg` | `#E1EEE4` | Soft pastel background for Power & Energy |
-| Accent Green Text | `--color-pastel-green-text` | `#1C4D2B` | High-contrast pine green icon & label (6.9:1) |
-| Success Accent | `--color-success` | `#167949` | Online / active indicators |
-| Warning Accent | `--color-warning` | `#B45309` | Warning badges & alerts |
-| Danger Accent | `--color-danger` | `#DC2626` | Offline hardware / critical alerts |
+### Layout & Navigation
+- **App Container:** Soft icy-blue outer canvas (`#C2D4E0` -> `#EEF4F4` workspace tint) framing a floating white/icy-tinted rounded app surface (`rounded-3xl`, `24px`).
+- **Desktop Navigation:** Horizontal top pill bar centered inside the header:
+  - Left: Minimalist geometric brand mark (`NESTORA`) + Home selector pill (`Lakeview Home`).
+  - Center: Top pill navigation links (`Overview`, `Rooms & Devices`, `Automations`, `Energy Analytics`, `Event History`, `Notifications`, `Settings`). Active item sits inside a soft icy-blue rounded pill (`#CFE2E9`).
+  - Right: Compact simulation controls (`Start/Pause`, `Speed`, `Fail Next`), theme toggle (`Light`/`Dark`), Notification Bell badge, and user avatar (`AM`).
+- **Mobile Navigation (`< 768px`):** Sticky compact bottom tab bar (`>= 44px` touch targets) + slide-up "More" drawer covering all 7 routes.
+- **Overview Grid (Asymmetric 2-Column Split on Desktop `lg:grid-cols-12`):**
+  - **Left Column (8 cols):**
+    1. Room selector horizontal pill bar (`All Rooms`, `Living Room`, `Primary Bedroom`, `Kitchen`, `Ensuite Bathroom`, `Outdoor Patio`) with circular room badges.
+    2. **Hero Room Stage Card (`24px` radius):** Soft architectural interior vector stage with overlaid live telemetry pills (`Today's Energy kWh`, `Devices Count`), zone hotspot badges (`Lights`, `Climate`, `Cameras`), and a bottom-left floating frosted Lock quick-control card (`Locked`/`Unlocked` + toggle button).
+    3. **Bottom 3-Card Quick Strip:** 3 side-by-side clean white/icy-white cards (`#F5F9FA`) for immediate control of a Thermostat (`°C` + step/status), a Smart Light (`%` + toggle Switch), and an active Schedule (`HH:MM` + toggle Switch).
+  - **Right Column (4 cols, full-height panel `#F1F7F7`):**
+    1. Active room header + stylized pendant lamp graphic + device sub-tabs (`Smart Light` / `Thermostat` / `Cameras`) with bottom underline indicator.
+    2. **Semi-Circular Arc Gauge (`47% Intensity` style):** Crisp mint-teal radial arc gauge displaying live Smart Light brightness or Thermostat target setpoint, paired with interactive quick adjustment controls (`dispatchDeviceCommand`).
+    3. **2×2 Pastel Metric Tiles Grid:** Warm Peach (Current Power `W`), Soft Lavender (Today's Energy `kWh`), Soft Ice Blue (Indoor Temp `°C`), and Soft Mint (Humidity `%`).
+  - **Below Fold (Required Engine Observability & Acceptance Panels):**
+    - Complete 8-metric summary strip (`Total Devices`, `Online`, `Offline`, `Active Automations`, `Current Power`, `Today's Energy`, `Indoor Temp`, `Humidity`), 7-Day Energy Bar Chart + Device Status Donut Chart, Device Overview Quick Grid, and Recent Events / Active Anomalies / Recent Automations panels.
 
-### 2.2 Warm Dark Theme Tokens
-| Token | Variable | Hex / Value | Description |
-|---|---|---|---|
-| Background | `--color-surface-subtle` | `#181B19` | Warm charcoal canvas |
-| Surface | `--color-surface` | `#222623` | Deep warm surface |
-| Card Surface | `--color-surface-card` | `#222623` | Warm card container |
-| Secondary Surface | `--color-surface-elevated` | `#2A2F2C` | Elevated component surface |
-| Border | `--color-border` | `#353C37` | Subtle dark boundary lines |
-| Border Subtle | `--color-border-subtle` | `#2B312D` | Internal hairline divider |
-| Primary Text | `--color-text` | `#F0F3F1` | Soft warm white (13.2:1 contrast) |
-| Secondary Text | `--color-text-muted` | `#A2A9A4` | Muted slate gray (5.3:1 contrast on card surface) |
-| Primary Accent | `--color-accent` | `#52B788` | Sage green highlight |
-| Accent Blue Pastel | `--color-pastel-blue-bg` | `#1A2F3D` | Dark warm blue base |
-| Accent Blue Text | `--color-pastel-blue-text` | `#90C7EB` | Soft ice blue icon & label (6.2:1) |
-| Accent Yellow Pastel | `--color-pastel-yellow-bg` | `#383116` | Dark warm ochre base |
-| Accent Yellow Text | `--color-pastel-yellow-text` | `#EBD685` | Warm sunlight icon & label (6.4:1) |
-| Accent Green Pastel | `--color-pastel-green-bg` | `#1A3323` | Dark warm forest base |
-| Accent Green Text | `--color-pastel-green-text` | `#9CD7AD` | Pale mint icon & label (6.5:1) |
-| Success Accent | `--color-success` | `#34D399` | Online status |
-| Warning Accent | `--color-warning` | `#FBBF24` | Warning status |
-| Danger Accent | `--color-danger` | `#F87171` | Offline status |
+### Typography, Spacing, Radii, Shadows & Icons
+- **Font Family:** `Inter` bundled locally at `/fonts/inter-variable.woff2` (`@font-face`, 100–900 variable weight, offline-ready, system fallbacks). `tabular-nums` (`font-variant-numeric: tabular-nums`) enforced on all live figures, clocks, watts, kWh, and percentages.
+- **Spacing:** 8px base rhythm (`gap-4` 16px, `gap-6` 24px, card padding `20px–24px`).
+- **Corner Radii:** Pill chips `9999px` (`rounded-full`), inner tiles `16px` (`rounded-2xl`), outer stage/panel cards `24px` (`rounded-3xl`).
+- **Elevation:** Soft ambient shadow (`0 4px 20px -4px rgba(14, 24, 28, 0.06)`) and crisp thin hairline borders (`border-border-subtle` on cards, $\ge 3:1$ `border` on interactive inputs/controls).
+- **Icons:** Clean 1.75px stroke geometric line icons (`lucide-react`), always paired with explicit text labels for status/states (never color-only).
 
 ---
 
-## 3. Contrast Ratios & WCAG AA Proofs
+## 2. Color Tokens & Real Sampled Reference Palette
 
-### 3.1 Analysis of Brief Secondary Text `#858C87`
-- Relative Luminance formula (WCAG 2.1):
-  $$L = 0.2126 \times R_{lin} + 0.7152 \times G_{lin} + 0.0722 \times B_{lin}$$
-  where $C_{lin} = ((C_{srgb} + 0.055) / 1.055)^{2.4}$ for $C_{srgb} > 0.03928$.
-- For `#858C87`:
-  - $R = 133 / 255 = 0.52157 \implies R_{lin} = 0.2366$
-  - $G = 140 / 255 = 0.54902 \implies G_{lin} = 0.2647$
-  - $B = 135 / 255 = 0.52941 \implies B_{lin} = 0.2447$
-  - Luminance $L = 0.2126(0.2366) + 0.7152(0.2647) + 0.0722(0.2447) = 0.2573$.
-- Contrast on White (`#FFFFFF`, $L=1.0$):
-  $$\frac{1.0 + 0.05}{0.2573 + 0.05} = \frac{1.05}{0.3073} = \mathbf{3.42:1} \quad (\text{FAILS WCAG AA 4.5:1})$$
-- Contrast on Canvas Background (`#F6F7F5`, $L=0.9268$):
-  $$\frac{0.9268 + 0.05}{0.2573 + 0.05} = \frac{0.9768}{0.3073} = \mathbf{3.17:1} \quad (\text{FAILS WCAG AA 4.5:1})$$
+Pixel sampling from `media_1794500905367_371d9749.jpg` (`585x451`):
+- `outer-backdrop`: `#C2D4E0`
+- `header-surface`: `#FFFFFF`
+- `app-canvas-tint`: `#EEF4F4`
+- `active-nav-pill`: `#CFE2E9` / `#D5E5E5`
+- `right-panel-bg`: `#F1F7F7`
+- `bottom-card-bg`: `#F5F9FA`
+- `mint-arc-active`: `#ADDBD0`
+- `mint-arc-track`: `#DEEDEA`
+- `tile-peach`: `#EDE1D1` (adjusted slightly lighter `#F2E4D3` for ink harmony)
+- `tile-lavender`: `#E3D1EB` (`#EADCF2`)
+- `tile-blue`: `#D0E3EA` (`#D6E7EE`)
+- `tile-mint`: `#D1ECE7` (`#D5EFEA`)
+- `darkest-ink-heading`: `#0E1213`
 
-### 3.2 Darkened Secondary Text Selection: `#686F6A`
-To achieve $\ge 4.5:1$ on canvas background `#F6F7F5` ($L=0.9268$):
-$$L_{target} \le \frac{0.9268 + 0.05}{4.5} - 0.05 = 0.1670$$
-For `#686F6A` ($R=104, G=111, B=106$):
-- $R_{lin} = 0.1384$, $G_{lin} = 0.1601$, $B_{lin} = 0.1444$
-- Luminance $L = 0.2126(0.1384) + 0.7152(0.1601) + 0.0722(0.1444) = \mathbf{0.1543}$.
-- Contrast on White (`#FFFFFF`):
-  $$\frac{1.0 + 0.05}{0.1543 + 0.05} = \frac{1.05}{0.2043} = \mathbf{5.14:1} \quad (\text{PASSES WCAG AA } \ge 4.5:1)$$
-- Contrast on Canvas (`#F6F7F5`):
-  $$\frac{0.9268 + 0.05}{0.1543 + 0.05} = \frac{0.9768}{0.2043} = \mathbf{4.78:1} \quad (\text{PASSES WCAG AA } \ge 4.5:1)$$
-- Contrast on Secondary Surface (`#F0F2F0`, $L=0.884$):
-  $$\frac{0.884 + 0.05}{0.1543 + 0.05} = \frac{0.934}{0.2043} = \mathbf{4.57:1} \quad (\text{PASSES WCAG AA } \ge 4.5:1)$$
+Because the Dribbble reference only shows **Light Mode**, **Dark Mode** is derived with the exact same cool slate-mint hierarchy: deep slate canvas (`#0F1416`), elevated card surfaces (`#161C1E`), soft panel (`#1D2528`), icy-mint active nav pill (`#203A3D`), glowing mint accent (`#5EC2AC`), and darkened saturated pastel tile surfaces (`#36291E`, `#2E2138`, `#1B313B`, `#19352F`) preserving identical semantic mapping.
 
-### 3.3 Five Worst Color Pairs — Light Theme
-1. **Secondary Text (`#686F6A`) on Secondary Surface (`#F0F2F0`):**
-   Ratio: **4.57:1** (Passes WCAG AA standard $\ge 4.5:1$).
-2. **Secondary Text (`#686F6A`) on Canvas (`#F6F7F5`):**
-   Ratio: **4.78:1** (Passes WCAG AA standard $\ge 4.5:1$).
-3. **Secondary Text (`#686F6A`) on Card White (`#FFFFFF`):**
-   Ratio: **5.14:1** (Passes WCAG AA standard $\ge 4.5:1$).
-4. **Yellow Pastel Text (`#6B5108`) on Yellow Pastel Bg (`#F5EDCF`):**
-   Ratio: **6.10:1** (Passes WCAG AA standard $\ge 4.5:1$).
-5. **Blue Pastel Text (`#134E6F`) on Blue Pastel Bg (`#DCEBF4`):**
-   Ratio: **6.80:1** (Passes WCAG AA standard $\ge 4.5:1$).
+### WCAG 2.1 AA Contrast Audit (Original Sampled vs Adjusted Final)
 
-### 3.4 Five Worst Color Pairs — Dark Theme
-1. **Secondary Text (`#A2A9A4`) on Elevated Surface (`#2A2F2C`):**
-   $L_1 = 0.388$, $L_2 = 0.026 \implies (0.388 + 0.05) / (0.026 + 0.05) = 0.438 / 0.076 =$ **5.76:1** (Passes WCAG AA).
-2. **Secondary Text (`#A2A9A4`) on Card Surface (`#222623`):**
-   $L_1 = 0.388$, $L_2 = 0.017 \implies 0.438 / 0.067 =$ **6.53:1** (Passes WCAG AA).
-3. **Secondary Text (`#A2A9A4`) on Canvas (`#181B19`):**
-   $L_1 = 0.388$, $L_2 = 0.010 \implies 0.438 / 0.060 =$ **7.30:1** (Passes WCAG AA).
-4. **Dark Pastel Blue Text (`#90C7EB`) on Dark Pastel Blue Bg (`#1A2F3D`):**
-   Ratio: **6.20:1** (Passes WCAG AA).
-5. **Dark Pastel Yellow Text (`#EBD685`) on Dark Pastel Yellow Bg (`#383116`):**
-   Ratio: **6.40:1** (Passes WCAG AA).
+| Pair | Original (Sampled) | Final Adjusted | Final Ratio | Standard |
+| :--- | :--- | :--- | :--- | :--- |
+| Light primary text on `#FFFFFF` | `#0E1213` (18.84:1) | `#111618` | **18.23:1** | $\ge 4.5:1$ Pass |
+| Light muted text on `#FFFFFF` | `#8E9DA4` (2.80:1 - Fail) | `#526066` | **6.51:1** | $\ge 4.5:1$ Pass |
+| Light muted text on `#F5F9FA` card | `#8E9DA4` (2.64:1 - Fail) | `#526066` | **6.15:1** | $\ge 4.5:1$ Pass |
+| Light muted text on `#F1F7F7` panel | `#8E9DA4` (2.58:1 - Fail) | `#4B585E` | **6.79:1** | $\ge 4.5:1$ Pass |
+| Light accent & focus ring on `#FFFFFF` | `#7CC4B2` (2.02:1 - Fail) | `#1F6F60` | **6.00:1** | $\ge 4.5:1$ Pass |
+| Light active nav text on `#CFE2E9` pill | `#0E1213` (14.09:1) | `#0E1213` | **14.09:1** | $\ge 4.5:1$ Pass |
+| Light gauge arc & chart stroke on `#FFFFFF` | `#ADDBD0` (1.52:1 - Fail) | `#3C8D7B` | **3.97:1** | $\ge 3.0:1$ Pass |
+| Light control border on `#F5F9FA` / `#FFFFFF` | `#DDECE9` (1.22:1 - Fail) | `#7E9397` | **3.07:1 / 3.26:1** | $\ge 3.0:1$ Pass |
+| Light Peach / Lavender / Blue / Mint tiles | N/A | `#6E471B` / `#59336E` / `#1C4E63` / `#175245` | **6.52 / 7.54 / 7.12 / 7.45 :1** | $\ge 4.5:1$ Pass |
+| Dark primary text `#EDF3F3` on `#161C1E` | Derived | `#EDF3F3` | **15.35:1** | $\ge 4.5:1$ Pass |
+| Dark muted text `#96A6AA` on `#161C1E` | Derived | `#96A6AA` | **6.84:1** | $\ge 4.5:1$ Pass |
+| Dark accent `#5EC2AC` on `#161C1E` | Derived | `#5EC2AC` | **8.03:1** | $\ge 4.5:1$ Pass |
+| Dark control border `#586B70` on `#161C1E` | `#435458` (2.17:1) | `#586B70` | **3.08:1** | $\ge 3.0:1$ Pass |
+| Dark Peach / Lavender / Blue / Mint tiles | Derived | `#F5D5B0` / `#E4C8F7` / `#BAE2F2` / `#B5ECE0` | **10.07 / 10.00 / 9.84 / 10.08 :1** | $\ge 4.5:1$ Pass |
 
 ---
 
-## 4. Typography Scale & Metrics
-- **Font Family:** `Inter`, with `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`.
-- **6-Size Scale:**
-  1. `text-xs` (12px / 16px line-height): Badges, relative timestamps, helper metadata.
-  2. `text-sm` (14px / 20px line-height): Body text, button labels, navigation links.
-  3. `text-base` (16px / 24px line-height): Card headers, input controls, primary dialog text.
-  4. `text-lg` (18px / 28px line-height): Section titles, modal headings.
-  5. `text-xl` (20px / 28px line-height): Group titles, page subheadings.
-  6. `text-2xl` / `text-3xl` (24px / 32px or 30px / 36px): Primary environment metric values.
-- **Tabular Figures:** Numbers and metrics use `tabular-nums` and monospace styling (`font-mono`) to prevent visual jitter during live simulation updates.
+## 3. Reference-to-Engine Mapping & `NOT BUILT` List
 
----
+### Mapped Sections
+- Top pill navigation bar -> `<Header />` primary desktop `<nav>` + `<BottomNav />` on mobile.
+- Room filter pills -> `store.rooms` selector (`All Rooms` + 5 rooms).
+- Room Stage Hero card -> Inline vector architectural room stage overlaid with live `selectTodayEnergyKWh`, `selectDeviceDistribution`, room climate, and frosted quick Lock card (`dispatchDeviceCommand`).
+- Bottom 3 Quick-Widget cards -> Live `ThermostatDevice`, live `LightDevice`, and live `Schedule` (`toggleSchedule`).
+- Right panel Pendant & Arc Dial -> Live selected-room `LightDevice` brightness arc (`dispatchDeviceCommand`) / `ThermostatDevice` target dial / `CameraDevice` status tabs.
+- Right 2×2 Pastel Tiles -> Real selectors: Current Power (`W`), Today's Energy (`kWh`), Indoor Temp (`°C`), Humidity (`%`).
 
-## 5. Spacing, Geometry & Radii
-- **Base Grid:** Strict 8px increment grid (`p-2`, `p-4`, `p-6`, `gap-4`, `gap-6`).
-- **Radii:**
-  - Card & Container Radius: `rounded-2xl` (16px) or `rounded-3xl` (24px).
-  - Pastel Icon Tiles: `rounded-2xl` (16px).
-  - Buttons & Inputs: `rounded-xl` (12px) to `rounded-2xl` (16px).
-  - Badges & Switches: `rounded-full`.
-- **Padding:**
-  - Standard Cards: 20px (`p-5`) to 24px (`p-6`).
-  - Environment Hero Cards: 24px (`p-6`).
-- **Elevation:** Soft ambient drop-shadow (`shadow-xs` to `shadow-sm`) combined with crisp thin borders (`border border-border/80`).
-
----
-
-## 6. Functional Pastel Role Assignments
-- **Blue (`#DCEBF4` light / `#1A2F3D` dark):** Strictly assigned to **Indoor Temperature**.
-- **Yellow (`#F5EDCF` light / `#383116` dark):** Strictly assigned to **Indoor Humidity**.
-- **Green (`#E1EEE4` light / `#1A3323` dark):** Strictly assigned to **Power Consumption & Energy**.
-- **Negative Constraint:** No air quality metrics and no outdoor weather indicators exist anywhere in the application.
-
----
-
-## 7. Motion & Accessibility
-- **Transitions:** Snappy 150ms to 200ms ease-out transitions for toggles, hover states, and card elevations.
-- **Reduced Motion:** Automatic disabling of all animations when `prefers-reduced-motion: reduce` is detected (duration set to `0.01ms`).
-- **Keyboard Navigation:** High-contrast visible focus outline (`focus-ring`: `ring-2 ring-accent ring-offset-2 ring-offset-surface`).
-- **Touch Targets:** Minimum 44px by 44px clickable and tappable bounding boxes on all interactive elements across desktop and mobile.
-
+### `NOT BUILT` (Excluded because Engine/Store has No Support)
+1. **Air Conditioner unit widget:** Engine only supports `thermostat` (target/current °C), not AC fan speed/swing modes. Replaced by real Thermostat quick card.
+2. **Air Purifier / PM2.5 Air Quality widget:** Engine has no purifier device type or AQI/particulate sensor. Replaced by real Smart Light quick card.
+3. **Solar Energy Production (`Produced 120 kw/h`):** Telemetry only tracks consumption (`powerWatts` / `kWh`), not solar generation. Replaced by real `Today's Energy` consumption tile.
+4. **Wake-Up Alarm Clock (`Work 07.00`):** No alarm clock model; replaced by real `Schedule` quick toggle card (e.g., `06:30 Weekday Morning Warmup`).
+5. **Global Header Search Omnibox:** Search icon triggers navigation/focus to dedicated search filters on Rooms & Event History rather than a non-existent global search engine.
+6. **External Photorealistic Room Photos / Product PNGs:** Prohibited by offline-only rule; replaced with clean offline vector room artwork and geometric icons.

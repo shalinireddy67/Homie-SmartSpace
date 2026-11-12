@@ -12,81 +12,95 @@
 
 @layer base {
   :root {
-    /* Canvas & Surfaces - Light Default */
-    --color-surface-subtle: 246 247 245; /* #F6F7F5 warm canvas */
-    --color-surface: 255 255 255;        /* #FFFFFF */
-    --color-surface-card: 255 255 255;   /* #FFFFFF */
-    --color-surface-elevated: 240 242 240; /* #F0F2F0 */
+    /* Canvas & Surfaces - Cool Icy-Mint Light Theme (from reference-2) */
+    --color-outer-canvas: 215 229 235;   /* #D7E5EB soft icy outer backdrop */
+    --color-surface-subtle: 238 244 244; /* #EEF4F4 cool app shell tint */
+    --color-surface: 255 255 255;        /* #FFFFFF primary elevated surface */
+    --color-surface-card: 245 249 250;   /* #F5F9FA soft icy card surface */
+    --color-surface-elevated: 241 247 247; /* #F1F7F7 right-panel / pill container */
 
-    /* Typography */
-    --color-text: 32 37 34;              /* #202522 (15.5:1 on white) */
-    --color-text-muted: 104 111 106;     /* #686F6A (darkened from #858C87 for 4.78:1 on canvas, 5.14:1 on white) */
+    /* Typography (WCAG AA audited) */
+    --color-text: 17 22 24;              /* #111618 (18.23:1 on white) */
+    --color-text-muted: 82 96 102;       /* #526066 (6.51:1 on white, 6.15:1 on #F5F9FA) */
 
     /* Structure & Borders */
-    --color-border: 228 231 228;         /* #E4E7E4 */
-    --color-border-subtle: 236 239 236;  /* #ECEFEC */
+    --color-border: 126 147 151;         /* #7E9397 (3.26:1 on white, 3.07:1 on #F5F9FA for controls) */
+    --color-border-subtle: 220 232 234;  /* #DCE8EA delicate divider border */
 
-    /* Brand Accent */
-    --color-accent: 45 106 79;           /* #2D6A4F forest deep */
-    --color-accent-hover: 27 67 50;      /* #1B4332 */
-    --color-accent-subtle: 225 238 228;  /* #E1EEE4 */
+    /* Brand & Navigation Pill Accents */
+    --color-accent: 31 111 96;           /* #1F6F60 deep mint-teal (6.00:1 on white) */
+    --color-accent-hover: 22 86 74;      /* #16564A */
+    --color-accent-subtle: 207 226 233;  /* #CFE2E9 active nav pill */
+    --color-arc-fill: 60 141 123;        /* #3C8D7B gauge & chart stroke (3.97:1 on white) */
+    --color-arc-track: 222 237 234;      /* #DEEDEA unfilled arc track */
 
-    /* Functional Pastel Accents */
-    --color-pastel-blue-bg: 220 235 244; /* #DCEBF4 (temperature) */
-    --color-pastel-blue-text: 19 78 111; /* #134E6F (6.8:1 contrast) */
-    --color-pastel-yellow-bg: 245 237 207; /* #F5EDCF (humidity) */
-    --color-pastel-yellow-text: 107 81 8;  /* #6B5108 (6.1:1 contrast) */
-    --color-pastel-green-bg: 225 238 228;  /* #E1EEE4 (power/energy) */
-    --color-pastel-green-text: 28 77 43;   /* #1C4D2B (6.9:1 contrast) */
+    /* Functional Pastel Tiles (Reference 2x2 Grid + Legacy Mappings) */
+    --color-pastel-blue-bg: 214 231 238;     /* #D6E7EE (sampled #D0E3EA) */
+    --color-pastel-blue-text: 28 78 99;      /* #1C4E63 (7.12:1) */
+    --color-pastel-yellow-bg: 242 228 211;   /* #F2E4D3 Peach/Warm (sampled #EDE1D1) */
+    --color-pastel-yellow-text: 110 71 27;   /* #6E471B (6.52:1) */
+    --color-pastel-green-bg: 213 239 234;    /* #D5EFEA Mint (sampled #D1ECE7) */
+    --color-pastel-green-text: 23 82 69;     /* #175245 (7.45:1) */
+    --color-pastel-peach-bg: 242 228 211;    /* #F2E4D3 Usage / Power */
+    --color-pastel-peach-text: 110 71 27;    /* #6E471B (6.52:1) */
+    --color-pastel-lavender-bg: 234 220 242; /* #EADCF2 Today's Energy (sampled #E3D1EB) */
+    --color-pastel-lavender-text: 89 51 110; /* #59336E (7.54:1) */
 
     /* Status Accents */
-    --color-success: 22 121 73;          /* #167949 */
-    --color-success-subtle: 225 238 228;
-    --color-warning: 180 83 9;           /* #B45309 */
-    --color-warning-subtle: 245 237 207;
-    --color-danger: 220 38 38;           /* #DC2626 */
+    --color-success: 17 107 65;          /* #116B41 (6.57:1 on white) */
+    --color-success-subtle: 213 239 234;
+    --color-warning: 153 83 6;           /* #995306 (6.02:1 on white) */
+    --color-warning-subtle: 242 228 211;
+    --color-danger: 185 28 28;           /* #B91C1C (6.46:1 on white) */
     --color-danger-subtle: 254 226 226;
   }
 
   .dark {
-    /* Warm Dark Canvas & Surfaces */
-    --color-surface-subtle: 24 27 25;    /* #181B19 warm dark canvas */
-    --color-surface: 34 38 35;           /* #222623 */
-    --color-surface-card: 34 38 35;      /* #222623 */
-    --color-surface-elevated: 42 47 44;   /* #2A2F2C */
+    /* Derived Cool Slate-Mint Dark Theme (matching Reference hierarchy) */
+    --color-outer-canvas: 11 16 18;      /* #0B1012 */
+    --color-surface-subtle: 15 20 22;    /* #0F1416 */
+    --color-surface: 22 28 30;           /* #161C1E */
+    --color-surface-card: 25 32 35;      /* #192023 */
+    --color-surface-elevated: 29 37 40;  /* #1D2528 */
 
     /* Typography */
-    --color-text: 240 243 241;           /* #F0F3F1 (13.2:1 contrast) */
-    --color-text-muted: 162 169 164;     /* #A2A9A4 (5.3:1 contrast on card) */
+    --color-text: 237 243 243;           /* #EDF3F3 (15.35:1 on #161C1E) */
+    --color-text-muted: 150 166 170;     /* #96A6AA (6.84:1 on #161C1E) */
 
     /* Structure & Borders */
-    --color-border: 53 60 55;            /* #353C37 */
-    --color-border-subtle: 43 49 45;     /* #2B312D */
+    --color-border: 88 107 112;          /* #586B70 (3.08:1 on #161C1E) */
+    --color-border-subtle: 40 52 55;     /* #283437 */
 
-    /* Brand Accent */
-    --color-accent: 82 183 136;          /* #52B788 */
-    --color-accent-hover: 116 198 157;   /* #74C69D */
-    --color-accent-subtle: 26 51 35;     /* #1A3323 */
+    /* Brand & Navigation Pill Accents */
+    --color-accent: 94 194 172;          /* #5EC2AC (8.03:1 on #161C1E) */
+    --color-accent-hover: 127 212 193;   /* #7FD4C1 */
+    --color-accent-subtle: 32 58 61;     /* #203A3D active nav pill */
+    --color-arc-fill: 94 194 172;        /* #5EC2AC */
+    --color-arc-track: 38 50 53;         /* #263235 */
 
-    /* Functional Pastel Accents */
-    --color-pastel-blue-bg: 26 47 61;    /* #1A2F3D */
-    --color-pastel-blue-text: 144 199 235; /* #90C7EB (6.2:1 contrast) */
-    --color-pastel-yellow-bg: 56 49 22;  /* #383116 */
-    --color-pastel-yellow-text: 235 214 133; /* #EBD685 (6.4:1 contrast) */
-    --color-pastel-green-bg: 26 51 35;   /* #1A3323 */
-    --color-pastel-green-text: 156 215 173; /* #9CD7AD (6.5:1 contrast) */
+    /* Functional Pastel Tiles */
+    --color-pastel-blue-bg: 27 49 59;        /* #1B313B */
+    --color-pastel-blue-text: 186 226 242;   /* #BAE2F2 (9.84:1) */
+    --color-pastel-yellow-bg: 54 41 30;      /* #36291E */
+    --color-pastel-yellow-text: 245 213 176; /* #F5D5B0 (10.07:1) */
+    --color-pastel-green-bg: 25 53 47;       /* #19352F */
+    --color-pastel-green-text: 181 236 224;  /* #B5ECE0 (10.08:1) */
+    --color-pastel-peach-bg: 54 41 30;       /* #36291E */
+    --color-pastel-peach-text: 245 213 176;  /* #F5D5B0 (10.07:1) */
+    --color-pastel-lavender-bg: 46 33 56;    /* #2E2138 */
+    --color-pastel-lavender-text: 228 200 247; /* #E4C8F7 (10.00:1) */
 
     /* Status Accents */
-    --color-success: 52 211 153;         /* #34D399 */
-    --color-success-subtle: 6 78 59;
+    --color-success: 74 222 128;         /* #4ADE80 (9.89:1) */
+    --color-success-subtle: 20 56 38;
     --color-warning: 251 191 36;         /* #FBBF24 */
-    --color-warning-subtle: 120 53 15;
+    --color-warning-subtle: 69 44 12;
     --color-danger: 248 113 113;         /* #F87171 */
-    --color-danger-subtle: 136 19 55;
+    --color-danger-subtle: 69 24 28;
   }
 
   * {
-    border-color: rgb(var(--color-border));
+    border-color: rgb(var(--color-border-subtle));
   }
 
   html,
@@ -98,6 +112,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Tabular numbers helper for live KPIs & clocks */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Reduced motion preference override */
@@ -112,7 +131,7 @@
   }
 }
 
-/* Accessible focus ring utility */
+/* Accessible focus ring utility (>= 3:1 contrast) */
 .focus-ring {
   @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface;
 }
@@ -132,7 +151,12 @@
   text-decoration: none;
 }
 
+.dark .skip-link {
+  color: #0b1012;
+}
+
 .skip-link:focus {
   top: 1rem;
-  outline: 2px solid #ffffff;
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 2px;
 }

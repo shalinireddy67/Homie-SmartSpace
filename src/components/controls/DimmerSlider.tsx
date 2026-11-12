@@ -111,7 +111,7 @@ export const DimmerSlider: React.FC<DimmerSliderProps> = ({
           onTouchEnd={handleRelease}
           onKeyUp={handleRelease}
           onKeyDown={handleKeyDown}
-          className="w-full h-2 bg-surface-subtle rounded-lg appearance-none cursor-pointer accent-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed"
+          className="w-full h-2.5 bg-arc-track border border-border-subtle rounded-full appearance-none cursor-pointer accent-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed"
         />
       </div>
 

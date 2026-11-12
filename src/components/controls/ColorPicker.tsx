@@ -109,10 +109,10 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
               aria-label={`Color ${swatch}`}
               aria-pressed={isSelected}
               onClick={() => handleSwatchClick(swatch)}
-              className={`h-6 w-6 rounded-full border transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
+              className={`h-8 w-8 sm:h-6 sm:w-6 rounded-full border transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
                 isSelected
                   ? 'border-accent scale-110 ring-2 ring-accent/30'
-                  : 'border-border/60 hover:scale-105'
+                  : 'border-border hover:scale-105'
               } ${disabled ? 'cursor-not-allowed opacity-60' : ''}`}
               style={{ backgroundColor: swatch }}
             />
@@ -136,7 +136,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
           onChange={handleInputChange}
           onBlur={handleInputBlur}
           onKeyDown={handleKeyDown}
-          className={`w-24 px-2 py-1 text-xs font-mono uppercase bg-surface rounded-md border ${
+          className={`w-28 px-2.5 py-1.5 min-h-[44px] sm:min-h-[32px] text-xs font-mono uppercase bg-surface rounded-xl border ${
             inputError ? 'border-danger focus:ring-danger' : 'border-border focus:ring-accent'
           } ${disabled ? 'cursor-not-allowed opacity-60' : ''} focus-visible:outline-none focus-visible:ring-2`}
         />

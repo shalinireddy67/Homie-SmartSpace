@@ -35,10 +35,10 @@ describe('Responsive AppShell & Layout', () => {
       </MemoryRouter>
     );
 
-    // Sidebar should have hidden md:flex
-    const sidebar = container.querySelector('aside');
-    expect(sidebar).toHaveClass('hidden');
-    expect(sidebar).toHaveClass('md:flex');
+    // Desktop top primary navigation should have hidden md:flex
+    const primaryNav = container.querySelector('nav[aria-label="Primary Navigation"]');
+    expect(primaryNav).toHaveClass('hidden');
+    expect(primaryNav).toHaveClass('md:flex');
 
     // Bottom nav should have md:hidden
     const bottomNav = container.querySelector('nav[aria-label="Mobile Navigation"]');
