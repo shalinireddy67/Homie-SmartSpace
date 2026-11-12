@@ -176,7 +176,10 @@ node --experimental-websocket scripts/verify-all-pages.mjs
 
 ## 🎨 Design System & Accessibility
 
+- **Design Reference:** Modern smart home dashboard inspired by Dribbble (`docs/design/reference-2.png`), featuring asymmetric hero stage, semi-circular radial arc gauges, and 2×2 pastel telemetry tiles.
 - **Theme Support:** Clean light, dark, and system modes persisted to `nestora_theme` with zero-flash inline execution.
+- **Axe-Core Accessibility:** Audited across all 8 routes in both Light and Dark themes with zero WCAG 2.1 AA violations.
+- **Screenshots:** Full responsive visual regression capture across all 7 pages + 404 at 375px, 768px, and 1440px in Light and Dark themes available in `docs/screenshots/after-v2/`.
 - **Accessible Palette:** Exceeds WCAG AA contrast standards (minimum 4.5:1 for body copy and 3:1 for large typography and interactive borders).
 - **Keyboard Navigation:** Full keyboard walkthrough support with visible high-contrast focus rings (`.focus-ring`), logical tab index order, and focus trapping within modals.
 - **Screen Reader Support:** Screen reader live announcements (`aria-live="polite"`), semantic landmarks (`<header>`, `<main>`, `<nav>`, `<aside>`), and accessible ARIA attributes.
