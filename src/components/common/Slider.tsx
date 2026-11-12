@@ -45,7 +45,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
             </span>
           </div>
         )}
-        <div className="relative flex items-center h-6">
+        <div className="relative flex items-center min-h-[44px] sm:min-h-[28px]">
           <input
             ref={ref}
             id={id}
@@ -56,9 +56,9 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
             value={value}
             disabled={disabled}
             onChange={(e) => onChange(parseFloat(e.target.value))}
-            className="w-full h-2 rounded-full appearance-none cursor-pointer bg-surface-elevated border border-border focus-ring disabled:opacity-50 disabled:cursor-not-allowed accent-accent"
+            className="w-full h-2.5 rounded-full appearance-none cursor-pointer bg-surface-elevated border border-border focus-ring disabled:opacity-50 disabled:cursor-not-allowed accent-accent"
             style={{
-              background: `linear-gradient(to right, rgb(var(--color-accent)) 0%, rgb(var(--color-accent)) ${percentage}%, rgb(var(--color-surface-elevated)) ${percentage}%, rgb(var(--color-surface-elevated)) 100%)`,
+              background: `linear-gradient(to right, rgb(var(--color-accent)) 0%, rgb(var(--color-accent)) ${percentage}%, rgb(var(--color-arc-track)) ${percentage}%, rgb(var(--color-arc-track)) 100%)`,
             }}
           />
         </div>

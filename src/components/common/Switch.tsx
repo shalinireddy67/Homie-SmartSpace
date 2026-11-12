@@ -52,14 +52,18 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
           tabIndex={isAriaDisabled ? 0 : undefined}
           onClick={() => !isInactive && onChange(!checked)}
           onKeyDown={handleKeyDown}
-          className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus-ring ${
-            checked ? 'bg-accent' : 'bg-surface-elevated border-border'
+          className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer items-center rounded-full border transition-colors duration-200 ease-in-out focus-ring ${
+            checked
+              ? 'bg-accent border-accent'
+              : 'bg-surface-elevated border-border'
           } ${isInactive ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           <span
             aria-hidden="true"
-            className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-xs ring-0 transition duration-200 ease-in-out ${
-              checked ? 'translate-x-5' : 'translate-x-0'
+            className={`pointer-events-none inline-block h-4 w-4 transform rounded-full shadow-xs ring-0 transition duration-200 ease-in-out ${
+              checked
+                ? 'translate-x-6 bg-white dark:bg-[#0B1012]'
+                : 'translate-x-1 bg-text-muted'
             }`}
           />
         </button>

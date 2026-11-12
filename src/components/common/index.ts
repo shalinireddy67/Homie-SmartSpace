@@ -4,3 +4,5 @@ export * from './Badge';
 export * from './Switch';
 export * from './Slider';
 export * from './Modal';
+export * from './Input';
+export * from './Tabs';

@@ -160,7 +160,13 @@ async function captureAll(targetFolder = 'before') {
     for (const page of pages) {
       console.log(`Navigating to ${page.id} (${page.path})...`);
       await cdp.send('Page.navigate', { url: `http://localhost:${vitePort}${page.path}` });
-      await new Promise((r) => setTimeout(r, 1200));
+      // Wait for React app & page heading to mount on cold/warm Vite navigation
+      for (let w = 0; w < 40; w++) {
+        const ready = await cdp.eval(`Boolean(document.querySelector('main h1'))`);
+        if (ready) break;
+        await new Promise((r) => setTimeout(r, 300));
+      }
+      await new Promise((r) => setTimeout(r, 600));
 
       for (const theme of themes) {
         // Toggle theme in DOM & localStorage
@@ -183,6 +189,7 @@ async function captureAll(targetFolder = 'before') {
             mobile: vp.width < 1000,
           });
           await new Promise((r) => setTimeout(r, 400));
+          await cdp.eval(`new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))`);
 
           const shotResult = await cdp.send('Page.captureScreenshot', {
             format: 'png',
@@ -197,12 +204,19 @@ async function captureAll(targetFolder = 'before') {
       }
     }
 
-    console.log(`\nSuccessfully captured all 42 screenshots into docs/screenshots/${targetFolder}/`);
+    console.log(`\nSuccessfully captured ${pages.length * themes.length * viewports.length} screenshots into docs/screenshots/${targetFolder}/`);
   } finally {
     if (cdp) cdp.close();
-    chromeProc.kill('SIGKILL');
-    viteProc.kill('SIGKILL');
+    try { chromeProc.kill('SIGKILL'); } catch {}
+    try {
+      if (process.platform === 'win32' && viteProc.pid) {
+        spawn('taskkill', ['/pid', String(viteProc.pid), '/T', '/F'], { stdio: 'ignore' });
+      } else {
+        viteProc.kill('SIGKILL');
+      }
+    } catch {}
   }
+  process.exit(0);
 }
 
 const target = process.argv[2] || 'before';

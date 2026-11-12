@@ -47,9 +47,9 @@ const ToastItem: React.FC<{ toast: Toast; onDismiss: (id: string) => void }> = (
         type="button"
         onClick={() => onDismiss(toast.id)}
         aria-label="Dismiss notification"
-        className="shrink-0 text-text-muted hover:text-text p-1 rounded-lg hover:bg-surface-elevated transition-colors"
+        className="shrink-0 text-text-muted hover:text-text p-1.5 rounded-xl hover:bg-surface-elevated transition-colors focus-ring min-h-[44px] min-w-[44px] sm:min-h-[32px] sm:min-w-[32px] inline-flex items-center justify-center"
       >
-        <X className="h-4 w-4" />
+        <X className="h-4 w-4" aria-hidden="true" />
       </button>
     </div>
   );

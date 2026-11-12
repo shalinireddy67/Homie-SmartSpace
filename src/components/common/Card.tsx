@@ -20,7 +20,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
   ) => {
     const paddingStyles = {
       none: '',
-      sm: 'p-3',
+      sm: 'p-3.5',
       md: 'p-5 sm:p-6',
       lg: 'p-6 sm:p-7',
     };
@@ -28,9 +28,9 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className={`bg-surface-card text-text rounded-2xl sm:rounded-3xl shadow-xs transition-all duration-200 ${
-          bordered ? 'border border-border/80' : ''
-        } ${hoverable ? 'hover:shadow-soft hover:border-border' : ''} ${
+        className={`bg-surface-card text-text rounded-3xl shadow-soft transition-all duration-200 ${
+          bordered ? 'border border-border-subtle' : ''
+        } ${hoverable ? 'hover:shadow-md hover:border-border' : ''} ${
           paddingStyles[padding]
         } ${className}`}
         {...props}

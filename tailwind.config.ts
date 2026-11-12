@@ -6,6 +6,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        outerCanvas: 'rgb(var(--color-outer-canvas) / <alpha-value>)',
         surface: {
           DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
           subtle: 'rgb(var(--color-surface-subtle) / <alpha-value>)',
@@ -25,6 +26,10 @@ const config: Config = {
           hover: 'rgb(var(--color-accent-hover) / <alpha-value>)',
           subtle: 'rgb(var(--color-accent-subtle) / <alpha-value>)',
         },
+        arc: {
+          fill: 'rgb(var(--color-arc-fill) / <alpha-value>)',
+          track: 'rgb(var(--color-arc-track) / <alpha-value>)',
+        },
         pastel: {
           blue: {
             bg: 'rgb(var(--color-pastel-blue-bg) / <alpha-value>)',
@@ -37,6 +42,14 @@ const config: Config = {
           green: {
             bg: 'rgb(var(--color-pastel-green-bg) / <alpha-value>)',
             text: 'rgb(var(--color-pastel-green-text) / <alpha-value>)',
+          },
+          peach: {
+            bg: 'rgb(var(--color-pastel-peach-bg) / <alpha-value>)',
+            text: 'rgb(var(--color-pastel-peach-text) / <alpha-value>)',
+          },
+          lavender: {
+            bg: 'rgb(var(--color-pastel-lavender-bg) / <alpha-value>)',
+            text: 'rgb(var(--color-pastel-lavender-text) / <alpha-value>)',
           },
         },
         success: {
@@ -68,8 +81,8 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        xs: '0 1px 2px 0 rgba(0, 0, 0, 0.03)',
-        soft: '0 2px 8px -2px rgba(0, 0, 0, 0.04), 0 1px 4px -1px rgba(0, 0, 0, 0.02)',
+        xs: '0 1px 2px 0 rgba(14, 24, 28, 0.04)',
+        soft: '0 6px 24px -6px rgba(14, 24, 28, 0.07), 0 2px 8px -2px rgba(14, 24, 28, 0.03)',
       },
     },
   },

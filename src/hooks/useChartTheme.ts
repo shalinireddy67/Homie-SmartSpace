@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from './useTheme';
 
 export interface ChartThemeColors {
@@ -8,6 +8,8 @@ export interface ChartThemeColors {
   border: string;
   accent: string;
   accentSubtle: string;
+  arcFill: string;
+  arcTrack: string;
   success: string;
   warning: string;
   danger: string;
@@ -20,24 +22,51 @@ export interface ChartThemeColors {
 
 export function useChartTheme(): ChartThemeColors {
   const { theme } = useTheme();
-  const isDark = theme === 'dark';
+  const [domIsDark, setDomIsDark] = useState<boolean>(() => {
+    if (typeof document !== 'undefined') {
+      return document.documentElement.classList.contains('dark');
+    }
+    return theme === 'dark';
+  });
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      setDomIsDark(theme === 'dark');
+      return;
+    }
+
+    const root = document.documentElement;
+    const sync = () => {
+      setDomIsDark(root.classList.contains('dark'));
+    };
+    sync();
+
+    if (typeof MutationObserver === 'undefined') return;
+    const observer = new MutationObserver(sync);
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, [theme]);
+
+  const isDark = typeof document !== 'undefined' ? domIsDark : theme === 'dark';
 
   return useMemo(() => {
     return {
       isDark,
-      text: isDark ? '#F0F3F1' : '#202522',
-      textMuted: isDark ? '#A2A9A4' : '#686F6A',
-      border: isDark ? '#353C37' : '#E4E7E4',
-      accent: isDark ? '#52B788' : '#2D6A4F',
-      accentSubtle: isDark ? 'rgba(82, 183, 136, 0.2)' : 'rgba(45, 106, 79, 0.15)',
-      success: isDark ? '#34D399' : '#167949',
-      warning: isDark ? '#FBBF24' : '#B45309',
-      danger: isDark ? '#F87171' : '#DC2626',
-      surface: isDark ? '#222623' : '#FFFFFF',
-      surfaceCard: isDark ? '#222623' : '#FFFFFF',
-      tooltipBg: isDark ? '#222623' : '#FFFFFF',
-      tooltipBorder: isDark ? '#353C37' : '#E4E7E4',
-      gridColor: isDark ? '#2B312D' : '#ECEFEC',
+      text: isDark ? '#EDF3F3' : '#111618',
+      textMuted: isDark ? '#96A6AA' : '#526066',
+      border: isDark ? '#586B70' : '#7E9397',
+      accent: isDark ? '#5EC2AC' : '#1F6F60',
+      accentSubtle: isDark ? 'rgba(94, 194, 172, 0.2)' : 'rgba(60, 141, 123, 0.18)',
+      arcFill: isDark ? '#5EC2AC' : '#3C8D7B',
+      arcTrack: isDark ? '#263235' : '#DEEDEA',
+      success: isDark ? '#4ADE80' : '#116B41',
+      warning: isDark ? '#FBBF24' : '#995306',
+      danger: isDark ? '#F87171' : '#B91C1C',
+      surface: isDark ? '#161C1E' : '#FFFFFF',
+      surfaceCard: isDark ? '#192023' : '#F5F9FA',
+      tooltipBg: isDark ? '#1D2528' : '#FFFFFF',
+      tooltipBorder: isDark ? '#586B70' : '#7E9397',
+      gridColor: isDark ? '#283437' : '#DCE8EA',
     };
   }, [isDark]);
 }
