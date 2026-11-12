@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useRef } from 'react';
 import { useStore } from '@/store';
 import { useChartTheme } from '@/hooks/useChartTheme';
 import { useThrottledLiveTelemetry, useThrottledVirtualTime } from '@/hooks/useThrottledLiveTelemetry';
@@ -228,6 +228,9 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
     return peakBucket ? peakBucket.time : 'N/A';
   }, [chartData]);
 
+  // Ref for roving focus in range segmented control
+  const rangeButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
   // Keyboard navigation for Range Radiogroup
   const handleRangeKeyDown = useCallback(
     (e: React.KeyboardEvent, currentRange: EnergyTimeRange) => {
@@ -248,7 +251,10 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
       }
       if (nextIdx !== idx) {
         const next = RANGES[nextIdx];
-        if (next) setSelectedRange(next);
+        if (next) {
+          setSelectedRange(next);
+          rangeButtonRefs.current[nextIdx]?.focus();
+        }
       }
     },
     []
@@ -265,7 +271,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         <div className="flex items-center gap-2">
           <HelpCircle className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
           <span>
-            <strong>Demo history, generated from seed.</strong> Live readings are simulated.
+            <strong className="text-text font-semibold">Demo history</strong>, generated from seed. Live readings are simulated.
           </span>
         </div>
         <Badge variant="outline" className="font-mono text-[10px] tabular-nums">
@@ -273,7 +279,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         </Badge>
       </div>
 
-      {/* Header and Accessible Range Selector */}
+      {/* Header and Accessible Range Segmented Control */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">Energy Analytics</h1>
@@ -282,17 +288,20 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
           </p>
         </div>
 
-        {/* Range Selector Radiogroup with Keyboard Support */}
+        {/* Range Selector Segmented Control with Keyboard Support */}
         <div
           role="radiogroup"
           aria-label="Select energy analytics timeframe"
           className="inline-flex flex-wrap items-center gap-1 rounded-full border border-border-subtle p-1 bg-surface-card shadow-xs self-start sm:self-auto"
         >
-          {RANGES.map((r) => {
+          {RANGES.map((r, i) => {
             const isSelected = selectedRange === r;
             return (
               <button
                 key={r}
+                ref={(el) => {
+                  rangeButtonRefs.current[i] = el;
+                }}
                 type="button"
                 role="radio"
                 aria-checked={isSelected}
@@ -461,7 +470,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         ) : (
           <div className="h-72 w-full mt-4">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={chartData}>
+              <AreaChart data={chartData} margin={{ top: 24, right: 16, left: 16, bottom: 20 }}>
                 <defs>
                   <linearGradient id="energyPowerGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor={colors.accent} stopOpacity={0.35} />
@@ -475,6 +484,14 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   fontSize={11}
                   tickLine={false}
                   interval="preserveStartEnd"
+                  label={{
+                    value: 'Time',
+                    position: 'insideBottom',
+                    offset: -12,
+                    fill: colors.textMuted,
+                    fontSize: 11,
+                    style: { textAnchor: 'middle' },
+                  }}
                 />
                 <YAxis
                   stroke={colors.textMuted}
@@ -482,6 +499,15 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   tickLine={false}
                   unit=" W"
                   domain={[0, 'auto']}
+                  label={{
+                    value: 'Power (W)',
+                    angle: -90,
+                    position: 'insideLeft',
+                    offset: -6,
+                    fill: colors.textMuted,
+                    fontSize: 11,
+                    style: { textAnchor: 'middle' },
+                  }}
                 />
                 <Tooltip
                   content={({ active, payload }) => {
@@ -489,23 +515,39 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                       const data = payload[0]?.payload;
                       return (
                         <div
-                          className="p-3 rounded-lg border shadow-lg text-xs"
+                          className="p-3.5 rounded-2xl border shadow-lg text-xs space-y-1.5"
                           style={{
                             backgroundColor: colors.tooltipBg,
                             borderColor: colors.tooltipBorder,
                             color: colors.text,
                           }}
                         >
-                          <p className="font-semibold text-text">{data.fullDate}</p>
-                          <p className="mt-1 font-mono text-accent">Power: {data.averageWatts} W</p>
+                          <p className="font-semibold text-text border-b border-border-subtle pb-1">{data.fullDate}</p>
+                          <div className="flex items-center justify-between gap-4 font-mono text-[11px]">
+                            <span className="text-text-muted">Power:</span>
+                            <span className="font-semibold text-accent tabular-nums">{data.averageWatts} W</span>
+                          </div>
+                          <div className="flex items-center justify-between gap-4 font-mono text-[11px]">
+                            <span className="text-text-muted">Peak:</span>
+                            <span className="font-semibold text-text tabular-nums">{data.peakWatts} W</span>
+                          </div>
                           {data.isAnomaly && (
-                            <div className="mt-1.5 pt-1.5 border-t border-danger/30 text-danger">
-                              <p className="font-semibold flex items-center gap-1">
+                            <div className="mt-2 pt-2 border-t border-danger/30 space-y-1">
+                              <p className="font-bold text-danger flex items-center gap-1">
                                 <span>⚠️ Statistical Anomaly Detected</span>
                               </p>
-                              <p className="font-mono text-[11px] mt-0.5">
-                                Baseline: {data.baseline} W | Threshold: {data.threshold} W
-                              </p>
+                              <div className="flex items-center justify-between gap-3 text-[11px] font-mono">
+                                <span className="text-text-muted">Value:</span>
+                                <span className="font-bold text-danger tabular-nums">{data.anomalyValue ?? data.averageWatts} W</span>
+                              </div>
+                              <div className="flex items-center justify-between gap-3 text-[11px] font-mono">
+                                <span className="text-text-muted">Baseline:</span>
+                                <span className="text-text tabular-nums">{data.baseline} W</span>
+                              </div>
+                              <div className="flex items-center justify-between gap-3 text-[11px] font-mono">
+                                <span className="text-text-muted">Threshold:</span>
+                                <span className="text-text tabular-nums">{data.threshold} W</span>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -533,7 +575,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   dot={false}
                   isAnimationActive={false}
                 />
-                {/* Distinct Diamond Marker on Anomalies */}
+                {/* Distinct Diamond Marker + Label on Anomalies */}
                 <Line
                   type="monotone"
                   dataKey="anomalyValue"
@@ -543,25 +585,43 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                       return <svg key={`dot-${props.cx}-${props.cy}`} />;
                     }
                     return (
-                      <svg
+                      <g
                         key={`anom-${props.cx}-${props.cy}`}
-                        x={props.cx - 6}
-                        y={props.cy - 6}
-                        width={12}
-                        height={12}
+                        className="cursor-pointer"
                         aria-label="Power spike anomaly marker"
                       >
+                        {/* Soft Outer Halo */}
+                        <circle
+                          cx={props.cx}
+                          cy={props.cy}
+                          r={12}
+                          fill={colors.danger}
+                          fillOpacity={0.2}
+                        />
+                        {/* Distinct Diamond Marker */}
                         <rect
-                          x={1}
-                          y={1}
+                          x={props.cx - 5}
+                          y={props.cy - 5}
                           width={10}
                           height={10}
-                          transform="rotate(45 6 6)"
+                          transform={`rotate(45 ${props.cx} ${props.cy})`}
                           fill={colors.danger}
                           stroke="#ffffff"
                           strokeWidth={1.5}
                         />
-                      </svg>
+                        {/* Anomaly Label right above the marker */}
+                        <text
+                          x={props.cx}
+                          y={props.cy - 14}
+                          textAnchor="middle"
+                          fill={colors.danger}
+                          fontSize={10}
+                          fontWeight={700}
+                          className="select-none pointer-events-none uppercase tracking-wider font-mono"
+                        >
+                          Spike
+                        </text>
+                      </g>
                     );
                   }}
                   isAnimationActive={false}
@@ -573,8 +633,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
 
         {/* Accessible Table Alternative for Power Profile */}
         <details className="mt-3 text-xs text-text-muted">
-          <summary className="cursor-pointer font-medium hover:text-text select-none">
-            View power data as table
+          <summary className="cursor-pointer font-medium hover:text-text select-none text-accent">
+            View data as table
           </summary>
           <div className="max-h-48 overflow-y-auto mt-2 border border-border rounded-lg">
             <table className="w-full text-left border-collapse">
@@ -623,7 +683,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
         ) : (
           <div className="h-64 w-full mt-4">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData}>
+              <BarChart data={chartData} margin={{ top: 20, right: 16, left: 16, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={colors.gridColor} />
                 <XAxis
                   dataKey="time"
@@ -631,6 +691,14 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   fontSize={11}
                   tickLine={false}
                   interval="preserveStartEnd"
+                  label={{
+                    value: 'Time',
+                    position: 'insideBottom',
+                    offset: -12,
+                    fill: colors.textMuted,
+                    fontSize: 11,
+                    style: { textAnchor: 'middle' },
+                  }}
                 />
                 <YAxis
                   stroke={colors.textMuted}
@@ -638,6 +706,15 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   tickLine={false}
                   unit=" kWh"
                   domain={[0, 'auto']}
+                  label={{
+                    value: 'Energy (kWh)',
+                    angle: -90,
+                    position: 'insideLeft',
+                    offset: -6,
+                    fill: colors.textMuted,
+                    fontSize: 11,
+                    style: { textAnchor: 'middle' },
+                  }}
                 />
                 <Tooltip
                   contentStyle={{
@@ -663,8 +740,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
 
         {/* Accessible Table Alternative for Energy Chart */}
         <details className="mt-3 text-xs text-text-muted">
-          <summary className="cursor-pointer font-medium hover:text-text select-none">
-            View energy data as table
+          <summary className="cursor-pointer font-medium hover:text-text select-none text-accent">
+            View data as table
           </summary>
           <div className="max-h-48 overflow-y-auto mt-2 border border-border rounded-lg">
             <table className="w-full text-left border-collapse">
