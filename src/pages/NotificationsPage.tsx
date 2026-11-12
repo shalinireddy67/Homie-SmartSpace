@@ -75,19 +75,19 @@ export const NotificationsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold tracking-tight text-text">Notifications</h1>
+          <div className="flex flex-wrap items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">Notifications</h1>
             {unreadCount > 0 ? (
               <span
                 aria-live="polite"
-                className="px-2 py-0.5 text-xs font-semibold rounded-full bg-accent text-white"
+                className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-accent-subtle text-text border border-border tabular-nums whitespace-nowrap"
               >
                 {unreadCount} unread
               </span>
             ) : (
               <span
                 aria-live="polite"
-                className="px-2 py-0.5 text-xs font-semibold rounded-full bg-surface-subtle border border-border text-text-muted"
+                className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-surface-card border border-border-subtle text-text-muted whitespace-nowrap"
               >
                 All read
               </span>
@@ -130,7 +130,7 @@ export const NotificationsPage: React.FC = () => {
       <div
         role="tablist"
         aria-label="Notification category filters"
-        className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-border"
+        className="flex items-center sm:flex-wrap gap-2 overflow-x-auto sm:overflow-visible pb-2.5 scrollbar-none border-b border-border-subtle"
       >
         {tabs.map((tab) => (
           <button
@@ -138,10 +138,10 @@ export const NotificationsPage: React.FC = () => {
             role="tab"
             aria-selected={activeTab === tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors focus-ring ${
+            className={`px-3.5 py-2 min-h-[44px] sm:min-h-[34px] sm:py-1.5 rounded-full text-xs whitespace-nowrap border transition-all focus-ring ${
               activeTab === tab.id
-                ? 'bg-accent text-white font-semibold shadow-sm'
-                : 'text-text-muted hover:text-text hover:bg-surface'
+                ? 'bg-accent-subtle text-text border-border font-semibold shadow-xs'
+                : 'bg-surface border-border-subtle text-text-muted hover:text-text hover:bg-surface-card'
             }`}
           >
             {tab.label}
@@ -151,8 +151,8 @@ export const NotificationsPage: React.FC = () => {
 
       {/* Notification List */}
       {filteredNotifications.length === 0 ? (
-        <Card padding="lg" className="border-dashed bg-surface text-center py-12 space-y-3">
-          <div className="w-12 h-12 rounded-full bg-surface-subtle border border-border flex items-center justify-center mx-auto text-text-muted">
+        <Card padding="lg" className="border-dashed border-border bg-surface-card rounded-3xl text-center py-12 space-y-3">
+          <div className="w-12 h-12 rounded-2xl bg-surface border border-border-subtle flex items-center justify-center mx-auto text-text-muted">
             <Bell className="h-6 w-6" />
           </div>
           <h2 className="text-base font-semibold text-text">No notifications found</h2>
@@ -172,15 +172,15 @@ export const NotificationsPage: React.FC = () => {
             <Card
               key={notif.id}
               role="listitem"
-              className={`p-4 transition-all duration-200 border ${
+              className={`p-4 sm:p-5 rounded-3xl transition-all duration-200 border ${
                 notif.read
-                  ? 'bg-surface/60 border-border text-text-muted'
-                  : 'bg-surface border-accent/40 shadow-sm'
+                  ? 'bg-surface-card/75 border-border-subtle text-text-muted'
+                  : 'bg-surface border-accent/50 shadow-soft'
               }`}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-start gap-3 min-w-0">
-                  <div className="shrink-0 mt-0.5 p-1 rounded-lg bg-surface-subtle border border-border">
+                  <div className="shrink-0 mt-0.5 p-2 rounded-2xl bg-surface-card border border-border-subtle">
                     {severityIcons[notif.severity]}
                   </div>
 

@@ -264,7 +264,7 @@ export const SettingsPage: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-text">Settings</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">Settings</h1>
           <p className="text-sm text-text-muted mt-1">
             System configuration, simulation engine parameters, appearance, and persistent state.
           </p>
@@ -276,8 +276,8 @@ export const SettingsPage: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Appearance Card */}
-        <Card className="p-6 bg-surface border border-border space-y-4">
-          <div className="flex items-center gap-2.5 pb-2 border-b border-border">
+        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-soft space-y-4">
+          <div className="flex items-center gap-2.5 pb-3 border-b border-border-subtle">
             <Sun className="h-5 w-5 text-accent" />
             <div>
               <h2 className="text-base font-bold text-text">Appearance</h2>
@@ -299,10 +299,10 @@ export const SettingsPage: React.FC = () => {
                 role="radio"
                 aria-checked={themeMode === 'light'}
                 onClick={() => handleThemeChange('light')}
-                className={`flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-medium transition-all focus-ring ${
+                className={`flex items-center justify-center gap-2 p-3 min-h-[44px] rounded-2xl border text-xs font-medium transition-all focus-ring ${
                   themeMode === 'light'
-                    ? 'border-accent bg-accent/10 text-accent font-semibold shadow-sm'
-                    : 'border-border bg-surface-subtle text-text hover:bg-surface'
+                    ? 'border-accent bg-accent-subtle text-text font-semibold shadow-xs'
+                    : 'border-border-subtle bg-surface-card text-text-muted hover:text-text hover:bg-surface'
                 }`}
               >
                 <Sun className="h-4 w-4" />
@@ -314,10 +314,10 @@ export const SettingsPage: React.FC = () => {
                 role="radio"
                 aria-checked={themeMode === 'dark'}
                 onClick={() => handleThemeChange('dark')}
-                className={`flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-medium transition-all focus-ring ${
+                className={`flex items-center justify-center gap-2 p-3 min-h-[44px] rounded-2xl border text-xs font-medium transition-all focus-ring ${
                   themeMode === 'dark'
-                    ? 'border-accent bg-accent/10 text-accent font-semibold shadow-sm'
-                    : 'border-border bg-surface-subtle text-text hover:bg-surface'
+                    ? 'border-accent bg-accent-subtle text-text font-semibold shadow-xs'
+                    : 'border-border-subtle bg-surface-card text-text-muted hover:text-text hover:bg-surface'
                 }`}
               >
                 <Moon className="h-4 w-4" />
@@ -329,10 +329,10 @@ export const SettingsPage: React.FC = () => {
                 role="radio"
                 aria-checked={themeMode === 'system'}
                 onClick={() => handleThemeChange('system')}
-                className={`flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-medium transition-all focus-ring ${
+                className={`flex items-center justify-center gap-2 p-3 min-h-[44px] rounded-2xl border text-xs font-medium transition-all focus-ring ${
                   themeMode === 'system'
-                    ? 'border-accent bg-accent/10 text-accent font-semibold shadow-sm'
-                    : 'border-border bg-surface-subtle text-text hover:bg-surface'
+                    ? 'border-accent bg-accent-subtle text-text font-semibold shadow-xs'
+                    : 'border-border-subtle bg-surface-card text-text-muted hover:text-text hover:bg-surface'
                 }`}
               >
                 <Laptop className="h-4 w-4" />
@@ -346,8 +346,8 @@ export const SettingsPage: React.FC = () => {
         </Card>
 
         {/* Notifications Preferences */}
-        <Card className="p-6 bg-surface border border-border space-y-4">
-          <div className="flex items-center gap-2.5 pb-2 border-b border-border">
+        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-soft space-y-4">
+          <div className="flex items-center gap-2.5 pb-3 border-b border-border-subtle">
             <Bell className="h-5 w-5 text-accent" />
             <div>
               <h2 className="text-base font-bold text-text">Notification Preferences</h2>
@@ -375,7 +375,7 @@ export const SettingsPage: React.FC = () => {
                       setNotificationSettings({ cooldownMinutes: val });
                     }
                   }}
-                  className="w-24 px-3 py-1.5 text-xs bg-surface-subtle border border-border rounded-lg text-text focus-ring font-mono"
+                  className="w-24 px-3 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface-card border border-border rounded-xl text-text focus-ring font-mono tabular-nums"
                   aria-label="Notification cooldown minutes"
                 />
                 <span className="text-xs text-text-muted">minutes between identical condition alerts</span>
@@ -395,7 +395,7 @@ export const SettingsPage: React.FC = () => {
                   return (
                     <label
                       key={cat.id}
-                      className="flex items-center justify-between p-2.5 rounded-lg bg-surface-subtle border border-border text-xs cursor-pointer hover:bg-surface transition-colors"
+                      className="flex items-center justify-between p-3 rounded-2xl bg-surface-card border border-border-subtle text-xs cursor-pointer hover:border-border transition-colors"
                     >
                       <span className="text-text font-medium">{cat.label}</span>
                       <Switch
@@ -416,8 +416,8 @@ export const SettingsPage: React.FC = () => {
       </div>
 
       {/* Simulation Engine Parameters */}
-      <Card className="p-6 bg-surface border border-border space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-border pb-3">
+      <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-soft space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-border-subtle pb-3">
           <div className="flex items-center gap-2.5">
             <Activity className="h-5 w-5 text-accent" />
             <div>
@@ -434,7 +434,7 @@ export const SettingsPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Start / Pause */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-2.5 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-2.5 flex flex-col justify-between">
             <div>
               <span className="text-xs font-semibold text-text block">Simulation State</span>
               <p className="text-[11px] text-text-muted mt-0.5">
@@ -465,7 +465,7 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Speed Multiplier */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-2.5 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-2.5 flex flex-col justify-between">
             <div>
               <span className="text-xs font-semibold text-text block">Playback Speed</span>
               <p className="text-[11px] text-text-muted mt-0.5">
@@ -478,10 +478,10 @@ export const SettingsPage: React.FC = () => {
                   key={s}
                   type="button"
                   onClick={() => setSpeed(s)}
-                  className={`py-1.5 text-xs font-mono rounded-lg border transition-all focus-ring ${
+                  className={`py-2 min-h-[44px] sm:min-h-[34px] text-xs font-mono tabular-nums rounded-xl border transition-all focus-ring ${
                     speed === s
-                      ? 'border-accent bg-accent text-white font-bold'
-                      : 'border-border bg-surface text-text hover:bg-surface-subtle'
+                      ? 'border-accent bg-accent-subtle text-text font-bold shadow-xs'
+                      : 'border-border-subtle bg-surface text-text-muted hover:text-text hover:bg-surface-elevated'
                   }`}
                   aria-label={`Set speed to ${s}x`}
                   aria-pressed={speed === s}
@@ -493,7 +493,7 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Accelerated Demo Mode */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-2.5 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-2.5 flex flex-col justify-between">
             <div>
               <span className="text-xs font-semibold text-text block">Accelerated Demo Mode</span>
               <p className="text-[11px] text-text-muted mt-0.5">
@@ -513,7 +513,7 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Deterministic Seed */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-2.5 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-2.5 flex flex-col justify-between">
             <div>
               <label htmlFor="seed-input" className="text-xs font-semibold text-text block">
                 PRNG Seed
@@ -529,7 +529,7 @@ export const SettingsPage: React.FC = () => {
                 value={seedInput}
                 onChange={(e) => setSeedInput(e.target.value)}
                 onBlur={handleSeedBlur}
-                className="w-full px-3 py-1.5 text-xs bg-surface border border-border rounded-lg text-text focus-ring font-mono"
+                className="w-full px-3 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring font-mono tabular-nums"
                 aria-label="Simulation PRNG seed"
               />
               {seedError ? (
@@ -541,10 +541,10 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Failure Probability */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-2.5 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-2.5 flex flex-col justify-between">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-text">Failure Probability</span>
-              <span className="text-xs font-mono font-bold text-accent">
+              <span className="text-xs font-mono font-bold text-accent tabular-nums">
                 {Math.round(failureProbability * 100)}%
               </span>
             </div>
@@ -571,7 +571,7 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Fail Next Command */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-2.5 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-2.5 flex flex-col justify-between">
             <div>
               <span className="text-xs font-semibold text-text block">Fail Next Command</span>
               <p className="text-[11px] text-text-muted mt-0.5">
@@ -597,8 +597,8 @@ export const SettingsPage: React.FC = () => {
       </Card>
 
       {/* Simulation Controls Panel (Force Temp, Humidity, Offline) */}
-      <Card className="p-6 bg-surface border border-border space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-border pb-3">
+      <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-soft space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-border-subtle pb-3">
           <div className="flex items-center gap-2.5">
             <Sliders className="h-5 w-5 text-accent" />
             <div>
@@ -615,13 +615,13 @@ export const SettingsPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Tool 1: Force Temperature */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-3">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-xs font-semibold text-text">
                 <Thermometer className="h-4 w-4 text-accent" />
                 <span>Force Temperature</span>
               </div>
-              <span className="font-mono text-xs font-bold text-accent">{targetTemp}°C</span>
+              <span className="font-mono text-xs font-bold text-accent tabular-nums">{targetTemp}°C</span>
             </div>
             <p className="text-[11px] text-text-muted">
               Manually overwrite room temperature to immediately test climate triggers.
@@ -630,7 +630,7 @@ export const SettingsPage: React.FC = () => {
               <select
                 value={selectedRoomId}
                 onChange={(e) => setSelectedRoomId(e.target.value)}
-                className="w-full px-2 py-1.5 text-xs bg-surface border border-border rounded-lg text-text focus-ring"
+                className="w-full px-2.5 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
                 aria-label="Select target room for temperature override"
               >
                 <option value="">All Rooms</option>
@@ -659,13 +659,13 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Tool 2: Force Humidity */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-3">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-xs font-semibold text-text">
                 <Droplets className="h-4 w-4 text-accent" />
                 <span>Force Humidity</span>
               </div>
-              <span className="font-mono text-xs font-bold text-accent">{targetHumidity}%</span>
+              <span className="font-mono text-xs font-bold text-accent tabular-nums">{targetHumidity}%</span>
             </div>
             <p className="text-[11px] text-text-muted">
               Adjust ambient indoor moisture to evaluate humidity threshold rules.
@@ -690,7 +690,7 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Tool 3: Set Device Offline / Online */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border space-y-3">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle space-y-3">
             <div className="flex items-center gap-2 text-xs font-semibold text-text">
               <WifiOff className="h-4 w-4 text-accent" />
               <span>Device Connectivity</span>
@@ -702,7 +702,7 @@ export const SettingsPage: React.FC = () => {
               <select
                 value={selectedDeviceId}
                 onChange={(e) => setSelectedDeviceId(e.target.value)}
-                className="w-full px-2.5 py-1.5 text-xs bg-surface border border-border rounded-lg text-text focus-ring"
+                className="w-full px-2.5 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
                 aria-label="Select device to toggle online/offline"
               >
                 {devices.map((d) => (
@@ -729,8 +729,8 @@ export const SettingsPage: React.FC = () => {
       </Card>
 
       {/* Data Management Section */}
-      <Card className="p-6 bg-surface border border-border space-y-6">
-        <div className="border-b border-border pb-3">
+      <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-soft space-y-6">
+        <div className="border-b border-border-subtle pb-3">
           <h2 className="text-base font-bold text-text">Data Management</h2>
           <p className="text-xs text-text-muted mt-0.5">
             Reset to seed defaults or backup and restore custom devices, rules, and schedules.
@@ -741,7 +741,7 @@ export const SettingsPage: React.FC = () => {
         {importError && (
           <div
             role="alert"
-            className="flex items-center gap-2 p-3 rounded-xl border border-danger/30 bg-danger/10 text-danger text-xs font-medium"
+            className="flex items-center gap-2 p-3 rounded-2xl border border-danger/30 bg-danger-subtle text-danger text-xs font-medium"
           >
             <AlertTriangle className="h-4 w-4 shrink-0" />
             <span>{importError}</span>
@@ -751,7 +751,7 @@ export const SettingsPage: React.FC = () => {
         {importSuccess && (
           <div
             role="status"
-            className="flex items-center gap-2 p-3 rounded-xl border border-success/30 bg-success/10 text-success text-xs font-medium"
+            className="flex items-center gap-2 p-3 rounded-2xl border border-success/30 bg-success-subtle text-success text-xs font-medium"
           >
             <CheckCircle2 className="h-4 w-4 shrink-0" />
             <span>{importSuccess}</span>
@@ -760,7 +760,7 @@ export const SettingsPage: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* Reset Demo Data */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border flex flex-col justify-between space-y-3">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle flex flex-col justify-between space-y-3">
             <div>
               <h3 className="text-xs font-semibold text-text">Reset Demo Data</h3>
               <p className="text-[11px] text-text-muted mt-1">
@@ -779,7 +779,7 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Export Settings */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border flex flex-col justify-between space-y-3">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle flex flex-col justify-between space-y-3">
             <div>
               <h3 className="text-xs font-semibold text-text">Export Configuration</h3>
               <p className="text-[11px] text-text-muted mt-1">
@@ -798,7 +798,7 @@ export const SettingsPage: React.FC = () => {
           </div>
 
           {/* Import Settings */}
-          <div className="p-4 rounded-xl bg-surface-subtle border border-border flex flex-col justify-between space-y-3">
+          <div className="p-4 rounded-2xl bg-surface-card border border-border-subtle flex flex-col justify-between space-y-3">
             <div>
               <h3 className="text-xs font-semibold text-text">Import Configuration</h3>
               <p className="text-[11px] text-text-muted mt-1">
@@ -830,12 +830,12 @@ export const SettingsPage: React.FC = () => {
       </Card>
 
       {/* About Section */}
-      <Card className="p-6 bg-surface border border-border space-y-3">
+      <Card className="p-6 bg-surface border border-border-subtle rounded-3xl shadow-xs space-y-3">
         <div className="flex items-center gap-2">
           <Info className="h-4 w-4 text-accent" />
           <h2 className="text-sm font-bold text-text">About {APP_NAME}</h2>
         </div>
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-text-muted border-t border-border pt-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-text-muted border-t border-border-subtle pt-3">
           <div>
             <span className="font-semibold text-text">{APP_NAME}</span> &mdash; Version 0.1.0 (Production Build)
           </div>

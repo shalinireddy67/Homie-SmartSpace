@@ -146,8 +146,8 @@ export const EventHistoryPage: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold tracking-tight text-text">Event History</h1>
+          <div className="flex flex-wrap items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">Event History</h1>
             <Badge variant="accent" size="sm">
               TanStack Virtual 60 FPS
             </Badge>
@@ -166,24 +166,24 @@ export const EventHistoryPage: React.FC = () => {
             aria-label="Export filtered events as JSON"
           >
             <Download className="h-4 w-4 text-accent" />
-            <span>Export ({filteredEvents.length.toLocaleString()})</span>
+            <span className="tabular-nums">Export ({filteredEvents.length.toLocaleString()})</span>
           </Button>
         </div>
       </div>
 
       {/* Filter Toolbar */}
-      <Card className="p-4 bg-surface border border-border space-y-3">
+      <Card className="p-4 sm:p-5 bg-surface-card border border-border-subtle rounded-3xl shadow-xs space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
           {/* Search Input */}
           <div className="lg:col-span-2 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search descriptions, devices..."
               aria-label="Search events"
-              className="w-full pl-9 pr-3 py-1.5 text-xs bg-surface-subtle border border-border rounded-lg text-text focus-ring"
+              className="w-full pl-10 pr-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text placeholder:text-text-muted focus-ring"
             />
           </div>
 
@@ -193,7 +193,7 @@ export const EventHistoryPage: React.FC = () => {
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
               aria-label="Filter by event type"
-              className="w-full px-2.5 py-1.5 text-xs bg-surface-subtle border border-border rounded-lg text-text focus-ring"
+              className="w-full px-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
             >
               <option value="all">All Types</option>
               <option value="device_state">Device State</option>
@@ -211,7 +211,7 @@ export const EventHistoryPage: React.FC = () => {
               value={selectedSeverity}
               onChange={(e) => setSelectedSeverity(e.target.value)}
               aria-label="Filter by severity"
-              className="w-full px-2.5 py-1.5 text-xs bg-surface-subtle border border-border rounded-lg text-text focus-ring"
+              className="w-full px-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
             >
               <option value="all">All Severities</option>
               <option value="info">Info</option>
@@ -227,7 +227,7 @@ export const EventHistoryPage: React.FC = () => {
               value={selectedRoomId}
               onChange={(e) => setSelectedRoomId(e.target.value)}
               aria-label="Filter by room"
-              className="w-full px-2.5 py-1.5 text-xs bg-surface-subtle border border-border rounded-lg text-text focus-ring"
+              className="w-full px-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
             >
               <option value="all">All Rooms</option>
               {rooms.map((r) => (
@@ -257,13 +257,13 @@ export const EventHistoryPage: React.FC = () => {
         </div>
 
         {/* Results Counter & Clear Filter */}
-        <div className="flex items-center justify-between text-xs text-text-muted pt-2 border-t border-border flex-wrap gap-2">
+        <div className="flex items-center justify-between text-xs text-text-muted pt-2 border-t border-border-subtle flex-wrap gap-2">
           <div className="flex items-center gap-2">
-            <span>
+            <span className="tabular-nums">
               Showing <strong className="text-text font-semibold">{filteredEvents.length.toLocaleString()}</strong> of{' '}
               {events.length.toLocaleString()} events
             </span>
-            <span className="font-mono text-[11px] text-accent font-medium">
+            <span className="font-mono text-[11px] text-accent font-medium tabular-nums">
               ({queryDurationMs} ms)
             </span>
           </div>
@@ -272,7 +272,7 @@ export const EventHistoryPage: React.FC = () => {
             <button
               type="button"
               onClick={clearAllFilters}
-              className="text-accent hover:underline flex items-center gap-1 font-medium focus-ring rounded"
+              className="text-accent hover:underline flex items-center gap-1 font-medium focus-ring rounded-lg px-2 py-1"
             >
               <X className="h-3.5 w-3.5" />
               <span>Clear filters</span>
@@ -282,9 +282,9 @@ export const EventHistoryPage: React.FC = () => {
       </Card>
 
       {/* Virtualized Event Table */}
-      <Card className="bg-surface border border-border overflow-hidden">
+      <Card className="bg-surface border border-border-subtle rounded-3xl shadow-soft overflow-hidden">
         {/* Table Header */}
-        <div className="grid grid-cols-12 gap-3 px-4 py-3 bg-surface-subtle border-b border-border text-xs font-semibold text-text select-none">
+        <div className="grid grid-cols-12 gap-3 px-4 py-3 bg-surface-card border-b border-border-subtle text-xs font-semibold text-text select-none">
           <div className="col-span-3 sm:col-span-2">Timestamp</div>
           <div className="col-span-3 sm:col-span-2">Severity & Type</div>
           <div className="hidden sm:block sm:col-span-3">Entity / Room</div>
