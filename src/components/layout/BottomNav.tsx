@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BOTTOM_NAV_ITEMS, NAV_ITEMS } from '@/constants/navigation';
+import { APP_NAME, APP_SHORT_NAME } from '@/constants/branding';
 import { MoreHorizontal, X } from 'lucide-react';
 
 export const BottomNav: React.FC = () => {
@@ -17,7 +18,7 @@ export const BottomNav: React.FC = () => {
           className="md:hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex flex-col justify-end animate-in fade-in duration-200"
           role="dialog"
           aria-modal="true"
-          aria-label="Navigation Menu"
+          aria-label={`${APP_NAME} Navigation Menu`}
         >
           <div
             className="fixed inset-0"
@@ -26,7 +27,7 @@ export const BottomNav: React.FC = () => {
           />
           <div className="relative bg-surface border-t border-border rounded-t-3xl p-6 shadow-2xl space-y-4 max-h-[80vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-2 border-b border-border/70">
-              <span className="font-semibold text-text text-base">All Navigation</span>
+              <span className="font-semibold text-text text-base">{APP_SHORT_NAME} Navigation</span>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(false)}

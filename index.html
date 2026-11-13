@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homie — Smart Home & IoT Control Dashboard</title>
+    <title>Homie SmartSpace | Smart home and IoT control dashboard</title>
+    <meta name="description" content="Homie SmartSpace — Smart home and IoT control dashboard." />
     <!-- Prevent flash of unstyled theme -->
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem('nestora_theme');
+          var stored =
+            localStorage.getItem('homie_smartspace_theme') ||
+            localStorage.getItem('homie_theme') ||
+            localStorage.getItem('nestora_theme');
           var theme =
             stored ||
             (window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -31,4 +35,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

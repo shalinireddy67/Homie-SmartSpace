@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from './Header';
 import { BottomNav } from './BottomNav';
 import { useRuntime } from '@/hooks/useRuntime';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { ToastContainer } from '@/components/common/ToastContainer';
 
 export interface AppShellProps {
@@ -11,6 +12,8 @@ export interface AppShellProps {
 export const AppShell: React.FC<AppShellProps> = ({ children }) => {
   // Mount runtime orchestration
   useRuntime();
+  // Manage per-route document title
+  useDocumentTitle();
 
   return (
     <div className="min-h-screen bg-outerCanvas/80 text-text sm:p-3 lg:p-5 flex flex-col antialiased selection:bg-accent/20">

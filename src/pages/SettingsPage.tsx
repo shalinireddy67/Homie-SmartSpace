@@ -6,7 +6,7 @@ import { Switch } from '@/components/common/Switch';
 import { Modal } from '@/components/common/Modal';
 import { useTheme, type ThemeMode } from '@/hooks/useTheme';
 import { useStore } from '@/store';
-import { APP_NAME } from '@/constants/branding';
+import { APP_NAME, APP_SLUG } from '@/constants/branding';
 import {
   STORAGE_KEY,
   validateAndSanitizeState,
@@ -182,7 +182,7 @@ export const SettingsPage: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `nestora-settings-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `${APP_SLUG}-settings-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

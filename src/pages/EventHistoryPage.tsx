@@ -11,6 +11,7 @@ import {
   sortEvents,
 } from '@/engine/eventFilters';
 import { formatTimestamp, formatRelativeTime } from '@/utils/formatters';
+import { APP_SLUG } from '@/constants/branding';
 import type { LogEvent, EventType, EventSeverity } from '@/types';
 import {
   Search,
@@ -131,7 +132,7 @@ export const EventHistoryPage: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `nestora-events-export-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `${APP_SLUG}-events-export-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

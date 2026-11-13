@@ -4,7 +4,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { useStore } from '@/store';
 import { Button } from '@/components/common/Button';
 import { Moon, Sun, Bell, Home } from 'lucide-react';
-import { APP_NAME } from '@/constants/branding';
+import { APP_NAME, APP_SHORT_NAME } from '@/constants/branding';
 import { NAV_ITEMS } from '@/constants/navigation';
 import { SimulationControls } from './SimulationControls';
 import { NotificationDrawer } from '@/components/notifications/NotificationDrawer';
@@ -87,8 +87,9 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
                 <circle cx="17.5" cy="16.5" r="1.75" fill="currentColor" />
               </svg>
             </div>
-            <span className="font-bold tracking-tight text-text text-sm sm:text-base">
-              {APP_NAME}
+            <span className="font-bold tracking-tight text-text text-sm sm:text-base whitespace-nowrap">
+              <span className="hidden sm:inline">{APP_NAME}</span>
+              <span className="sm:hidden">{APP_SHORT_NAME}</span>
             </span>
           </Link>
 
