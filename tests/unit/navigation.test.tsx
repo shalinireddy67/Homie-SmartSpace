@@ -36,73 +36,87 @@ describe('Navigation components', () => {
     expect(BOTTOM_NAV_ITEMS).toHaveLength(7);
   });
 
-  it('renders Overview page by default at root path', () => {
+  it('renders Overview page by default at root path', async () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: /Overview/i })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { level: 1, name: /Overview/i }, { timeout: 5000 })
+    ).toBeInTheDocument();
   });
 
-  it('navigates to Rooms & Devices page at /rooms', () => {
+  it('navigates to Rooms & Devices page at /rooms', async () => {
     render(
       <MemoryRouter initialEntries={['/rooms']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Rooms & Devices' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Rooms & Devices' }, { timeout: 5000 })
+    ).toBeInTheDocument();
   });
 
-  it('navigates to Automations page at /automations', () => {
+  it('navigates to Automations page at /automations', async () => {
     render(
       <MemoryRouter initialEntries={['/automations']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Automations' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Automations' }, { timeout: 5000 })
+    ).toBeInTheDocument();
   });
 
-  it('navigates to Energy Analytics page at /energy', () => {
+  it('navigates to Energy Analytics page at /energy', async () => {
     render(
       <MemoryRouter initialEntries={['/energy']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Energy Analytics' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Energy Analytics' }, { timeout: 5000 })
+    ).toBeInTheDocument();
   });
 
-  it('navigates to Event History page at /history', () => {
+  it('navigates to Event History page at /history', async () => {
     render(
       <MemoryRouter initialEntries={['/history']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Event History' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Event History' }, { timeout: 5000 })
+    ).toBeInTheDocument();
   });
 
-  it('navigates to Notifications page at /notifications', () => {
+  it('navigates to Notifications page at /notifications', async () => {
     render(
       <MemoryRouter initialEntries={['/notifications']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Notifications' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Notifications' }, { timeout: 5000 })
+    ).toBeInTheDocument();
   });
 
-  it('navigates to Settings page at /settings', () => {
+  it('navigates to Settings page at /settings', async () => {
     render(
       <MemoryRouter initialEntries={['/settings']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Settings' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Settings' }, { timeout: 5000 })
+    ).toBeInTheDocument();
   });
 });

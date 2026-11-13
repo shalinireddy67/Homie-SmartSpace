@@ -42,6 +42,7 @@ export function getRuntimeInstance(): Runtime {
 export function useRuntime(): void {
   const isRunning = useStore((s) => s.running);
   const runtimeRef = useRef<Runtime | null>(null);
+  const wasRunningBeforeHiddenRef = useRef<boolean>(false);
 
   useEffect(() => {
     const runtime = getRuntimeInstance();
@@ -60,4 +61,34 @@ export function useRuntime(): void {
       runtime.stop();
     };
   }, [isRunning]);
+
+  // Tab visibility listener: pause simulation when tab is hidden, resume smoothly when active
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const runtime = runtimeRef.current;
+      if (!runtime) return;
+
+      if (typeof document !== 'undefined' && document.hidden) {
+        if (useStore.getState().running) {
+          wasRunningBeforeHiddenRef.current = true;
+          runtime.stop();
+        }
+      } else {
+        if (wasRunningBeforeHiddenRef.current) {
+          wasRunningBeforeHiddenRef.current = false;
+          runtime.start();
+        }
+      }
+    };
+
+    if (typeof document !== 'undefined') {
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+    }
+
+    return () => {
+      if (typeof document !== 'undefined') {
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      }
+    };
+  }, []);
 }
