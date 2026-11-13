@@ -470,8 +470,8 @@ export const OverviewPage: React.FC = () => {
               </Badge>
             </div>
 
-            <div className="h-64 w-full mt-4">
-              <ResponsiveContainer width="100%" height="100%">
+            <div className="h-64 min-h-[260px] w-full mt-4">
+              <ResponsiveContainer width="100%" height="100%" minHeight={260}>
                 <BarChart data={weeklyChartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke={colors.gridColor} vertical={false} />
                   <XAxis
@@ -479,6 +479,7 @@ export const OverviewPage: React.FC = () => {
                     stroke={colors.textMuted}
                     fontSize={11}
                     tickLine={false}
+                    interval="preserveStartEnd"
                     axisLine={{ stroke: colors.border }}
                   />
                   <YAxis
@@ -489,6 +490,8 @@ export const OverviewPage: React.FC = () => {
                     unit=" kWh"
                   />
                   <Tooltip
+                    wrapperStyle={{ zIndex: 50 }}
+                    allowEscapeViewBox={{ x: false, y: false }}
                     contentStyle={{
                       backgroundColor: colors.tooltipBg,
                       borderColor: colors.tooltipBorder,
@@ -558,8 +561,8 @@ export const OverviewPage: React.FC = () => {
               %), {distribution.offline} offline.
             </p>
 
-            <div className="h-44 w-full mt-2 flex items-center justify-center">
-              <ResponsiveContainer width="100%" height="100%">
+            <div className="h-44 min-h-[176px] w-full mt-2 flex items-center justify-center">
+              <ResponsiveContainer width="100%" height="100%" minHeight={176}>
                 <PieChart>
                   <Pie
                     data={pieData}
@@ -581,6 +584,8 @@ export const OverviewPage: React.FC = () => {
                     ))}
                   </Pie>
                   <Tooltip
+                    wrapperStyle={{ zIndex: 50 }}
+                    allowEscapeViewBox={{ x: false, y: false }}
                     contentStyle={{
                       backgroundColor: colors.tooltipBg,
                       borderColor: colors.tooltipBorder,

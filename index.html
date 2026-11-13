@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Homie SmartSpace is an interactive smart home and IoT control dashboard featuring device management, room control, automation rules, energy analytics, and live telemetry."
+    />
+    <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
     <title>Homie — Smart Home & IoT Control Dashboard</title>
     <!-- Prevent flash of unstyled theme -->
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem('nestora_theme');
+          var stored =
+            localStorage.getItem('homie_smartspace_theme') ||
+            localStorage.getItem('HOMIE_THEME') ||
+            localStorage.getItem('nestora_theme');
           var theme =
             stored ||
             (window.matchMedia('(prefers-color-scheme: dark)').matches
