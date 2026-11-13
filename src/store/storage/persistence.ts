@@ -33,6 +33,7 @@ export function getStorageHealth(): {
  */
 export function loadPersistedState(): Partial<PersistedStateV1> | null {
   if (typeof window === 'undefined' || !window.localStorage) {
+    storageDisabled = true;
     const memRaw = inMemoryFallback.get(STORAGE_KEY);
     if (!memRaw) return null;
     try {
