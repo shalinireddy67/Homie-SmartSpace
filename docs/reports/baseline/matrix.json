@@ -1,0 +1,6036 @@
+[
+  {
+    "viewport": "320x568",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle power for Liv",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "INPUT",
+        "cls": "w-full h-2.5 bg-arc-track bord",
+        "text": "Brightness dimmer fo",
+        "w": 284,
+        "h": 10
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle power for Liv",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "INPUT",
+        "cls": "w-full h-2.5 bg-arc-track bord",
+        "text": "Brightness dimmer fo",
+        "w": 284,
+        "h": 10
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 4,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle rule Nighttim",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 4,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle rule Nighttim",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 4,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle toast alerts ",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 4,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle toast alerts ",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 13,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle power for Liv",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "INPUT",
+        "cls": "w-full h-2.5 bg-arc-track bord",
+        "text": "Brightness dimmer fo",
+        "w": 306,
+        "h": 10
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 13,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle power for Liv",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "INPUT",
+        "cls": "w-full h-2.5 bg-arc-track bord",
+        "text": "Brightness dimmer fo",
+        "w": 306,
+        "h": 10
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 4,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle rule Nighttim",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 4,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle rule Nighttim",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle toast alerts ",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle toast alerts ",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle toast alerts ",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Toggle toast alerts ",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 86,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start simulation eng",
+        "w": 40,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 15,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 15,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Start",
+        "w": 74,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative inline-flex h-6 w-11 ",
+        "text": "Fail next command",
+        "w": 44,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "relative rounded-full p-2 text",
+        "text": "Notifications, 0 unr",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center justi",
+        "text": "Switch to dark theme",
+        "w": 46,
+        "h": 38
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 27,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 27,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 47,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 47,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 24,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 24,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 17,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 17,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 30,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 30,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 47,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 47,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 24,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 24,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 17,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 17,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 23,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 23,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 29,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 29,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 28,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 28,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 25,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 25,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 18,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 20,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 20,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 19,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 13,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 13,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "flex items-center gap-2 rounde",
+        "text": "Homie",
+        "w": 92,
+        "h": 36
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  }
+]

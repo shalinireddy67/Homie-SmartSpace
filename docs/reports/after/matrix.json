@@ -1,0 +1,4060 @@
+[
+  {
+    "viewport": "320x568",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "320x568",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 320,
+    "innerW": 320,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 2,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 2,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "375x667",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 375,
+    "innerW": 375,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "0 Cameras",
+        "w": 104,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 3,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "0 Cameras",
+        "w": 104,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "390x844",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 390,
+    "innerW": 390,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "0 Cameras",
+        "w": 104,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "h-9 w-9 sm:h-7 sm:w-7 rounded-",
+        "text": "Decrease target for ",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "h-9 w-9 sm:h-7 sm:w-7 rounded-",
+        "text": "Increase target for ",
+        "w": 36,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Light",
+        "w": 79,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "1 Thermostat",
+        "w": 117,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "inline-flex items-center gap-2",
+        "text": "0 Cameras",
+        "w": 104,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "h-9 w-9 sm:h-7 sm:w-7 rounded-",
+        "text": "Decrease target for ",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "h-9 w-9 sm:h-7 sm:w-7 rounded-",
+        "text": "Increase target for ",
+        "w": 36,
+        "h": 36
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "412x915",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 412,
+    "innerW": 412,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "1H",
+        "w": 44,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "24H",
+        "w": 54,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "7D",
+        "w": 46,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "30D",
+        "w": 54,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "CUSTOM",
+        "w": 83,
+        "h": 34
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 5,
+    "smallControls": [
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "1H",
+        "w": 44,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "24H",
+        "w": 54,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "7D",
+        "w": 46,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "30D",
+        "w": 54,
+        "h": 34
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "px-3.5 py-1.5 min-h-[44px] sm:",
+        "text": "CUSTOM",
+        "w": 83,
+        "h": 34
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "667x375",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 667,
+    "innerW": 667,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 74,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 74,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "768x1024",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 768,
+    "innerW": 768,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 12,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 74,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 74,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "820x1180",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 820,
+    "innerW": 820,
+    "smallControlsCount": 7,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 22,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 22,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 88,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 15,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 15,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 108,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 14,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 14,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 15,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 74,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 15,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 74,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 16,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 16,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1009,
+    "innerW": 1024,
+    "smallControlsCount": 10,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1024x768",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1024,
+    "innerW": 1024,
+    "smallControlsCount": 9,
+    "smallControls": [
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Overview",
+        "w": 87,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Rooms",
+        "w": 71,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Automations",
+        "w": 107,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "Energy",
+        "w": 72,
+        "h": 32
+      },
+      {
+        "tag": "A",
+        "cls": "px-3.5 py-2 rounded-full text-",
+        "text": "History",
+        "w": 73,
+        "h": 32
+      }
+    ],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1265,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1280x800",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1280,
+    "innerW": 1280,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1425,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1440x900",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1440,
+    "innerW": 1440,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1905,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "horizontalOverflow": false,
+    "scrollW": 1920,
+    "innerW": 1920,
+    "smallControlsCount": 0,
+    "smallControls": [],
+    "consoleErrorsCount": 0
+  }
+]

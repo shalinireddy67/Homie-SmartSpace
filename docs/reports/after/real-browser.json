@@ -1,0 +1,107 @@
+[
+  {
+    "route": "/",
+    "check": {
+      "title": "Homie — Smart Home & IoT Control Dashboard",
+      "readyState": "complete",
+      "hasHeading": true,
+      "hasSidebar": true,
+      "bodyWidth": 1243,
+      "bodyHeight": 3821,
+      "scrollWidth": 1243,
+      "clientWidth": 1243,
+      "hasHorizontalOverflow": false
+    },
+    "consoleErrors": 0
+  },
+  {
+    "route": "/rooms",
+    "check": {
+      "title": "Homie — Smart Home & IoT Control Dashboard",
+      "readyState": "complete",
+      "hasHeading": true,
+      "hasSidebar": true,
+      "bodyWidth": 1243,
+      "bodyHeight": 4235,
+      "scrollWidth": 1243,
+      "clientWidth": 1243,
+      "hasHorizontalOverflow": false
+    },
+    "consoleErrors": 0
+  },
+  {
+    "route": "/automations",
+    "check": {
+      "title": "Homie — Smart Home & IoT Control Dashboard",
+      "readyState": "complete",
+      "hasHeading": true,
+      "hasSidebar": true,
+      "bodyWidth": 1243,
+      "bodyHeight": 870,
+      "scrollWidth": 1243,
+      "clientWidth": 1243,
+      "hasHorizontalOverflow": false
+    },
+    "consoleErrors": 0
+  },
+  {
+    "route": "/energy",
+    "check": {
+      "title": "Homie — Smart Home & IoT Control Dashboard",
+      "readyState": "complete",
+      "hasHeading": true,
+      "hasSidebar": true,
+      "bodyWidth": 1243,
+      "bodyHeight": 2002,
+      "scrollWidth": 1243,
+      "clientWidth": 1243,
+      "hasHorizontalOverflow": false
+    },
+    "consoleErrors": 0
+  },
+  {
+    "route": "/history",
+    "check": {
+      "title": "Homie — Smart Home & IoT Control Dashboard",
+      "readyState": "complete",
+      "hasHeading": true,
+      "hasSidebar": true,
+      "bodyWidth": 1243,
+      "bodyHeight": 1113,
+      "scrollWidth": 1243,
+      "clientWidth": 1243,
+      "hasHorizontalOverflow": false
+    },
+    "consoleErrors": 0
+  },
+  {
+    "route": "/notifications",
+    "check": {
+      "title": "Homie — Smart Home & IoT Control Dashboard",
+      "readyState": "complete",
+      "hasHeading": true,
+      "hasSidebar": true,
+      "bodyWidth": 1258,
+      "bodyHeight": 646,
+      "scrollWidth": 1258,
+      "clientWidth": 1258,
+      "hasHorizontalOverflow": false
+    },
+    "consoleErrors": 0
+  },
+  {
+    "route": "/settings",
+    "check": {
+      "title": "Homie — Smart Home & IoT Control Dashboard",
+      "readyState": "complete",
+      "hasHeading": true,
+      "hasSidebar": true,
+      "bodyWidth": 1243,
+      "bodyHeight": 2077,
+      "scrollWidth": 1243,
+      "clientWidth": 1243,
+      "hasHorizontalOverflow": false
+    },
+    "consoleErrors": 0
+  }
+]

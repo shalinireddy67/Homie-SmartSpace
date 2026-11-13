@@ -1,0 +1,146 @@
+[
+  {
+    "route": "/",
+    "name": "Overview",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 29
+  },
+  {
+    "route": "/",
+    "name": "Overview",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 29
+  },
+  {
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 29
+  },
+  {
+    "route": "/rooms",
+    "name": "Rooms & Devices",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 29
+  },
+  {
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 25
+  },
+  {
+    "route": "/automations",
+    "name": "Automations",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 25
+  },
+  {
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 26
+  },
+  {
+    "route": "/energy",
+    "name": "Energy Analytics",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 26
+  },
+  {
+    "route": "/history",
+    "name": "Event History",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 26
+  },
+  {
+    "route": "/history",
+    "name": "Event History",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 26
+  },
+  {
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 25
+  },
+  {
+    "route": "/notifications",
+    "name": "Notifications",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 25
+  },
+  {
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 24
+  },
+  {
+    "route": "/settings",
+    "name": "Settings",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 24
+  },
+  {
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "light",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 23
+  },
+  {
+    "route": "/404",
+    "name": "Not Found",
+    "theme": "dark",
+    "seriousCriticalCount": 0,
+    "seriousCriticalViolations": [],
+    "allViolationsCount": 0,
+    "passesCount": 23
+  }
+]
