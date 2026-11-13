@@ -1,8 +1,8 @@
-# NESTORA - Smart Home / IoT Control Dashboard
+# Homie SmartSpace - Smart home and IoT control dashboard
 ## Project Specification
 
 ### Project Overview
-NESTORA is an advanced Smart Home / IoT Control Dashboard designed as a responsive web application where a homeowner can view devices by room, control them, watch simulated live sensor data, analyse energy use, build automation rules, and review a large event history.
+Homie SmartSpace is an advanced Smart Home / IoT Control Dashboard designed as a responsive web application where a homeowner can view devices by room, control them, watch simulated live sensor data, analyse energy use, build automation rules, and review a large event history.
 
 Everything is simulated. No real devices, no MQTT, no backend, no paid APIs or keys. It must run locally with `npm install` and `npm run dev`. The product name must be easy to change (one constant).
 
@@ -125,7 +125,7 @@ This project is an advanced one-month frontend cohort project evaluated by a Git
 | Specification Area | Status | Verification & Test Reference | Implementation Notes |
 |:---|:---:|:---|:---|
 | **1. Seven Pages + 404** | ✅ Completed | `tests/unit/navigation.test.tsx`, `tests/unit/notFoundPage.test.tsx` | Overview, Rooms, Automations, Energy, Event History, Notifications, Settings, and 404. All verified at 375px, 768px, 1440px with 0 errors and 0 horizontal scroll. |
-| **2. Theme & Design System** | ✅ Completed | `tests/unit/theme.test.tsx`, `src/hooks/useTheme.ts` | Light, Dark, and System modes with zero-flash inline script and `nestora_theme` LocalStorage persistence. |
+| **2. Theme & Design System** | ✅ Completed | `tests/unit/theme.test.tsx`, `src/hooks/useTheme.ts` | Light, Dark, and System modes with zero-flash inline script and `homie_smartspace_theme` LocalStorage persistence. |
 | **3. Rooms & Device Hierarchy** | ✅ Completed | `tests/unit/roomsDevices.test.tsx` | 5 rooms, 4 device types (Lights, Thermostats, Smart Locks, Cameras). Devices offline on boot show explanatory badges and disable active controls. |
 | **4. Device Controls** | ✅ Completed | `tests/unit/controls.test.tsx` | Dimmer sliders, color pickers, accessible radial thermostat dial (Celsius defaults 16–30°C, target 22°C), lock confirmation modal, camera surveillance shutter. |
 | **5. Schedule Engine** | ✅ Completed | `tests/unit/schedules.test.ts` | Next run calculation, weekday recurrence, pure validation, deduplicated due execution dispatch through command pipeline. |
@@ -136,12 +136,12 @@ This project is an advanced one-month frontend cohort project evaluated by a Git
 | **10. Dry-Run Simulator** | ✅ Completed | `tests/unit/dryRun.test.ts` | Pure evaluation on snapshot. Proven by tests to deep-freeze inputs, spy 0 calls to dispatchCommand, and leave store state deep-equal before and after. |
 | **11. Notifications Hub** | ✅ Completed | `tests/unit/notifications.test.ts`, `tests/unit/notificationsPage.test.tsx` | Persistent notification center, unread counter badge (`aria-live="polite"`), alert deduplication cooldowns, category toast integration. |
 | **12. Virtualized Event History** | ✅ Completed | `tests/unit/eventHistoryPage.test.tsx`, `tests/unit/eventFilters.test.ts` | 10,000+ seeded events virtualized at 60 FPS with TanStack Virtual. Precomputed composite lowercase search index queried in $< 1\text{ ms}$. Slide-out event inspector modal. |
-| **13. Robust Persistence** | ✅ Completed | `tests/unit/persistence.test.ts` | Schema-versioned LocalStorage persistence (`NESTORA_V1_STATE`). Persists only user configs; regenerates 10k events deterministically from PRNG seed. |
+| **13. Robust Persistence** | ✅ Completed | `tests/unit/persistence.test.ts` | Schema-versioned LocalStorage persistence (`HOMIE_SMARTSPACE_V1_STATE`). Persists only user configs; regenerates 10k events deterministically from PRNG seed. |
 | **14. Accessibility & Polish** | ✅ Completed | `tests/unit/responsive.test.tsx`, `scripts/verify-all-pages.mjs` | WCAG AA contrast (minimum 4.5:1 body, 3:1 components), visible `.focus-ring`, skip link, responsive grid (1 col @ 375px, 2 @ 768px, 3+ @ 1440px), 0 horizontal scroll. |
 
 ### Architectural Amendments Noted
 1. **Thermostat Temperature Scale:** Updated from Fahrenheit to Celsius (bounds 16°C–30°C, default setpoint 22°C) as per architectural directive.
-2. **Event & Telemetry Persistence Boundary:** Only user configuration (custom devices, rules, schedules, notification preferences, simulation settings) is persisted to LocalStorage (`NESTORA_V1_STATE`). The 10,000 seeded events and live telemetry buffers are regenerated deterministically on reload to respect browser storage quotas ($< 10\text{ KB}$ persisted payload).
+2. **Event & Telemetry Persistence Boundary:** Only user configuration (custom devices, rules, schedules, notification preferences, simulation settings) is persisted to LocalStorage (`HOMIE_SMARTSPACE_V1_STATE`). The 10,000 seeded events and live telemetry buffers are regenerated deterministically on reload to respect browser storage quotas ($< 10\text{ KB}$ persisted payload).
 3. **Command Rollback Fencing:** Rollback isolation is applied per device field rather than wiping the entire device state, ensuring concurrent state transitions remain uncorrupted.
 
 

@@ -1,4 +1,4 @@
-# NESTORA — Smart Home & IoT Control Dashboard
+# Homie SmartSpace — Smart home and IoT control dashboard
 
 [![TypeScript Strict](https://img.shields.io/badge/TypeScript-Strict_Mode-blue.svg)](https://www.typescriptlang.org/)
 [![React 18](https://img.shields.io/badge/React-18.3.1-61DAFB.svg)](https://react.dev/)
@@ -7,7 +7,7 @@
 [![Vitest](https://img.shields.io/badge/Tests-244_Passing-green.svg)](https://vitest.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-NESTORA is a commercial-grade, fully simulated Smart Home and IoT Control Dashboard built with React, TypeScript, Tailwind CSS, Zustand, Recharts, and TanStack Virtual. It gives homeowners full visibility and control over room devices, live environmental drift, energy consumption analytics, rule-based automations with isolated dry-run simulation, a persistent notification center, and a 10,000+ virtualized audit trail.
+Homie SmartSpace is a commercial-grade, fully simulated Smart Home and IoT Control Dashboard built with React, TypeScript, Tailwind CSS, Zustand, Recharts, and TanStack Virtual. It gives homeowners full visibility and control over room devices, live environmental drift, energy consumption analytics, rule-based automations with isolated dry-run simulation, a persistent notification center, and a 10,000+ virtualized audit trail.
 
 **All hardware, environmental sensors, and telemetry data are 100% simulated locally. No real physical devices, MQTT brokers, or external cloud APIs are required.**
 
@@ -63,7 +63,7 @@ flowchart TD
   end
 
   subgraph Persistence ["Persistence & Utilities"]
-    LS[("LocalStorage\nNESTORA_V1_STATE & nestora_theme")]
+    LS[("LocalStorage\nHOMIE_SMARTSPACE_V1_STATE & homie_smartspace_theme")]
     PRNG["Mulberry32 PRNG\n(Deterministic seed sequence)"]
     SeedGen["Deterministic Seed Generator\n(10,000 initial events)"]
     Filters["Precomputed Search Index\n(Sub-millisecond multi-facet filters)"]
@@ -88,8 +88,8 @@ flowchart TD
 ### 1. Installation
 Clone repository and install dependencies:
 ```bash
-git clone https://github.com/shalinireddy67/boiled-egg.git
-cd boiled-egg
+git clone https://github.com/shalinireddy67/Homie-SmartSpace.git
+cd Homie-SmartSpace
 npm install
 ```
 
@@ -177,7 +177,7 @@ node --experimental-websocket scripts/verify-all-pages.mjs
 ## 🎨 Design System & Accessibility
 
 - **Design Reference:** Modern smart home dashboard inspired by Dribbble (`docs/design/reference-2.png`), featuring asymmetric hero stage, semi-circular radial arc gauges, and 2×2 pastel telemetry tiles.
-- **Theme Support:** Clean light, dark, and system modes persisted to `nestora_theme` with zero-flash inline execution.
+- **Theme Support:** Clean light, dark, and system modes persisted to `homie_smartspace_theme` with zero-flash inline execution.
 - **Axe-Core Accessibility:** Audited across all 8 routes in both Light and Dark themes with zero WCAG 2.1 AA violations.
 - **Screenshots:** Full responsive visual regression capture across all 7 pages + 404 at 375px, 768px, and 1440px in Light and Dark themes available in `docs/screenshots/after-v2/`.
 - **Accessible Palette:** Exceeds WCAG AA contrast standards (minimum 4.5:1 for body copy and 3:1 for large typography and interactive borders).
@@ -190,7 +190,7 @@ node --experimental-websocket scripts/verify-all-pages.mjs
 ## 📁 Project Structure
 
 ```
-boiled-egg/
+Homie-SmartSpace/
 ├── docs/
 │   └── SPEC.md                       # Comprehensive functional specification
 ├── scripts/

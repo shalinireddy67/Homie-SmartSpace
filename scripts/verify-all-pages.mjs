@@ -99,7 +99,7 @@ async function waitForServer(url, timeoutMs = 20000) {
 }
 
 async function runVerification() {
-  console.log('--- NESTORA COMPREHENSIVE VERIFICATION & BENCHMARKS ---');
+  console.log('--- HOMIE SMARTSPACE COMPREHENSIVE VERIFICATION & BENCHMARKS ---');
   const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
   const cdpPort = 9333;
   const vitePort = 5174;

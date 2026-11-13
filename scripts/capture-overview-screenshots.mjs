@@ -142,10 +142,10 @@ async function captureOverview() {
       await cdp.eval(`(() => {
         if ('${theme}' === 'dark') {
           document.documentElement.classList.add('dark');
-          localStorage.setItem('nestora_theme', 'dark');
+          localStorage.setItem('homie_smartspace_theme', 'dark');
         } else {
           document.documentElement.classList.remove('dark');
-          localStorage.setItem('nestora_theme', 'light');
+          localStorage.setItem('homie_smartspace_theme', 'light');
         }
       })()`);
       await new Promise((r) => setTimeout(r, 400));

@@ -1,4 +1,4 @@
-# Nestora Smart Home Design System (v2)
+# Homie SmartSpace Design System (v2)
 
 Design specification derived from the Dribbble reference (`docs/design/reference-2.png` / `https://dribbble.com/shots/26727815-Smart-Home-Dashboard`).
 
@@ -9,7 +9,7 @@ Design specification derived from the Dribbble reference (`docs/design/reference
 ### Layout & Navigation
 - **App Container:** Soft icy-blue outer canvas (`#C2D4E0` -> `#EEF4F4` workspace tint) framing a floating white/icy-tinted rounded app surface (`rounded-3xl`, `24px`).
 - **Desktop Navigation:** Horizontal top pill bar centered inside the header:
-  - Left: Minimalist geometric brand mark (`NESTORA`) + Home selector pill (`Lakeview Home`).
+  - Left: Minimalist geometric brand mark (`Homie SmartSpace`) + Home selector pill (`Lakeview Home`).
   - Center: Top pill navigation links (`Overview`, `Rooms & Devices`, `Automations`, `Energy Analytics`, `Event History`, `Notifications`, `Settings`). Active item sits inside a soft icy-blue rounded pill (`#CFE2E9`).
   - Right: Compact simulation controls (`Start/Pause`, `Speed`, `Fail Next`), theme toggle (`Light`/`Dark`), Notification Bell badge, and user avatar (`AM`).
 - **Mobile Navigation (`< 768px`):** Sticky compact bottom tab bar (`>= 44px` touch targets) + slide-up "More" drawer covering all 7 routes.

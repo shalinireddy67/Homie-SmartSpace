@@ -1,4 +1,4 @@
-# Project Status: NESTORA
+# Project Status: Homie SmartSpace
 
 **Last Updated:** November 13, 2026  
 **Current Phase:** Design V2 Polish & WCAG AA Axe Accessibility Pass Complete  
@@ -8,7 +8,7 @@
 ---
 
 ## 1. Environment & Workspace Health
-- **Repository:** `boiled-egg` (`https://github.com/shalinireddy67/boiled-egg`)
+- **Repository:** `Homie-SmartSpace` (`https://github.com/shalinireddy67/Homie-SmartSpace`)
 - **Active Branch:** `feat/design-v2`
 - **Node.js Version:** `v20.18.0`
 - **npm Version:** `10.8.2`
@@ -44,7 +44,7 @@
 | **1. Virtualized event list (10,000 events)** | **0.6 ms** first paint / **40.2 ms** avg scroll frame | Smooth scrolling without UI freeze | ✅ PASSED |
 | **2. Telemetry ingestion rate** | **60 FPS** (50 steps in 551 ms, **0 frame drops**) | Real-time streaming without frame drops | ✅ PASSED |
 | **3. Command dispatch round-trip** | **6.4 ms** optimistic UI reflection | Instant visual feedback ($< 50\text{ ms}$) | ✅ PASSED |
-| **4. LocalStorage persisted size** | **9.34 KB** (`NESTORA_V1_STATE`: 9.31 KB, `nestora_theme`: 0.04 KB) | Bounded user config ($< 50\text{ KB}$) | ✅ PASSED |
+| **4. LocalStorage persisted size** | **9.34 KB** (`HOMIE_SMARTSPACE_V1_STATE`: 9.31 KB, `homie_smartspace_theme`: 0.04 KB) | Bounded user config ($< 50\text{ KB}$) | ✅ PASSED |
 | **5. Production bundle size** | **296.73 KB** App JS (69.77 KB gzipped), **621.63 KB** Vendor JS (177.25 KB gzipped), **50.93 KB** CSS (9.02 KB gzipped) | Split vendor chunks, 0 warnings | ✅ PASSED |
 
 ### B. Automated Headless Chrome Browser Verification (All 8 Routes)
