@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { useStore, initializeStore } from '@/store';
 import { APP_NAME } from '@/constants/branding';
+import { THEME_STORAGE_KEY } from '@/store/storage';
 
 describe('SettingsPage Component', () => {
   beforeEach(() => {
@@ -31,19 +32,19 @@ describe('SettingsPage Component', () => {
     const darkRadio = screen.getByRole('radio', { name: /Dark/i });
     fireEvent.click(darkRadio);
 
-    expect(localStorage.getItem('nestora_theme')).toBe('dark');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
     expect(document.documentElement.classList.contains('dark')).toBe(true);
 
     const lightRadio = screen.getByRole('radio', { name: /Light/i });
     fireEvent.click(lightRadio);
 
-    expect(localStorage.getItem('nestora_theme')).toBe('light');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
     expect(document.documentElement.classList.contains('dark')).toBe(false);
 
     const sysRadio = screen.getByRole('radio', { name: /System/i });
     fireEvent.click(sysRadio);
 
-    expect(localStorage.getItem('nestora_theme')).toBe('system');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('system');
   });
 
   it('toggles simulation running state and changes speed multiplier', () => {

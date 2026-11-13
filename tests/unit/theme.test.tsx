@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { useTheme } from '@/hooks/useTheme';
+import { THEME_STORAGE_KEY } from '@/store/storage';
 
 describe('useTheme hook', () => {
   beforeEach(() => {
@@ -33,7 +34,7 @@ describe('useTheme hook', () => {
   });
 
   it('respects stored theme from localStorage on load', () => {
-    localStorage.setItem('nestora_theme', 'dark');
+    localStorage.setItem(THEME_STORAGE_KEY, 'dark');
     const { result } = renderHook(() => useTheme());
     expect(result.current.theme).toBe('dark');
     expect(document.documentElement.classList.contains('dark')).toBe(true);
@@ -49,7 +50,7 @@ describe('useTheme hook', () => {
 
     expect(result.current.theme).toBe('dark');
     expect(document.documentElement.classList.contains('dark')).toBe(true);
-    expect(localStorage.getItem('nestora_theme')).toBe('dark');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
 
     act(() => {
       result.current.toggleTheme();
@@ -57,7 +58,7 @@ describe('useTheme hook', () => {
 
     expect(result.current.theme).toBe('light');
     expect(document.documentElement.classList.contains('dark')).toBe(false);
-    expect(localStorage.getItem('nestora_theme')).toBe('light');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
   });
 
   it('sets theme directly with setTheme and persists', () => {
@@ -70,7 +71,7 @@ describe('useTheme hook', () => {
     expect(result.current.theme).toBe('dark');
     expect(result.current.themeMode).toBe('dark');
     expect(document.documentElement.classList.contains('dark')).toBe(true);
-    expect(localStorage.getItem('nestora_theme')).toBe('dark');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
   });
 
   it('supports system mode and reflects system preference', () => {
@@ -81,7 +82,22 @@ describe('useTheme hook', () => {
     });
 
     expect(result.current.themeMode).toBe('system');
-    expect(localStorage.getItem('nestora_theme')).toBe('system');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('system');
+  });
+
+  it('migrates legacy nestora_theme key to active theme key and deletes old key', () => {
+    localStorage.setItem('nestora_theme', 'dark');
+    const { result } = renderHook(() => useTheme());
+    expect(result.current.theme).toBe('dark');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
+    expect(localStorage.getItem('nestora_theme')).toBeNull();
+  });
+
+  it('migrates legacy homie_theme key to active theme key and deletes old key', () => {
+    localStorage.setItem('homie_theme', 'light');
+    const { result } = renderHook(() => useTheme());
+    expect(result.current.theme).toBe('light');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
+    expect(localStorage.getItem('homie_theme')).toBeNull();
   });
 });
-

@@ -1,6 +1,8 @@
 import {
   STORAGE_KEY,
   THEME_STORAGE_KEY,
+  LEGACY_STORAGE_KEYS,
+  LEGACY_THEME_KEYS,
   CURRENT_SCHEMA_VERSION,
   type PersistedStateV1,
 } from './types';
@@ -12,6 +14,7 @@ let debounceTimeoutId: ReturnType<typeof setTimeout> | null = null;
 
 /**
  * Loads and sanitizes persisted configuration from LocalStorage.
+ * Transparently migrates legacy state keys and theme keys if present.
  * Never throws under any circumstances.
  */
 export function loadPersistedState(): Partial<PersistedStateV1> | null {
@@ -20,7 +23,35 @@ export function loadPersistedState(): Partial<PersistedStateV1> | null {
   }
 
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    let raw = localStorage.getItem(STORAGE_KEY);
+    let migratedFromLegacyKey: string | null = null;
+
+    // If new key is absent, search for supported legacy keys
+    if (!raw) {
+      for (const legacyKey of LEGACY_STORAGE_KEYS) {
+        const legacyVal = localStorage.getItem(legacyKey);
+        if (legacyVal !== null) {
+          raw = legacyVal;
+          migratedFromLegacyKey = legacyKey;
+          break;
+        }
+      }
+    }
+
+    // Transparent theme migration: if new theme key is absent and legacy key exists
+    let separateTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (!separateTheme) {
+      for (const legacyThemeKey of LEGACY_THEME_KEYS) {
+        const legacyThemeVal = localStorage.getItem(legacyThemeKey);
+        if (legacyThemeVal === 'dark' || legacyThemeVal === 'light' || legacyThemeVal === 'system') {
+          separateTheme = legacyThemeVal;
+          localStorage.setItem(THEME_STORAGE_KEY, legacyThemeVal);
+          localStorage.removeItem(legacyThemeKey);
+          break;
+        }
+      }
+    }
+
     if (!raw) {
       return null;
     }
@@ -37,10 +68,15 @@ export function loadPersistedState(): Partial<PersistedStateV1> | null {
     const sanitized = validateAndSanitizeState(migrated);
 
     if (sanitized) {
-      // Ensure theme is synced with the separate nestora_theme key if present
-      const separateTheme = localStorage.getItem(THEME_STORAGE_KEY);
-      if (separateTheme === 'dark' || separateTheme === 'light') {
+      // Ensure theme is synced with active theme key if present
+      if (separateTheme === 'dark' || separateTheme === 'light' || separateTheme === 'system') {
         sanitized.theme = separateTheme;
+      }
+
+      // If migrated from legacy key, save under current key and remove legacy key
+      if (migratedFromLegacyKey) {
+        savePersistedState(sanitized as PersistedStateV1);
+        localStorage.removeItem(migratedFromLegacyKey);
       }
     }
 
@@ -55,7 +91,7 @@ export function loadPersistedState(): Partial<PersistedStateV1> | null {
 }
 
 /**
- * Synchronously writes state to LocalStorage and syncs nestora_theme key.
+ * Synchronously writes state to LocalStorage and syncs theme key.
  */
 export function savePersistedState(state: PersistedStateV1): void {
   if (typeof window === 'undefined' || !window.localStorage) {
@@ -134,4 +170,3 @@ export function setupPersistenceListeners(): () => void {
     window.removeEventListener('pagehide', handlePageHide);
   };
 }
-

@@ -1,9 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
+import { THEME_STORAGE_KEY, LEGACY_THEME_KEYS } from '@/store/storage/types';
 
 export type Theme = 'light' | 'dark';
 export type ThemeMode = 'light' | 'dark' | 'system';
-
-const THEME_STORAGE_KEY = 'nestora_theme';
 
 function getSystemPreference(): Theme {
   if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
@@ -16,7 +15,19 @@ function getStoredThemeMode(): ThemeMode {
   if (typeof window === 'undefined') return 'system';
 
   try {
-    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    let stored = localStorage.getItem(THEME_STORAGE_KEY);
+    if (!stored) {
+      for (const legacyKey of LEGACY_THEME_KEYS) {
+        const val = localStorage.getItem(legacyKey);
+        if (val === 'light' || val === 'dark' || val === 'system') {
+          stored = val;
+          localStorage.setItem(THEME_STORAGE_KEY, val);
+          localStorage.removeItem(legacyKey);
+          break;
+        }
+      }
+    }
+
     if (stored === 'light' || stored === 'dark' || stored === 'system') {
       return stored as ThemeMode;
     }

@@ -8,6 +8,7 @@ import {
   THEME_STORAGE_KEY,
   type PersistedStateV1,
 } from '@/store/storage';
+import { validateAndSanitizeState } from '@/store/storage/validation';
 import { generateSeedData } from '@/utils/seedData';
 
 describe('Storage & Persistence Layer', () => {
@@ -198,6 +199,107 @@ describe('Storage & Persistence Layer', () => {
 
     flushSave();
     expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
+  });
+
+  describe('Legacy Storage Key Migration (NESTORA & HOMIE to HOMIE_SMARTSPACE)', () => {
+    it('migrates NESTORA_V1_STATE once and removes old key', () => {
+      localStorage.setItem('NESTORA_V1_STATE', JSON.stringify(validSampleState));
+      expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
+
+      const loaded = loadPersistedState();
+      expect(loaded).toBeDefined();
+      expect(loaded?.theme).toBe('dark');
+      // Saved under new key
+      expect(localStorage.getItem(STORAGE_KEY)).not.toBeNull();
+      // Old key removed
+      expect(localStorage.getItem('NESTORA_V1_STATE')).toBeNull();
+    });
+
+    it('migrates HOMIE_V1_STATE once and removes old key', () => {
+      localStorage.setItem('HOMIE_V1_STATE', JSON.stringify(validSampleState));
+      expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
+
+      const loaded = loadPersistedState();
+      expect(loaded).toBeDefined();
+      expect(loaded?.theme).toBe('dark');
+      // Saved under new key
+      expect(localStorage.getItem(STORAGE_KEY)).not.toBeNull();
+      // Old key removed
+      expect(localStorage.getItem('HOMIE_V1_STATE')).toBeNull();
+    });
+
+    it('falls back to defaults without throwing when legacy NESTORA_V1_STATE has corrupted JSON', () => {
+      localStorage.setItem('NESTORA_V1_STATE', '{ corrupted json syntax %#!');
+
+      expect(() => {
+        const loaded = loadPersistedState();
+        expect(loaded).toBeNull();
+      }).not.toThrow();
+    });
+
+    it('falls back to defaults without throwing when legacy HOMIE_V1_STATE has corrupted JSON', () => {
+      localStorage.setItem('HOMIE_V1_STATE', '{ broken json syntax :::');
+
+      expect(() => {
+        const loaded = loadPersistedState();
+        expect(loaded).toBeNull();
+      }).not.toThrow();
+    });
+
+    it('migrates legacy nestora_theme key and removes it', () => {
+      localStorage.setItem('nestora_theme', 'dark');
+      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBeNull();
+
+      loadPersistedState();
+      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
+      expect(localStorage.getItem('nestora_theme')).toBeNull();
+    });
+
+    it('migrates legacy homie_theme key and removes it', () => {
+      localStorage.setItem('homie_theme', 'light');
+      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBeNull();
+
+      loadPersistedState();
+      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
+      expect(localStorage.getItem('homie_theme')).toBeNull();
+    });
+
+    it('second load does not migrate again', () => {
+      localStorage.setItem('NESTORA_V1_STATE', JSON.stringify(validSampleState));
+      const firstLoad = loadPersistedState();
+      expect(firstLoad).toBeDefined();
+      expect(localStorage.getItem('NESTORA_V1_STATE')).toBeNull();
+      expect(localStorage.getItem(STORAGE_KEY)).not.toBeNull();
+
+      const setItemSpy = vi.spyOn(Storage.prototype, 'setItem');
+      const secondLoad = loadPersistedState();
+      expect(secondLoad).toBeDefined();
+      // On second load, new key was already read directly, no savePersistedState called for migration
+      expect(setItemSpy).not.toHaveBeenCalled();
+    });
+
+    it('validates and imports an exported settings file originating from an old name', () => {
+      const exportedFromOld = {
+        version: 1,
+        devices: seed.devices,
+        rules: seed.rules,
+        schedules: seed.schedules,
+        simulation: {
+          speed: 5,
+          seed: 4321,
+          failNextCommand: false,
+          failureProbability: 0.05,
+        },
+        theme: 'dark',
+      };
+
+      // Simulates importing JSON from file named 'nestora-settings-2026-11-01.json' or 'homie-settings.json'
+      const sanitized = validateAndSanitizeState(exportedFromOld);
+      expect(sanitized).toBeDefined();
+      expect(sanitized?.simulation?.speed).toBe(5);
+      expect(sanitized?.simulation?.seed).toBe(4321);
+      expect(sanitized?.devices?.length).toBe(seed.devices.length);
+    });
   });
 });
 
