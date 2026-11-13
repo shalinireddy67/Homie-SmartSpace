@@ -239,5 +239,16 @@ boiled-egg/
 
 ---
 
+## 🔍 Search and Sharing
+
+Homie SmartSpace is a client-rendered single-page application (SPA). As a client-rendered SPA, search engine ranking is not claimed. The application includes baseline metadata and crawl assets for standard sharing and indexing:
+
+- **Metadata**: Standard Open Graph (`og:*`), Twitter Cards (`summary_large_image`), and valid JSON-LD (`WebApplication`) structured data configured in `index.html`.
+- **Per-Route Metadata**: The `useRouteSeo` hook synchronizes `document.title`, description, canonical link, and Open Graph URL on route transitions. Unknown routes dynamically apply a `noindex, nofollow` directive.
+- **Crawl Configuration**: `public/robots.txt` points to `public/sitemap.xml`, which lists the 7 canonical route URLs (`https://homie-smartspace.vercel.app/`).
+- **Deep Linking**: `vercel.json` provides single-page application route rewrites so direct navigation to subpaths (e.g., `/energy`, `/history`) resolves to `index.html` while preserving 404 responses on missing static assets.
+
+---
+
 ## 📄 License
 MIT License. Created for the Advanced Frontend Cohort Evaluation.
