@@ -251,7 +251,7 @@ export const AutomationsPage: React.FC = () => {
           {rules.length === 0 ? (
             <Card className="p-10 text-center bg-surface-card border border-dashed border-border rounded-3xl">
               <Zap className="h-10 w-10 text-accent mx-auto mb-3 opacity-60" />
-              <h3 className="text-base font-bold text-text">No Automation Rules Configured</h3>
+              <h2 className="text-base font-bold text-text">No Automation Rules Configured</h2>
               <p className="text-xs text-text-muted mt-1 max-w-md mx-auto">
                 Automations listen for environmental changes, sensor drift, and device state transitions to trigger automatic multi-device actions.
               </p>
@@ -286,9 +286,9 @@ export const AutomationsPage: React.FC = () => {
                   >
                     <div className="space-y-2.5 flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2.5">
-                        <h3 className="text-base font-bold text-text truncate max-w-sm">
+                        <h2 className="text-base font-bold text-text truncate max-w-sm">
                           {rule.name}
-                        </h3>
+                        </h2>
 
                         {/* Next-eligible State Badge */}
                         <Badge

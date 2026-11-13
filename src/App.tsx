@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { useRouteSeo } from '@/hooks/useRouteSeo';
 
 const OverviewPage = lazy(() =>
   import('@/pages/OverviewPage').then((m) => ({ default: m.OverviewPage }))
@@ -40,6 +41,8 @@ const RouteLoadingFallback: React.FC = () => (
 );
 
 export const AppRoutes: React.FC = () => {
+  useRouteSeo();
+
   return (
     <Suspense fallback={<RouteLoadingFallback />}>
       <Routes>

@@ -361,7 +361,7 @@ export const EventHistoryPage: React.FC = () => {
         {filteredEvents.length === 0 ? (
           <div className="text-center py-16 space-y-2">
             <Filter className="h-8 w-8 mx-auto text-text-muted" />
-            <h3 className="text-sm font-semibold text-text">No matching events</h3>
+            <h2 className="text-sm font-semibold text-text">No matching events</h2>
             <p className="text-xs text-text-muted">
               Try adjusting your search criteria or clearing active filters.
             </p>
