@@ -375,7 +375,7 @@ export const SettingsPage: React.FC = () => {
                       setNotificationSettings({ cooldownMinutes: val });
                     }
                   }}
-                  className="w-24 px-3 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface-card border border-border rounded-xl text-text focus-ring font-mono tabular-nums"
+                  className="w-24 px-3 py-1.5 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface-card border border-border rounded-xl text-text focus-ring font-mono tabular-nums"
                   aria-label="Notification cooldown minutes"
                 />
                 <span className="text-xs text-text-muted">minutes between identical condition alerts</span>
@@ -478,7 +478,7 @@ export const SettingsPage: React.FC = () => {
                   key={s}
                   type="button"
                   onClick={() => setSpeed(s)}
-                  className={`py-2 min-h-[44px] sm:min-h-[34px] text-xs font-mono tabular-nums rounded-xl border transition-all focus-ring ${
+                  className={`py-2 min-h-[44px] lg:min-h-[34px] text-xs font-mono tabular-nums rounded-xl border transition-all focus-ring ${
                     speed === s
                       ? 'border-accent bg-accent-subtle text-text font-bold shadow-xs'
                       : 'border-border-subtle bg-surface text-text-muted hover:text-text hover:bg-surface-elevated'
@@ -529,7 +529,7 @@ export const SettingsPage: React.FC = () => {
                 value={seedInput}
                 onChange={(e) => setSeedInput(e.target.value)}
                 onBlur={handleSeedBlur}
-                className="w-full px-3 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring font-mono tabular-nums"
+                className="w-full px-3 py-1.5 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface border border-border rounded-xl text-text focus-ring font-mono tabular-nums"
                 aria-label="Simulation PRNG seed"
               />
               {seedError ? (
@@ -630,7 +630,7 @@ export const SettingsPage: React.FC = () => {
               <select
                 value={selectedRoomId}
                 onChange={(e) => setSelectedRoomId(e.target.value)}
-                className="w-full px-2.5 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
+                className="w-full px-2.5 py-1.5 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface border border-border rounded-xl text-text focus-ring"
                 aria-label="Select target room for temperature override"
               >
                 <option value="">All Rooms</option>
@@ -648,7 +648,7 @@ export const SettingsPage: React.FC = () => {
                 value={targetTemp}
                 onChange={(e) => handleForceTemperature(parseFloat(e.target.value) || 20)}
                 aria-label="Force room temperature"
-                className="w-full accent-accent"
+                className="w-full accent-accent h-11 py-3 bg-transparent cursor-pointer touch-none"
               />
               <div className="flex items-center justify-between text-[10px] text-text-muted font-mono">
                 <span>15°C</span>
@@ -679,7 +679,7 @@ export const SettingsPage: React.FC = () => {
                 value={targetHumidity}
                 onChange={(e) => handleForceHumidity(parseInt(e.target.value, 10) || 50)}
                 aria-label="Force room humidity"
-                className="w-full accent-accent"
+                className="w-full accent-accent h-11 py-3 bg-transparent cursor-pointer touch-none"
               />
               <div className="flex items-center justify-between text-[10px] text-text-muted font-mono">
                 <span>20%</span>
@@ -702,7 +702,7 @@ export const SettingsPage: React.FC = () => {
               <select
                 value={selectedDeviceId}
                 onChange={(e) => setSelectedDeviceId(e.target.value)}
-                className="w-full px-2.5 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border rounded-xl text-text focus-ring"
+                className="w-full px-2.5 py-1.5 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface border border-border rounded-xl text-text focus-ring"
                 aria-label="Select device to toggle online/offline"
               >
                 {devices.map((d) => (

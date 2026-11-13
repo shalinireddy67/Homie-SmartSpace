@@ -69,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
         <div className="flex items-center gap-3 shrink-0">
           <Link
             to="/"
-            className="flex items-center gap-2 rounded-full focus-ring"
+            className="flex items-center gap-2 rounded-full focus-ring min-h-[44px] min-w-[44px]"
             aria-label={APP_NAME}
           >
             <div
@@ -144,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
             aria-label={`Notifications, ${unreadCount} unread`}
             aria-haspopup="dialog"
             aria-expanded={isDrawerOpen}
-            className="relative rounded-full p-2 text-text-muted hover:text-text bg-surface-elevated/80 hover:bg-surface-elevated border border-border-subtle transition-colors focus-ring inline-flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-[38px] sm:min-h-[38px]"
+            className="relative rounded-full p-2 text-text-muted hover:text-text bg-surface-elevated/80 hover:bg-surface-elevated border border-border-subtle transition-colors focus-ring inline-flex items-center justify-center min-w-[44px] min-h-[44px]"
           >
             <Bell className="h-4 w-4" aria-hidden="true" />
             {unreadCount > 0 && (
@@ -165,7 +165,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
             aria-label={
               theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
             }
-            className="rounded-full p-2 text-text-muted hover:text-text bg-surface-elevated/80 hover:bg-surface-elevated border border-border-subtle min-w-[44px] min-h-[44px] sm:min-w-[38px] sm:min-h-[38px]"
+            className="rounded-full p-2 text-text-muted hover:text-text bg-surface-elevated/80 hover:bg-surface-elevated border border-border-subtle min-w-[44px] min-h-[44px]"
           >
             {theme === 'dark' ? (
               <Sun className="h-4 w-4 text-warning" aria-hidden="true" />

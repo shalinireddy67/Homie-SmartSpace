@@ -98,7 +98,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
       </div>
 
       {/* Preset Swatches */}
-      <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Preset light colors">
+      <div className="flex flex-wrap items-center gap-1" role="group" aria-label="Preset light colors">
         {PRESET_COLORS.map((swatch) => {
           const isSelected = value.toUpperCase() === swatch.toUpperCase();
           return (
@@ -109,13 +109,19 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
               aria-label={`Color ${swatch}`}
               aria-pressed={isSelected}
               onClick={() => handleSwatchClick(swatch)}
-              className={`h-8 w-8 sm:h-6 sm:w-6 rounded-full border transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
-                isSelected
-                  ? 'border-accent scale-110 ring-2 ring-accent/30'
-                  : 'border-border hover:scale-105'
-              } ${disabled ? 'cursor-not-allowed opacity-60' : ''}`}
-              style={{ backgroundColor: swatch }}
-            />
+              className={`min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-1 rounded-full transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
+                disabled ? 'cursor-not-allowed opacity-60' : ''
+              }`}
+            >
+              <span
+                className={`h-7 w-7 sm:h-6 sm:w-6 rounded-full border transition-transform pointer-events-none ${
+                  isSelected
+                    ? 'border-accent scale-110 ring-2 ring-accent/30'
+                    : 'border-border hover:scale-105'
+                }`}
+                style={{ backgroundColor: swatch }}
+              />
+            </button>
           );
         })}
       </div>
@@ -136,7 +142,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
           onChange={handleInputChange}
           onBlur={handleInputBlur}
           onKeyDown={handleKeyDown}
-          className={`w-28 px-2.5 py-1.5 min-h-[44px] sm:min-h-[32px] text-xs font-mono uppercase bg-surface rounded-xl border ${
+          className={`w-28 px-2.5 py-1.5 min-h-[44px] text-base sm:text-xs font-mono uppercase bg-surface rounded-xl border ${
             inputError ? 'border-danger focus:ring-danger' : 'border-border focus:ring-accent'
           } ${disabled ? 'cursor-not-allowed opacity-60' : ''} focus-visible:outline-none focus-visible:ring-2`}
         />

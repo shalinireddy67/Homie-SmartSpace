@@ -135,7 +135,7 @@ export const RoomsDevicesPage: React.FC = () => {
             aria-selected={selectedRoom === 'all'}
             aria-controls="devices-grid"
             onClick={() => setSelectedRoom('all')}
-            className={`px-4 py-2 min-h-[44px] sm:min-h-[38px] rounded-full text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 border focus-ring whitespace-nowrap ${
+            className={`px-4 py-2 min-h-[44px] rounded-full text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 border focus-ring whitespace-nowrap ${
               selectedRoom === 'all'
                 ? 'bg-accent-subtle text-text border-border shadow-xs font-semibold'
                 : 'bg-surface text-text-muted border-border-subtle hover:text-text hover:bg-surface-card'
@@ -164,7 +164,7 @@ export const RoomsDevicesPage: React.FC = () => {
                 aria-selected={isSelected}
                 aria-controls="devices-grid"
                 onClick={() => setSelectedRoom(room.id)}
-                className={`px-4 py-2 min-h-[44px] sm:min-h-[38px] rounded-full text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 border focus-ring whitespace-nowrap ${
+                className={`px-4 py-2 min-h-[44px] rounded-full text-xs sm:text-sm transition-all duration-200 flex items-center gap-2 border focus-ring whitespace-nowrap ${
                   isSelected
                     ? 'bg-accent-subtle text-text border-border shadow-xs font-semibold'
                     : 'bg-surface text-text-muted border-border-subtle hover:text-text hover:bg-surface-card'
@@ -200,7 +200,7 @@ export const RoomsDevicesPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedType(opt.id as DeviceType | 'all')}
               aria-pressed={selectedType === opt.id}
-              className={`px-3.5 py-2 min-h-[44px] sm:min-h-[34px] sm:py-1.5 text-xs rounded-full border transition-all duration-200 flex items-center gap-1.5 focus-ring ${
+              className={`px-3.5 py-2 min-h-[44px] text-xs rounded-full border transition-all duration-200 flex items-center gap-1.5 focus-ring ${
                 selectedType === opt.id
                   ? 'bg-accent-subtle border-accent text-text font-semibold shadow-xs'
                   : 'bg-surface border-border text-text-muted hover:text-text hover:bg-surface-elevated'
@@ -222,14 +222,14 @@ export const RoomsDevicesPage: React.FC = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by name or room..."
               aria-label="Search devices or rooms"
-              className="w-full pl-10 pr-9 py-2 min-h-[44px] sm:min-h-[38px] text-xs bg-surface border border-border rounded-xl text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full pl-10 pr-9 py-2 min-h-[44px] text-base sm:text-xs bg-surface border border-border rounded-xl text-text placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search text"
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-text-muted hover:text-text p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg focus-ring"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-text-muted hover:text-text p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg focus-ring"
               >
                 <X className="h-3.5 w-3.5" />
               </button>

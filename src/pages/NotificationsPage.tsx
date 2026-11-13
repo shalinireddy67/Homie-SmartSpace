@@ -204,7 +204,7 @@ export const NotificationsPage: React.FC = () => {
             role="tab"
             aria-selected={activeTab === tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-3.5 py-2 min-h-[44px] sm:min-h-[34px] sm:py-1.5 rounded-full text-xs whitespace-nowrap border transition-all focus-ring ${
+            className={`px-3.5 py-2 min-h-[44px] lg:min-h-[34px] sm:py-1.5 rounded-full text-xs whitespace-nowrap border transition-all focus-ring ${
               activeTab === tab.id
                 ? 'bg-accent-subtle text-text border-accent font-semibold shadow-xs'
                 : 'bg-surface border-border-subtle text-text-muted hover:text-text hover:bg-surface-card'
@@ -330,7 +330,7 @@ export const NotificationsPage: React.FC = () => {
                               size="sm"
                               onClick={() => markAsRead(notif.id)}
                               aria-label="Mark notification as read"
-                              className="text-xs p-1.5 min-h-[44px] min-w-[44px] sm:min-h-[32px] sm:min-w-[32px]"
+                              className="text-xs p-1.5 min-h-[44px] min-w-[44px] lg:min-h-[32px] lg:min-w-[32px]"
                             >
                               <CheckCheck className="h-4 w-4" />
                             </Button>
@@ -341,7 +341,7 @@ export const NotificationsPage: React.FC = () => {
                             size="sm"
                             onClick={() => clearNotification(notif.id)}
                             aria-label="Dismiss notification"
-                            className="text-xs p-1.5 text-text-muted hover:text-danger min-h-[44px] min-w-[44px] sm:min-h-[32px] sm:min-w-[32px]"
+                            className="text-xs p-1.5 text-text-muted hover:text-danger min-h-[44px] min-w-[44px] lg:min-h-[32px] lg:min-w-[32px]"
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
