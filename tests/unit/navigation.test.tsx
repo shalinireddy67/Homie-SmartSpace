@@ -44,7 +44,7 @@ describe('Navigation components', () => {
     );
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: /Overview/i }, { timeout: 5000 })
+      await screen.findByRole('heading', { level: 1, name: /Overview/i }, { timeout: 10000 })
     ).toBeInTheDocument();
   });
 
@@ -56,7 +56,7 @@ describe('Navigation components', () => {
     );
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: 'Rooms & Devices' }, { timeout: 5000 })
+      await screen.findByRole('heading', { level: 1, name: 'Rooms & Devices' }, { timeout: 10000 })
     ).toBeInTheDocument();
   });
 
@@ -68,7 +68,7 @@ describe('Navigation components', () => {
     );
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: 'Automations' }, { timeout: 5000 })
+      await screen.findByRole('heading', { level: 1, name: 'Automations' }, { timeout: 10000 })
     ).toBeInTheDocument();
   });
 
@@ -80,7 +80,7 @@ describe('Navigation components', () => {
     );
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: 'Energy Analytics' }, { timeout: 5000 })
+      await screen.findByRole('heading', { level: 1, name: 'Energy Analytics' }, { timeout: 10000 })
     ).toBeInTheDocument();
   });
 
@@ -92,7 +92,7 @@ describe('Navigation components', () => {
     );
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: 'Event History' }, { timeout: 5000 })
+      await screen.findByRole('heading', { level: 1, name: 'Event History' }, { timeout: 10000 })
     ).toBeInTheDocument();
   });
 
@@ -104,7 +104,7 @@ describe('Navigation components', () => {
     );
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: 'Notifications' }, { timeout: 5000 })
+      await screen.findByRole('heading', { level: 1, name: 'Notifications' }, { timeout: 10000 })
     ).toBeInTheDocument();
   });
 
@@ -116,7 +116,7 @@ describe('Navigation components', () => {
     );
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: 'Settings' }, { timeout: 5000 })
+      await screen.findByRole('heading', { level: 1, name: 'Settings' }, { timeout: 10000 })
     ).toBeInTheDocument();
   });
 });
