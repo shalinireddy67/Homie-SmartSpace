@@ -116,17 +116,36 @@ export const RadialDial: React.FC<RadialDialProps> = ({
 
   const handlePointerDown = (e: React.PointerEvent) => {
     if (disabled) return;
-    (e.target as Element).setPointerCapture?.(e.pointerId);
+    try {
+      (e.target as Element).setPointerCapture?.(e.pointerId);
+    } catch {
+      // safe fallback
+    }
     isDraggingRef.current = true;
     handlePointerMove(e);
   };
 
-  const handlePointerUp = () => {
+  const handlePointerUp = (e: React.PointerEvent) => {
     if (disabled) return;
+    try {
+      (e.target as Element).releasePointerCapture?.(e.pointerId);
+    } catch {
+      // safe fallback
+    }
     if (isDraggingRef.current) {
       isDraggingRef.current = false;
       commitTarget(localTarget);
     }
+  };
+
+  const handlePointerCancel = (e: React.PointerEvent) => {
+    if (disabled) return;
+    try {
+      (e.target as Element).releasePointerCapture?.(e.pointerId);
+    } catch {
+      // safe fallback
+    }
+    isDraggingRef.current = false;
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -182,6 +201,7 @@ export const RadialDial: React.FC<RadialDialProps> = ({
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerCancel}
         className="relative touch-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-full p-1"
       >
         <svg

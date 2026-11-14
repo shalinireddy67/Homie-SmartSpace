@@ -43,7 +43,7 @@ export const SimulationControls: React.FC<{ compact?: boolean }> = ({ compact = 
         size="sm"
         onClick={() => setRunning(!running)}
         aria-label={running ? 'Pause simulation engine' : 'Start simulation engine'}
-        className="h-7 px-2.5 py-1 text-xs gap-1 rounded-full min-h-[30px]"
+        className="px-3 py-1.5 text-xs gap-1.5 rounded-full min-h-[44px] min-w-[44px]"
       >
         {running ? (
           <>
@@ -67,7 +67,7 @@ export const SimulationControls: React.FC<{ compact?: boolean }> = ({ compact = 
           id="sim-speed-select"
           value={speed}
           onChange={(e) => setSpeed(Number(e.target.value) as SimulationSpeed)}
-          className="h-7 px-2 rounded-full bg-surface text-text text-xs border border-border focus-ring font-mono"
+          className="min-h-[44px] px-2.5 rounded-full bg-surface text-text text-xs border border-border focus-ring font-mono"
           aria-label="Simulation speed multiplier"
         >
           {speedOptions.map((opt) => (

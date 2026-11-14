@@ -2,10 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Homie SmartSpace | Smart home and IoT control dashboard</title>
-    <meta name="description" content="Homie SmartSpace — Smart home and IoT control dashboard." />
+    <meta
+      name="description"
+      content="A simulated smart home dashboard with room device control, real-time energy analytics, custom automation rules, and a 10,000-event virtualized activity log."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+    <link rel="canonical" href="https://homie-smartspace.vercel.app/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Homie SmartSpace" />
+    <meta property="og:title" content="Homie SmartSpace | Smart home and IoT control dashboard" />
+    <meta
+      property="og:description"
+      content="A simulated smart home dashboard with room device control, real-time energy analytics, custom automation rules, and a 10,000-event virtualized activity log."
+    />
+    <meta property="og:url" content="https://homie-smartspace.vercel.app/" />
+    <meta property="og:image" content="https://homie-smartspace.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Homie SmartSpace dashboard preview showing room device controls, power metrics, and energy analytics"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Homie SmartSpace | Smart home and IoT control dashboard" />
+    <meta
+      name="twitter:description"
+      content="A simulated smart home dashboard with room device control, real-time energy analytics, custom automation rules, and a 10,000-event virtualized activity log."
+    />
+    <meta name="twitter:image" content="https://homie-smartspace.vercel.app/og-image.png" />
+
+    <!-- Icons & Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload font -->
+    <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Homie SmartSpace",
+        "description": "A simulated smart home dashboard with room device control, real-time energy analytics, custom automation rules, and a 10,000-event virtualized activity log.",
+        "url": "https://homie-smartspace.vercel.app/",
+        "applicationCategory": "HomeAutomation",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
     <!-- Prevent flash of unstyled theme -->
     <script>
       (function () {
@@ -13,6 +74,7 @@
           var stored =
             localStorage.getItem('homie_smartspace_theme') ||
             localStorage.getItem('homie_theme') ||
+            localStorage.getItem('HOMIE_THEME') ||
             localStorage.getItem('nestora_theme');
           var theme =
             stored ||
@@ -31,7 +93,19 @@
     </script>
   </head>
   <body class="bg-surface text-text antialiased min-h-screen">
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <div style="padding: 2rem; font-family: system-ui, -apple-system, sans-serif; max-width: 640px; margin: 4rem auto; text-align: center;">
+          <h1 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Homie SmartSpace</h1>
+          <p style="color: #475569; line-height: 1.6; margin-bottom: 1.5rem;">
+            A simulated smart home dashboard with room device control, real-time energy analytics, custom automation rules, and a 10,000-event virtualized activity log.
+          </p>
+          <p style="color: #dc2626; font-weight: 500;">
+            JavaScript is required to run this application. Please enable JavaScript in your browser settings to continue.
+          </p>
+        </div>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

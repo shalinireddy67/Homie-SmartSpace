@@ -1,0 +1,17 @@
+{
+  "/": {
+    "durationMs": 1946,
+    "isInteractive": true,
+    "freeze": false
+  },
+  "/energy": {
+    "durationMs": 2004,
+    "isInteractive": true,
+    "freeze": false
+  },
+  "/history": {
+    "durationMs": 1944,
+    "isInteractive": true,
+    "freeze": false
+  }
+}

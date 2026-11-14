@@ -231,7 +231,7 @@ export const EventHistoryPage: React.FC = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search descriptions, devices..."
               aria-label="Search events"
-              className="w-full pl-10 pr-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border-subtle rounded-xl text-text placeholder:text-text-muted focus-ring"
+              className="w-full pl-10 pr-3 py-2 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface border border-border-subtle rounded-xl text-text placeholder:text-text-muted focus-ring"
             />
           </div>
 
@@ -241,7 +241,7 @@ export const EventHistoryPage: React.FC = () => {
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
               aria-label="Filter by event type"
-              className="w-full px-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border-subtle rounded-xl text-text focus-ring"
+              className="w-full px-3 py-2 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface border border-border-subtle rounded-xl text-text focus-ring"
             >
               <option value="all">All Types</option>
               <option value="device_state">Device State</option>
@@ -259,7 +259,7 @@ export const EventHistoryPage: React.FC = () => {
               value={selectedSeverity}
               onChange={(e) => setSelectedSeverity(e.target.value)}
               aria-label="Filter by severity"
-              className="w-full px-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border-subtle rounded-xl text-text focus-ring"
+              className="w-full px-3 py-2 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface border border-border-subtle rounded-xl text-text focus-ring"
             >
               <option value="all">All Severities</option>
               <option value="info">Info</option>
@@ -275,7 +275,7 @@ export const EventHistoryPage: React.FC = () => {
               value={selectedRoomId}
               onChange={(e) => setSelectedRoomId(e.target.value)}
               aria-label="Filter by room"
-              className="w-full px-3 py-2 min-h-[44px] sm:min-h-[36px] text-xs bg-surface border border-border-subtle rounded-xl text-text focus-ring"
+              className="w-full px-3 py-2 min-h-[44px] lg:min-h-[36px] text-base sm:text-xs bg-surface border border-border-subtle rounded-xl text-text focus-ring"
             >
               <option value="all">All Rooms</option>
               {rooms.map((r) => (
@@ -362,7 +362,7 @@ export const EventHistoryPage: React.FC = () => {
         {filteredEvents.length === 0 ? (
           <div className="text-center py-16 space-y-2">
             <Filter className="h-8 w-8 mx-auto text-text-muted" />
-            <h3 className="text-sm font-semibold text-text">No matching events</h3>
+            <h2 className="text-sm font-semibold text-text">No matching events</h2>
             <p className="text-xs text-text-muted">
               Try adjusting your search criteria or clearing active filters.
             </p>

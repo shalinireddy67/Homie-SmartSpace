@@ -55,6 +55,36 @@ export const DimmerSlider: React.FC<DimmerSliderProps> = ({
     commitValue(localValue);
   };
 
+  const handlePointerDown = (e: React.PointerEvent<HTMLInputElement>) => {
+    if (disabled) return;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // safe fallback
+    }
+    isDraggingRef.current = true;
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLInputElement>) => {
+    if (disabled) return;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      // safe fallback
+    }
+    handleRelease();
+  };
+
+  const handlePointerCancel = (e: React.PointerEvent<HTMLInputElement>) => {
+    if (disabled) return;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      // safe fallback
+    }
+    isDraggingRef.current = false;
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (disabled) return;
     let nextVal = localValue;
@@ -92,7 +122,9 @@ export const DimmerSlider: React.FC<DimmerSliderProps> = ({
         </span>
       </div>
 
-      <div className="relative flex items-center w-full">
+      <div className="relative flex items-center w-full min-h-[44px]">
+        {/* Visual Track */}
+        <div className="absolute inset-x-0 h-2.5 bg-arc-track border border-border-subtle rounded-full pointer-events-none" />
         <input
           id="dimmer-input"
           type="range"
@@ -107,11 +139,14 @@ export const DimmerSlider: React.FC<DimmerSliderProps> = ({
           aria-valuenow={localValue}
           aria-valuetext={localValue === 0 ? '0 percent (Off)' : `${localValue} percent`}
           onChange={handleChange}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerCancel}
           onMouseUp={handleRelease}
           onTouchEnd={handleRelease}
           onKeyUp={handleRelease}
           onKeyDown={handleKeyDown}
-          className="w-full h-2.5 bg-arc-track border border-border-subtle rounded-full appearance-none cursor-pointer accent-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed"
+          className="relative z-10 w-full h-11 py-3 bg-transparent appearance-none cursor-pointer touch-none accent-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed"
         />
       </div>
 

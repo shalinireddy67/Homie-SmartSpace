@@ -45,7 +45,7 @@ export function Tabs<T extends string = string>({
               role="tab"
               aria-selected={isSelected}
               onClick={() => onChange(item.id)}
-              className={`relative pb-2.5 pt-2 px-1 text-xs sm:text-sm whitespace-nowrap transition-colors focus-ring min-h-[44px] sm:min-h-[38px] inline-flex items-center gap-1.5 ${
+              className={`relative pb-2.5 pt-2 px-1 text-xs sm:text-sm whitespace-nowrap transition-colors focus-ring min-h-[44px] lg:min-h-[38px] inline-flex items-center gap-1.5 ${
                 isSelected
                   ? 'font-semibold text-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:rounded-full after:bg-text'
                   : 'font-medium text-text-muted hover:text-text'
@@ -69,7 +69,7 @@ export function Tabs<T extends string = string>({
             role="tab"
             aria-selected={isSelected}
             onClick={() => onChange(item.id)}
-            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all duration-200 inline-flex items-center gap-2 focus-ring min-h-[44px] sm:min-h-[36px] shrink-0 ${
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all duration-200 inline-flex items-center gap-2 focus-ring min-h-[44px] lg:min-h-[36px] shrink-0 ${
               isSelected
                 ? 'bg-surface text-text font-semibold shadow-xs border border-border'
                 : 'bg-surface/70 text-text-muted font-medium border border-border-subtle hover:text-text hover:bg-surface'

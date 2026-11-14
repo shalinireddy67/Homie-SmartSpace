@@ -108,7 +108,7 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 overflow-y-auto"
       role="presentation"
     >
       {/* Backdrop */}
@@ -118,7 +118,7 @@ export const Modal: React.FC<ModalProps> = ({
         aria-hidden="true"
       />
 
-      {/* Dialog container */}
+      {/* Dialog container: full screen or bottom sheet on mobile (< 640px), centered on larger screens */}
       <div
         ref={modalRef}
         role="dialog"
@@ -126,10 +126,10 @@ export const Modal: React.FC<ModalProps> = ({
         aria-labelledby={titleId}
         aria-describedby={descId}
         tabIndex={-1}
-        className={`relative w-full ${sizeClasses[size]} bg-surface text-text rounded-3xl border border-border-subtle shadow-2xl z-10 overflow-hidden transform transition-all my-8 outline-none focus-ring`}
+        className={`relative w-full ${sizeClasses[size]} max-h-[100dvh] sm:max-h-[90vh] flex flex-col bg-surface text-text rounded-t-3xl sm:rounded-3xl border-t sm:border border-border-subtle shadow-2xl z-10 overflow-hidden transform transition-all my-0 sm:my-8 outline-none focus-ring`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-border-subtle">
+        <div className="shrink-0 flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border-subtle">
           <div>
             <h2 id={titleId} className="text-lg font-semibold text-text">
               {title}
@@ -145,18 +145,18 @@ export const Modal: React.FC<ModalProps> = ({
             size="sm"
             onClick={onClose}
             aria-label="Close dialog"
-            className="p-2 rounded-xl text-text-muted hover:text-text min-h-[44px] min-w-[44px] sm:min-h-[36px] sm:min-w-[36px]"
+            className="p-2 rounded-xl text-text-muted hover:text-text min-h-[44px] min-w-[44px]"
           >
             <X className="w-5 h-5" aria-hidden="true" />
           </Button>
         </div>
 
-        {/* Content */}
-        <div className="px-6 py-5 text-sm">{children}</div>
+        {/* Content: scrollable */}
+        <div className="px-5 sm:px-6 py-5 text-sm flex-1 overflow-y-auto min-h-0">{children}</div>
 
-        {/* Footer */}
+        {/* Footer: sticky action bar reachable with virtual keyboard up */}
         {footer && (
-          <div className="flex items-center justify-end gap-3 px-6 py-4 bg-surface-elevated/60 border-t border-border-subtle">
+          <div className="sticky bottom-0 shrink-0 flex items-center justify-end gap-3 px-5 sm:px-6 py-3.5 bg-surface-elevated/95 backdrop-blur border-t border-border-subtle safe-area-pb">
             {footer}
           </div>
         )}

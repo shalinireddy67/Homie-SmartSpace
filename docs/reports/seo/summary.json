@@ -1,0 +1,50 @@
+{
+  "overview_mobile": {
+    "route": "/",
+    "form": "mobile",
+    "performance": 93,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "overview_desktop": {
+    "route": "/",
+    "form": "desktop",
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "energy_mobile": {
+    "route": "/energy",
+    "form": "mobile",
+    "performance": 93,
+    "accessibility": 100,
+    "bestPractices": 96,
+    "seo": 100
+  },
+  "energy_desktop": {
+    "route": "/energy",
+    "form": "desktop",
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "history_mobile": {
+    "route": "/history",
+    "form": "mobile",
+    "performance": 98,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "history_desktop": {
+    "route": "/history",
+    "form": "desktop",
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  }
+}

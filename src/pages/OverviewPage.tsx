@@ -58,7 +58,6 @@ import {
 } from 'lucide-react';
 
 export const OverviewPage: React.FC = () => {
-  const store = useStore();
   const colors = useChartTheme();
 
   const [isLoading] = useState(false);
@@ -66,27 +65,64 @@ export const OverviewPage: React.FC = () => {
   const [selectedRoomId, setSelectedRoomId] = useState<string>('room-living');
   const [controlTab, setControlTab] = useState<'thermostat' | 'light' | 'cameras'>('light');
 
-  const running = store.running;
-  const virtualTime = store.virtualTime ?? Date.now();
-  const setRunning = store.setRunning;
-  const devices = store.devices;
-  const rooms = store.rooms;
-  const schedules = store.schedules;
-  const toggleSchedule = store.toggleSchedule;
+  const running = useStore((s) => s.running);
+  const virtualTime = useStore((s) => s.virtualTime ?? Date.now());
+  const setRunning = useStore((s) => s.setRunning);
+  const devices = useStore((s) => s.devices);
+  const rooms = useStore((s) => s.rooms);
+  const rules = useStore((s) => s.rules);
+  const schedules = useStore((s) => s.schedules);
+  const toggleSchedule = useStore((s) => s.toggleSchedule);
+  const demoHistory = useStore((s) => s.demoHistory);
+  const liveTelemetry = useStore((s) => s.liveTelemetry);
+  const events = useStore((s) => s.events);
+  const anomalies = useStore((s) => s.anomalies);
+  const executionHistory = useStore((s) => s.executionHistory);
+
+  // Memoized state slice container for pure selector evaluations
+  const storeSlice = useMemo(
+    () =>
+      ({
+        devices,
+        rooms,
+        rules,
+        schedules,
+        running,
+        virtualTime,
+        demoHistory,
+        liveTelemetry,
+        events,
+        anomalies,
+        executionHistory,
+      }) as unknown as Parameters<typeof selectTotalDevices>[0],
+    [
+      devices,
+      rooms,
+      rules,
+      schedules,
+      running,
+      virtualTime,
+      demoHistory,
+      liveTelemetry,
+      events,
+      anomalies,
+      executionHistory,
+    ]
+  );
 
   // Derive metrics via typed memoized selectors
-  const totalDevices = selectTotalDevices(store);
-  const onlineDevices = selectOnlineDevicesCount(store);
-  const offlineDevices = selectOfflineDevicesCount(store);
-  const activeAutomations = selectActiveAutomationsCount(store);
-  const currentPowerWatts = selectCurrentPowerWatts(store);
-  const todayEnergyKWh = selectTodayEnergyKWh(store);
-  const indoorTemp = selectIndoorTemperature(store);
-  const indoorHumidity = selectIndoorHumidity(store);
-  const distribution = selectDeviceDistribution(store);
-  const recentEvents = selectRecentEvents(store, 8);
-  const activeAnomalies = selectRecentAnomalies(store, 5);
-  const recentAutomations = selectRecentAutomations(store, 5);
+  const totalDevices = selectTotalDevices(storeSlice);
+  const onlineDevices = selectOnlineDevicesCount(storeSlice);
+  const offlineDevices = selectOfflineDevicesCount(storeSlice);
+  const activeAutomations = selectActiveAutomationsCount(storeSlice);
+  const currentPowerWatts = selectCurrentPowerWatts(storeSlice);
+  const todayEnergyKWh = selectTodayEnergyKWh(storeSlice);
+  const indoorTemp = selectIndoorTemperature(storeSlice);
+  const indoorHumidity = selectIndoorHumidity(storeSlice);
+  const distribution = selectDeviceDistribution(storeSlice);
+  const recentEvents = selectRecentEvents(storeSlice, 8);
+  const activeAnomalies = selectRecentAnomalies(storeSlice, 5);
+  const recentAutomations = selectRecentAutomations(storeSlice, 5);
 
   const selectedRoom = useMemo(
     () => rooms.find((r) => r.id === selectedRoomId) || null,
@@ -104,10 +140,10 @@ export const OverviewPage: React.FC = () => {
 
   // Aggregate 7-day energy data using the single source of truth engine
   const combinedReadings = useMemo(() => {
-    const readings = [...store.demoHistory, ...store.liveTelemetry];
+    const readings = [...demoHistory, ...liveTelemetry];
     readings.sort((a, b) => a.timestamp - b.timestamp);
     return readings;
-  }, [store.demoHistory, store.liveTelemetry]);
+  }, [demoHistory, liveTelemetry]);
 
   const weeklyAggregated = useMemo(() => {
     return aggregateEnergy(combinedReadings, '7d', virtualTime);
@@ -470,8 +506,8 @@ export const OverviewPage: React.FC = () => {
               </Badge>
             </div>
 
-            <div className="h-64 w-full mt-4">
-              <ResponsiveContainer width="100%" height="100%">
+            <div className="h-64 min-h-[260px] w-full mt-4">
+              <ResponsiveContainer width="100%" height="100%" minHeight={260}>
                 <BarChart data={weeklyChartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke={colors.gridColor} vertical={false} />
                   <XAxis
@@ -479,6 +515,7 @@ export const OverviewPage: React.FC = () => {
                     stroke={colors.textMuted}
                     fontSize={11}
                     tickLine={false}
+                    interval="preserveStartEnd"
                     axisLine={{ stroke: colors.border }}
                   />
                   <YAxis
@@ -489,6 +526,8 @@ export const OverviewPage: React.FC = () => {
                     unit=" kWh"
                   />
                   <Tooltip
+                    wrapperStyle={{ zIndex: 50 }}
+                    allowEscapeViewBox={{ x: false, y: false }}
                     contentStyle={{
                       backgroundColor: colors.tooltipBg,
                       borderColor: colors.tooltipBorder,
@@ -558,8 +597,8 @@ export const OverviewPage: React.FC = () => {
               %), {distribution.offline} offline.
             </p>
 
-            <div className="h-44 w-full mt-2 flex items-center justify-center">
-              <ResponsiveContainer width="100%" height="100%">
+            <div className="h-44 min-h-[176px] w-full mt-2 flex items-center justify-center">
+              <ResponsiveContainer width="100%" height="100%" minHeight={176}>
                 <PieChart>
                   <Pie
                     data={pieData}
@@ -581,6 +620,8 @@ export const OverviewPage: React.FC = () => {
                     ))}
                   </Pie>
                   <Tooltip
+                    wrapperStyle={{ zIndex: 50 }}
+                    allowEscapeViewBox={{ x: false, y: false }}
                     contentStyle={{
                       backgroundColor: colors.tooltipBg,
                       borderColor: colors.tooltipBorder,

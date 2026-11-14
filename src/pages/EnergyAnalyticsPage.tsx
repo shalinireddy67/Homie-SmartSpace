@@ -468,8 +468,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
             Insufficient data available for this range selection.
           </div>
         ) : (
-          <div className="h-72 w-full mt-4">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="h-72 min-h-[280px] w-full mt-4">
+            <ResponsiveContainer width="100%" height="100%" minHeight={280}>
               <AreaChart data={chartData} margin={{ top: 24, right: 16, left: 16, bottom: 20 }}>
                 <defs>
                   <linearGradient id="energyPowerGrad" x1="0" y1="0" x2="0" y2="1">
@@ -510,6 +510,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   }}
                 />
                 <Tooltip
+                  wrapperStyle={{ zIndex: 50 }}
+                  allowEscapeViewBox={{ x: false, y: false }}
                   content={({ active, payload }) => {
                     if (active && payload && payload.length) {
                       const data = payload[0]?.payload;
@@ -681,8 +683,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
             Insufficient data available.
           </div>
         ) : (
-          <div className="h-64 w-full mt-4">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="h-64 min-h-[260px] w-full mt-4">
+            <ResponsiveContainer width="100%" height="100%" minHeight={260}>
               <BarChart data={chartData} margin={{ top: 20, right: 16, left: 16, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={colors.gridColor} />
                 <XAxis
@@ -717,6 +719,8 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
                   }}
                 />
                 <Tooltip
+                  wrapperStyle={{ zIndex: 50 }}
+                  allowEscapeViewBox={{ x: false, y: false }}
                   contentStyle={{
                     backgroundColor: colors.tooltipBg,
                     borderColor: colors.tooltipBorder,
