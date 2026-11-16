@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { BottomNav } from '@/components/layout/BottomNav';
@@ -43,9 +43,8 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(
-      await screen.findByRole('heading', { level: 1, name: /Overview/i }, { timeout: 10000 })
-    ).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    expect(screen.getByRole('heading', { level: 1, name: /Overview/i })).toBeInTheDocument();
   });
 
   it('navigates to Rooms & Devices page at /rooms', async () => {
@@ -55,9 +54,8 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(
-      await screen.findByRole('heading', { level: 1, name: 'Rooms & Devices' }, { timeout: 10000 })
-    ).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    expect(screen.getByRole('heading', { level: 1, name: 'Rooms & Devices' })).toBeInTheDocument();
   });
 
   it('navigates to Automations page at /automations', async () => {
@@ -67,9 +65,8 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(
-      await screen.findByRole('heading', { level: 1, name: 'Automations' }, { timeout: 10000 })
-    ).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    expect(screen.getByRole('heading', { level: 1, name: 'Automations' })).toBeInTheDocument();
   });
 
   it('navigates to Energy Analytics page at /energy', async () => {
@@ -79,9 +76,8 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(
-      await screen.findByRole('heading', { level: 1, name: 'Energy Analytics' }, { timeout: 10000 })
-    ).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    expect(screen.getByRole('heading', { level: 1, name: 'Energy Analytics' })).toBeInTheDocument();
   });
 
   it('navigates to Event History page at /history', async () => {
@@ -91,9 +87,8 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(
-      await screen.findByRole('heading', { level: 1, name: 'Event History' }, { timeout: 10000 })
-    ).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    expect(screen.getByRole('heading', { level: 1, name: 'Event History' })).toBeInTheDocument();
   });
 
   it('navigates to Notifications page at /notifications', async () => {
@@ -103,9 +98,8 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(
-      await screen.findByRole('heading', { level: 1, name: 'Notifications' }, { timeout: 10000 })
-    ).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    expect(screen.getByRole('heading', { level: 1, name: 'Notifications' })).toBeInTheDocument();
   });
 
   it('navigates to Settings page at /settings', async () => {
@@ -115,8 +109,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    expect(
-      await screen.findByRole('heading', { level: 1, name: 'Settings' }, { timeout: 10000 })
-    ).toBeInTheDocument();
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    expect(screen.getByRole('heading', { level: 1, name: 'Settings' })).toBeInTheDocument();
   });
 });
