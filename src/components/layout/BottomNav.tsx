@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { BOTTOM_NAV_ITEMS, NAV_ITEMS } from '@/constants/navigation';
 import { APP_NAME, APP_SHORT_NAME } from '@/constants/branding';
-import { MoreHorizontal, X, LogOut } from 'lucide-react';
-import { clearSession } from '@/services/session';
+import { MoreHorizontal, X } from 'lucide-react';
 
 export const BottomNav: React.FC = () => {
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const moreBtnRef = useRef<HTMLButtonElement>(null);
   const menuContainerRef = useRef<HTMLDivElement>(null);
@@ -50,53 +48,49 @@ export const BottomNav: React.FC = () => {
     };
 
     window.addEventListener('keydown', handleKeyDown);
-
-    // Focus close button on sheet open
-    const timer = setTimeout(() => {
-      const closeBtn = menuContainerRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close menu"]');
-      closeBtn?.focus();
-    }, 50);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      clearTimeout(timer);
-    };
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
   return (
     <>
-      {/* Mobile Menu Sheet for All Pages */}
+      {/* Mobile Drawer / Expanded Menu */}
       {isMenuOpen && (
         <div
           ref={menuContainerRef}
-          className="md:hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex flex-col justify-end animate-in fade-in duration-200"
           role="dialog"
           aria-modal="true"
-          aria-label={`${APP_NAME} Navigation Menu`}
+          aria-label="Navigation Menu"
+          className="md:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-end animate-in fade-in duration-200"
         >
+          {/* Backdrop click to dismiss */}
           <div
-            className="fixed inset-0"
+            className="absolute inset-0"
             onClick={() => {
               setIsMenuOpen(false);
               moreBtnRef.current?.focus();
             }}
             aria-hidden="true"
           />
-          <div className="relative bg-surface border-t border-border rounded-t-3xl p-6 shadow-2xl space-y-4 max-h-[80vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-2 border-b border-border/70">
-              <span className="font-semibold text-text text-base">{APP_SHORT_NAME} Navigation</span>
+
+          <div className="relative bg-surface border-t border-border rounded-t-3xl p-6 shadow-2xl safe-area-pb space-y-4 max-h-[85vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-border/80 pb-4">
+              <div className="flex flex-col">
+                <span className="font-bold text-base text-text">{APP_NAME}</span>
+                <span className="text-xs text-text-muted">{APP_SHORT_NAME} Controls</span>
+              </div>
               <button
                 type="button"
                 onClick={() => {
                   setIsMenuOpen(false);
                   moreBtnRef.current?.focus();
                 }}
-                className="p-2 rounded-xl text-text-muted hover:text-text focus-ring min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="p-2 rounded-xl text-text-muted hover:text-text hover:bg-surface-elevated focus-ring"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
+
             <div className="grid grid-cols-1 gap-2">
               {NAV_ITEMS.map((item) => {
                 const Icon = item.icon;
@@ -124,21 +118,6 @@ export const BottomNav: React.FC = () => {
                   </NavLink>
                 );
               })}
-
-              <button
-                type="button"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  clearSession();
-                  navigate('/', { replace: true });
-                }}
-                className="flex items-center gap-3 p-3 rounded-2xl text-sm font-medium text-danger hover:bg-danger/10 min-h-[48px] w-full text-left"
-              >
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-danger/15 text-danger">
-                  <LogOut className="h-4 w-4" aria-hidden="true" />
-                </div>
-                <span>Exit Demo Session</span>
-              </button>
             </div>
           </div>
         </div>

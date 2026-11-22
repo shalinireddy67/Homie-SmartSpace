@@ -401,16 +401,14 @@ All primary application views are code-split using `React.lazy` and wrapped in `
 
 | Path | Page Name | Access | Primary Responsibilities |
 |:---|:---|:---|:---|
-| `/` | **Landing Page** | Public | Marketing hero, dashboard preview screenshot, 8 interactive capabilities, simulated workflow guide, household profile teaser, and FAQ. |
-| `/login` | **Sign In & Demo Access** | Public | Split entry with instant one-click demo access (`demo@homie.example`), household credential validation, and active session status. |
-| `/signup` | **Household Signup** | Public | Planned multi-user household registration preview with clear offline simulation notices. |
-| `/app` | **Overview** | Protected | High-level status, Lakeview Home vector stage, arc gauge, pastel metric tiles, 7-day energy chart, and quick device controls. |
-| `/app/rooms` | **Rooms & Devices** | Protected | Multi-room device grid (Living Room, Kitchen, Bedroom, Patio), category filtering (Lights, Thermostats, Locks, Cameras), text search, and offline hardware diagnostics. |
-| `/app/automations` | **Automations** | Protected | Sentential rule list, multi-condition Rule Builder modal, zero-mutation Dry-Run sandbox, and configured schedules execution history. |
-| `/app/energy` | **Energy Analytics** | Protected | Instantaneous power demand (W) and cumulative energy (kWh) charts, rolling Gaussian anomaly markers, device/room breakdown bars, and accessible table view. |
-| `/app/events` | **Event History** | Protected | 10,000+ seeded audit records rendered at 60 FPS via TanStack Virtual, precomputed compound search index, severity filters, and JSON event inspector modal. |
-| `/app/notifications` | **Notifications** | Protected | Full-page alert center grouped by time (Today, Yesterday, Older), category filters, read/unread status management, and dismiss actions. |
-| `/app/settings` | **Settings** | Protected | Light/Dark theme switcher, simulation clock speed controls (1× to 10×), PRNG seed customization, command failure injection switch, and JSON configuration export/import. |
+| `/` | **Landing Page** | Public | Marketing hero, product preview screenshot, 8 interactive capabilities, simulated workflow guide, FAQ, and one-click direct access into the live demo. |
+| `/app` | **Overview** | App | High-level status, Lakeview Home vector stage, arc gauge, metric tiles, 7-day energy chart, and quick device controls. |
+| `/app/rooms` | **Rooms & Devices** | App | Multi-room device grid (Living Room, Kitchen, Bedroom, Patio), category filtering (Lights, Thermostats, Locks, Cameras), text search, and offline hardware diagnostics. |
+| `/app/automations` | **Automations** | App | Sentential rule list, multi-condition Rule Builder modal, zero-mutation Dry-Run sandbox, and configured schedules execution history. |
+| `/app/energy` | **Energy Analytics** | App | Instantaneous power demand (W) and cumulative energy (kWh) charts, rolling Gaussian anomaly markers, device/room breakdown bars, and accessible table view. |
+| `/app/events` | **Event History** | App | 10,000+ seeded audit records rendered at 60 FPS via TanStack Virtual, precomputed compound search index, severity filters, and JSON event inspector modal. |
+| `/app/notifications` | **Notifications** | App | Full-page alert center grouped by time (Today, Yesterday, Older), category filters, read/unread status management, and dismiss actions. |
+| `/app/settings` | **Settings** | App | Light/Dark theme switcher, simulation clock speed controls (1× to 10×), PRNG seed customization, command failure injection switch, and JSON configuration export/import. |
 | `*` | **Not Found (404)** | Public/App | Accessible error page with context-aware return navigation (renders inside AppShell under `/app/*`, standalone outside). |
 
 > **Note on Legacy Routes:** Historical paths (`/rooms`, `/automations`, `/energy`, `/history`, `/events`, `/notifications`, `/settings`) automatically redirect to `/app/*` while preserving query strings and URL hashes.

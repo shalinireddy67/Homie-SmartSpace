@@ -2,13 +2,10 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
-import { ProtectedRoute } from '@/routes/ProtectedRoute';
 import { LegacyRedirect } from '@/routes/LegacyRedirect';
 import { useRouteSeo } from '@/hooks/useRouteSeo';
 
 const LandingPage = lazy(() => import('@/pages/LandingPage'));
-const LoginPage = lazy(() => import('@/pages/LoginPage'));
-const SignupPage = lazy(() => import('@/pages/SignupPage'));
 
 const OverviewPage = lazy(() =>
   import('@/pages/OverviewPage').then((m) => ({ default: m.OverviewPage }))
@@ -113,7 +110,7 @@ export const AppSubRoutes: React.FC = () => {
         path="*"
         element={
           <ErrorBoundary>
-            <NotFoundPage />
+            <NotFoundPage isInAppShell={true} />
           </ErrorBoundary>
         }
       />
@@ -127,28 +124,12 @@ export const AppRoutes: React.FC = () => {
   return (
     <Suspense fallback={<RouteLoadingFallback />}>
       <Routes>
-        {/* Public Marketing & Auth */}
+        {/* Public Marketing */}
         <Route
           path="/"
           element={
             <ErrorBoundary>
               <LandingPage />
-            </ErrorBoundary>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <ErrorBoundary>
-              <LoginPage />
-            </ErrorBoundary>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <ErrorBoundary>
-              <SignupPage />
             </ErrorBoundary>
           }
         />
@@ -162,15 +143,13 @@ export const AppRoutes: React.FC = () => {
         <Route path="/notifications" element={<LegacyRedirect to="/app/notifications" />} />
         <Route path="/settings" element={<LegacyRedirect to="/app/settings" />} />
 
-        {/* Protected App Routes */}
+        {/* In-App Routes */}
         <Route
           path="/app/*"
           element={
-            <ProtectedRoute>
-              <AppShell>
-                <AppSubRoutes />
-              </AppShell>
-            </ProtectedRoute>
+            <AppShell>
+              <AppSubRoutes />
+            </AppShell>
           }
         />
 
@@ -179,7 +158,7 @@ export const AppRoutes: React.FC = () => {
           path="*"
           element={
             <ErrorBoundary>
-              <NotFoundPage />
+              <NotFoundPage isInAppShell={false} />
             </ErrorBoundary>
           }
         />

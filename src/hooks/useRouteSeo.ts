@@ -18,20 +18,6 @@ export const ROUTE_SEO_CONFIG: Record<string, RouteSeoMeta> = {
     canonical: `${SITE_CANONICAL_HOST}/`,
     noindex: false,
   },
-  '/login': {
-    title: 'Sign In | Homie SmartSpace',
-    description:
-      'Sign in to your Homie SmartSpace household or launch the instant interactive smart home simulation demo.',
-    canonical: `${SITE_CANONICAL_HOST}/login`,
-    noindex: true,
-  },
-  '/signup': {
-    title: 'Sign Up | Homie SmartSpace',
-    description:
-      'Create a new Homie SmartSpace household profile or explore the live smart home simulation demo.',
-    canonical: `${SITE_CANONICAL_HOST}/signup`,
-    noindex: true,
-  },
   '/app': {
     title: 'Overview | Homie SmartSpace',
     description:
@@ -103,25 +89,31 @@ export const ROUTE_SEO_CONFIG: Record<string, RouteSeoMeta> = {
   },
   '/energy': {
     title: 'Energy Analytics | Homie SmartSpace',
-    description: 'Real-time and historical energy analytics.',
+    description: 'Real-time and historical energy analytics and power charts.',
     canonical: `${SITE_CANONICAL_HOST}/app/energy`,
     noindex: true,
   },
   '/history': {
     title: 'Event History | Homie SmartSpace',
-    description: 'Audit and filter through 10,000 virtualized smart home events.',
+    description: 'Audit and filter smart home telemetry events.',
+    canonical: `${SITE_CANONICAL_HOST}/app/events`,
+    noindex: true,
+  },
+  '/events': {
+    title: 'Event History | Homie SmartSpace',
+    description: 'Audit and filter smart home telemetry events.',
     canonical: `${SITE_CANONICAL_HOST}/app/events`,
     noindex: true,
   },
   '/notifications': {
     title: 'Notifications | Homie SmartSpace',
-    description: 'View prioritized system alerts and device warnings.',
+    description: 'View prioritized system alerts and security notices.',
     canonical: `${SITE_CANONICAL_HOST}/app/notifications`,
     noindex: true,
   },
   '/settings': {
     title: 'Settings | Homie SmartSpace',
-    description: 'Customize dashboard appearance and preferences.',
+    description: 'Customize dashboard appearance and engine settings.',
     canonical: `${SITE_CANONICAL_HOST}/app/settings`,
     noindex: true,
   },
@@ -129,63 +121,56 @@ export const ROUTE_SEO_CONFIG: Record<string, RouteSeoMeta> = {
 
 export const NOT_FOUND_SEO_META: RouteSeoMeta = {
   title: 'Page Not Found | Homie SmartSpace',
-  description: 'The requested view does not exist in Homie SmartSpace or may have moved.',
+  description: 'The requested page could not be found.',
   canonical: `${SITE_CANONICAL_HOST}/404`,
   noindex: true,
 };
 
-function setOrUpdateMetaTag(name: string, content: string, attributeName: 'name' | 'property' = 'name'): void {
-  if (typeof document === 'undefined') return;
-  let element = document.querySelector(`meta[${attributeName}="${name}"]`) as HTMLMetaElement | null;
-  if (!element) {
-    element = document.createElement('meta');
-    element.setAttribute(attributeName, name);
-    document.head.appendChild(element);
+export function getRouteSeo(pathname: string): RouteSeoMeta {
+  const normalized = pathname.replace(/\/+$/, '') || '/';
+  if (ROUTE_SEO_CONFIG[normalized]) {
+    return ROUTE_SEO_CONFIG[normalized];
   }
-  element.setAttribute('content', content);
-}
-
-function setOrUpdateCanonical(canonicalUrl: string): void {
-  if (typeof document === 'undefined') return;
-  let element = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-  if (!element) {
-    element = document.createElement('link');
-    element.setAttribute('rel', 'canonical');
-    document.head.appendChild(element);
-  }
-  element.setAttribute('href', canonicalUrl);
+  return NOT_FOUND_SEO_META;
 }
 
 export function useRouteSeo(): RouteSeoMeta {
   const location = useLocation();
-  const pathname = location.pathname;
-  const meta = ROUTE_SEO_CONFIG[pathname] || NOT_FOUND_SEO_META;
+  const meta = getRouteSeo(location.pathname);
 
   useEffect(() => {
-    // 1. Document Title
+    // 1. Update document title
     document.title = meta.title;
 
-    // 2. Canonical Link
-    setOrUpdateCanonical(meta.canonical);
-
-    // 3. Meta Description
-    setOrUpdateMetaTag('description', meta.description, 'name');
-
-    // 4. Open Graph Tags
-    setOrUpdateMetaTag('og:title', meta.title, 'property');
-    setOrUpdateMetaTag('og:description', meta.description, 'property');
-    setOrUpdateMetaTag('og:url', meta.canonical, 'property');
-
-    // 5. Twitter Tags
-    setOrUpdateMetaTag('twitter:title', meta.title, 'name');
-    setOrUpdateMetaTag('twitter:description', meta.description, 'name');
-
-    // 6. Robots Meta (noindex if marked, otherwise index, follow)
-    if (meta.noindex) {
-      setOrUpdateMetaTag('robots', 'noindex, nofollow', 'name');
-    } else {
-      setOrUpdateMetaTag('robots', 'index, follow', 'name');
+    // 2. Update canonical link tag
+    let canonicalTag = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonicalTag) {
+      canonicalTag = document.createElement('link');
+      canonicalTag.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalTag);
     }
+    canonicalTag.setAttribute('href', meta.canonical);
+
+    // 3. Update description meta tag
+    let descTag = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (!descTag) {
+      descTag = document.createElement('meta');
+      descTag.setAttribute('name', 'description');
+      document.head.appendChild(descTag);
+    }
+    descTag.setAttribute('content', meta.description);
+
+    // 4. Update robots meta tag
+    let robotsTag = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!robotsTag) {
+      robotsTag = document.createElement('meta');
+      robotsTag.setAttribute('name', 'robots');
+      document.head.appendChild(robotsTag);
+    }
+    robotsTag.setAttribute(
+      'content',
+      meta.noindex ? 'noindex, nofollow' : 'index, follow'
+    );
   }, [meta]);
 
   return meta;

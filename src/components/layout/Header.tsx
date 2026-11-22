@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useTheme } from '@/hooks/useTheme';
 import { useStore } from '@/store';
 import { Button } from '@/components/common/Button';
-import { Moon, Sun, Bell, Home, LogOut } from 'lucide-react';
+import { Moon, Sun, Bell, Home } from 'lucide-react';
 import { APP_NAME, APP_SHORT_NAME } from '@/constants/branding';
 import { NAV_ITEMS } from '@/constants/navigation';
 import { SimulationControls } from './SimulationControls';
 import { NotificationDrawer } from '@/components/notifications/NotificationDrawer';
-import { clearSession } from '@/services/session';
 
 export interface HeaderProps {
   bannerSlot?: React.ReactNode;
@@ -25,18 +24,12 @@ const COMPACT_NAV_LABELS: Record<string, string> = {
 };
 
 export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
-  const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
   const notifications = useStore((s) => s.notifications);
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   const [currentTime, setCurrentTime] = useState(() => new Date());
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const handleExitDemo = () => {
-    clearSession();
-    navigate('/', { replace: true });
-  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -180,31 +173,6 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
             ) : (
               <Moon className="h-4 w-4 text-accent" aria-hidden="true" />
             )}
-          </Button>
-
-          {/* User Profile Chip */}
-          <div
-            className="hidden sm:flex items-center gap-2 pl-1 pr-2.5 py-1 rounded-full bg-surface-elevated/70 border border-border-subtle select-none"
-            title="Alex Morgan (Demo)"
-          >
-            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-text font-semibold text-xs">
-              AM
-            </div>
-            <span className="hidden lg:inline text-xs font-medium text-text">
-              Alex M.
-            </span>
-          </div>
-
-          {/* Exit Demo Button */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleExitDemo}
-            aria-label="Exit demo session"
-            className="rounded-full text-xs px-2.5 py-1 min-h-[36px] text-text-muted hover:text-danger hover:border-danger/30 border-border-subtle gap-1.5"
-          >
-            <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
-            <span className="hidden sm:inline">Exit demo</span>
           </Button>
         </div>
       </div>

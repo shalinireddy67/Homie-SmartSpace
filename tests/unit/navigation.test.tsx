@@ -1,18 +1,23 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { NAV_ITEMS, BOTTOM_NAV_ITEMS } from '@/constants/navigation';
 import { AppRoutes } from '@/App';
-import { setSession, clearSession } from '@/services/session';
 
-describe('Navigation components', () => {
+const LocationTracker = () => {
+  const loc = useLocation();
+  return (
+    <div data-testid="current-location">
+      {loc.pathname}{loc.search}{loc.hash}
+    </div>
+  );
+};
+
+describe('Navigation components and routing architecture', () => {
   beforeEach(() => {
     localStorage.clear();
-    clearSession();
-    // Establish demo session so protected /app routes and legacy redirects render in tests
-    setSession({ mode: 'demo', startedAt: Date.now() });
   });
 
   it('renders all 7 navigation links in the Sidebar', () => {
@@ -45,7 +50,6 @@ describe('Navigation components', () => {
   });
 
   it('renders Landing page at public root path', async () => {
-    clearSession();
     render(
       <MemoryRouter initialEntries={['/']}>
         <AppRoutes />
@@ -57,7 +61,7 @@ describe('Navigation components', () => {
     }, { timeout: 20000 });
   });
 
-  it('renders Overview page at /app for authenticated session', async () => {
+  it('renders Overview page at /app directly without auth guard or session requirement', async () => {
     render(
       <MemoryRouter initialEntries={['/app']}>
         <AppRoutes />
@@ -78,6 +82,21 @@ describe('Navigation components', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('heading', { level: 1, name: 'Rooms & Devices' })).toBeInTheDocument();
+    }, { timeout: 20000 });
+  });
+
+  it('preserves query parameters and hash during legacy redirect', async () => {
+    render(
+      <MemoryRouter initialEntries={['/rooms?highlight=dev-living-main#section-controls']}>
+        <AppRoutes />
+        <LocationTracker />
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId('current-location')).toHaveTextContent(
+        '/app/rooms?highlight=dev-living-main#section-controls'
+      );
     }, { timeout: 20000 });
   });
 
@@ -139,5 +158,50 @@ describe('Navigation components', () => {
     await waitFor(() => {
       expect(screen.getByRole('heading', { level: 1, name: 'Settings' })).toBeInTheDocument();
     }, { timeout: 20000 });
+  });
+
+  it('shows in-shell 404 with "Back to dashboard" button for unknown paths under /app/*', async () => {
+    render(
+      <MemoryRouter initialEntries={['/app/unknown-subroute-xyz']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: /Page Not Found/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /Back to dashboard/i })).toBeInTheDocument();
+    }, { timeout: 20000 });
+  });
+
+  it('shows public 404 with "Back to overview" button for unknown paths outside /app', async () => {
+    render(
+      <MemoryRouter initialEntries={['/completely-unknown-route']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: /Page Not Found/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /Back to overview/i })).toBeInTheDocument();
+    }, { timeout: 20000 });
+  });
+
+  it('successfully resolves legacy links from persisted notifications (/rooms, /energy, /history)', async () => {
+    const legacyLinks = ['/rooms', '/energy', '/history'];
+    for (const link of legacyLinks) {
+      const { unmount } = render(
+        <MemoryRouter initialEntries={[link]}>
+          <AppRoutes />
+          <LocationTracker />
+        </MemoryRouter>
+      );
+
+      const expectedPath = link === '/history' ? '/app/events' : `/app${link}`;
+      await waitFor(() => {
+        expect(screen.getByTestId('current-location')).toHaveTextContent(expectedPath);
+      }, { timeout: 20000 });
+
+      unmount();
+    }
   });
 });

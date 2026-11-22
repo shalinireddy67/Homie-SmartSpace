@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '@/hooks/useTheme';
-import { setSession } from '@/services/session';
 import { APP_NAME, APP_TAGLINE } from '@/constants/branding';
 import {
   Home,
@@ -18,18 +17,12 @@ import {
   ChevronUp,
   Menu,
   X,
-  Users,
 } from 'lucide-react';
 
 export const LandingPage: React.FC = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleEnterDemo = () => {
-    setSession({ mode: 'demo', startedAt: Date.now() });
-    navigate('/app');
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -38,7 +31,6 @@ export const LandingPage: React.FC = () => {
   const navLinks = [
     { label: 'Features', href: '#features' },
     { label: 'How it works', href: '#how-it-works' },
-    { label: 'Household', href: '#household' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -98,21 +90,13 @@ export const LandingPage: React.FC = () => {
               )}
             </button>
 
-            {/* Sign in Button */}
-            <Link
-              to="/login"
-              className="hidden sm:inline-flex items-center justify-center text-xs font-semibold px-3 py-2 rounded-md border border-border-subtle text-text hover:bg-surface-elevated transition-colors focus-ring"
-            >
-              Sign in
-            </Link>
-
-            {/* Try the Demo Primary CTA */}
+            {/* Open the Demo Primary CTA */}
             <button
               type="button"
-              onClick={handleEnterDemo}
+              onClick={() => navigate('/app')}
               className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-md bg-accent text-white dark:text-[#181816] hover:bg-accent-hover transition-all focus-ring active:translate-y-px"
             >
-              <span>Try the demo</span>
+              <span>Open the demo</span>
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </button>
 
@@ -147,13 +131,16 @@ export const LandingPage: React.FC = () => {
               </a>
             ))}
             <div className="pt-2 border-t border-border-subtle flex flex-col gap-2">
-              <Link
-                to="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center text-xs font-semibold px-3 py-2.5 rounded-md border border-border-subtle text-text hover:bg-surface-elevated focus-ring"
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate('/app');
+                }}
+                className="w-full text-center text-xs font-semibold px-3 py-2.5 rounded-md bg-accent text-white dark:text-[#181816] hover:bg-accent-hover focus-ring"
               >
-                Sign in
-              </Link>
+                Open the demo
+              </button>
             </div>
           </div>
         )}
@@ -183,23 +170,23 @@ export const LandingPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <button
               type="button"
-              onClick={handleEnterDemo}
+              onClick={() => navigate('/app')}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3 rounded-md bg-accent text-white dark:text-[#181816] hover:bg-accent-hover transition-all focus-ring active:translate-y-px"
             >
-              <span>Try the live demo</span>
+              <span>Open the demo</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
-            <Link
-              to="/login"
+            <a
+              href="#how-it-works"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3 rounded-md border border-border-subtle bg-surface text-text hover:bg-surface-elevated transition-all focus-ring"
             >
-              <span>Sign in</span>
-            </Link>
+              <span>See how it works</span>
+            </a>
           </div>
 
+          {/* Disclosure 1: Under Hero Buttons */}
           <div className="flex items-center justify-center gap-2 text-xs text-text-muted pt-1">
-            <Shield className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
-            <span>No real devices. All data and telemetry are simulated.</span>
+            <span>The demo runs on sample home data, no hardware needed.</span>
           </div>
         </section>
 
@@ -376,68 +363,6 @@ export const LandingPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Household Section */}
-        <section
-          id="household"
-          className="scroll-mt-20 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-border-subtle"
-        >
-          <div className="p-6 sm:p-8 rounded-xl border border-border-subtle bg-surface space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="space-y-1">
-                <div className="inline-flex items-center gap-2">
-                  <Users className="w-5 h-5 text-accent" aria-hidden="true" />
-                  <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-text">
-                    One home, many people
-                  </h2>
-                </div>
-                <p className="text-xs sm:text-sm text-text-muted">
-                  Planned multi-user profile management for shared residences and family living spaces.
-                </p>
-              </div>
-              <span className="self-start sm:self-auto text-[11px] font-semibold px-2.5 py-1 rounded-full bg-accent-subtle text-accent border border-accent/20 uppercase tracking-wide">
-                Coming soon
-              </span>
-            </div>
-
-            <p className="text-xs text-text-muted leading-relaxed">
-              Household profiles will provide role-based permissions (Owner, Member, Guest) and personalized room views.
-              In the current demo release, full administrative control is available across all zones.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-lg border border-border-subtle bg-surface-card flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
-                  AM
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-text">Alex Morgan</div>
-                  <div className="text-[11px] text-text-muted">Owner (Admin)</div>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-lg border border-border-subtle bg-surface-card flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
-                  ST
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-text">Sam Taylor</div>
-                  <div className="text-[11px] text-text-muted">Member (Full Control)</div>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-lg border border-border-subtle bg-surface-card flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
-                  JL
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-text">Jordan Lee</div>
-                  <div className="text-[11px] text-text-muted">Guest (Living Room Only)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ Section */}
         <section
           id="faq"
@@ -467,16 +392,16 @@ export const LandingPage: React.FC = () => {
               </p>
             </details>
 
+            {/* Disclosure 2: FAQ Answer about hardware */}
             <details className="group rounded-lg border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-md">
-                <span>Do I need real smart home hardware or an account to use the demo?</span>
+                <span>Do I need real smart home hardware to use the demo?</span>
                 <span className="ml-4 shrink-0 text-text-muted transition-transform group-open:rotate-180">
                   <ChevronUp className="h-4 w-4" aria-hidden="true" />
                 </span>
               </summary>
               <p className="mt-3 text-xs text-text-muted leading-relaxed border-t border-border-subtle/60 pt-3">
-                No. All devices, power meters, environmental sensors, and automations are simulated in real time directly
-                inside your browser. You can test and inspect every dashboard capability without physical hardware or an account.
+                No. Open the demo and everything works in your browser.
               </p>
             </details>
 
@@ -488,8 +413,8 @@ export const LandingPage: React.FC = () => {
                 </span>
               </summary>
               <p className="mt-3 text-xs text-text-muted leading-relaxed border-t border-border-subtle/60 pt-3">
-                All customized automation rules, scheduled timers, device state updates, and user preferences are
-                saved locally in your browser using standard LocalStorage. Data is completely private and never leaves your computer.
+                Settings are saved in this browser only. All customized automation rules, scheduled timers, device state updates, and user preferences are
+                saved locally using standard LocalStorage and never leave your computer.
               </p>
             </details>
 
@@ -520,10 +445,10 @@ export const LandingPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <button
                 type="button"
-                onClick={handleEnterDemo}
+                onClick={() => navigate('/app')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold px-6 py-3 rounded-md bg-accent text-white dark:text-[#181816] hover:bg-accent-hover transition-all focus-ring active:translate-y-px"
               >
-                <span>Launch live demo</span>
+                <span>Open the demo</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
               <a
@@ -543,13 +468,13 @@ export const LandingPage: React.FC = () => {
       {/* Footer */}
       <footer className="border-t border-border-subtle bg-surface py-10 px-4 sm:px-6 lg:px-8 transition-colors">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-text-muted">
-          {/* Brand & Note */}
+          {/* Brand & Disclosure 3 */}
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
             <span className="font-semibold text-text">{APP_NAME}</span>
             <span className="hidden sm:inline text-border-subtle">•</span>
             <span>{APP_TAGLINE}</span>
             <span className="hidden sm:inline text-border-subtle">•</span>
-            <span className="text-[11px]">All data is simulated</span>
+            <span className="text-[11px]">The demo runs on sample home data, no hardware needed.</span>
           </div>
 
           {/* Links & Back to top */}

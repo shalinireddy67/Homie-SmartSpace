@@ -1,18 +1,11 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { Shield, LogOut } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { Shield } from 'lucide-react';
 import { APP_NAME, APP_TAGLINE } from '@/constants/branding';
 import { NAV_ITEMS } from '@/constants/navigation';
 import { Badge } from '@/components/common/Badge';
-import { clearSession } from '@/services/session';
 
 export const Sidebar: React.FC = () => {
-  const navigate = useNavigate();
-
-  const handleExitDemo = () => {
-    clearSession();
-    navigate('/', { replace: true });
-  };
   return (
     <aside
       className="hidden md:flex flex-col w-64 border-r border-border bg-surface shrink-0 h-screen sticky top-0"
@@ -43,25 +36,18 @@ export const Sidebar: React.FC = () => {
               to={item.to}
               end={item.to === '/app'}
               className={({ isActive }) =>
-                `group relative flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 focus-ring select-none min-h-[44px] ${
+                `flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-sm font-medium transition-colors ${
                   isActive
-                    ? 'bg-surface-elevated text-text font-semibold shadow-xs'
-                    : 'text-text-muted hover:text-text hover:bg-surface-elevated/50'
+                    ? 'bg-accent/10 text-accent font-semibold shadow-xs'
+                    : 'text-text hover:bg-surface-elevated/70'
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  {/* Non-color active indicator bar */}
-                  {isActive && (
-                    <span
-                      className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-accent"
-                      aria-hidden="true"
-                    />
-                  )}
                   <Icon
                     className={`h-4 w-4 shrink-0 transition-colors ${
-                      isActive ? 'text-accent' : 'text-text-muted group-hover:text-text'
+                      isActive ? 'text-accent' : 'text-text-muted'
                     }`}
                     aria-hidden="true"
                   />
@@ -94,15 +80,6 @@ export const Sidebar: React.FC = () => {
             </div>
             <div className="flex items-center justify-between mt-0.5">
               <span className="text-[11px] text-text-muted truncate">alex@lakeview.home</span>
-              <button
-                type="button"
-                onClick={handleExitDemo}
-                className="text-[11px] text-text-muted hover:text-danger font-medium inline-flex items-center gap-1 focus-ring rounded"
-                title="Exit demo session"
-              >
-                <LogOut className="h-3 w-3" />
-                <span>Exit</span>
-              </button>
             </div>
           </div>
         </div>

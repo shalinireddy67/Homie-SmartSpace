@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
 const mockNavigate = vi.fn();
@@ -13,7 +13,7 @@ vi.mock('react-router-dom', async () => {
 });
 
 describe('NotFoundPage Component', () => {
-  it('renders 404 heading, message, and back to overview button', () => {
+  it('renders 404 heading, message, and back to overview button for public 404', () => {
     render(
       <BrowserRouter>
         <NotFoundPage />
@@ -36,5 +36,20 @@ describe('NotFoundPage Component', () => {
     fireEvent.click(backBtn);
 
     expect(mockNavigate).toHaveBeenCalledWith('/');
+  });
+
+  it('renders "Back to dashboard" and navigates to /app when inside app shell', () => {
+    mockNavigate.mockClear();
+    render(
+      <MemoryRouter initialEntries={['/app/unknown-view']}>
+        <NotFoundPage isInAppShell={true} />
+      </MemoryRouter>
+    );
+
+    const backBtn = screen.getByRole('button', { name: /Back to dashboard/i });
+    expect(backBtn).toBeInTheDocument();
+    fireEvent.click(backBtn);
+
+    expect(mockNavigate).toHaveBeenCalledWith('/app');
   });
 });
