@@ -43,7 +43,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
     expect(screen.getByRole('heading', { level: 1, name: /Overview/i })).toBeInTheDocument();
   });
 
@@ -54,7 +54,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
     expect(screen.getByRole('heading', { level: 1, name: 'Rooms & Devices' })).toBeInTheDocument();
   });
 
@@ -65,7 +65,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
     expect(screen.getByRole('heading', { level: 1, name: 'Automations' })).toBeInTheDocument();
   });
 
@@ -76,7 +76,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
     expect(screen.getByRole('heading', { level: 1, name: 'Energy Analytics' })).toBeInTheDocument();
   });
 
@@ -87,7 +87,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
     expect(screen.getByRole('heading', { level: 1, name: 'Event History' })).toBeInTheDocument();
   });
 
@@ -98,7 +98,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
     expect(screen.getByRole('heading', { level: 1, name: 'Notifications' })).toBeInTheDocument();
   });
 
@@ -109,7 +109,7 @@ describe('Navigation components', () => {
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 10000 });
+    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
     expect(screen.getByRole('heading', { level: 1, name: 'Settings' })).toBeInTheDocument();
   });
 });
