@@ -17,6 +17,7 @@ import {
 import { aggregateEnergy } from '@/engine/energy';
 import { dispatchDeviceCommand } from '@/services/commandDispatcher';
 import { useChartTheme } from '@/hooks/useChartTheme';
+import { useThrottledLiveTelemetry, useThrottledVirtualTime } from '@/hooks/useThrottledLiveTelemetry';
 import { Card } from '@/components/common/Card';
 import { Badge } from '@/components/common/Badge';
 import { Button } from '@/components/common/Button';
@@ -66,7 +67,7 @@ export const OverviewPage: React.FC = () => {
   const [controlTab, setControlTab] = useState<'thermostat' | 'light' | 'cameras'>('light');
 
   const running = useStore((s) => s.running);
-  const virtualTime = useStore((s) => s.virtualTime ?? Date.now());
+  const virtualTime = useThrottledVirtualTime(1000);
   const setRunning = useStore((s) => s.setRunning);
   const devices = useStore((s) => s.devices);
   const rooms = useStore((s) => s.rooms);
@@ -74,7 +75,7 @@ export const OverviewPage: React.FC = () => {
   const schedules = useStore((s) => s.schedules);
   const toggleSchedule = useStore((s) => s.toggleSchedule);
   const demoHistory = useStore((s) => s.demoHistory);
-  const liveTelemetry = useStore((s) => s.liveTelemetry);
+  const liveTelemetry = useThrottledLiveTelemetry(1000);
   const events = useStore((s) => s.events);
   const anomalies = useStore((s) => s.anomalies);
   const executionHistory = useStore((s) => s.executionHistory);
