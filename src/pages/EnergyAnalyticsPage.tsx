@@ -638,7 +638,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
           <summary className="cursor-pointer font-medium hover:text-text select-none text-accent">
             View data as table
           </summary>
-          <div className="max-h-48 overflow-y-auto mt-2 border border-border rounded-lg">
+          <div className="max-h-48 overflow-y-auto mt-2 border border-border rounded-2xl">
             <table className="w-full text-left border-collapse">
               <caption className="sr-only">Power Profile Table</caption>
               <thead className="bg-surface-subtle text-[11px] font-semibold text-text sticky top-0">
@@ -747,7 +747,7 @@ export const EnergyAnalyticsPage: React.FC<EnergyAnalyticsPageProps> = ({ render
           <summary className="cursor-pointer font-medium hover:text-text select-none text-accent">
             View data as table
           </summary>
-          <div className="max-h-48 overflow-y-auto mt-2 border border-border rounded-lg">
+          <div className="max-h-48 overflow-y-auto mt-2 border border-border rounded-2xl">
             <table className="w-full text-left border-collapse">
               <caption className="sr-only">Energy Consumption Table</caption>
               <thead className="bg-surface-subtle text-[11px] font-semibold text-text sticky top-0">

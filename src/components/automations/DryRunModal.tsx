@@ -204,7 +204,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
           {/* Grid of Global Environment & Time Controls */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {/* Simulated Temp */}
-            <div className="p-2.5 rounded-lg bg-surface border border-border">
+            <div className="p-2.5 rounded-2xl bg-surface border border-border">
               <label
                 htmlFor="dryrun-temp"
                 className="text-[11px] font-medium text-text-muted flex items-center gap-1 mb-1"
@@ -218,12 +218,12 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                 step="0.5"
                 value={primaryRoomTemp}
                 onChange={(e) => handleAmbientTempChange(parseFloat(e.target.value) || 0)}
-                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded font-mono text-text focus-ring"
+                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded-xl font-mono text-text focus-ring"
               />
             </div>
 
             {/* Simulated Humidity */}
-            <div className="p-2.5 rounded-lg bg-surface border border-border">
+            <div className="p-2.5 rounded-2xl bg-surface border border-border">
               <label
                 htmlFor="dryrun-humidity"
                 className="text-[11px] font-medium text-text-muted flex items-center gap-1 mb-1"
@@ -238,12 +238,12 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                 max="100"
                 value={primaryRoomHum}
                 onChange={(e) => handleAmbientHumidityChange(parseFloat(e.target.value) || 0)}
-                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded font-mono text-text focus-ring"
+                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded-xl font-mono text-text focus-ring"
               />
             </div>
 
             {/* Simulated Power */}
-            <div className="p-2.5 rounded-lg bg-surface border border-border">
+            <div className="p-2.5 rounded-2xl bg-surface border border-border">
               <label
                 htmlFor="dryrun-watts"
                 className="text-[11px] font-medium text-text-muted flex items-center gap-1 mb-1"
@@ -257,12 +257,12 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                 min="0"
                 value={snapshot.totalWatts ?? 0}
                 onChange={(e) => handleTotalWattsChange(parseFloat(e.target.value) || 0)}
-                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded font-mono text-text focus-ring"
+                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded-xl font-mono text-text focus-ring"
               />
             </div>
 
             {/* Simulated Time */}
-            <div className="p-2.5 rounded-lg bg-surface border border-border">
+            <div className="p-2.5 rounded-2xl bg-surface border border-border">
               <label
                 htmlFor="dryrun-time"
                 className="text-[11px] font-medium text-text-muted flex items-center gap-1 mb-1"
@@ -275,7 +275,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                 type="time"
                 value={timeStr}
                 onChange={(e) => handleTimeChange(e.target.value)}
-                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded font-mono text-text focus-ring"
+                className="w-full px-2 py-1 text-sm bg-surface-elevated border border-border rounded-xl font-mono text-text focus-ring"
               />
             </div>
           </div>
@@ -296,7 +296,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                     role="radio"
                     aria-checked={isSelected}
                     onClick={() => handleWeekdayChange(idx)}
-                    className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-colors focus-ring ${
+                    className={`px-2.5 py-1 text-xs rounded-xl font-medium transition-colors focus-ring ${
                       isSelected
                         ? 'bg-accent text-white shadow-xs'
                         : 'bg-surface text-text-muted hover:text-text border border-border'
@@ -328,7 +328,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                     <button
                       type="button"
                       onClick={() => handleDeviceOnlineToggle(dev.id)}
-                      className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                      className={`px-2 py-0.5 rounded-xl text-[10px] font-semibold uppercase tracking-wider transition-colors ${
                         dev.online
                           ? 'bg-success/15 text-success border border-success/30'
                           : 'bg-danger/15 text-danger border border-danger/30'
@@ -342,7 +342,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                       <button
                         type="button"
                         onClick={() => handleDeviceStateToggle(dev.id)}
-                        className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors border ${
+                        className={`px-2 py-0.5 rounded-xl text-[10px] font-medium transition-colors border ${
                           dev.on
                             ? 'bg-accent/15 text-accent border-accent/30'
                             : 'bg-surface border-border text-text-muted'
@@ -355,7 +355,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
                       <button
                         type="button"
                         onClick={() => handleDeviceStateToggle(dev.id)}
-                        className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors border ${
+                        className={`px-2 py-0.5 rounded-xl text-[10px] font-medium transition-colors border ${
                           dev.locked
                             ? 'bg-accent/15 text-accent border-accent/30'
                             : 'bg-surface border-border text-text-muted'
@@ -388,19 +388,19 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
 
           {/* Logic & Time Window Summary */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
-            <div className="p-2.5 rounded-lg bg-surface border border-border flex items-center justify-between">
+            <div className="p-2.5 rounded-2xl bg-surface border border-border flex items-center justify-between">
               <span className="text-text-muted">Condition Logic ({rule.conditionGroup.logic}):</span>
               <span className={`font-semibold ${dryRunReport.groupResult ? 'text-success' : 'text-danger'}`}>
                 {dryRunReport.groupResult ? 'Passed' : 'Failed'}
               </span>
             </div>
-            <div className="p-2.5 rounded-lg bg-surface border border-border flex items-center justify-between">
+            <div className="p-2.5 rounded-2xl bg-surface border border-border flex items-center justify-between">
               <span className="text-text-muted">Time Window:</span>
               <span className={`font-semibold ${dryRunReport.windowResult ? 'text-success' : 'text-danger'}`}>
                 {dryRunReport.windowResult ? 'Inside Window' : 'Outside Window'}
               </span>
             </div>
-            <div className="p-2.5 rounded-lg bg-surface border border-border flex items-center justify-between">
+            <div className="p-2.5 rounded-2xl bg-surface border border-border flex items-center justify-between">
               <span className="text-text-muted">Weekday Check:</span>
               <span className={`font-semibold ${dryRunReport.weekdayResult ? 'text-success' : 'text-danger'}`}>
                 {dryRunReport.weekdayResult ? 'Allowed Day' : 'Excluded Day'}
@@ -415,7 +415,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
               {dryRunReport.conditionResults.map((cRes, idx) => (
                 <div
                   key={cRes.id || idx}
-                  className={`p-3 rounded-lg border flex items-start justify-between text-xs gap-3 ${
+                  className={`p-3 rounded-2xl border flex items-start justify-between text-xs gap-3 ${
                     cRes.passed
                       ? 'bg-success/5 border-success/30'
                       : 'bg-danger/5 border-danger/30'
@@ -451,7 +451,7 @@ export const DryRunModal: React.FC<DryRunModalProps> = ({
               {dryRunReport.proposedActions.map((pa, idx) => (
                 <div
                   key={pa.action.id || idx}
-                  className={`p-3 rounded-lg border flex items-center justify-between text-xs gap-3 ${
+                  className={`p-3 rounded-2xl border flex items-center justify-between text-xs gap-3 ${
                     pa.willRun
                       ? 'bg-surface border-border'
                       : 'bg-surface-subtle border-border/60 opacity-80'

@@ -329,7 +329,7 @@ export const EventHistoryPage: React.FC = () => {
             <button
               type="button"
               onClick={clearAllFilters}
-              className="text-accent hover:underline flex items-center gap-1 font-semibold focus-ring rounded-lg px-2 py-1"
+              className="text-accent hover:underline flex items-center gap-1 font-semibold focus-ring rounded-xl px-2 py-1"
             >
               <X className="h-3.5 w-3.5" />
               <span>Clear filters</span>
@@ -359,7 +359,15 @@ export const EventHistoryPage: React.FC = () => {
           <span className="text-[11px] text-text-muted font-normal lowercase">tap row for details</span>
         </div>
 
-        {filteredEvents.length === 0 ? (
+        {events.length === 0 ? (
+          <div className="text-center py-16 space-y-2">
+            <Filter className="h-8 w-8 mx-auto text-text-muted opacity-50" />
+            <h2 className="text-sm font-semibold text-text">Audit Log Empty</h2>
+            <p className="text-xs text-text-muted max-w-sm mx-auto">
+              No events have been recorded yet. Automated rules, schedules, and device state updates will stream audit records here automatically.
+            </p>
+          </div>
+        ) : filteredEvents.length === 0 ? (
           <div className="text-center py-16 space-y-2">
             <Filter className="h-8 w-8 mx-auto text-text-muted" />
             <h2 className="text-sm font-semibold text-text">No matching events</h2>

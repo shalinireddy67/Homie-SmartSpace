@@ -286,7 +286,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
           <Link
             to="/notifications"
             onClick={onClose}
-            className="text-xs font-semibold text-accent hover:underline inline-flex items-center gap-1 focus-ring rounded-lg px-2 py-1"
+            className="text-xs font-semibold text-accent hover:underline inline-flex items-center gap-1 focus-ring rounded-xl px-2 py-1"
           >
             <span>Full page</span>
             <ExternalLink className="h-3 w-3" />
@@ -421,7 +421,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
                                 onClick={() => markAsRead(notif.id)}
                                 aria-label="Mark notification as read"
                                 title="Mark read"
-                                className="p-1 rounded-lg text-text-muted hover:text-accent hover:bg-surface-elevated transition-colors focus-ring min-h-[36px] min-w-[36px] inline-flex items-center justify-center"
+                                className="p-1 rounded-xl text-text-muted hover:text-accent hover:bg-surface-elevated transition-colors focus-ring min-h-[36px] min-w-[36px] inline-flex items-center justify-center"
                               >
                                 <CheckCheck className="h-3.5 w-3.5" />
                               </button>
@@ -431,7 +431,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
                               onClick={() => clearNotification(notif.id)}
                               aria-label="Dismiss notification"
                               title="Dismiss"
-                              className="p-1 rounded-lg text-text-muted hover:text-danger hover:bg-surface-elevated transition-colors focus-ring min-h-[36px] min-w-[36px] inline-flex items-center justify-center"
+                              className="p-1 rounded-xl text-text-muted hover:text-danger hover:bg-surface-elevated transition-colors focus-ring min-h-[36px] min-w-[36px] inline-flex items-center justify-center"
                             >
                               <Trash2 className="h-3.5 w-3.5" />
                             </button>

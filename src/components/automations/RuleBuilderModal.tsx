@@ -271,7 +271,7 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
                   }}
                   aria-invalid={Boolean(getFieldError('name'))}
                   aria-describedby={getFieldError('name') ? `${formId}-name-err` : undefined}
-                  className={`w-full px-3 py-2 text-sm bg-surface-elevated border rounded-lg text-text focus-ring ${
+                  className={`w-full px-3 py-2 text-sm bg-surface-elevated border rounded-2xl text-text focus-ring ${
                     getFieldError('name') ? 'border-danger' : 'border-border'
                   }`}
                 />
@@ -295,7 +295,7 @@ export const RuleBuilderModal: React.FC<RuleBuilderModalProps> = ({
                   placeholder="e.g. Lowers thermostat and turns off chandelier at midnight"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full px-3 py-2 text-sm bg-surface-elevated border border-border rounded-lg text-text focus-ring"
+                  className="w-full px-3 py-2 text-sm bg-surface-elevated border border-border rounded-2xl text-text focus-ring"
                 />
               </div>
             </div>

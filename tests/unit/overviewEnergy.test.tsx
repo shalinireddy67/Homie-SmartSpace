@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent, act, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 import { useStore } from '@/store';
 import { OverviewPage } from '@/pages/OverviewPage';
 import { EnergyAnalyticsPage } from '@/pages/EnergyAnalyticsPage';
@@ -16,7 +17,11 @@ describe('Overview & Energy Analytics Integration', () => {
 
   describe('Overview Dashboard', () => {
     it('renders all 8 typed metric cards with non-NaN values from store', () => {
-      render(<OverviewPage />);
+      render(
+        <MemoryRouter>
+          <OverviewPage />
+        </MemoryRouter>
+      );
 
       expect(screen.getByText('Total Devices')).toBeInTheDocument();
       expect(screen.getAllByText('Online').length).toBeGreaterThan(0);
@@ -35,7 +40,11 @@ describe('Overview & Energy Analytics Integration', () => {
       const user = userEvent.setup();
       useStore.getState().setRunning(false);
 
-      render(<OverviewPage />);
+      render(
+        <MemoryRouter>
+          <OverviewPage />
+        </MemoryRouter>
+      );
 
       const warning = screen.getByRole('region', { name: /simulation status warning/i });
       expect(warning).toBeInTheDocument();
@@ -48,7 +57,11 @@ describe('Overview & Energy Analytics Integration', () => {
     });
 
     it('updates power watts and counts when a device is turned off and goes offline', () => {
-      render(<OverviewPage />);
+      render(
+        <MemoryRouter>
+          <OverviewPage />
+        </MemoryRouter>
+      );
 
       const light = useStore.getState().devices.find((d) => d.id === 'dev-light-living') as LightDevice;
       expect(light.on).toBe(true);
@@ -80,7 +93,11 @@ describe('Overview & Energy Analytics Integration', () => {
     });
 
     it('reflects new execution in recent automations panel when a rule fires', () => {
-      render(<OverviewPage />);
+      render(
+        <MemoryRouter>
+          <OverviewPage />
+        </MemoryRouter>
+      );
 
       const rule: Rule = useStore.getState().rules[0]!;
       expect(rule).toBeDefined();

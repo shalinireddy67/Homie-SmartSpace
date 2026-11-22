@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useStore } from '@/store';
 import {
   selectTotalDevices,
@@ -69,6 +70,7 @@ export const OverviewPage: React.FC = () => {
   const running = useStore((s) => s.running);
   const virtualTime = useThrottledVirtualTime(1000);
   const setRunning = useStore((s) => s.setRunning);
+  const resetToDefaults = useStore((s) => s.resetToDefaults);
   const devices = useStore((s) => s.devices);
   const rooms = useStore((s) => s.rooms);
   const rules = useStore((s) => s.rules);
@@ -332,17 +334,34 @@ export const OverviewPage: React.FC = () => {
               Direct command controls routed through the simulation dispatcher across all rooms.
             </p>
           </div>
-          <a
-            href="/rooms"
-            className="text-xs font-semibold text-accent hover:underline flex items-center gap-1 rounded-lg px-2 py-1 focus-ring min-h-[44px] sm:min-h-[32px]"
+          <Link
+            to="/rooms"
+            className="text-xs font-semibold text-accent hover:underline flex items-center gap-1 rounded-xl px-2 py-1 focus-ring min-h-[44px] sm:min-h-[32px]"
           >
             <span>View All Devices</span>
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </a>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {devices.map((device) => {
+        {devices.length === 0 ? (
+          <Card className="p-8 text-center bg-surface-card border border-dashed border-border rounded-3xl">
+            <Sliders className="h-8 w-8 text-text-muted mx-auto mb-2 opacity-50" />
+            <h3 className="text-sm font-semibold text-text">No Devices Connected</h3>
+            <p className="text-xs text-text-muted mt-1 max-w-sm mx-auto">
+              The smart home has no active simulated devices. Restore demo devices to begin monitoring.
+            </p>
+            <Button
+              variant="outline"
+              size="sm"
+              className="mt-3 text-xs"
+              onClick={() => resetToDefaults()}
+            >
+              Restore Demo Devices
+            </Button>
+          </Card>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {devices.map((device) => {
             const roomName = roomMap.get(device.roomId) || 'Unassigned';
 
             let iconTileClass = 'bg-surface-elevated text-text';
@@ -487,7 +506,8 @@ export const OverviewPage: React.FC = () => {
               </Card>
             );
           })}
-        </div>
+          </div>
+        )}
       </section>
 
       {/* Energy & Status Breakdown Row */}

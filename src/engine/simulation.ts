@@ -120,8 +120,24 @@ export class SimulationEngine {
         const driftRate = 0.02 * (virtualDtMs / 1000);
         const delta = target - ambientTemp;
         ambientTemp = Math.round((ambientTemp + delta * driftRate) * 100) / 100;
+
+        // AC dehumidification coupling: active cooling reduces relative humidity
+        if (target < ambientTemp - 0.5) {
+          const dehumidifyRate = 0.08 * (virtualDtMs / 1000);
+          ambientHumidity = Math.max(35, Math.round((ambientHumidity - dehumidifyRate) * 10) / 10);
+        } else if (target > ambientTemp + 0.5) {
+          // Warm air holds more moisture; relative humidity drops slightly
+          const heatRate = 0.04 * (virtualDtMs / 1000);
+          ambientHumidity = Math.max(30, Math.round((ambientHumidity - heatRate) * 10) / 10);
+        }
+      } else if (room.id === 'room-outdoor') {
+        // Outdoor diurnal temperature cycle (cool at night ~14°C, warm at midday ~24°C)
+        const hour = (newVirtualTime / 3600000) % 24;
+        const diurnalEquilibrium = 18 + 5 * Math.sin(((hour - 9) / 24) * 2 * Math.PI);
+        const delta = diurnalEquilibrium - ambientTemp;
+        ambientTemp = Math.round((ambientTemp + delta * 0.01 * (virtualDtMs / 1000)) * 100) / 100;
       } else {
-        // Natural slight oscillation towards ambient equilibrium (20.5°C)
+        // Natural slight oscillation towards indoor ambient equilibrium (20.5°C)
         const naturalEquilibrium = 20.5;
         const delta = naturalEquilibrium - ambientTemp;
         ambientTemp = Math.round((ambientTemp + delta * 0.005 * (virtualDtMs / 1000)) * 100) / 100;

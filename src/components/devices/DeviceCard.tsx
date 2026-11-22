@@ -279,7 +279,7 @@ const DeviceCardComponent: React.FC<DeviceCardProps> = ({
         {/* Offline Reason Callout */}
         {!device.online && (
           <div
-            className="mt-3 p-2 rounded-lg bg-danger/10 border border-danger/25 text-xs text-danger flex items-start gap-2"
+            className="mt-3 p-3 rounded-2xl bg-danger/10 border border-danger/25 text-xs text-danger flex items-start gap-2.5"
             role="alert"
           >
             <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />

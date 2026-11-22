@@ -22,6 +22,7 @@ import {
 export const RoomsDevicesPage: React.FC = () => {
   const devices = useStore((s) => s.devices);
   const rooms = useStore((s) => s.rooms);
+  const resetToDefaults = useStore((s) => s.resetToDefaults);
 
   const [selectedRoom, setSelectedRoom] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
@@ -229,7 +230,7 @@ export const RoomsDevicesPage: React.FC = () => {
                 type="button"
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search text"
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-text-muted hover:text-text p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg focus-ring"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-text-muted hover:text-text p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl focus-ring"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -276,7 +277,28 @@ export const RoomsDevicesPage: React.FC = () => {
 
       {/* Grid of Device Cards or Empty State */}
       <section id="devices-grid" aria-label="Device list" className="w-full">
-        {filteredDevices.length === 0 ? (
+        {devices.length === 0 ? (
+          <div
+            data-testid="empty-all-devices-state"
+            className="flex flex-col items-center justify-center p-12 text-center bg-surface-card border border-dashed border-border rounded-3xl"
+          >
+            <div className="p-4 rounded-2xl bg-surface-elevated mb-3 text-text-muted">
+              <Grid className="h-8 w-8 text-accent" />
+            </div>
+            <h2 className="text-base font-semibold text-text">No devices configured</h2>
+            <p className="text-xs text-text-muted mt-1 max-w-sm">
+              Your smart home has zero configured devices. Load the default simulated environment to begin monitoring.
+            </p>
+            <Button
+              variant="primary"
+              size="sm"
+              className="mt-4 text-xs"
+              onClick={() => resetToDefaults()}
+            >
+              Load Demo Devices
+            </Button>
+          </div>
+        ) : filteredDevices.length === 0 ? (
           <div
             data-testid="empty-devices-state"
             className="flex flex-col items-center justify-center p-12 text-center bg-surface-card border border-dashed border-border rounded-3xl"
