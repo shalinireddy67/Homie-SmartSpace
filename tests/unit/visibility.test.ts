@@ -15,9 +15,11 @@ describe('Tab Visibility Simulation Throttling', () => {
   });
 
   afterEach(() => {
-    vi.useRealTimers();
-    const runtime = getRuntimeInstance();
-    runtime.stop();
+    act(() => {
+      vi.useRealTimers();
+      const runtime = getRuntimeInstance();
+      runtime.stop();
+    });
   });
 
   it('pauses simulation when tab becomes hidden and resumes when active', () => {
