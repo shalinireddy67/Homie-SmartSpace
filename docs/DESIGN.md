@@ -1,76 +1,91 @@
-# Homie SmartSpace Design System (v2)
+# Homie SmartSpace Design System (v3 Calm Polish)
 
-Design specification derived from the Dribbble reference (`docs/design/reference-2.png` / `https://dribbble.com/shots/26727815-Smart-Home-Dashboard`).
-
----
-
-## 1. Reference Analysis
-
-### Layout & Navigation
-- **App Container:** Soft icy-blue outer canvas (`#C2D4E0` -> `#EEF4F4` workspace tint) framing a floating white/icy-tinted rounded app surface (`rounded-3xl`, `24px`).
-- **Desktop Navigation:** Horizontal top pill bar centered inside the header:
-  - Left: Minimalist geometric brand mark (`Homie SmartSpace`) + Home selector pill (`Lakeview Home`).
-  - Center: Top pill navigation links (`Overview`, `Rooms & Devices`, `Automations`, `Energy Analytics`, `Event History`, `Notifications`, `Settings`). Active item sits inside a soft icy-blue rounded pill (`#CFE2E9`).
-  - Right: Compact simulation controls (`Start/Pause`, `Speed`, `Fail Next`), theme toggle (`Light`/`Dark`), Notification Bell badge, and user avatar (`AM`).
-- **Mobile Navigation (`< 768px`):** Sticky compact bottom tab bar (`>= 44px` touch targets) + slide-up "More" drawer covering all 7 routes.
-- **Overview Grid (Asymmetric 2-Column Split on Desktop `lg:grid-cols-12`):**
-  - **Left Column (8 cols):**
-    1. Room selector horizontal pill bar (`All Rooms`, `Living Room`, `Primary Bedroom`, `Kitchen`, `Ensuite Bathroom`, `Outdoor Patio`) with circular room badges.
-    2. **Hero Room Stage Card (`24px` radius):** Soft architectural interior vector stage with overlaid live telemetry pills (`Today's Energy kWh`, `Devices Count`), zone hotspot badges (`Lights`, `Climate`, `Cameras`), and a bottom-left floating frosted Lock quick-control card (`Locked`/`Unlocked` + toggle button).
-    3. **Bottom 3-Card Quick Strip:** 3 side-by-side clean white/icy-white cards (`#F5F9FA`) for immediate control of a Thermostat (`°C` + step/status), a Smart Light (`%` + toggle Switch), and an active Schedule (`HH:MM` + toggle Switch).
-  - **Right Column (4 cols, full-height panel `#F1F7F7`):**
-    1. Active room header + stylized pendant lamp graphic + device sub-tabs (`Smart Light` / `Thermostat` / `Cameras`) with bottom underline indicator.
-    2. **Semi-Circular Arc Gauge (`47% Intensity` style):** Crisp mint-teal radial arc gauge displaying live Smart Light brightness or Thermostat target setpoint, paired with interactive quick adjustment controls (`dispatchDeviceCommand`).
-    3. **2×2 Pastel Metric Tiles Grid:** Warm Peach (Current Power `W`), Soft Lavender (Today's Energy `kWh`), Soft Ice Blue (Indoor Temp `°C`), and Soft Mint (Humidity `%`).
-  - **Below Fold (Required Engine Observability & Acceptance Panels):**
-    - Complete 8-metric summary strip (`Total Devices`, `Online`, `Offline`, `Active Automations`, `Current Power`, `Today's Energy`, `Indoor Temp`, `Humidity`), 7-Day Energy Bar Chart + Device Status Donut Chart, Device Overview Quick Grid, and Recent Events / Active Anomalies / Recent Automations panels.
-
-### Typography, Spacing, Radii, Shadows & Icons
-- **Font Family:** `Inter` bundled locally at `/fonts/inter-variable.woff2` (`@font-face`, 100–900 variable weight, offline-ready, system fallbacks). `tabular-nums` (`font-variant-numeric: tabular-nums`) enforced on all live figures, clocks, watts, kWh, and percentages.
-- **Spacing:** 8px base rhythm (`gap-4` 16px, `gap-6` 24px, card padding `20px–24px`).
-- **Corner Radii:** Pill chips `9999px` (`rounded-full`), inner tiles `16px` (`rounded-2xl`), outer stage/panel cards `24px` (`rounded-3xl`).
-- **Elevation:** Soft ambient shadow (`0 4px 20px -4px rgba(14, 24, 28, 0.06)`) and crisp thin hairline borders (`border-border-subtle` on cards, $\ge 3:1$ `border` on interactive inputs/controls).
-- **Icons:** Clean 1.75px stroke geometric line icons (`lucide-react`), always paired with explicit text labels for status/states (never color-only).
+Design specification for the **Calm & Warm Neutral** visual identity (`feat/ui-calm`), evolving from the initial reference analysis to eliminate generic "AI-generated" tropes, glare, and saturated pastel fills.
 
 ---
 
-## 2. Color Tokens & Real Sampled Reference Palette
+## 1. Core Visual Problems Solved
 
-Pixel sampling from `media_1794500905367_371d9749.jpg` (`585x451`):
-- `outer-backdrop`: `#C2D4E0`
-- `header-surface`: `#FFFFFF`
-- `app-canvas-tint`: `#EEF4F4`
-- `active-nav-pill`: `#CFE2E9` / `#D5E5E5`
-- `right-panel-bg`: `#F1F7F7`
-- `bottom-card-bg`: `#F5F9FA`
-- `mint-arc-active`: `#ADDBD0`
-- `mint-arc-track`: `#DEEDEA`
-- `tile-peach`: `#EDE1D1` (adjusted slightly lighter `#F2E4D3` for ink harmony)
-- `tile-lavender`: `#E3D1EB` (`#EADCF2`)
-- `tile-blue`: `#D0E3EA` (`#D6E7EE`)
-- `tile-mint`: `#D1ECE7` (`#D5EFEA`)
-- `darkest-ink-heading`: `#0E1213`
+1. **Light mode glare and icy saturation:** Replaced cold icy-blue canvas (`#D7E5EB`) and blinding pure white surfaces (`#FFFFFF`) with warm neutral stone and canvas tones (`#F1EFEA` backdrop, `#F7F6F2` warm card surface, `#ECEAE4` secondary shell).
+2. **Text contrast & readability:** Elevated body and label contrast ratios well beyond minimum WCAG requirements. Primary ink (`#1F1E1B`) reaches **15.41:1**, muted text (`#545049`) reaches **7.41:1** (WCAG AAA for body text), and interactive borders (`#8C867B`) reach **3.34:1** (WCAG 2.2 AA for non-text controls).
+3. **Generic "AI-generated" appearance:**
+   - Eradicated pastel rainbow fills (5 saturated colored tile squares) across Overview and metric panels in favor of structured neutral cards with single subtle accent glyphs.
+   - Replaced ubiquitous `rounded-full` / `rounded-3xl` "pill-shaped everything" with a disciplined 8px (controls) / 12px (cards) / 16px (panels) radius scale.
+   - Removed blurry floating drop shadows (`shadow-soft`, `shadow-lg`) and blurred glass header bars (`backdrop-blur-md`), replacing them with crisp 1px borders and solid surfaces.
+   - Removed decorative sparkles, wavy decorative underlines, and centered cookie-cutter icon boxes.
 
-Because the Dribbble reference only shows **Light Mode**, **Dark Mode** is derived with the exact same cool slate-mint hierarchy: deep slate canvas (`#0F1416`), elevated card surfaces (`#161C1E`), soft panel (`#1D2528`), icy-mint active nav pill (`#203A3D`), glowing mint accent (`#5EC2AC`), and darkened saturated pastel tile surfaces (`#36291E`, `#2E2138`, `#1B313B`, `#19352F`) preserving identical semantic mapping.
+---
 
-### WCAG 2.1 AA Contrast Audit (Original Sampled vs Adjusted Final)
+## 2. Calm Warm Palette Specification
 
-| Pair | Original (Sampled) | Final Adjusted | Final Ratio | Standard |
+### Light Theme (Warm Stone & Deep Sage)
+- **Outer Canvas (`--color-outer-canvas`):** `#F1EFEA` (rgb 241, 239, 234)
+- **App Shell / Elevated Surfaces (`--color-surface-subtle`, `--color-surface-elevated`):** `#ECEAE4` (rgb 236, 234, 228)
+- **Card Surfaces (`--color-surface`, `--color-surface-card`):** `#F7F6F2` (rgb 247, 246, 242) — Zero pure white `#FFFFFF` glare
+- **Divider Borders (`--color-border-subtle`):** `#D9D6CE` (rgb 217, 214, 206)
+- **Control Borders (`--color-border`):** `#8C867B` (rgb 140, 134, 123)
+- **Primary Text (`--color-text`):** `#1F1E1B` (rgb 31, 30, 27)
+- **Muted Text (`--color-text-muted`):** `#545049` (rgb 84, 80, 73)
+- **Accent (`--color-accent`):** `#2E534C` (rgb 46, 83, 76) — Desaturated deep slate sage/teal
+- **Accent Subtle (`--color-accent-subtle`):** `#DCE4E1` (rgb 220, 228, 225)
+- **Arc Track (`--color-arc-track`):** `#DFDCD5` (rgb 223, 220, 213)
+- **Semantic Status:**
+  - Success: `#2A6846` (rgb 42, 104, 70)
+  - Warning: `#8A5314` (rgb 138, 83, 20)
+  - Danger: `#9E2A2B` (rgb 158, 42, 43)
+
+### Dark Theme (Warm Deep Charcoal & Muted Sage)
+- **Outer Canvas (`--color-outer-canvas`):** `#181816` (rgb 24, 24, 22) — Zero pure black `#000000`
+- **App Shell (`--color-surface-subtle`):** `#1E1E1C` (rgb 30, 30, 28)
+- **Card Surfaces (`--color-surface`, `--color-surface-card`):** `#212120` (rgb 33, 33, 32)
+- **Elevated Surfaces (`--color-surface-elevated`):** `#2B2B28` (rgb 43, 43, 40)
+- **Divider Borders (`--color-border-subtle`):** `#34332F` (rgb 52, 51, 47)
+- **Control Borders (`--color-border`):** `#6E6D66` (rgb 110, 109, 102)
+- **Primary Text (`--color-text`):** `#E8E6E1` (rgb 232, 230, 225)
+- **Muted Text (`--color-text-muted`):** `#9E9C94` (rgb 158, 156, 148)
+- **Accent (`--color-accent`):** `#7BAFA3` (rgb 123, 175, 163) — Muted sage
+- **Accent Subtle (`--color-accent-subtle`):** `#253531` (rgb 37, 53, 49)
+- **Arc Track (`--color-arc-track`):** `#32322E` (rgb 50, 50, 46)
+- **Semantic Status:**
+  - Success: `#68BA88` (rgb 104, 186, 136)
+  - Warning: `#DDA15E` (rgb 221, 161, 94)
+  - Danger: `#E06D6D` (rgb 224, 109, 109)
+
+---
+
+## 3. Contrast Comparison (Before vs After)
+
+| Element Pair | Previous Ratio | Calm Ratio | Standard | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| Light primary text on `#FFFFFF` | `#0E1213` (18.84:1) | `#111618` | **18.23:1** | $\ge 4.5:1$ Pass |
-| Light muted text on `#FFFFFF` | `#8E9DA4` (2.80:1 - Fail) | `#526066` | **6.51:1** | $\ge 4.5:1$ Pass |
-| Light muted text on `#F5F9FA` card | `#8E9DA4` (2.64:1 - Fail) | `#526066` | **6.15:1** | $\ge 4.5:1$ Pass |
-| Light muted text on `#F1F7F7` panel | `#8E9DA4` (2.58:1 - Fail) | `#4B585E` | **6.79:1** | $\ge 4.5:1$ Pass |
-| Light accent & focus ring on `#FFFFFF` | `#7CC4B2` (2.02:1 - Fail) | `#1F6F60` | **6.00:1** | $\ge 4.5:1$ Pass |
-| Light active nav text on `#CFE2E9` pill | `#0E1213` (14.09:1) | `#0E1213` | **14.09:1** | $\ge 4.5:1$ Pass |
-| Light gauge arc & chart stroke on `#FFFFFF` | `#ADDBD0` (1.52:1 - Fail) | `#3C8D7B` | **3.97:1** | $\ge 3.0:1$ Pass |
-| Light control border on `#F5F9FA` / `#FFFFFF` | `#DDECE9` (1.22:1 - Fail) | `#7E9397` | **3.07:1 / 3.26:1** | $\ge 3.0:1$ Pass |
-| Light Peach / Lavender / Blue / Mint tiles | N/A | `#6E471B` / `#59336E` / `#1C4E63` / `#175245` | **6.52 / 7.54 / 7.12 / 7.45 :1** | $\ge 4.5:1$ Pass |
-| Dark primary text `#EDF3F3` on `#161C1E` | Derived | `#EDF3F3` | **15.35:1** | $\ge 4.5:1$ Pass |
-| Dark muted text `#96A6AA` on `#161C1E` | Derived | `#96A6AA` | **6.84:1** | $\ge 4.5:1$ Pass |
-| Dark accent `#5EC2AC` on `#161C1E` | Derived | `#5EC2AC` | **8.03:1** | $\ge 4.5:1$ Pass |
-| Dark control border `#586B70` on `#161C1E` | `#435458` (2.17:1) | `#586B70` | **3.08:1** | $\ge 3.0:1$ Pass |
-| Dark Peach / Lavender / Blue / Mint tiles | Derived | `#F5D5B0` / `#E4C8F7` / `#BAE2F2` / `#B5ECE0` | **10.07 / 10.00 / 9.84 / 10.08 :1** | $\ge 4.5:1$ Pass |
+| Light Primary Text on Card | 18.23:1 (on pure `#FFF`) | **15.41:1** (on warm `#F7F6F2`) | $\ge 4.5:1$ | Pass (AAA) |
+| Light Muted Text on Card | 6.15:1 (on icy `#F5F9FA`) | **7.41:1** (on warm `#F7F6F2`) | $\ge 4.5:1$ | Pass (AAA) |
+| Light Control Border on Card | 3.07:1 (thin icy `#7E9397`) | **3.34:1** (warm stone `#8C867B`) | $\ge 3.0:1$ | Pass (AA) |
+| Light Accent on Card | 6.00:1 (mint `#1F6F60`) | **7.90:1** (deep sage `#2E534C`) | $\ge 4.5:1$ | Pass (AAA) |
+| Light Success on Card | 6.57:1 (emerald) | **6.13:1** (calm forest) | $\ge 4.5:1$ | Pass (AA) |
+| Light Warning on Card | 6.02:1 (amber) | **5.84:1** (warm ochre) | $\ge 4.5:1$ | Pass (AA) |
+| Light Danger on Card | 6.46:1 (red) | **6.89:1** (warm crimson) | $\ge 4.5:1$ | Pass (AA) |
+| Dark Primary Text on Card | 15.35:1 (on cold `#161C1E`) | **12.92:1** (on warm `#212120`) | $\ge 4.5:1$ | Pass (AAA) |
+| Dark Muted Text on Card | 6.84:1 | **5.90:1** | $\ge 4.5:1$ | Pass (AA) |
+| Dark Control Border on Card | 3.08:1 | **3.12:1** | $\ge 3.0:1$ | Pass (AA) |
+| Dark Accent on Card | 8.03:1 | **6.53:1** | $\ge 4.5:1$ | Pass (AA) |
+
+---
+
+## 4. Typography & Radius Discipline
+
+- **Corner Radius Scale:**
+  - `sm` (`0.375rem` / 6px): Small indicators, micro-badges
+  - `md` (`0.5rem` / 8px): Buttons, text inputs, switches, dropdowns, stepper controls
+  - `lg` (`0.75rem` / 12px): Device cards, summary cards, chart wrappers, metric tiles
+  - `2xl` (`1rem` / 16px): Dialog modals, slide-out notification drawer, room stage hero
+  - `3xl` (`1.25rem` / 20px): Outer dashboard floating shell frame
+  - `full` (`9999px`): Status dot indicators, room filter pills, top header active nav pill
+- **Elevation & Borders:**
+  - Removed blurry `shadow-soft` (`rgba(14,24,28,0.07)`) and `shadow-2xl`.
+  - Replaced with crisp 1px borders (`border-border-subtle` / `border-border`) paired with subtle 1px surface shadow (`box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)`).
+- **Layout & Structure Preservation:**
+  - Full structural alignment with `docs/design/reference-2a.png` and `reference-2b.png` retained: top pill navigation, room selector chips, asymmetric 8-col hero stage + 4-col right control arc panel, and bottom metric tiles.
+
 
 ---
 
