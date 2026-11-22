@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useId } from 'react';
 import { X } from 'lucide-react';
 import { Button } from './Button';
 
@@ -12,6 +12,9 @@ export interface ModalProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
+const FOCUSABLE_SELECTOR =
+  'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])';
+
 export const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
@@ -21,6 +24,7 @@ export const Modal: React.FC<ModalProps> = ({
   footer,
   size = 'md',
 }) => {
+  const generatedId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
   const previouslyFocusedElement = useRef<HTMLElement | null>(null);
 
@@ -36,9 +40,7 @@ export const Modal: React.FC<ModalProps> = ({
       }
 
       if (e.key === 'Tab' && modalRef.current) {
-        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
 
         if (focusableElements.length === 0) return;
 
@@ -69,9 +71,7 @@ export const Modal: React.FC<ModalProps> = ({
       // Focus first interactive element or modal container
       const timer = setTimeout(() => {
         if (modalRef.current) {
-          const firstFocusable = modalRef.current.querySelector<HTMLElement>(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          );
+          const firstFocusable = modalRef.current.querySelector<HTMLElement>(FOCUSABLE_SELECTOR);
           if (firstFocusable) {
             firstFocusable.focus();
           } else {
@@ -103,8 +103,8 @@ export const Modal: React.FC<ModalProps> = ({
     xl: 'max-w-2xl',
   };
 
-  const titleId = 'modal-title';
-  const descId = description ? 'modal-description' : undefined;
+  const titleId = `modal-title-${generatedId}`;
+  const descId = description ? `modal-description-${generatedId}` : undefined;
 
   return (
     <div

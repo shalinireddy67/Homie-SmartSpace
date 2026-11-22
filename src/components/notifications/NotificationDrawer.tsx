@@ -76,6 +76,8 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
   const [activeTab, setActiveTab] = useState<FilterTab>('all');
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedElement = useRef<HTMLElement | null>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const unreadCount = useMemo(
     () => notifications.filter((n) => !n.read).length,
@@ -98,10 +100,35 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
   useEffect(() => {
     if (!isOpen) return;
 
+    previouslyFocusedElement.current = document.activeElement as HTMLElement | null;
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault();
         onClose();
+        return;
+      }
+
+      if (e.key === 'Tab' && drawerRef.current) {
+        const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first && last) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last && first) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
       }
     };
 
@@ -114,6 +141,9 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       clearTimeout(timer);
+      if (previouslyFocusedElement.current) {
+        previouslyFocusedElement.current.focus();
+      }
     };
   }, [isOpen, onClose]);
 
@@ -187,7 +217,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
       />
 
       {/* Drawer Panel */}
-      <aside
+      <div
         ref={drawerRef}
         className="relative z-10 w-full sm:max-w-md bg-surface border-l border-border-subtle shadow-2xl flex flex-col h-full animate-in slide-in-from-right duration-200"
       >
@@ -269,12 +299,39 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
           aria-label="Filter notifications"
           className="px-4 py-2 border-b border-border-subtle flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-surface-card/30"
         >
-          {tabs.map((tab) => (
+          {tabs.map((tab, idx) => (
             <button
               key={tab.id}
+              ref={(el) => {
+                tabRefs.current[idx] = el;
+              }}
               role="tab"
               aria-selected={activeTab === tab.id}
+              tabIndex={activeTab === tab.id ? 0 : -1}
               onClick={() => setActiveTab(tab.id)}
+              onKeyDown={(e) => {
+                let nextIdx = idx;
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                  e.preventDefault();
+                  nextIdx = (idx + 1) % tabs.length;
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                  e.preventDefault();
+                  nextIdx = (idx - 1 + tabs.length) % tabs.length;
+                } else if (e.key === 'Home') {
+                  e.preventDefault();
+                  nextIdx = 0;
+                } else if (e.key === 'End') {
+                  e.preventDefault();
+                  nextIdx = tabs.length - 1;
+                } else {
+                  return;
+                }
+                const nextTab = tabs[nextIdx];
+                if (nextTab) {
+                  setActiveTab(nextTab.id);
+                  tabRefs.current[nextIdx]?.focus();
+                }
+              }}
               className={`px-3 py-1 text-xs whitespace-nowrap rounded-full border transition-all duration-200 focus-ring ${
                 activeTab === tab.id
                   ? 'bg-accent-subtle text-text border-accent font-semibold shadow-xs'
@@ -410,7 +467,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
             ))
           )}
         </div>
-      </aside>
+      </div>
     </div>
   );
 };

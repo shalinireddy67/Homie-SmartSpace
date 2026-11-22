@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useId } from 'react';
 
 export interface DimmerSliderProps {
   value: number; // 0 - 100
@@ -6,6 +6,7 @@ export interface DimmerSliderProps {
   disabled?: boolean;
   disabledReason?: string;
   ariaLabel?: string;
+  id?: string;
 }
 
 export const DimmerSlider: React.FC<DimmerSliderProps> = ({
@@ -14,7 +15,10 @@ export const DimmerSlider: React.FC<DimmerSliderProps> = ({
   disabled = false,
   disabledReason,
   ariaLabel = 'Light brightness dimmer',
+  id,
 }) => {
+  const generatedId = useId();
+  const inputId = id || generatedId;
   const [localValue, setLocalValue] = useState<number>(value);
   const isDraggingRef = useRef(false);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -114,7 +118,7 @@ export const DimmerSlider: React.FC<DimmerSliderProps> = ({
       title={disabled && disabledReason ? disabledReason : undefined}
     >
       <div className="flex items-center justify-between text-xs font-medium">
-        <label htmlFor="dimmer-input" className="text-text-muted">
+        <label htmlFor={inputId} className="text-text-muted">
           Brightness
         </label>
         <span className="font-mono text-text tabular-nums">
@@ -126,12 +130,13 @@ export const DimmerSlider: React.FC<DimmerSliderProps> = ({
         {/* Visual Track */}
         <div className="absolute inset-x-0 h-2.5 bg-arc-track border border-border-subtle rounded-full pointer-events-none" />
         <input
-          id="dimmer-input"
+          id={inputId}
           type="range"
           min={0}
           max={100}
           step={1}
           value={localValue}
+          disabled={disabled}
           aria-disabled={disabled}
           aria-label={ariaLabel}
           aria-valuemin={0}

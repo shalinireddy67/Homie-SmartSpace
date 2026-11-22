@@ -150,7 +150,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
             <Bell className="h-4 w-4" aria-hidden="true" />
             {unreadCount > 0 && (
               <span
-                aria-live="polite"
+                aria-hidden="true"
                 className="absolute -top-0.5 -right-0.5 flex h-4 min-w-[16px] px-1 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white dark:text-[#0B1012] shadow-xs"
               >
                 {unreadCount > 99 ? '99+' : unreadCount}

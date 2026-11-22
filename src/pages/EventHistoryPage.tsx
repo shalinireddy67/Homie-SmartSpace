@@ -403,6 +403,7 @@ export const EventHistoryPage: React.FC = () => {
                 return (
                   <div
                     key={event.id}
+                    role="button"
                     tabIndex={0}
                     onClick={() => setInspectEvent(event)}
                     onKeyDown={(e) => {
@@ -420,7 +421,7 @@ export const EventHistoryPage: React.FC = () => {
                       transform: `translateY(${virtualRow.start}px)`,
                     }}
                     className="border-b border-border-subtle hover:bg-surface-elevated/70 cursor-pointer transition-colors text-xs text-text focus:outline-none focus:bg-surface-elevated focus:ring-1 focus:ring-accent"
-                    aria-label={`Event: ${event.description}`}
+                    aria-label={`Event: ${event.description}. Press Enter to view details.`}
                   >
                     {/* Desktop layout: Dense readable 12-col grid */}
                     <div className="hidden sm:grid sm:grid-cols-12 gap-3 px-4 py-2.5 items-center h-full">

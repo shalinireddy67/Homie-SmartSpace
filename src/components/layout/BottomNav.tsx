@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BOTTOM_NAV_ITEMS, NAV_ITEMS } from '@/constants/navigation';
 import { APP_NAME, APP_SHORT_NAME } from '@/constants/branding';
@@ -6,15 +6,67 @@ import { MoreHorizontal, X } from 'lucide-react';
 
 export const BottomNav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const moreBtnRef = useRef<HTMLButtonElement>(null);
+  const menuContainerRef = useRef<HTMLDivElement>(null);
 
   // 4 primary items for bottom bar
   const primaryItems = BOTTOM_NAV_ITEMS.slice(0, 4);
+
+  // Focus trapping and Escape key support for mobile menu sheet
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setIsMenuOpen(false);
+        moreBtnRef.current?.focus();
+        return;
+      }
+
+      if (e.key === 'Tab' && menuContainerRef.current) {
+        const focusable = menuContainerRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first && last) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last && first) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Focus close button on sheet open
+    const timer = setTimeout(() => {
+      const closeBtn = menuContainerRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close menu"]');
+      closeBtn?.focus();
+    }, 50);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      clearTimeout(timer);
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
       {/* Mobile Menu Sheet for All Pages */}
       {isMenuOpen && (
         <div
+          ref={menuContainerRef}
           className="md:hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex flex-col justify-end animate-in fade-in duration-200"
           role="dialog"
           aria-modal="true"
@@ -22,7 +74,10 @@ export const BottomNav: React.FC = () => {
         >
           <div
             className="fixed inset-0"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => {
+              setIsMenuOpen(false);
+              moreBtnRef.current?.focus();
+            }}
             aria-hidden="true"
           />
           <div className="relative bg-surface border-t border-border rounded-t-3xl p-6 shadow-2xl space-y-4 max-h-[80vh] overflow-y-auto">
@@ -30,7 +85,10 @@ export const BottomNav: React.FC = () => {
               <span className="font-semibold text-text text-base">{APP_SHORT_NAME} Navigation</span>
               <button
                 type="button"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  moreBtnRef.current?.focus();
+                }}
                 className="p-2 rounded-xl text-text-muted hover:text-text focus-ring min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Close menu"
               >
@@ -45,7 +103,10 @@ export const BottomNav: React.FC = () => {
                     key={item.to}
                     to={item.to}
                     end={item.to === '/'}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      moreBtnRef.current?.focus();
+                    }}
                     className={({ isActive }) =>
                       `flex items-center gap-3 p-3 rounded-2xl text-sm font-medium transition-colors min-h-[48px] ${
                         isActive
@@ -94,8 +155,11 @@ export const BottomNav: React.FC = () => {
 
         {/* More Button */}
         <button
+          ref={moreBtnRef}
           type="button"
           onClick={() => setIsMenuOpen(true)}
+          aria-haspopup="dialog"
+          aria-expanded={isMenuOpen}
           className="flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[10px] font-medium text-text-muted hover:text-text focus-ring select-none min-w-[48px] min-h-[44px]"
           aria-label="Open full navigation menu"
         >

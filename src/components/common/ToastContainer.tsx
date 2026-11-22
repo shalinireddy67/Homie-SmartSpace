@@ -112,7 +112,8 @@ export const ToastContainer: React.FC = () => {
 
   return (
     <div
-      aria-label="Notifications"
+      role="region"
+      aria-label="Notification alerts"
       className="fixed bottom-20 sm:bottom-6 right-4 z-50 flex flex-col gap-2.5 max-w-sm w-[calc(100vw-2rem)] sm:w-96 pointer-events-none"
     >
       {toasts.map((toast) => (

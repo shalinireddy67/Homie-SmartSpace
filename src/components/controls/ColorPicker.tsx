@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useId } from 'react';
 
 export interface ColorPickerProps {
   value: string; // Hex color e.g. '#ffffff'
@@ -24,6 +24,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
   disabled = false,
   disabledReason,
 }) => {
+  const hexInputId = useId();
   const [hexInput, setHexInput] = useState<string>(value);
   const [inputError, setInputError] = useState<boolean>(false);
 
@@ -105,6 +106,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
             <button
               key={swatch}
               type="button"
+              disabled={disabled}
               aria-disabled={disabled}
               aria-label={`Color ${swatch}`}
               aria-pressed={isSelected}
@@ -128,13 +130,14 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
 
       {/* Hex Text Input */}
       <div className="flex items-center gap-2 mt-1">
-        <label htmlFor="hex-color-input" className="text-[11px] text-text-muted">
+        <label htmlFor={hexInputId} className="text-[11px] text-text-muted">
           Hex:
         </label>
         <input
-          id="hex-color-input"
+          id={hexInputId}
           type="text"
           value={hexInput}
+          disabled={disabled}
           readOnly={disabled}
           aria-disabled={disabled}
           aria-label="Hex color code"

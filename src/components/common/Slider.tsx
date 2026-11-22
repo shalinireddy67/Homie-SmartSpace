@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useId } from 'react';
 
 export interface SliderProps {
   min: number;
@@ -29,6 +29,8 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
     },
     ref
   ) => {
+    const generatedId = useId();
+    const inputId = id || generatedId;
     const percentage = Math.min(
       100,
       Math.max(0, ((value - min) / (max - min)) * 100)
@@ -38,7 +40,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
       <div className={`flex flex-col gap-1.5 w-full ${className}`}>
         {label && (
           <div className="flex items-center justify-between text-xs font-medium text-text-muted">
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={inputId}>{label}</label>
             <span className="font-mono text-text tabular-nums">
               {value}
               {unit}
@@ -48,7 +50,8 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
         <div className="relative flex items-center min-h-[44px] sm:min-h-[28px]">
           <input
             ref={ref}
-            id={id}
+            id={inputId}
+            aria-label={label}
             type="range"
             min={min}
             max={max}

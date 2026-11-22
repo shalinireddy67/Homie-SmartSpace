@@ -190,7 +190,7 @@ export const RadialDial: React.FC<RadialDialProps> = ({
       <div
         ref={dialRef}
         role="slider"
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         aria-label="Thermostat target temperature"
         aria-valuemin={min}
         aria-valuemax={max}
@@ -209,6 +209,7 @@ export const RadialDial: React.FC<RadialDialProps> = ({
           height={size}
           viewBox={`0 0 ${size} ${size}`}
           className="overflow-visible"
+          aria-hidden="true"
         >
           {/* Background Track Arc */}
           <path
