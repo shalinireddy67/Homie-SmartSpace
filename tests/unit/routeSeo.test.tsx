@@ -19,7 +19,7 @@ describe('useRouteSeo Hook', () => {
     if (robots) robots.remove();
   });
 
-  it('updates document.title and canonical link for Overview (/)', async () => {
+  it('updates document.title and canonical link for public landing page (/) with index, follow', async () => {
     const expected = ROUTE_SEO_CONFIG['/']!;
     render(
       <MemoryRouter initialEntries={['/']}>
@@ -42,12 +42,12 @@ describe('useRouteSeo Hook', () => {
     expect(robots?.getAttribute('content')).toBe('index, follow');
   });
 
-  it('updates document.title and canonical link for Energy Analytics (/energy)', async () => {
-    const expected = ROUTE_SEO_CONFIG['/energy']!;
+  it('updates document.title and canonical link for Energy Analytics (/app/energy) with noindex', async () => {
+    const expected = ROUTE_SEO_CONFIG['/app/energy']!;
     render(
-      <MemoryRouter initialEntries={['/energy']}>
+      <MemoryRouter initialEntries={['/app/energy']}>
         <Routes>
-          <Route path="/energy" element={<TestSeoComponent />} />
+          <Route path="/app/energy" element={<TestSeoComponent />} />
         </Routes>
       </MemoryRouter>
     );
@@ -64,15 +64,15 @@ describe('useRouteSeo Hook', () => {
     expect(desc?.getAttribute('content')).toBe(expected.description);
 
     const robots = document.querySelector('meta[name="robots"]');
-    expect(robots?.getAttribute('content')).toBe('index, follow');
+    expect(robots?.getAttribute('content')).toBe('noindex, nofollow');
   });
 
-  it('updates document.title and canonical link for Event History (/history)', async () => {
-    const expected = ROUTE_SEO_CONFIG['/history']!;
+  it('updates document.title and canonical link for Event History (/app/events)', async () => {
+    const expected = ROUTE_SEO_CONFIG['/app/events']!;
     render(
-      <MemoryRouter initialEntries={['/history']}>
+      <MemoryRouter initialEntries={['/app/events']}>
         <Routes>
-          <Route path="/history" element={<TestSeoComponent />} />
+          <Route path="/app/events" element={<TestSeoComponent />} />
         </Routes>
       </MemoryRouter>
     );

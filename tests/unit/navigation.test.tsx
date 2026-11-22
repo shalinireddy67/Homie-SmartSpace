@@ -1,15 +1,23 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { NAV_ITEMS, BOTTOM_NAV_ITEMS } from '@/constants/navigation';
 import { AppRoutes } from '@/App';
+import { setSession, clearSession } from '@/services/session';
 
 describe('Navigation components', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    clearSession();
+    // Establish demo session so protected /app routes and legacy redirects render in tests
+    setSession({ mode: 'demo', startedAt: Date.now() });
+  });
+
   it('renders all 7 navigation links in the Sidebar', () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={['/app']}>
         <Sidebar />
       </MemoryRouter>
     );
@@ -28,7 +36,7 @@ describe('Navigation components', () => {
 
   it('renders all 7 navigation items in mobile BottomNav', () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={['/app']}>
         <BottomNav />
       </MemoryRouter>
     );
@@ -36,80 +44,100 @@ describe('Navigation components', () => {
     expect(BOTTOM_NAV_ITEMS).toHaveLength(7);
   });
 
-  it('renders Overview page by default at root path', async () => {
+  it('renders Landing page at public root path', async () => {
+    clearSession();
     render(
       <MemoryRouter initialEntries={['/']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
-    expect(screen.getByRole('heading', { level: 1, name: /Overview/i })).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: /Modern Smart Home Control/i })).toBeInTheDocument();
+    }, { timeout: 20000 });
   });
 
-  it('navigates to Rooms & Devices page at /rooms', async () => {
+  it('renders Overview page at /app for authenticated session', async () => {
+    render(
+      <MemoryRouter initialEntries={['/app']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: /Overview/i })).toBeInTheDocument();
+    }, { timeout: 20000 });
+  });
+
+  it('navigates to Rooms & Devices page at /rooms via legacy redirect', async () => {
     render(
       <MemoryRouter initialEntries={['/rooms']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
-    expect(screen.getByRole('heading', { level: 1, name: 'Rooms & Devices' })).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: 'Rooms & Devices' })).toBeInTheDocument();
+    }, { timeout: 20000 });
   });
 
-  it('navigates to Automations page at /automations', async () => {
+  it('navigates to Automations page at /automations via legacy redirect', async () => {
     render(
       <MemoryRouter initialEntries={['/automations']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
-    expect(screen.getByRole('heading', { level: 1, name: 'Automations' })).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: 'Automations' })).toBeInTheDocument();
+    }, { timeout: 20000 });
   });
 
-  it('navigates to Energy Analytics page at /energy', async () => {
+  it('navigates to Energy Analytics page at /energy via legacy redirect', async () => {
     render(
       <MemoryRouter initialEntries={['/energy']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
-    expect(screen.getByRole('heading', { level: 1, name: 'Energy Analytics' })).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: 'Energy Analytics' })).toBeInTheDocument();
+    }, { timeout: 20000 });
   });
 
-  it('navigates to Event History page at /history', async () => {
+  it('navigates to Event History page at /history via legacy redirect', async () => {
     render(
       <MemoryRouter initialEntries={['/history']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
-    expect(screen.getByRole('heading', { level: 1, name: 'Event History' })).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: 'Event History' })).toBeInTheDocument();
+    }, { timeout: 20000 });
   });
 
-  it('navigates to Notifications page at /notifications', async () => {
+  it('navigates to Notifications page at /notifications via legacy redirect', async () => {
     render(
       <MemoryRouter initialEntries={['/notifications']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
-    expect(screen.getByRole('heading', { level: 1, name: 'Notifications' })).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: 'Notifications' })).toBeInTheDocument();
+    }, { timeout: 20000 });
   });
 
-  it('navigates to Settings page at /settings', async () => {
+  it('navigates to Settings page at /settings via legacy redirect', async () => {
     render(
       <MemoryRouter initialEntries={['/settings']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading page content'), { timeout: 20000 });
-    expect(screen.getByRole('heading', { level: 1, name: 'Settings' })).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: 'Settings' })).toBeInTheDocument();
+    }, { timeout: 20000 });
   });
 });
