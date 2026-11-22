@@ -1,35 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useTheme } from '@/hooks/useTheme';
 import { useStore } from '@/store';
 import { Button } from '@/components/common/Button';
-import { Moon, Sun, Bell, Home } from 'lucide-react';
+import { Moon, Sun, Bell, Home, LogOut } from 'lucide-react';
 import { APP_NAME, APP_SHORT_NAME } from '@/constants/branding';
 import { NAV_ITEMS } from '@/constants/navigation';
 import { SimulationControls } from './SimulationControls';
 import { NotificationDrawer } from '@/components/notifications/NotificationDrawer';
+import { clearSession } from '@/services/session';
 
 export interface HeaderProps {
   bannerSlot?: React.ReactNode;
 }
 
 const COMPACT_NAV_LABELS: Record<string, string> = {
-  '/': 'Overview',
-  '/rooms': 'Rooms',
-  '/automations': 'Automations',
-  '/energy': 'Energy',
-  '/history': 'History',
-  '/notifications': 'Alerts',
-  '/settings': 'Settings',
+  '/app': 'Overview',
+  '/app/rooms': 'Rooms',
+  '/app/automations': 'Automations',
+  '/app/energy': 'Energy',
+  '/app/events': 'History',
+  '/app/notifications': 'Alerts',
+  '/app/settings': 'Settings',
 };
 
 export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
+  const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
   const notifications = useStore((s) => s.notifications);
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   const [currentTime, setCurrentTime] = useState(() => new Date());
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleExitDemo = () => {
+    clearSession();
+    navigate('/', { replace: true });
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -68,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
         {/* Left: Minimal Geometric Brand Mark + Home Pill */}
         <div className="flex items-center gap-3 shrink-0">
           <Link
-            to="/"
+            to="/app"
             className="flex items-center gap-2 rounded-full focus-ring min-h-[44px] min-w-[44px]"
             aria-label={APP_NAME}
           >
@@ -119,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
               <NavLink
                 key={item.to}
                 to={item.to}
-                end={item.to === '/'}
+                end={item.to === '/app'}
                 className={({ isActive }) =>
                   `px-3.5 py-2 rounded-full text-xs sm:text-[13px] whitespace-nowrap transition-all duration-200 focus-ring ${
                     isActive
@@ -187,6 +194,18 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
               Alex M.
             </span>
           </div>
+
+          {/* Exit Demo Button */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleExitDemo}
+            aria-label="Exit demo session"
+            className="rounded-full text-xs px-2.5 py-1 min-h-[36px] text-text-muted hover:text-danger hover:border-danger/30 border-border-subtle gap-1.5"
+          >
+            <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
+            <span className="hidden sm:inline">Exit demo</span>
+          </Button>
         </div>
       </div>
 

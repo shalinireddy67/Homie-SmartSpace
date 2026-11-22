@@ -1,8 +1,14 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { ProtectedRoute } from '@/routes/ProtectedRoute';
+import { LegacyRedirect } from '@/routes/LegacyRedirect';
 import { useRouteSeo } from '@/hooks/useRouteSeo';
+
+const LandingPage = lazy(() => import('@/pages/LandingPage'));
+const LoginPage = lazy(() => import('@/pages/LoginPage'));
+const SignupPage = lazy(() => import('@/pages/SignupPage'));
 
 const OverviewPage = lazy(() =>
   import('@/pages/OverviewPage').then((m) => ({ default: m.OverviewPage }))
@@ -29,7 +35,7 @@ const NotFoundPage = lazy(() =>
   import('@/pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage }))
 );
 
-const RouteLoadingFallback: React.FC = () => (
+export const RouteLoadingFallback: React.FC = () => (
   <div
     role="status"
     aria-label="Loading page content"
@@ -40,68 +46,135 @@ const RouteLoadingFallback: React.FC = () => (
   </div>
 );
 
+export const AppSubRoutes: React.FC = () => {
+  return (
+    <Routes>
+      <Route
+        index
+        element={
+          <ErrorBoundary>
+            <OverviewPage />
+          </ErrorBoundary>
+        }
+      />
+      <Route
+        path="rooms"
+        element={
+          <ErrorBoundary>
+            <RoomsDevicesPage />
+          </ErrorBoundary>
+        }
+      />
+      <Route
+        path="automations"
+        element={
+          <ErrorBoundary>
+            <AutomationsPage />
+          </ErrorBoundary>
+        }
+      />
+      <Route
+        path="energy"
+        element={
+          <ErrorBoundary>
+            <EnergyAnalyticsPage />
+          </ErrorBoundary>
+        }
+      />
+      <Route
+        path="events"
+        element={
+          <ErrorBoundary>
+            <EventHistoryPage />
+          </ErrorBoundary>
+        }
+      />
+      <Route
+        path="history"
+        element={<Navigate to="/app/events" replace />}
+      />
+      <Route
+        path="notifications"
+        element={
+          <ErrorBoundary>
+            <NotificationsPage />
+          </ErrorBoundary>
+        }
+      />
+      <Route
+        path="settings"
+        element={
+          <ErrorBoundary>
+            <SettingsPage />
+          </ErrorBoundary>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <ErrorBoundary>
+            <NotFoundPage />
+          </ErrorBoundary>
+        }
+      />
+    </Routes>
+  );
+};
+
 export const AppRoutes: React.FC = () => {
   useRouteSeo();
 
   return (
     <Suspense fallback={<RouteLoadingFallback />}>
       <Routes>
+        {/* Public Marketing & Auth */}
         <Route
           path="/"
           element={
             <ErrorBoundary>
-              <OverviewPage />
+              <LandingPage />
             </ErrorBoundary>
           }
         />
         <Route
-          path="/rooms"
+          path="/login"
           element={
             <ErrorBoundary>
-              <RoomsDevicesPage />
+              <LoginPage />
             </ErrorBoundary>
           }
         />
         <Route
-          path="/automations"
+          path="/signup"
           element={
             <ErrorBoundary>
-              <AutomationsPage />
+              <SignupPage />
             </ErrorBoundary>
           }
         />
+
+        {/* Legacy redirects with search & hash preservation */}
+        <Route path="/rooms" element={<LegacyRedirect to="/app/rooms" />} />
+        <Route path="/automations" element={<LegacyRedirect to="/app/automations" />} />
+        <Route path="/energy" element={<LegacyRedirect to="/app/energy" />} />
+        <Route path="/history" element={<LegacyRedirect to="/app/events" />} />
+        <Route path="/events" element={<LegacyRedirect to="/app/events" />} />
+        <Route path="/notifications" element={<LegacyRedirect to="/app/notifications" />} />
+        <Route path="/settings" element={<LegacyRedirect to="/app/settings" />} />
+
+        {/* Protected App Routes */}
         <Route
-          path="/energy"
+          path="/app/*"
           element={
-            <ErrorBoundary>
-              <EnergyAnalyticsPage />
-            </ErrorBoundary>
+            <ProtectedRoute>
+              <AppShell>
+                <AppSubRoutes />
+              </AppShell>
+            </ProtectedRoute>
           }
         />
-        <Route
-          path="/history"
-          element={
-            <ErrorBoundary>
-              <EventHistoryPage />
-            </ErrorBoundary>
-          }
-        />
-        <Route
-          path="/notifications"
-          element={
-            <ErrorBoundary>
-              <NotificationsPage />
-            </ErrorBoundary>
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <ErrorBoundary>
-              <SettingsPage />
-            </ErrorBoundary>
-          }
-        />
+
+        {/* Top-level catch-all (outside AppShell) */}
         <Route
           path="*"
           element={
@@ -119,13 +192,10 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ErrorBoundary>
-        <AppShell>
-          <AppRoutes />
-        </AppShell>
+        <AppRoutes />
       </ErrorBoundary>
     </BrowserRouter>
   );
 };
 
 export default App;
-

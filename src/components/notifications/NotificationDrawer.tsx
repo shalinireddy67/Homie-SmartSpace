@@ -284,7 +284,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
           </div>
 
           <Link
-            to="/notifications"
+            to="/app/notifications"
             onClick={onClose}
             className="text-xs font-semibold text-accent hover:underline inline-flex items-center gap-1 focus-ring rounded-xl px-2 py-1"
           >

@@ -241,7 +241,7 @@ export const ExecutionHistoryTab: React.FC = () => {
                     <div className="flex flex-wrap items-center gap-3 pt-0.5 text-[11px]">
                       {item.targetDeviceId && (
                         <Link
-                          to="/rooms"
+                          to="/app/rooms"
                           className="inline-flex items-center gap-1 text-accent hover:underline"
                         >
                           <span>Device: {devName}</span>
@@ -250,7 +250,7 @@ export const ExecutionHistoryTab: React.FC = () => {
                       )}
                       {item.matchingEventId ? (
                         <Link
-                          to="/history"
+                          to="/app/events"
                           className="inline-flex items-center gap-1 text-text-muted hover:text-text hover:underline"
                         >
                           <span>Event Log</span>
@@ -258,7 +258,7 @@ export const ExecutionHistoryTab: React.FC = () => {
                         </Link>
                       ) : (
                         <Link
-                          to="/history"
+                          to="/app/events"
                           className="inline-flex items-center gap-1 text-text-muted hover:text-text hover:underline"
                         >
                           <span>View Event History</span>

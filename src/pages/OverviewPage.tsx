@@ -335,7 +335,7 @@ export const OverviewPage: React.FC = () => {
             </p>
           </div>
           <Link
-            to="/rooms"
+            to="/app/rooms"
             className="text-xs font-semibold text-accent hover:underline flex items-center gap-1 rounded-xl px-2 py-1 focus-ring min-h-[44px] sm:min-h-[32px]"
           >
             <span>View All Devices</span>

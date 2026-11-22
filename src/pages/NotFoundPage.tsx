@@ -5,9 +5,13 @@ import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { Compass, Home } from 'lucide-react';
 import { APP_NAME } from '@/constants/branding';
+import { hasActiveSession } from '@/services/session';
 
 export const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
+  const hasSession = hasActiveSession();
+  const targetRoute = hasSession ? '/app' : '/';
+  const buttonLabel = hasSession ? 'Back to dashboard' : 'Back to overview';
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center p-4">
@@ -34,10 +38,10 @@ export const NotFoundPage: React.FC = () => {
             variant="primary"
             size="md"
             className="w-full"
-            onClick={() => navigate('/')}
+            onClick={() => navigate(targetRoute)}
           >
             <Home className="h-4 w-4" />
-            <span>Back to overview</span>
+            <span>{buttonLabel}</span>
           </Button>
         </div>
       </Card>
@@ -45,4 +49,3 @@ export const NotFoundPage: React.FC = () => {
   );
 };
 export default NotFoundPage;
-

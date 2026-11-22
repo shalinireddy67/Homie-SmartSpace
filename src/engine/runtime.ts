@@ -195,6 +195,7 @@ export function createRuntime(deps: RuntimeDeps): Runtime {
                 message: anomalyRecord.description,
                 category: 'energy',
                 severity: 'warning',
+                link: '/app/energy',
               },
               {
                 conditionKey: 'energy_anomaly',
@@ -220,6 +221,7 @@ export function createRuntime(deps: RuntimeDeps): Runtime {
                 message: dev.offlineReason ?? 'Connection lost / ping timeout',
                 category: 'device',
                 severity: 'warning',
+                link: `/app/rooms?device=${dev.id}`,
               },
               {
                 conditionKey: `offline:${dev.id}`,
@@ -248,6 +250,7 @@ export function createRuntime(deps: RuntimeDeps): Runtime {
                 message: 'Device re-established network connection',
                 category: 'device',
                 severity: 'info',
+                link: `/app/rooms?device=${dev.id}`,
               },
               {
                 conditionKey: `online:${dev.id}`,
@@ -284,6 +287,7 @@ export function createRuntime(deps: RuntimeDeps): Runtime {
                 message: `Current temperature ${dev.current}°C is outside normal comfort envelope (16°C–30°C)`,
                 category: 'device',
                 severity: 'warning',
+                link: `/app/rooms?device=${dev.id}`,
               },
               {
                 conditionKey: tempKey,
@@ -307,6 +311,7 @@ export function createRuntime(deps: RuntimeDeps): Runtime {
             message: `Total household consumption reached ${totalWatts}W`,
             category: 'energy',
             severity: 'warning',
+            link: '/app/energy',
           },
           {
             conditionKey: powerSpikeKey,

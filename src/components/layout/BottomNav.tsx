@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { BOTTOM_NAV_ITEMS, NAV_ITEMS } from '@/constants/navigation';
 import { APP_NAME, APP_SHORT_NAME } from '@/constants/branding';
-import { MoreHorizontal, X } from 'lucide-react';
+import { MoreHorizontal, X, LogOut } from 'lucide-react';
+import { clearSession } from '@/services/session';
 
 export const BottomNav: React.FC = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const moreBtnRef = useRef<HTMLButtonElement>(null);
   const menuContainerRef = useRef<HTMLDivElement>(null);
@@ -102,7 +104,7 @@ export const BottomNav: React.FC = () => {
                   <NavLink
                     key={item.to}
                     to={item.to}
-                    end={item.to === '/'}
+                    end={item.to === '/app'}
                     onClick={() => {
                       setIsMenuOpen(false);
                       moreBtnRef.current?.focus();
@@ -122,6 +124,21 @@ export const BottomNav: React.FC = () => {
                   </NavLink>
                 );
               })}
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  clearSession();
+                  navigate('/', { replace: true });
+                }}
+                className="flex items-center gap-3 p-3 rounded-2xl text-sm font-medium text-danger hover:bg-danger/10 min-h-[48px] w-full text-left"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-danger/15 text-danger">
+                  <LogOut className="h-4 w-4" aria-hidden="true" />
+                </div>
+                <span>Exit Demo Session</span>
+              </button>
             </div>
           </div>
         </div>
@@ -138,7 +155,7 @@ export const BottomNav: React.FC = () => {
             <NavLink
               key={item.to}
               to={item.to}
-              end={item.to === '/'}
+              end={item.to === '/app'}
               className={({ isActive }) =>
                 `flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[10px] font-medium transition-colors focus-ring select-none min-w-[48px] min-h-[44px] ${
                   isActive
