@@ -2,19 +2,19 @@
 
 > Your home, smarter than ever.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-homie--smartspace.vercel.app-00C7B7?style=flat&logo=vercel)](https://homie-smart-space.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-homie--smartspace.vercel.app-00C7B7?style=flat&logo=vercel)](https://homie-smartspace.vercel.app/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6.3-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat&logo=react)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.15-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
 [![Zustand](https://img.shields.io/badge/Zustand-5.0.1-443e38?style=flat)](https://zustand.docs.pmnd.rs/)
-[![Vitest](https://img.shields.io/badge/Tests-262%20Passing-success?style=flat&logo=vitest)](https://vitest.dev/)
+[![Vitest](https://img.shields.io/badge/Tests-281%20Passing-success?style=flat&logo=vitest)](https://vitest.dev/)
 [![Axe Accessibility](https://img.shields.io/badge/Axe--Core-0%20Violations-brightgreen?style=flat)](https://www.deque.com/axe/)
 
 **Homie SmartSpace** is a modern, client-side smart home and IoT control dashboard built with React 18, TypeScript, Tailwind CSS, and Zustand. The application provides homeowners and operators with an intuitive interface to monitor and control multi-room devices, configure automations, inspect power and energy analytics, and navigate an audit log of simulated events.
 
 All environmental physics, sensor telemetry, device hardware states, and power calculations run directly in the browser through a deterministic simulation engine. The project requires no physical smart devices, external gateways, MQTT brokers, or backend infrastructure.
 
-- **Live Application:** [https://homie-smart-space.vercel.app/](https://homie-smart-space.vercel.app/) (Alternative: [https://homie-smartspace.vercel.app/](https://homie-smartspace.vercel.app/))
+- **Live Application:** [https://homie-smartspace.vercel.app/](https://homie-smartspace.vercel.app/)
 - **GitHub Repository:** [https://github.com/shalinireddy67/Homie-SmartSpace](https://github.com/shalinireddy67/Homie-SmartSpace)
 - **Demo Walkthrough Guide:** [DEMO.md](DEMO.md)
 
@@ -399,16 +399,21 @@ Homie-SmartSpace/
 
 All primary application views are code-split using `React.lazy` and wrapped in `ErrorBoundary` and `Suspense` fallbacks:
 
-| Path | Page Name | Primary Responsibilities |
-|:---|:---|:---|
-| `/` | **Overview** | High-level status, Lakeview Home vector stage, arc gauge, pastel metric tiles, 7-day energy chart, and quick device controls. |
-| `/rooms` | **Rooms & Devices** | Multi-room device grid (Living Room, Kitchen, Bedroom, Patio), category filtering (Lights, Thermostats, Locks, Cameras), text search, and offline hardware diagnostics. |
-| `/automations` | **Automations** | Sentential rule list, multi-condition Rule Builder modal, zero-mutation Dry-Run sandbox, and configured schedules execution history. |
-| `/energy` | **Energy Analytics** | Instantaneous power demand (W) and cumulative energy (kWh) charts, rolling Gaussian anomaly markers, device/room breakdown bars, and accessible table view. |
-| `/history` | **Event History** | 10,000+ seeded audit records rendered at 60 FPS via TanStack Virtual, precomputed compound search index, severity filters, and JSON event inspector modal. |
-| `/notifications` | **Notifications** | Full-page alert center grouped by time (Today, Yesterday, Older), category filters, read/unread status management, and dismiss actions. |
-| `/settings` | **Settings** | Light/Dark/System theme switcher, simulation clock speed controls (1× to 10×), PRNG seed customization, command failure injection switch, and JSON configuration export/import. |
-| `*` | **Not Found (404)** | Accessible error page with clear explanatory messaging and a one-click return button to the Overview dashboard. |
+| Path | Page Name | Access | Primary Responsibilities |
+|:---|:---|:---|:---|
+| `/` | **Landing Page** | Public | Marketing hero, dashboard preview screenshot, 8 interactive capabilities, simulated workflow guide, household profile teaser, and FAQ. |
+| `/login` | **Sign In & Demo Access** | Public | Split entry with instant one-click demo access (`demo@homie.example`), household credential validation, and active session status. |
+| `/signup` | **Household Signup** | Public | Planned multi-user household registration preview with clear offline simulation notices. |
+| `/app` | **Overview** | Protected | High-level status, Lakeview Home vector stage, arc gauge, pastel metric tiles, 7-day energy chart, and quick device controls. |
+| `/app/rooms` | **Rooms & Devices** | Protected | Multi-room device grid (Living Room, Kitchen, Bedroom, Patio), category filtering (Lights, Thermostats, Locks, Cameras), text search, and offline hardware diagnostics. |
+| `/app/automations` | **Automations** | Protected | Sentential rule list, multi-condition Rule Builder modal, zero-mutation Dry-Run sandbox, and configured schedules execution history. |
+| `/app/energy` | **Energy Analytics** | Protected | Instantaneous power demand (W) and cumulative energy (kWh) charts, rolling Gaussian anomaly markers, device/room breakdown bars, and accessible table view. |
+| `/app/events` | **Event History** | Protected | 10,000+ seeded audit records rendered at 60 FPS via TanStack Virtual, precomputed compound search index, severity filters, and JSON event inspector modal. |
+| `/app/notifications` | **Notifications** | Protected | Full-page alert center grouped by time (Today, Yesterday, Older), category filters, read/unread status management, and dismiss actions. |
+| `/app/settings` | **Settings** | Protected | Light/Dark theme switcher, simulation clock speed controls (1× to 10×), PRNG seed customization, command failure injection switch, and JSON configuration export/import. |
+| `*` | **Not Found (404)** | Public/App | Accessible error page with context-aware return navigation (renders inside AppShell under `/app/*`, standalone outside). |
+
+> **Note on Legacy Routes:** Historical paths (`/rooms`, `/automations`, `/energy`, `/history`, `/events`, `/notifications`, `/settings`) automatically redirect to `/app/*` while preserving query strings and URL hashes.
 
 ---
 
@@ -602,7 +607,7 @@ Although Homie SmartSpace is a client-rendered single-page application (SPA), it
     "@type": "WebApplication",
     "name": "Homie SmartSpace",
     "description": "A simulated smart home dashboard with room device control, real-time energy analytics, custom automation rules, and a 10,000-event virtualized activity log.",
-    "url": "https://homie-smart-space.vercel.app/",
+    "url": "https://homie-smartspace.vercel.app/",
     "applicationCategory": "HomeAutomation",
     "operatingSystem": "Any",
     "offers": {

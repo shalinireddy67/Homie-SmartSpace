@@ -1,0 +1,34 @@
+{
+  "landing_mobile": {
+    "route": "/",
+    "form": "mobile",
+    "performance": 97,
+    "accessibility": 95,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "landing_desktop": {
+    "route": "/",
+    "form": "desktop",
+    "performance": 100,
+    "accessibility": 95,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "login_mobile": {
+    "route": "/login",
+    "form": "mobile",
+    "performance": 98,
+    "accessibility": 95,
+    "bestPractices": 100,
+    "seo": 66
+  },
+  "login_desktop": {
+    "route": "/login",
+    "form": "desktop",
+    "performance": 100,
+    "accessibility": 95,
+    "bestPractices": 100,
+    "seo": 66
+  }
+}

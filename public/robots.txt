@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /app/
 Allow: /
 
-Sitemap: https://homie-smart-space.vercel.app/sitemap.xml
+Sitemap: https://homie-smartspace.vercel.app/sitemap.xml
