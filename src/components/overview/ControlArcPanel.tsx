@@ -86,7 +86,7 @@ export const ControlArcPanel: React.FC<ControlArcPanelProps> = ({
   const dashOffset = semiCircumference * (1 - arcFraction);
 
   return (
-    <Card className="p-5 sm:p-6 bg-surface-elevated border border-border-subtle rounded-3xl shadow-soft flex flex-col justify-between gap-5 h-full">
+    <Card className="p-5 sm:p-6 bg-surface-elevated border border-border-subtle rounded-xl flex flex-col justify-between gap-5 h-full">
       {/* Header + Minimalist Pendant Lamp SVG matching Dribbble right panel */}
       <div>
         <div className="flex items-start justify-between gap-3">
@@ -186,7 +186,7 @@ export const ControlArcPanel: React.FC<ControlArcPanelProps> = ({
           </div>
 
           {/* Interactive Command Controls directly bound to active tab device */}
-          <div className="w-full mt-4 p-3.5 rounded-2xl bg-surface border border-border-subtle">
+          <div className="w-full mt-4 p-3.5 rounded-lg bg-surface border border-border-subtle">
             {activeTab === 'light' && activeLight && (
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2">
@@ -263,56 +263,56 @@ export const ControlArcPanel: React.FC<ControlArcPanelProps> = ({
         </div>
       </div>
 
-      {/* Bottom 2x2 Pastel Functional Metric Tiles (Exact Dribbble Tile Colors) */}
+      {/* Bottom 2x2 Calm Functional Metric Tiles */}
       <div className="grid grid-cols-2 gap-3">
-        {/* Tile 1: Peach - Current Power */}
-        <div className="rounded-2xl bg-pastel-peach-bg text-pastel-peach-text p-3.5 flex flex-col justify-between gap-2">
-          <div className="h-8 w-8 rounded-full bg-white/70 dark:bg-black/25 flex items-center justify-center">
-            <Zap className="h-4 w-4" aria-hidden="true" />
+        {/* Tile 1: Current Power */}
+        <div className="rounded-lg bg-surface border border-border-subtle p-3.5 flex flex-col justify-between gap-2">
+          <div className="h-7 w-7 rounded-md bg-surface-elevated text-accent border border-border-subtle flex items-center justify-center">
+            <Zap className="h-3.5 w-3.5" aria-hidden="true" />
           </div>
           <div>
-            <p className="text-[11px] font-medium opacity-85">Current Power</p>
-            <p className="text-lg font-bold tabular-nums mt-0.5">
-              {currentPowerWatts} <span className="text-xs font-semibold">W</span>
+            <p className="text-[11px] font-medium text-text-muted">Current Power</p>
+            <p className="text-lg font-bold text-text tabular-nums mt-0.5">
+              {currentPowerWatts} <span className="text-xs font-semibold text-text-muted">W</span>
             </p>
           </div>
         </div>
 
-        {/* Tile 2: Lavender - Today's Energy */}
-        <div className="rounded-2xl bg-pastel-lavender-bg text-pastel-lavender-text p-3.5 flex flex-col justify-between gap-2">
-          <div className="h-8 w-8 rounded-full bg-white/70 dark:bg-black/25 flex items-center justify-center">
-            <Gauge className="h-4 w-4" aria-hidden="true" />
+        {/* Tile 2: Today's Energy */}
+        <div className="rounded-lg bg-surface border border-border-subtle p-3.5 flex flex-col justify-between gap-2">
+          <div className="h-7 w-7 rounded-md bg-surface-elevated text-accent border border-border-subtle flex items-center justify-center">
+            <Gauge className="h-3.5 w-3.5" aria-hidden="true" />
           </div>
           <div>
-            <p className="text-[11px] font-medium opacity-85">Today&apos;s Energy</p>
-            <p className="text-lg font-bold tabular-nums mt-0.5">
-              {todayEnergyKWh.toFixed(2)} <span className="text-xs font-semibold">kWh</span>
+            <p className="text-[11px] font-medium text-text-muted">Today&apos;s Energy</p>
+            <p className="text-lg font-bold text-text tabular-nums mt-0.5">
+              {todayEnergyKWh.toFixed(2)} <span className="text-xs font-semibold text-text-muted">kWh</span>
             </p>
           </div>
         </div>
 
-        {/* Tile 3: Ice Blue - Indoor Temp */}
-        <div className="rounded-2xl bg-pastel-blue-bg text-pastel-blue-text p-3.5 flex flex-col justify-between gap-2">
-          <div className="h-8 w-8 rounded-full bg-white/70 dark:bg-black/25 flex items-center justify-center">
-            <Thermometer className="h-4 w-4" aria-hidden="true" />
+        {/* Tile 3: Indoor Temp */}
+        <div className="rounded-lg bg-surface border border-border-subtle p-3.5 flex flex-col justify-between gap-2">
+          <div className="h-7 w-7 rounded-md bg-surface-elevated text-accent border border-border-subtle flex items-center justify-center">
+            <Thermometer className="h-3.5 w-3.5" aria-hidden="true" />
           </div>
           <div>
-            <p className="text-[11px] font-medium opacity-85">Indoor Temp</p>
-            <p className="text-lg font-bold tabular-nums mt-0.5">
-              {indoorTemp.toFixed(1)} <span className="text-xs font-semibold">°C</span>
+            <p className="text-[11px] font-medium text-text-muted">Indoor Temp</p>
+            <p className="text-lg font-bold text-text tabular-nums mt-0.5">
+              {indoorTemp.toFixed(1)} <span className="text-xs font-semibold text-text-muted">°C</span>
             </p>
           </div>
         </div>
 
-        {/* Tile 4: Mint - Humidity */}
-        <div className="rounded-2xl bg-pastel-green-bg text-pastel-green-text p-3.5 flex flex-col justify-between gap-2">
-          <div className="h-8 w-8 rounded-full bg-white/70 dark:bg-black/25 flex items-center justify-center">
-            <Droplets className="h-4 w-4" aria-hidden="true" />
+        {/* Tile 4: Humidity */}
+        <div className="rounded-lg bg-surface border border-border-subtle p-3.5 flex flex-col justify-between gap-2">
+          <div className="h-7 w-7 rounded-md bg-surface-elevated text-accent border border-border-subtle flex items-center justify-center">
+            <Droplets className="h-3.5 w-3.5" aria-hidden="true" />
           </div>
           <div>
-            <p className="text-[11px] font-medium opacity-85">Humidity</p>
-            <p className="text-lg font-bold tabular-nums mt-0.5">
-              {indoorHumidity.toFixed(0)} <span className="text-xs font-semibold">%</span>
+            <p className="text-[11px] font-medium text-text-muted">Humidity</p>
+            <p className="text-lg font-bold text-text tabular-nums mt-0.5">
+              {indoorHumidity.toFixed(0)} <span className="text-xs font-semibold text-text-muted">%</span>
             </p>
           </div>
         </div>

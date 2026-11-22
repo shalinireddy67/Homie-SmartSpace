@@ -200,11 +200,11 @@ export const OverviewPage: React.FC = () => {
         <div
           role="region"
           aria-label="Simulation status warning"
-          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-3xl border border-warning/40 bg-warning/10 text-warning shadow-xs"
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-lg border border-warning/40 bg-warning/10 text-warning"
         >
           <div className="flex items-center gap-3.5">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-warning/20 text-warning">
-              <AlertTriangle className="h-5 w-5" aria-hidden="true" />
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-warning/20 text-warning">
+              <AlertTriangle className="h-4 w-4" aria-hidden="true" />
             </div>
             <div>
               <p className="font-semibold text-sm sm:text-base text-text">Simulation Engine Paused</p>
@@ -217,7 +217,7 @@ export const OverviewPage: React.FC = () => {
             variant="primary"
             size="sm"
             onClick={() => setRunning(true)}
-            className="shrink-0 gap-2 text-xs bg-warning hover:bg-warning/90 text-white dark:text-[#0B1012] border-none rounded-full px-4"
+            className="shrink-0 gap-2 text-xs bg-warning hover:bg-warning/90 text-white dark:text-[#181816] border-none rounded-md px-4"
           >
             <Play className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Resume Simulation</span>
@@ -279,7 +279,7 @@ export const OverviewPage: React.FC = () => {
       {/* Fleet Health Summary Bar (Completes all 8 typed selector KPIs) */}
       <section aria-label="System fleet metrics">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface border border-border-subtle rounded-lg">
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-text-muted">Total Devices</span>
               <Cpu className="h-4 w-4 text-accent" aria-hidden="true" />
@@ -290,7 +290,7 @@ export const OverviewPage: React.FC = () => {
             </div>
           </Card>
 
-          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface border border-border-subtle rounded-lg">
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-text-muted">Online</span>
               <Wifi className="h-4 w-4 text-success" aria-hidden="true" />
@@ -301,7 +301,7 @@ export const OverviewPage: React.FC = () => {
             </div>
           </Card>
 
-          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface border border-border-subtle rounded-lg">
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-text-muted">Offline</span>
               <WifiOff className="h-4 w-4 text-danger" aria-hidden="true" />
@@ -312,7 +312,7 @@ export const OverviewPage: React.FC = () => {
             </div>
           </Card>
 
-          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface-card rounded-3xl">
+          <Card className="flex flex-col justify-between p-4 sm:p-5 bg-surface border border-border-subtle rounded-lg">
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-text-muted">Active Automations</span>
               <Sliders className="h-4 w-4 text-warning" aria-hidden="true" />
@@ -364,29 +364,20 @@ export const OverviewPage: React.FC = () => {
             {devices.map((device) => {
             const roomName = roomMap.get(device.roomId) || 'Unassigned';
 
-            let iconTileClass = 'bg-surface-elevated text-text';
             let DeviceIcon = Lightbulb;
             let currentStateText = '';
 
             if (device.type === 'light') {
               DeviceIcon = Lightbulb;
-              iconTileClass = device.on
-                ? 'bg-pastel-peach-bg text-pastel-peach-text'
-                : 'bg-surface-elevated text-text-muted';
               currentStateText = device.on ? `${device.brightness}% brightness` : 'Off';
             } else if (device.type === 'thermostat') {
               DeviceIcon = Thermometer;
-              iconTileClass = 'bg-pastel-blue-bg text-pastel-blue-text';
               currentStateText = `${device.target.toFixed(1)}°${device.unit} target (${device.current.toFixed(1)}°${device.unit})`;
             } else if (device.type === 'lock') {
               DeviceIcon = device.locked ? Lock : Unlock;
-              iconTileClass = device.locked
-                ? 'bg-pastel-green-bg text-pastel-green-text'
-                : 'bg-pastel-peach-bg text-pastel-peach-text';
               currentStateText = device.locked ? 'Locked' : 'Unlocked';
             } else if (device.type === 'camera') {
               DeviceIcon = Camera;
-              iconTileClass = 'bg-pastel-lavender-bg text-pastel-lavender-text';
               currentStateText = device.privacyMode
                 ? 'Privacy Mode'
                 : device.active
@@ -397,19 +388,15 @@ export const OverviewPage: React.FC = () => {
             return (
               <Card
                 key={device.id}
-                className={`p-5 rounded-3xl flex flex-col justify-between transition-all duration-200 ${
-                  device.online
-                    ? 'bg-surface border-border-subtle hover:shadow-md'
-                    : 'bg-surface-card border-border-subtle'
-                }`}
+                className="p-4 rounded-lg bg-surface border border-border-subtle flex flex-col justify-between hover:border-border transition-all duration-150"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
                     <div
-                      className={`h-11 w-11 shrink-0 rounded-2xl flex items-center justify-center shadow-xs ${iconTileClass}`}
+                      className="h-9 w-9 shrink-0 rounded-md bg-surface-elevated text-accent border border-border-subtle flex items-center justify-center"
                       aria-hidden="true"
                     >
-                      <DeviceIcon className="h-5 w-5" />
+                      <DeviceIcon className="h-4 w-4" />
                     </div>
 
                     <Badge
@@ -472,7 +459,7 @@ export const OverviewPage: React.FC = () => {
                               target: Math.max(device.min, device.target - 0.5),
                             })
                           }
-                          className="h-10 w-10 sm:h-7 sm:w-7 rounded-full bg-surface-elevated border border-border-subtle text-text hover:bg-accent-subtle flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
+                          className="h-8 w-8 sm:h-7 sm:w-7 rounded-md bg-surface border border-border text-text hover:bg-surface-elevated flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
                           aria-label={`Decrease target temperature for ${device.name}`}
                         >
                           -
@@ -488,7 +475,7 @@ export const OverviewPage: React.FC = () => {
                               target: Math.min(device.max, device.target + 0.5),
                             })
                           }
-                          className="h-10 w-10 sm:h-7 sm:w-7 rounded-full bg-surface-elevated border border-border-subtle text-text hover:bg-accent-subtle flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
+                          className="h-8 w-8 sm:h-7 sm:w-7 rounded-md bg-surface border border-border text-text hover:bg-surface-elevated flex items-center justify-center font-bold text-xs focus-ring disabled:opacity-40"
                           aria-label={`Increase target temperature for ${device.name}`}
                         >
                           +
@@ -512,7 +499,7 @@ export const OverviewPage: React.FC = () => {
 
       {/* Energy & Status Breakdown Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="lg:col-span-2 p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
+        <Card className="lg:col-span-2 p-5 sm:p-6 bg-surface border border-border-subtle rounded-lg flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-2">
               <div>
@@ -522,7 +509,7 @@ export const OverviewPage: React.FC = () => {
                   <span className="font-semibold text-text tabular-nums">{currentPowerWatts} W</span>
                 </p>
               </div>
-              <Badge variant="green" className="text-xs">
+              <Badge variant="outline" className="text-xs">
                 7-Day Overview
               </Badge>
             </div>
@@ -552,10 +539,10 @@ export const OverviewPage: React.FC = () => {
                     contentStyle={{
                       backgroundColor: colors.tooltipBg,
                       borderColor: colors.tooltipBorder,
-                      borderRadius: '1rem',
+                      borderRadius: '0.5rem',
                       color: colors.text,
                       fontSize: '12px',
-                      boxShadow: '0 6px 20px rgba(14, 24, 28, 0.12)',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
                     }}
                     itemStyle={{ color: colors.text }}
                     labelStyle={{ color: colors.textMuted, fontWeight: 600 }}
@@ -565,8 +552,8 @@ export const OverviewPage: React.FC = () => {
                   <Bar
                     dataKey="kWh"
                     fill={colors.arcFill}
-                    radius={[8, 8, 0, 0]}
-                    maxBarSize={44}
+                    radius={[4, 4, 0, 0]}
+                    maxBarSize={40}
                     isAnimationActive={false}
                   />
                 </BarChart>
@@ -578,7 +565,7 @@ export const OverviewPage: React.FC = () => {
             <summary className="cursor-pointer font-medium hover:text-text select-none focus-ring rounded inline-block">
               View energy data as table
             </summary>
-            <div className="max-h-40 overflow-y-auto mt-2 border border-border-subtle rounded-xl">
+            <div className="max-h-40 overflow-y-auto mt-2 border border-border-subtle rounded-md">
               <table className="w-full text-left border-collapse">
                 <caption className="sr-only">Weekly Energy Breakdown</caption>
                 <thead className="bg-surface-elevated border-b border-border-subtle text-[11px] font-semibold text-text">
@@ -602,7 +589,7 @@ export const OverviewPage: React.FC = () => {
           </details>
         </Card>
 
-        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
+        <Card className="p-5 sm:p-6 bg-surface border border-border-subtle rounded-lg flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-base font-semibold text-text">Device Distribution</h2>
@@ -646,7 +633,7 @@ export const OverviewPage: React.FC = () => {
                     contentStyle={{
                       backgroundColor: colors.tooltipBg,
                       borderColor: colors.tooltipBorder,
-                      borderRadius: '1rem',
+                      borderRadius: '0.5rem',
                       color: colors.text,
                       fontSize: '12px',
                     }}
@@ -720,11 +707,11 @@ export const OverviewPage: React.FC = () => {
             return (
               <Card
                 key={room.id}
-                className="p-5 rounded-3xl bg-surface border border-border-subtle flex flex-col justify-between hover:shadow-md transition-all duration-200"
+                className="p-4 sm:p-5 rounded-lg bg-surface border border-border-subtle flex flex-col justify-between hover:border-border transition-all duration-150"
               >
                 <div className="flex items-start justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-surface-elevated text-accent">
-                    <Layers className="h-5 w-5" aria-hidden="true" />
+                  <div className="flex h-9 w-9 items-center justify-center rounded-md bg-surface-elevated text-accent border border-border-subtle">
+                    <Layers className="h-4 w-4" aria-hidden="true" />
                   </div>
                   <Badge variant="outline" size="sm" className="text-xs">
                     {roomDevices.length} device{roomDevices.length !== 1 ? 's' : ''}
@@ -745,7 +732,7 @@ export const OverviewPage: React.FC = () => {
 
       {/* Bottom 3 Panels: Recent Events, Active Anomalies, Recent Automations */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
+        <Card className="p-5 sm:p-6 bg-surface border border-border-subtle rounded-lg flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -766,7 +753,7 @@ export const OverviewPage: React.FC = () => {
                 {recentEvents.map((evt) => (
                   <div
                     key={evt.id}
-                    className="flex items-start justify-between gap-2 p-2.5 rounded-2xl bg-surface-elevated/70 text-xs border border-border-subtle"
+                    className="flex items-start justify-between gap-2 p-2.5 rounded-md bg-surface-elevated text-xs border border-border-subtle"
                   >
                     <div className="min-w-0">
                       <p className="font-medium text-text truncate">{evt.description}</p>
@@ -785,7 +772,7 @@ export const OverviewPage: React.FC = () => {
           </div>
         </Card>
 
-        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
+        <Card className="p-5 sm:p-6 bg-surface border border-border-subtle rounded-lg flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -810,7 +797,7 @@ export const OverviewPage: React.FC = () => {
                 {activeAnomalies.map((anom) => (
                   <div
                     key={anom.id}
-                    className="p-3 rounded-2xl border border-danger/30 bg-danger/5 text-xs flex flex-col gap-1"
+                    className="p-3 rounded-md border border-danger/30 bg-danger/5 text-xs flex flex-col gap-1"
                   >
                     <div className="flex items-center justify-between">
                       <Badge variant="danger" size="sm" className="font-semibold uppercase text-[10px]">
@@ -832,7 +819,7 @@ export const OverviewPage: React.FC = () => {
           </div>
         </Card>
 
-        <Card className="p-6 bg-surface border border-border-subtle rounded-3xl flex flex-col justify-between">
+        <Card className="p-5 sm:p-6 bg-surface border border-border-subtle rounded-lg flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -855,7 +842,7 @@ export const OverviewPage: React.FC = () => {
                   return (
                     <div
                       key={exec.id}
-                      className="p-3 rounded-2xl border border-border-subtle bg-surface-elevated/70 text-xs flex flex-col gap-1"
+                      className="p-3 rounded-md border border-border-subtle bg-surface-elevated text-xs flex flex-col gap-1"
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-semibold text-text truncate max-w-[170px]">

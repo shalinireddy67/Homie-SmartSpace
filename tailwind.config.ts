@@ -66,8 +66,12 @@ const config: Config = {
         },
       },
       borderRadius: {
-        '2xl': '1rem', // 16px
-        '3xl': '1.5rem', // 24px
+        sm: '0.375rem', // 6px
+        md: '0.5rem',   // 8px (controls, buttons, inputs)
+        lg: '0.75rem',  // 12px (cards, components)
+        xl: '0.75rem',  // 12px
+        '2xl': '1rem',  // 16px (panels, modals, hero containers)
+        '3xl': '1.25rem', // 20px (dashboard shell)
       },
       fontFamily: {
         sans: [
@@ -81,8 +85,8 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        xs: '0 1px 2px 0 rgba(14, 24, 28, 0.04)',
-        soft: '0 6px 24px -6px rgba(14, 24, 28, 0.07), 0 2px 8px -2px rgba(14, 24, 28, 0.03)',
+        xs: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        soft: '0 1px 3px 0 rgba(0, 0, 0, 0.04)',
       },
     },
   },

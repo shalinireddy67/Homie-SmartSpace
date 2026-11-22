@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
   });
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border-subtle bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/90 sm:rounded-t-[28px]">
+    <header className="sticky top-0 z-40 w-full border-b border-border-subtle bg-surface sm:rounded-t-2xl">
       {bannerSlot && (
         <div id="simulation-banner-slot" className="border-b border-border-subtle">
           {bannerSlot}
@@ -158,7 +158,7 @@ export const Header: React.FC<HeaderProps> = ({ bannerSlot }) => {
             {unreadCount > 0 && (
               <span
                 aria-hidden="true"
-                className="absolute -top-0.5 -right-0.5 flex h-4 min-w-[16px] px-1 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white dark:text-[#0B1012] shadow-xs"
+                className="absolute -top-0.5 -right-0.5 flex h-4 min-w-[16px] px-1 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white dark:text-[#181816]"
               >
                 {unreadCount > 99 ? '99+' : unreadCount}
               </span>

@@ -21,25 +21,25 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium transition-all duration-200 focus-ring rounded-2xl select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
+      'inline-flex items-center justify-center font-medium transition-all duration-150 focus-ring rounded-md select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
 
     const sizeStyles = {
-      sm: 'px-3.5 py-2 text-xs gap-1.5 min-h-[44px] lg:min-h-[36px]',
-      md: 'px-4 py-2.5 text-sm gap-2 min-h-[44px]',
-      lg: 'px-5 py-3 text-base gap-2.5 min-h-[48px]',
+      sm: 'px-3 py-1.5 text-xs gap-1.5 min-h-[44px] lg:min-h-[36px]',
+      md: 'px-4 py-2 text-sm gap-2 min-h-[44px] lg:min-h-[40px]',
+      lg: 'px-5 py-2.5 text-base gap-2.5 min-h-[48px] lg:min-h-[44px]',
     };
 
     const variantStyles = {
       primary:
-        'bg-accent text-white dark:text-[#0B1012] hover:bg-accent-hover shadow-xs active:translate-y-px',
+        'bg-accent text-white dark:text-[#181816] hover:bg-accent-hover shadow-xs active:translate-y-px',
       secondary:
-        'bg-surface-elevated text-text hover:bg-accent-subtle/60 border border-border-subtle shadow-xs',
+        'bg-surface-elevated text-text hover:bg-accent-subtle/40 border border-border-subtle shadow-xs',
       outline:
         'bg-surface text-text border border-border hover:bg-surface-elevated hover:border-accent',
       ghost:
         'bg-transparent text-text-muted hover:text-text hover:bg-surface-elevated',
       danger:
-        'bg-danger text-white dark:text-[#0B1012] hover:bg-danger/90 shadow-xs active:translate-y-px',
+        'bg-danger text-white dark:text-[#181816] hover:bg-danger/90 shadow-xs active:translate-y-px',
     };
 
     return (

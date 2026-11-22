@@ -67,7 +67,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
             <span
               className={`inline-block h-4 w-4 transform rounded-full shadow-xs ring-0 transition duration-200 ease-in-out ${
                 checked
-                  ? 'translate-x-6 bg-white dark:bg-[#0B1012]'
+                  ? 'translate-x-6 bg-white dark:bg-[#181816]'
                   : 'translate-x-1 bg-text-muted'
               }`}
             />

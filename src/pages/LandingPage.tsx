@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Shield,
   Zap,
-  Sparkles,
   Sliders,
   Activity,
   Bell,
@@ -46,16 +45,16 @@ export const LandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-outerCanvas text-text flex flex-col selection:bg-accent/20 antialiased">
       {/* Sticky Top Header */}
-      <header className="sticky top-0 z-40 w-full border-b border-border-subtle bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/85 transition-colors">
+      <header className="sticky top-0 z-40 w-full border-b border-border-subtle bg-surface transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           {/* Brand Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 focus-ring rounded-xl py-1 px-1.5 -ml-1.5"
+            className="flex items-center gap-2.5 focus-ring rounded-md py-1 px-1.5 -ml-1.5"
             aria-label={`${APP_NAME} home`}
           >
-            <div className="w-9 h-9 rounded-xl bg-accent flex items-center justify-center text-white shadow-sm shadow-accent/20">
-              <Home className="w-5 h-5" aria-hidden="true" />
+            <div className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white dark:text-[#181816]">
+              <Home className="w-4 h-4" aria-hidden="true" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-sm tracking-tight text-text leading-tight">
@@ -76,7 +75,7 @@ export const LandingPage: React.FC = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="hover:text-text transition-colors focus-ring rounded-lg px-2 py-1"
+                className="hover:text-text transition-colors focus-ring rounded-md px-2 py-1"
               >
                 {item.label}
               </a>
@@ -90,10 +89,10 @@ export const LandingPage: React.FC = () => {
               type="button"
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="p-2 rounded-xl text-text-muted hover:text-text hover:bg-surface-card transition-colors focus-ring border border-border-subtle"
+              className="p-2 rounded-md text-text-muted hover:text-text hover:bg-surface-elevated transition-colors focus-ring border border-border-subtle"
             >
               {theme === 'dark' ? (
-                <Sun className="h-4 w-4 text-accent" aria-hidden="true" />
+                <Sun className="h-4 w-4 text-warning" aria-hidden="true" />
               ) : (
                 <Moon className="h-4 w-4 text-text-muted" aria-hidden="true" />
               )}
@@ -102,7 +101,7 @@ export const LandingPage: React.FC = () => {
             {/* Sign in Button */}
             <Link
               to="/login"
-              className="hidden sm:inline-flex items-center justify-center text-xs font-semibold px-3 py-2 rounded-xl border border-border-subtle text-text hover:bg-surface-card transition-colors focus-ring"
+              className="hidden sm:inline-flex items-center justify-center text-xs font-semibold px-3 py-2 rounded-md border border-border-subtle text-text hover:bg-surface-elevated transition-colors focus-ring"
             >
               Sign in
             </Link>
@@ -111,7 +110,7 @@ export const LandingPage: React.FC = () => {
             <button
               type="button"
               onClick={handleEnterDemo}
-              className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-xl bg-accent text-white hover:bg-accent-hover shadow-sm transition-all focus-ring active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-md bg-accent text-white dark:text-[#181816] hover:bg-accent-hover transition-all focus-ring active:translate-y-px"
             >
               <span>Try the demo</span>
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -123,7 +122,7 @@ export const LandingPage: React.FC = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
-              className="md:hidden p-2 rounded-xl text-text-muted hover:text-text hover:bg-surface-card focus-ring border border-border-subtle"
+              className="md:hidden p-2 rounded-md text-text-muted hover:text-text hover:bg-surface-elevated focus-ring border border-border-subtle"
             >
               {mobileMenuOpen ? (
                 <X className="h-5 w-5" aria-hidden="true" />
@@ -136,13 +135,13 @@ export const LandingPage: React.FC = () => {
 
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border-subtle bg-surface px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="md:hidden border-t border-border-subtle bg-surface px-4 py-4 space-y-3">
             {navLinks.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-sm font-medium text-text-muted hover:text-text px-2 py-1.5 rounded-lg focus-ring"
+                className="block text-sm font-medium text-text-muted hover:text-text px-2 py-1.5 rounded-md focus-ring"
               >
                 {item.label}
               </a>
@@ -151,7 +150,7 @@ export const LandingPage: React.FC = () => {
               <Link
                 to="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center text-xs font-semibold px-3 py-2.5 rounded-xl border border-border-subtle text-text hover:bg-surface-card focus-ring"
+                className="w-full text-center text-xs font-semibold px-3 py-2.5 rounded-md border border-border-subtle text-text hover:bg-surface-elevated focus-ring"
               >
                 Sign in
               </Link>
@@ -164,14 +163,14 @@ export const LandingPage: React.FC = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="pt-12 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-subtle border border-accent/20 text-accent text-xs font-semibold">
-            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-accent-subtle/40 border border-accent/20 text-accent text-xs font-semibold">
+            <Shield className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Frontend-Only Interactive Simulation</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text leading-[1.12]">
             Modern Smart Home Control,{' '}
-            <span className="text-accent underline decoration-accent/30 decoration-wavy underline-offset-8">
+            <span className="text-accent">
               Beautifully Simulated
             </span>
           </h1>
@@ -185,20 +184,20 @@ export const LandingPage: React.FC = () => {
             <button
               type="button"
               onClick={handleEnterDemo}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-2xl bg-accent text-white hover:bg-accent-hover shadow-md shadow-accent/25 transition-all focus-ring active:scale-[0.98]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3 rounded-md bg-accent text-white dark:text-[#181816] hover:bg-accent-hover transition-all focus-ring active:translate-y-px"
             >
               <span>Try the live demo</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
             <Link
               to="/login"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-2xl border border-border-subtle bg-surface text-text hover:bg-surface-card shadow-soft transition-all focus-ring"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3 rounded-md border border-border-subtle bg-surface text-text hover:bg-surface-elevated transition-all focus-ring"
             >
               <span>Sign in</span>
             </Link>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-xs text-text-muted/80 pt-1">
+          <div className="flex items-center justify-center gap-2 text-xs text-text-muted pt-1">
             <Shield className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
             <span>No real devices. All data and telemetry are simulated.</span>
           </div>
@@ -206,8 +205,8 @@ export const LandingPage: React.FC = () => {
 
         {/* Product Preview Section */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-16 sm:pb-24">
-          <div className="rounded-2xl sm:rounded-3xl border border-border-subtle bg-surface-card p-2 sm:p-3 shadow-soft">
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border-subtle bg-surface aspect-[16/10]">
+          <div className="rounded-xl border border-border-subtle bg-surface-card p-2 sm:p-3">
+            <div className="relative rounded-lg overflow-hidden border border-border-subtle bg-surface aspect-[16/10]">
               <img
                 src={
                   theme === 'dark'
@@ -241,9 +240,9 @@ export const LandingPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Feature 1 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Home className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Home className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">Room-Based Controls</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -252,9 +251,9 @@ export const LandingPage: React.FC = () => {
             </div>
 
             {/* Feature 2 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Activity className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Activity className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">Live Telemetry Loop</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -263,9 +262,9 @@ export const LandingPage: React.FC = () => {
             </div>
 
             {/* Feature 3 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Sliders className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Sliders className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">Dial & Light Controls</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -274,9 +273,9 @@ export const LandingPage: React.FC = () => {
             </div>
 
             {/* Feature 4 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Zap className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Zap className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">Energy & Anomaly Graphs</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -285,9 +284,9 @@ export const LandingPage: React.FC = () => {
             </div>
 
             {/* Feature 5 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Sparkles className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Sliders className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">Dry-Run Automations</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -296,9 +295,9 @@ export const LandingPage: React.FC = () => {
             </div>
 
             {/* Feature 6 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Bell className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Bell className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">Prioritized Notification Hub</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -307,9 +306,9 @@ export const LandingPage: React.FC = () => {
             </div>
 
             {/* Feature 7 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Clock className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Clock className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">10,000+ Event Audit Log</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -318,9 +317,9 @@ export const LandingPage: React.FC = () => {
             </div>
 
             {/* Feature 8 */}
-            <div className="p-5 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                <Moon className="w-5 h-5" aria-hidden="true" />
+            <div className="p-5 rounded-lg border border-border-subtle bg-surface space-y-3">
+              <div className="w-9 h-9 rounded-md bg-surface-elevated text-accent flex items-center justify-center border border-border-subtle">
+                <Moon className="w-4 h-4" aria-hidden="true" />
               </div>
               <h3 className="font-semibold text-sm text-text">WCAG AA Themes</h3>
               <p className="text-xs text-text-muted leading-relaxed">
@@ -345,8 +344,8 @@ export const LandingPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-4">
-              <div className="w-8 h-8 rounded-full bg-accent/10 border border-accent/20 text-accent font-bold text-xs flex items-center justify-center">
+            <div className="p-6 rounded-lg border border-border-subtle bg-surface space-y-4">
+              <div className="w-7 h-7 rounded-md bg-surface-elevated border border-border-subtle text-accent font-bold text-xs flex items-center justify-center">
                 1
               </div>
               <h3 className="font-semibold text-sm text-text">Launch the Demo</h3>
@@ -355,8 +354,8 @@ export const LandingPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-4">
-              <div className="w-8 h-8 rounded-full bg-accent/10 border border-accent/20 text-accent font-bold text-xs flex items-center justify-center">
+            <div className="p-6 rounded-lg border border-border-subtle bg-surface space-y-4">
+              <div className="w-7 h-7 rounded-md bg-surface-elevated border border-border-subtle text-accent font-bold text-xs flex items-center justify-center">
                 2
               </div>
               <h3 className="font-semibold text-sm text-text">Control & Automate</h3>
@@ -365,8 +364,8 @@ export const LandingPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl border border-border-subtle bg-surface shadow-soft space-y-4">
-              <div className="w-8 h-8 rounded-full bg-accent/10 border border-accent/20 text-accent font-bold text-xs flex items-center justify-center">
+            <div className="p-6 rounded-lg border border-border-subtle bg-surface space-y-4">
+              <div className="w-7 h-7 rounded-md bg-surface-elevated border border-border-subtle text-accent font-bold text-xs flex items-center justify-center">
                 3
               </div>
               <h3 className="font-semibold text-sm text-text">Inspect Real-Time Logs</h3>
@@ -382,7 +381,7 @@ export const LandingPage: React.FC = () => {
           id="household"
           className="scroll-mt-20 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-border-subtle"
         >
-          <div className="p-6 sm:p-10 rounded-3xl border border-border-subtle bg-surface shadow-soft space-y-6">
+          <div className="p-6 sm:p-8 rounded-xl border border-border-subtle bg-surface space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="space-y-1">
                 <div className="inline-flex items-center gap-2">
@@ -406,8 +405,8 @@ export const LandingPage: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-xl border border-border-subtle bg-surface-card flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
+              <div className="p-3.5 rounded-lg border border-border-subtle bg-surface-card flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
                   AM
                 </div>
                 <div>
@@ -416,8 +415,8 @@ export const LandingPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl border border-border-subtle bg-surface-card flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
+              <div className="p-3.5 rounded-lg border border-border-subtle bg-surface-card flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
                   ST
                 </div>
                 <div>
@@ -426,8 +425,8 @@ export const LandingPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl border border-border-subtle bg-surface-card flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
+              <div className="p-3.5 rounded-lg border border-border-subtle bg-surface-card flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-accent/10 text-accent font-semibold text-xs flex items-center justify-center">
                   JL
                 </div>
                 <div>
@@ -453,9 +452,9 @@ export const LandingPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-4">
-            <details className="group rounded-2xl border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-lg">
+          <div className="space-y-3">
+            <details className="group rounded-lg border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-md">
                 <span>What is Homie SmartSpace?</span>
                 <span className="ml-4 shrink-0 text-text-muted transition-transform group-open:rotate-180">
                   <ChevronUp className="h-4 w-4" aria-hidden="true" />
@@ -468,8 +467,8 @@ export const LandingPage: React.FC = () => {
               </p>
             </details>
 
-            <details className="group rounded-2xl border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-lg">
+            <details className="group rounded-lg border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-md">
                 <span>Do I need real smart home hardware or an account to use the demo?</span>
                 <span className="ml-4 shrink-0 text-text-muted transition-transform group-open:rotate-180">
                   <ChevronUp className="h-4 w-4" aria-hidden="true" />
@@ -481,8 +480,8 @@ export const LandingPage: React.FC = () => {
               </p>
             </details>
 
-            <details className="group rounded-2xl border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-lg">
+            <details className="group rounded-lg border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-md">
                 <span>Where is my configuration stored?</span>
                 <span className="ml-4 shrink-0 text-text-muted transition-transform group-open:rotate-180">
                   <ChevronUp className="h-4 w-4" aria-hidden="true" />
@@ -494,8 +493,8 @@ export const LandingPage: React.FC = () => {
               </p>
             </details>
 
-            <details className="group rounded-2xl border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-lg">
+            <details className="group rounded-lg border border-border-subtle bg-surface p-5 transition-colors [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between font-semibold text-sm text-text focus-ring rounded-md">
                 <span>Which browsers and viewports are supported?</span>
                 <span className="ml-4 shrink-0 text-text-muted transition-transform group-open:rotate-180">
                   <ChevronUp className="h-4 w-4" aria-hidden="true" />
@@ -511,7 +510,7 @@ export const LandingPage: React.FC = () => {
 
         {/* CTA Banner */}
         <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <div className="p-8 sm:p-12 rounded-3xl bg-surface border border-border-subtle shadow-soft text-center space-y-5">
+          <div className="p-8 sm:p-10 rounded-xl bg-surface border border-border-subtle text-center space-y-5">
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-text">
               Ready to explore Homie SmartSpace?
             </h2>
@@ -522,7 +521,7 @@ export const LandingPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleEnterDemo}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold px-6 py-3 rounded-2xl bg-accent text-white hover:bg-accent-hover shadow-sm transition-all focus-ring active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold px-6 py-3 rounded-md bg-accent text-white dark:text-[#181816] hover:bg-accent-hover transition-all focus-ring active:translate-y-px"
               >
                 <span>Launch live demo</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -531,7 +530,7 @@ export const LandingPage: React.FC = () => {
                 href="https://github.com/shalinireddy67/Homie-SmartSpace"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold px-6 py-3 rounded-2xl border border-border-subtle bg-surface-card text-text hover:bg-surface transition-colors focus-ring"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold px-6 py-3 rounded-md border border-border-subtle bg-surface-card text-text hover:bg-surface-elevated transition-colors focus-ring"
               >
                 <span>View on GitHub</span>
                 <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
@@ -542,7 +541,7 @@ export const LandingPage: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border-subtle bg-surface/80 py-10 px-4 sm:px-6 lg:px-8 transition-colors">
+      <footer className="border-t border-border-subtle bg-surface py-10 px-4 sm:px-6 lg:px-8 transition-colors">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-text-muted">
           {/* Brand & Note */}
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">

@@ -126,7 +126,7 @@ export const Modal: React.FC<ModalProps> = ({
         aria-labelledby={titleId}
         aria-describedby={descId}
         tabIndex={-1}
-        className={`relative w-full ${sizeClasses[size]} max-h-[100dvh] sm:max-h-[90vh] flex flex-col bg-surface text-text rounded-t-3xl sm:rounded-3xl border-t sm:border border-border-subtle shadow-2xl z-10 overflow-hidden transform transition-all my-0 sm:my-8 outline-none focus-ring`}
+        className={`relative w-full ${sizeClasses[size]} max-h-[100dvh] sm:max-h-[90vh] flex flex-col bg-surface text-text rounded-t-xl sm:rounded-xl border-t sm:border border-border-subtle shadow-md z-10 overflow-hidden transform transition-all my-0 sm:my-8 outline-none focus-ring`}
       >
         {/* Header */}
         <div className="shrink-0 flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border-subtle">

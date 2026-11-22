@@ -21,8 +21,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           aria-invalid={error ? true : undefined}
-          className={`w-full min-h-[44px] text-base sm:text-sm bg-surface text-text placeholder:text-text-muted rounded-2xl border transition-colors focus-ring disabled:opacity-50 disabled:cursor-not-allowed ${
-            error ? 'border-danger' : 'border-border hover:border-accent/60'
+          className={`w-full min-h-[44px] sm:min-h-[38px] text-base sm:text-sm bg-surface text-text placeholder:text-text-muted rounded-md border transition-colors focus-ring disabled:opacity-50 disabled:cursor-not-allowed ${
+            error ? 'border-danger' : 'border-border hover:border-accent'
           } ${leftIcon ? 'pl-10' : 'px-3.5'} ${rightElement ? 'pr-10' : 'pr-3.5'} py-2 ${className}`}
           {...props}
         />

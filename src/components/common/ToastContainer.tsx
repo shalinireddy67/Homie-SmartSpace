@@ -72,11 +72,11 @@ const ToastItem: React.FC<{ toast: Toast; onDismiss: (id: string) => void }> = (
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
-      className={`pointer-events-auto flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl border bg-surface/95 dark:bg-surface/90 backdrop-blur-md shadow-xl transition-all duration-200 ${config.border} ${config.glow}`}
+      className={`pointer-events-auto flex items-start gap-3 p-3.5 sm:p-4 rounded-xl border bg-surface text-text shadow-md transition-all duration-200 ${config.border}`}
     >
-      {/* Severity Icon Pill */}
+      {/* Severity Icon */}
       <div
-        className={`shrink-0 p-2 rounded-xl border flex items-center justify-center ${config.iconBg}`}
+        className={`shrink-0 p-2 rounded-lg border flex items-center justify-center ${config.iconBg}`}
       >
         {config.icon}
       </div>

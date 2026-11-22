@@ -16,7 +16,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
   useDocumentTitle();
 
   return (
-    <div className="min-h-[100dvh] bg-outerCanvas/80 text-text sm:p-3 lg:p-5 flex flex-col antialiased selection:bg-accent/20">
+    <div className="min-h-[100dvh] bg-outerCanvas text-text sm:p-3 lg:p-5 flex flex-col antialiased selection:bg-accent/20">
       {/* Toast Notification Layer */}
       <ToastContainer />
 
@@ -26,7 +26,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
       </a>
 
       {/* Floating Rounded Dashboard Frame */}
-      <div className="flex-1 flex flex-col min-w-0 w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto bg-surface-subtle sm:rounded-[28px] shadow-soft border border-border-subtle">
+      <div className="flex-1 flex flex-col min-w-0 w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto bg-surface-subtle sm:rounded-2xl border border-border-subtle">
         <Header />
 
         <main
